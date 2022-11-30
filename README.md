@@ -10,7 +10,7 @@ Juan Gomez,
 
 Franco Urrutia,
 
-Tomas Gongora, 47 años Cursando full stack con node.js en Digital House (Fundacion Formar)
+Tomas Gongora, 47 años, Cursando full stack con node.js en Digital House (Fundacion Formar)
 
 Lionel Gegena,
 
@@ -20,7 +20,5 @@ Referencias de sitios:
 
 Concecionaria Maipu Automotores:  https://www.mundomaipu.com.ar/
 
-wireframe del detalle de producto:
-
-http://www.kavak.com/ar
+wireframe del detalle de producto y recoleccion de imagenes: http://www.kavak.com/ar
 
