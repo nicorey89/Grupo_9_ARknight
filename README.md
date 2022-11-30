@@ -1,4 +1,4 @@
-ARkinight 
+ARknight 
 
 Concecionaria de vehiculos 0km y usados, multimarcas de Argentina
 
@@ -18,9 +18,7 @@ Nicolas Rey, 33 años, estudiante de programacion!.
 
 Referencias de sitios:
 
-wireframe del formulario de registro
-
-Concecionaria Maipu Automotores:  https://www.mundomaipu.com.ar/
+wireframe del formulario de registro, Maipu Automotores:  https://www.mundomaipu.com.ar/
 
 wireframe del detalle de producto y recoleccion de imagenes: http://www.kavak.com/ar
 
