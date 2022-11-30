@@ -17,3 +17,7 @@ Lionel Gegena,
 Nicolas Rey, 33 años, estudiante de programacion!.
 
 Referencias de sitios:
+
+wireframe del detalle de producto:
+http://www.kavak.com/ar
+
