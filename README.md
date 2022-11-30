@@ -1,6 +1,6 @@
 ARkinight 
 
-Concecionaria de automoviles nuevos y usados, multimarca de Argentina
+Concecionaria de vehiculos 0km y usados, multimarcas de Argentina
 
 Orientada al publico en general, empresas y particulares.
 
@@ -10,7 +10,7 @@ Juan Gomez,
 
 Franco Urrutia,
 
-Tomas Gongora,
+Tomas Gongora, 47 años Cursando full stack con node.js en Digital House (Fundacion Formar)
 
 Lionel Gegena,
 
@@ -18,6 +18,9 @@ Nicolas Rey, 33 años, estudiante de programacion!.
 
 Referencias de sitios:
 
+Concecionaria Maipu Automotores:  https://www.mundomaipu.com.ar/
+
 wireframe del detalle de producto:
+
 http://www.kavak.com/ar
 
