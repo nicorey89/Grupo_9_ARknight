@@ -18,6 +18,8 @@ Nicolas Rey, 33 años, estudiante de programacion!.
 
 Referencias de sitios:
 
+wireframe del formulario de registro
+
 Concecionaria Maipu Automotores:  https://www.mundomaipu.com.ar/
 
 wireframe del detalle de producto y recoleccion de imagenes: http://www.kavak.com/ar
