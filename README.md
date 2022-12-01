@@ -8,7 +8,7 @@ Esta integrada por:
 
 Juan Gomez,
 
-Franco Urrutia,
+Franco Urrutia, 30 años , estudiando programacion en Digital house por medio de Fundacion Formar 
 
 Tomas Gongora, 47 años, Cursando full stack con node.js en Digital House (Fundacion Formar)
 
