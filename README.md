@@ -1,8 +1,10 @@
 ARknight 
 
-Concecionaria de vehiculos 0km y usados, multimarcas de Argentina
+Ferreteria familiar industrial, atendida por sus dueños!
 
-Orientada al publico en general, empresas y particulares.
+las mejores maquinas herramientas del pais en un solo lugar.
+
+desde 1989 creciendo y acompañando a la gente de lanus!
 
 Esta integrada por:
 
@@ -20,5 +22,5 @@ Referencias de sitios:
 
 wireframe del formulario de registro, Maipu Automotores:  https://www.mundomaipu.com.ar/
 
-wireframe del detalle de producto y recoleccion de imagenes: http://www.kavak.com/ar
+wireframe del detalle de producto y recoleccion de imagenes: http://www.easy.com.ar
 
