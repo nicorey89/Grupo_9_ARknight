@@ -1,22 +1,22 @@
 ARknight 
 
-Ferreteria familiar industrial, atendida por sus dueños!
+Somos una ferretería familiar, atendida por sus dueños con más de 50 años a tu servicio, y con ya varios años de experiencia en nuestra plataforma de venta online.
 
-las mejores maquinas herramientas del pais en un solo lugar.
+En nuestra ferretería en línea especializada en el usuario particular, profesional y industrial te ofrecemos un amplio stock de productos para satisfacer a distintos sectores. 
 
-desde 1989 creciendo y acompañando a la gente de lanus!
+Ofrecemos las mejores maquinas herramientas del país en un solo lugar. Estamos ubicados en Lanus Sur.
 
 Esta integrada por:
 
 Juan Gomez,
 
-Franco Urrutia, 30 años , estudiando programacion en Digital house por medio de Fundacion Formar 
+Franco Urrutia, 30 años , estudiando programación en Digital house por medio de Fundación Formar 
 
-Tomas Gongora, 47 años, Cursando full stack con node.js en Digital House (Fundacion Formar)
+Tomas Gongora, 47 años, Cursando full stack con node.js en Digital House (Fundación Formar)
 
-Lionel Gegena,
+Lionel Gegena 29 años, soy Mandatario Automotor y Carpintero, actualmente estoy cursando la Beca Full Stack Developer brindada por la Fundación Formar y Digital House.
 
-Nicolas Rey, 33 años, estudiante de programacion!.
+Nicolas Rey, 33 años, estudiante de programación!.
 
 Referencias de sitios:
 
@@ -24,3 +24,4 @@ wireframe del formulario de registro, Maipu Automotores:  https://www.mundomaipu
 
 wireframe del detalle de producto y recoleccion de imagenes: http://www.easy.com.ar
 
+wireframe sobre el 
