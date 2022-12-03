@@ -24,4 +24,4 @@ wireframe del formulario de registro, Maipu Automotores:  https://www.mundomaipu
 
 wireframe del detalle de producto y recoleccion de imagenes: http://www.easy.com.ar
 
-wireframe sobre el 
+Elijo esto sito https://www.sodimac.com.ar/sodimac-ar/ porque me interesa la estelitca del carrito y la funcionalidad del take-away para retirar los producto por la tienda para hacer el wareframe del carrito.
