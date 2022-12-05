@@ -14,7 +14,7 @@ Franco Urrutia, 30 años , estudiando programación en Digital house por medio d
 
 Tomas Gongora, 47 años, Cursando full stack con node.js en Digital House (Fundación Formar)
 
-Lionel Gegena 29 años, soy Mandatario Automotor y Carpintero, actualmente estoy cursando la Beca Full Stack Developer brindada por la Fundación Formar y Digital House.
+Lionel Gegena, 29 años, soy Mandatario Automotor y Carpintero, actualmente estoy cursando la Beca Full Stack Developer brindada por la Fundación Formar y Digital House.
 
 Nicolas Rey, 33 años, estudiante de programación!.
 
