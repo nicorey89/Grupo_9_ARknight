@@ -8,7 +8,7 @@ Ofrecemos las mejores maquinas y herramientas del país en un solo lugar. Estamo
 
 Esta integrada por:
 
-Juan Gomez,
+Juan Gomez, 32 años, actualmente estudiando programacion (Javascript).
 
 Franco Urrutia, 30 años , estudiando programación en Digital house por medio de Fundación Formar 
 
@@ -25,3 +25,5 @@ wireframe del formulario de registro, https://www.suferreteriaonline.com.ar/ Me 
 wireframe del detalle de producto y recoleccion de imagenes: http://www.easy.com.ar
 
 Elijo esto sito https://www.sodimac.com.ar/sodimac-ar/ porque me interesa la estelitca del carrito y la funcionalidad del take-away para retirar los producto por la tienda para hacer el wareframe del carrito.
+
+Utilice esta pagina de guia para el proyecto https://www.ferreteriaexpress.com.ar/.
