@@ -27,3 +27,5 @@ wireframe del detalle de producto y recoleccion de imagenes: http://www.easy.com
 Elijo esto sito https://www.sodimac.com.ar/sodimac-ar/ porque me interesa la estelitca del carrito y la funcionalidad del take-away para retirar los producto por la tienda para hacer el wareframe del carrito.
 
 Utilice esta pagina de guia para el proyecto https://www.ferreteriaexpress.com.ar/.
+con el objetivo de ver la distribucion/clasificacion de sus podructos y poder observar las falencias y/o aciertos de la competencia y mejorar el servicio que ofrecemos.
+el publico al que apunta ferreteria express es amplio y variado; con ARKnight no solo buscamos un publico amplio y variado sino que nuestros consumidores se lleven una experiencia distinta; que puedan interactuar atraves de nuestra pagina web y que cuenten con un asesor inmediato para sus consultas de respuestas rapidas.   
