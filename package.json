@@ -1,0 +1,22 @@
+{
+  "name": "grupo_9_arknigth",
+  "version": "1.0.0",
+  "description": "ARknight",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicorey89/Grupo_9_ARknight.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicorey89/Grupo_9_ARknight/issues"
+  },
+  "homepage": "https://github.com/nicorey89/Grupo_9_ARknight#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
