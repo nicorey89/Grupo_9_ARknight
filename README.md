@@ -2,9 +2,12 @@ ARknight
 
 Somos una ferretería familiar, atendida por sus dueños con más de 50 años a tu servicio, y con ya varios años de experiencia en nuestra plataforma de ventas online.
 
-En nuestra ferretería en línea especializada en el usuario particular, profesional e industrial te ofrecemos un amplio stock de productos para satisfacer a distintos sectores. 
+En nuestra ferretería en línea especializada en el usuario particular, profesional e industrial te ofrecemos las mejores maquinas y herramientas del país, con el objetivo de ver la distribucion/clasificacion de sus podructos y poder observar las falencias y/o aciertos de la competencia y mejorar el servicio que ofrecemos.
+El publico al que apunta ferreteria express es amplio y variado; Con ARKnight no solo buscamos un publico amplio y variado sino que nuestros consumidores se lleven una experiencia distinta; Que puedan interactuar atraves de nuestra pagina web y que cuenten con un asesor inmediato para sus consultas de respuestas rapidas.
 
-Ofrecemos las mejores maquinas y herramientas del país en un solo lugar. Estamos ubicados en Lanus Sur Buenos Aires Argentina.
+Estamos ubicados en Lanus Oeste, Buenos Aires, Argentina.
+
+  
 
 Esta integrada por:
 
@@ -27,5 +30,8 @@ wireframe del detalle de producto y recoleccion de imagenes: http://www.easy.com
 Elijo esto sito https://www.sodimac.com.ar/sodimac-ar/ porque me interesa la estelitca del carrito y la funcionalidad del take-away para retirar los producto por la tienda para hacer el wareframe del carrito.
 
 Utilice esta pagina de guia para el proyecto https://www.ferreteriaexpress.com.ar/.
-con el objetivo de ver la distribucion/clasificacion de sus podructos y poder observar las falencias y/o aciertos de la competencia y mejorar el servicio que ofrecemos.
-el publico al que apunta ferreteria express es amplio y variado; con ARKnight no solo buscamos un publico amplio y variado sino que nuestros consumidores se lleven una experiencia distinta; que puedan interactuar atraves de nuestra pagina web y que cuenten con un asesor inmediato para sus consultas de respuestas rapidas.   
+ 
+
+https://www.laobraferreteria.com/ vistas de home.
+
+https://www.somosrex.com/ general.
