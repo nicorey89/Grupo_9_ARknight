@@ -21,5 +21,4 @@ app.get("/register", (req, res) => {
     res.sendFile(path.join(__dirname, "/views/register.html"))
 });
 
-app.listen(PORT, () => 
-console.log("Servidor levantado en el puerto " + PORT));
+app.listen(PORT, () => console.log(`Server listen in port ${PORT}\n http://localhost:${PORT}`));
