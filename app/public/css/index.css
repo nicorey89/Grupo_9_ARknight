@@ -7,3 +7,25 @@ body {
     margin: 0;
     box-sizing: border-box;
 }
+div.banner-conteiner img{
+    width: 100%;
+}
+main.home section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.home h2{
+    text-align: center;
+}
+.home article.product{
+    width: 250px;
+    background-color: white;
+    border: 1.5px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+.home div.photo-container img.photo{
+    width: 100%;
+}
