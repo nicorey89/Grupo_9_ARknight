@@ -1,12 +1,5 @@
 @import url('style.css');
-body {
-    background-color: var(--celeste);
-}
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+
 div.banner-conteiner img{
     width: 100%;
 }
