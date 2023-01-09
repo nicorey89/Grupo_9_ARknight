@@ -4,7 +4,17 @@
     --celeste: #CAF4FF;
     --marron: #C29669;
 }
-
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--celeste);
+}
 header{
     background-color: var(--naranja);
+}
+footer{
+    background-color: var(--marron);
 }
