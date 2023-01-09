@@ -15,3 +15,6 @@ body {
 header{
     background-color: var(--naranja);
 }
+footer{
+    background-color: var(--marron);
+}

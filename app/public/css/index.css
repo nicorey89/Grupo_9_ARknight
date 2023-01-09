@@ -3,12 +3,12 @@
 div.banner-conteiner img{
     width: 100%;
 }
-main.home section{
+main.home div.product-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.home h2{
+.home div.ofertas section h2, div.nuevo section h2 {
     text-align: center;
 }
 .home article.product{
@@ -18,7 +18,99 @@ main.home section{
     border-radius: 5px;
     padding: 5px;
     margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-.home div.photo-container img.photo{
+.home article.product div.photo-container{
+    position: relative;
+    display: flex;
+}
+.home article.product div.photo-container img.special{
+    position: absolute;
+    top: 100;
+    right: 10;
+}
+.home article.product div.photo-container img.photo{
     width: 100%;
+    height: 100%;
+}
+.home div.precio{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    border-top: 1px solid lightgray;
+    padding: 15px;
+}
+.home div.precio h2 {
+    color: #39b54a;
+}
+.home div.precio h4{
+    text-decoration: line-through;
+}
+.home p.cuotas{
+    margin-bottom: 10px;
+}
+.home article.product button{
+    border-radius: 15px;
+    width: 200px;
+    height: 30px;
+    background-color: #1259c3;
+}
+.home article.product button a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+.home div.construccion-en-seco-container{
+    display: flex;
+    padding: 3px;
+    justify-content: center;
+    align-items: center;
+}
+.home div.construccion-en-seco-container img{
+    height: 100%;
+}
+.home div.construccion-en-seco-container section{
+    display: flex;
+    flex-wrap: wrap;
+}
+.home div.construccion-en-seco-container article.product-seco{
+    width: 350px;
+    height: 295px;
+    margin: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.home div.construccion-en-seco-container article.product-seco img{
+    width: 100%;
+    padding: 2px;
+}
+.home div.construccion-en-seco-container article.product-seco button{
+    border-radius: 15px;
+    background-color: #1259c3;
+    width: 200px;
+    height: 30px;
+    position: absolute;
+    right: 75px;
+    bottom: 10px;
+}
+.home div.construccion-en-seco-container article.product-seco button a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+.home div.banner-pintura img{
+    width: 100%;
+    margin:10px 0;
+}
+.home div.construccion-en-seco img{
+    margin: 10px 0;
 }
