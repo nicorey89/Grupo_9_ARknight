@@ -24,6 +24,10 @@ main.home div.product-container{
     align-items: center;
     text-align: center;
 }
+.home article.product:hover{
+    border: 3px solid var(--naranja);
+    transform: scale(1.1);
+}
 .home article.product div.photo-container{
     position: relative;
     display: flex;
