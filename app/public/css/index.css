@@ -1,5 +1,14 @@
+/*-----------------STYLE GENERAL-----------------*/
 @import url('style.css');
 
+/*-------------------STYLE GENERAL------------------*/
+
+/*STAR HEADER*/
+
+
+/*END HEADER*/
+
+/* STAR MAIN*/
 div.banner-conteiner img{
     width: 100%;
 }
@@ -118,3 +127,9 @@ main.home div.product-container{
 .home div.construccion-en-seco img{
     margin: 10px 0;
 }
+
+/* END MAIN*/
+
+/* STAR FOOTER */
+
+/* END FOOTER */
