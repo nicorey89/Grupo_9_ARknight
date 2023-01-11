@@ -1,8 +1,17 @@
 
-:root{
+
+
+
+
+/* STYLES GENERAL*/
+
+:root {
+    /* --- COLOR --- */
     --naranja: #F4A553;
     --celeste: #CAF4FF;
     --marron: #C29669;
+    /*-- FONT-SIZE --*/
+    
 }
 *{
     padding: 0;
