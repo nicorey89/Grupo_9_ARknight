@@ -1,21 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TITLES -->
     <title>AR Knight - Home</title>
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Gemstones&display=swap" rel="stylesheet">
+    <!---->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
+    <!-- STYLES -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/index.css">
+    <!-- ICON WEB -->
+    <link rel="shortcut icon" href="images/logo.png"/>
 </head>
 <body>
     <header class="main-header">
+
         <div class="logo">
-            <a href="/"><img src="/images/logo.png" alt="logo-ferreteria"></a>
+            <a href="/">
+                <img src="/images/logo.png" alt="logo-ferreteria">
+            </a>
+        </div>
+        
+        <div class="main-header-rigth-bar">
+            <div class="main-header-rigth-bar__user">
+                
+            </div>
+            <div class="main-header-rigth-bar__card">
+                
+            </div>
         </div>
         <div class="busqueda">
             <input type="search" placeholder="Buscar productos, marcas...">
@@ -43,17 +61,17 @@
             <i class="fas fa-bars"></i>
         </div>
     </header>
-    <div class="banner-conteiner">
-        <img src="/images/BANNER-HERRAMIENTAS.jpg" alt="banner">
-    </div>
     <main class="home">
+        <div class="banner-conteiner">
+            <img src="/images/BANNER-HERRAMIENTAS.jpg" alt="banner">
+        </div>
         <div class="ofertas">
-            <section>
+        <section>
             <h2>Ofertas</h2>
             <div class="product-container">
                 <article class="product">
                     <div class="photo-container">
-                        <img class="photo" src="/images/rotomartillo-deWalt-2.jpg" alt="pdto 02">
+                        <a href="/productDetail"><img class="photo" src="/images/rotomartillo-deWalt-2.jpg" alt="pdto 02"></a>
                         <img class="special" src="/images/img-descuento.png" alt="nuevo">
                     </div>
                     <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -64,11 +82,11 @@
                     <p class="cuotas">
                         3 cuotas sin interes de $17.276
                     </p>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                    <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
                 </article>
                 <article class="product">
                     <div class="photo-container">
-                        <img class="photo" src="/images/rotomartillo-lusqtoff.jpg" alt="pdto 02">
+                        <a href="/productDetail"><img class="photo" src="/images/rotomartillo-lusqtoff.jpg" alt="pdto 02"></a>
                         <img class="special" src="/images/img-descuento.png" alt="nuevo">
                     </div>
                     <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -79,11 +97,11 @@
                     <p class="cuotas">
                         3 cuotas sin interes de $17.276
                     </p>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                    <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
                 </article>
                 <article class="product">
                     <div class="photo-container">
-                        <img class="photo" src="/images/rotomartillo-stanley.jpg" alt="pdto 02">
+                        <a href="/productDetail"><img class="photo" src="/images/rotomartillo-stanley.jpg" alt="pdto 02"></a>
                         <img class="special" src="/images/img-descuento.png" alt="nuevo">
                     </div>
                     <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -94,11 +112,11 @@
                     <p class="cuotas">
                         3 cuotas sin interes de $17.276
                     </p>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                    <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
                 </article>
                 <article class="product">
                     <div class="photo-container">
-                        <img class="photo" src="/images/motocierra-b+d.jpg" alt="pdto 02">
+                        <a href="/productDetail"><img class="photo" src="/images/motocierra-b+d.jpg" alt="pdto 02"></a>
                         <img class="special" src="/images/img-descuento.png" alt="nuevo">
                     </div>
                     <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -109,11 +127,11 @@
                     <p class="cuotas">
                         3 cuotas sin interes de $17.276
                     </p>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                    <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
                 </article>
                 <article class="product">
                     <div class="photo-container">
-                        <img class="photo" src="/images/motocierra-b+d.jpg" alt="pdto 02">
+                        <a href="/productDetail"><img class="photo" src="/images/motocierra-b+d.jpg" alt="pdto 02"></a>
                         <img class="special" src="/images/img-descuento.png" alt="nuevo">
                     </div>
                     <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -124,53 +142,60 @@
                     <p class="cuotas">
                         3 cuotas sin interes de $17.276
                     </p>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                    <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
                 </article>
             </div>
             </section>
         </div>
+        <h2 class="seco">Constuccion en seco</h2>
         <div class="construccion-en-seco-container">
             <div class="construccion-en-seco">
                 <img src="/images/construccion-en-seco-2.jpg" alt="">
             </div>
-            <div class="product-container">
-                <article class="product">
-                    <div class="photo-container">
-                        <img class="photo" src="/images/cinta-tramada.jpg" alt="pdto 02">
-                    </div>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
-                </article>
-                <article class="product">
-                    <div class="photo-container">
-                        <img class="photo" src="/images/rotomartillo-lusqtoff.jpg" alt="pdto 02">
-                    </div>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
-                </article>
-                <article class="product">
-                    <div class="photo-container">
-                        <img class="photo" src="/images/rotomartillo-lusqtoff.jpg" alt="pdto 02">
-                    </div>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
-                </article>
-                <article class="product">
-                    <div class="photo-container">
-                        <img class="photo" src="/images/rotomartillo-lusqtoff.jpg" alt="pdto 02">
-                    </div>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
-                </article>
-                <article class="product">
-                    <div class="photo-container">
-                        <img class="photo" src="/images/rotomartillo-lusqtoff.jpg" alt="pdto 02">
-                    </div>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
-                </article>
-                <article class="product">
-                    <div class="photo-container">
-                        <img class="photo" src="/images/rotomartillo-lusqtoff.jpg" alt="pdto 02">
-                    </div>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
-                </article>
-            </div>
+            <section class="seco1">
+                <div class="product-container-seco">
+                    <article class="product-seco">
+                        <div class="photo-container">
+                            <a href="/productDetail"><img class="photo" src="/images/cinta-tramada.jpg" alt="pdto 02"></a>
+                        </div>
+                        <button type="submit"><a href="/productDetail">Detalle</a></button>
+                    </article>
+                    <article class="product-seco">
+                        <div class="photo-container">
+                            <a href="/productDetail"><img class="photo" src="/images/cinta-tramada.jpg" alt="pdto 02"></a>
+                        </div>
+                        <button type="submit"><a href="/productDetail">Detalle</a></button>
+                    </article>
+                    <article class="product-seco">
+                        <div class="photo-container">
+                            <a href="/productDetail"><img class="photo" src="/images/cinta-tramada.jpg" alt="pdto 02"></a>
+                        </div>
+                        <button type="submit"><a href="/productDetail">Detalle</a></button>
+                    </article>
+                </div>
+            </section>
+            <section class="seco2">
+                <div class="product-container-seco">
+                    <article class="product-seco">
+                        <div class="photo-container">
+                            <a href="/productDetail"><img class="photo" src="/images/cinta-tramada.jpg" alt="pdto 02"></a>
+                        </div>
+                        <button type="submit"><a href="/productDetail">Detalle</a></button>
+                    </article>
+                    <article class="product-seco">
+                        <div class="photo-container">
+                            <a href="/productDetail"><img class="photo" src="/images/cinta-tramada.jpg" alt="pdto 02"></a>
+                        </div>
+                        <button type="submit"><a href="/productDetail">Detalle</a></button>
+                    </article>
+                    <article class="product-seco">
+                        <div class="photo-container">
+                            <a href="/productDetail"><img class="photo" src="/images/cinta-tramada.jpg" alt="pdto 02"></a>
+                        </div>
+                        <button type="submit"><a href="/productDetail">Detalle</a></button>
+                    </article>
+                </div>
+            </section>
         </div>
         <div class="nuevo">
             <section>
@@ -178,7 +203,7 @@
                 <div class="product-container">
                     <article class="product">
                         <div class="photo-container">
-					        <img class="photo" src="/images/rotomartillo-stanley.jpg" alt="pdto 02">
+					        <a href="/productDetail"><img class="photo" src="/images/rotomartillo-stanley.jpg" alt="pdto 02"></a>
 					        <img class="special" src="/images/img-nuevo.png" alt="nuevo">
 				        </div>
                         <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -188,11 +213,11 @@
                         <p class="cuotas">
                             3 cuotas sin interes de $17.276
                         </p>
-                        <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                        <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
 			        </article>
                     <article class="product">
 				        <div class="photo-container">
-					        <img class="photo" src="/images/rotomartillo-deWalt-2.jpg" alt="pdto 02">
+					        <a href="/productDetail"><img class="photo" src="/images/rotomartillo-deWalt-2.jpg" alt="pdto 02"></a>
 					        <img class="special" src="/images/img-nuevo.png" alt="nuevo">
 				        </div>
                         <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -202,11 +227,11 @@
                         <p class="cuotas">
                             3 cuotas sin interes de $17.276
                         </p>
-                        <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                        <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
 			        </article>
                 <article class="product">
 				    <div class="photo-container">
-					    <img class="photo" src="/images/rotomartillo-lusqtoff.jpg" alt="pdto 02">
+					    <a href="/productDetail"><img class="photo" src="/images/rotomartillo-lusqtoff.jpg" alt="pdto 02"></a>
 					    <img class="special" src="/images/img-nuevo.png" alt="nuevo">
 				    </div>
                     <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -216,11 +241,11 @@
                     <p class="cuotas">
                         3 cuotas sin interes de $17.276
                     </p>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                    <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
 			    </article>
                 <article class="product">
                     <div class="photo-container">
-                        <img class="photo" src="/images/rotomartillo-stanley.jpg" alt="pdto 02">
+                        <a href="/productDetail"><img class="photo" src="/images/rotomartillo-stanley.jpg" alt="pdto 02"></a>
 					    <img class="special" src="/images/img-nuevo.png" alt="nuevo">
 				    </div>
                     <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -230,11 +255,11 @@
                     <p class="cuotas">
                         3 cuotas sin interes de $17.276
                     </p>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                    <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
 			    </article>
                 <article class="product">
 				    <div class="photo-container">
-					    <img class="photo" src="/images/motocierra-b+d.jpg" alt="pdto 02">
+					    <a href="/productDetail"><img class="photo" src="/images/motocierra-b+d.jpg" alt="pdto 02"></a>
 					    <img class="special" src="/images/img-nuevo.png" alt="nuevo">
 				    </div>
                     <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -244,7 +269,7 @@
                     <p class="cuotas">
                         3 cuotas sin interes de $17.276
                     </p>
-                    <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                    <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
 			    </article>
             </section>
         </div>
@@ -252,10 +277,11 @@
         <div class="banner-pintura">
             <a href=""><img src="/images/landing-pinturas_tendencia_1.jpg" alt="pinturas"></a>
         </div>
+        <h2 class="pintura">Pinturas</h2>
         <div class="product-container">
             <article class="product">
                 <div class="photo-container">
-                    <img class="photo" src="/images/pintura1.jpg" alt="pdto 02">
+                    <a href="/productDetail"><img class="photo" src="/images/pintura1.jpg" alt="pdto 02"></a>
                     <img class="special" src="/images/img-descuento.png" alt="nuevo">
                 </div>
                 <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -266,11 +292,11 @@
                 <p class="cuotas">
                     3 cuotas sin interes de $17.276
                 </p>
-                <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
             </article>
             <article class="product">
                 <div class="photo-container">
-                    <img class="photo" src="/images/pintura1.jpg" alt="pdto 02">
+                    <a href="/productDetail"><img class="photo" src="/images/pintura1.jpg" alt="pdto 02"></a>
                     <img class="special" src="/images/img-descuento.png" alt="nuevo">
                 </div>
                 <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -281,11 +307,11 @@
                 <p class="cuotas">
                     3 cuotas sin interes de $17.276
                 </p>
-                <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
             </article>
             <article class="product">
                 <div class="photo-container">
-                    <img class="photo" src="/images/pintura1.jpg" alt="pdto 02">
+                    <a href="/productDetail"><img class="photo" src="/images/pintura1.jpg" alt="pdto 02"></a>
                     <img class="special" src="/images/img-descuento.png" alt="nuevo">
                 </div>
                 <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -296,11 +322,11 @@
                 <p class="cuotas">
                     3 cuotas sin interes de $17.276
                 </p>
-                <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
             </article>
             <article class="product">
                 <div class="photo-container">
-                    <img class="photo" src="/images/pintura1.jpg" alt="pdto 02">
+                    <a href="/productDetail"><img class="photo" src="/images/pintura1.jpg" alt="pdto 02"></a>
                     <img class="special" src="/images/img-descuento.png" alt="nuevo">
                 </div>
                 <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -311,11 +337,11 @@
                 <p class="cuotas">
                     3 cuotas sin interes de $17.276
                 </p>
-                <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
             </article>
             <article class="product">
                 <div class="photo-container">
-                    <img class="photo" src="/images/pintura1.jpg" alt="pdto 02">
+                    <a href="/productDetail"><img class="photo" src="/images/pintura1.jpg" alt="pdto 02"></a>
                     <img class="special" src="/images/img-descuento.png" alt="nuevo">
                 </div>
                 <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
@@ -326,7 +352,7 @@
                 <p class="cuotas">
                     3 cuotas sin interes de $17.276
                 </p>
-                <button type="submit"><a href="/productCard">agregar al carrito</a></button>
+                <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
             </article>
         </div>
     </main>
