@@ -96,11 +96,38 @@ footer span.copy {
     color: #03264C;
 }
 
+footer div.facebook {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100px;
+}
+
+footer div.instagram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100px;
+}
+
+footer div.twitter .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100px;
+}
+
 /*MEDIA QUERY*/
-@media (min-width: 460px) {
+@media (min-width: 769px) {
     header nav,
 header div.main-header-top-bar {
     display: inherit;
+}
+
+header div.logo {
+    width: 130px;
+    margin-left: 15px;
+    font-size: 1.2rem;
 }
 
 header div.burger-menu {
@@ -114,6 +141,12 @@ header nav ul {
 
 header div.carrito{
     display: flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid green;
+    justify-content: center;
+    align-items: center;
 }
 
 }
