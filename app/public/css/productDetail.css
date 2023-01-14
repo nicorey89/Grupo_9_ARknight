@@ -120,7 +120,7 @@ button.blink:hover {
     border: 5px solid aqua;
 }
 
-button.blink2 {
+button.blink2  {
     color: orange;
     background-color: black;
     padding: 0.1rem;
@@ -128,6 +128,11 @@ button.blink2 {
     border-radius: 1rem;
     margin:0.2rem;
     transition: all 0.7s ease;
+    
+}
+button.blink2 a  {
+    color: orange;
+    text-decoration: none;
 }
 
 button.blink2:hover{
@@ -158,6 +163,143 @@ border-radius: 2.5rem;
   
 }
 
+@media  (min-width: 769px){ 
+   
+     
 
+      div img {
+        width: 300px;
+        height: 300px;
+        
+     }
+
+    .botones button{
+       
+       margin: 40px;
+    }
+
+    .muestreo {
+        width: 255px;
+       height: 555px;
+      
+    }
+
+   .muestreo .btn-car {
+    position: absolute;
+    bottom: 25%;
+    margin: 0.5rem;
+   }
+
+   .muestreo p {
+    position: absolute;
+     bottom: 45%;
+    right: 15%;
+}
+.muestreo p.rallado {
+     position: absolute;
+     bottom: 40%;
+     
+}
+.muestreo h4 {
+    position: absolute;
+     bottom: 50%;
+     right: 20%;
+}
+
+.pasarela{
+    width: 750px;
+    height: 750px;
+    
+
+}
+
+.rulo .pasarimg {
+
+    display: flex;
+    
+
+}
+ 
+.rulo .pasarimg2 {
+display: flex;
+   
+}
+
+
+}
+@media (min-width: 1200px){
+ 
+    div img {
+        width: 400px;
+        height: 400px;
+        
+     }
+
+    .botones button{
+       
+       margin: 50px;
+    }
+
+    .muestreo {
+        width: 455px;
+       height: 555px;
+      
+    }
+
+   .muestreo .btn-car {
+    position: absolute;
+    bottom: 25%;
+    left: 55%;
+    margin: 2rem;
+    width: 350px ;
+    height: 100px;
+   }
+
+   .muestreo p {
+    position: absolute;
+     bottom: 55%;
+    right: 25%;
+}
+.muestreo p.rallado {
+     position: absolute;
+     bottom: 50%;
+     
+}
+.muestreo h4 {
+    position: absolute;
+     bottom: 65%;
+     right: 25%;
+     text-decoration: underline;
+     text-transform:uppercase;
+    
+}
+.muestreo h1 {
+   position: relative;
+   text-transform: uppercase;
+   text-decoration: none;
+   color: whitesmoke;
+   
+}
+
+
+.pasarela{
+    width: 900px;
+    height: 900px;
+    
+
+}
+
+.rulo .pasarimg {
+
+    display: flex;
+    
+
+}
+ 
+.rulo .pasarimg2 {
+display: flex;
+   
+}
+}
 
 
