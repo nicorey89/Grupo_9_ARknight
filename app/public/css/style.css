@@ -98,23 +98,34 @@ footer span.copy {
 
 footer div.facebook {
     display: flex;
+    border-radius: 15px;
+    padding: 2.5px;
     justify-content: center;
-    align-items: center;
-    max-width: 100px;
+    align-items: center;  
 }
 
 footer div.instagram {
     display: flex;
+    border-radius: 15px;
+    padding: 2.5px;
     justify-content: center;
     align-items: center;
-    max-width: 100px;
 }
 
-footer div.twitter .box {
+footer div.twitter {
     display: flex;
+    border-radius: 15px;
+    padding: 2.5px;
     justify-content: center;
-    align-items: center;
-    max-width: 100px;
+    align-items: center;  
+}
+section.redes-sociales {
+    display: flex;
+}
+
+section p.redes {
+    color: #03264C;
+    padding: 2.5px;
 }
 
 /*MEDIA QUERY*/
@@ -139,6 +150,16 @@ header nav ul {
 
 }
 
+header div.user{
+    display: flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid green;
+    justify-content: center;
+    align-items: center;
+}
+
 header div.carrito{
     display: flex;
     height: 2.5rem;
@@ -147,6 +168,16 @@ header div.carrito{
     border: 1px solid green;
     justify-content: center;
     align-items: center;
+}
+
+footer nav,
+footer div.main-header-top-bar {
+    display: inherit;
+}
+
+footer nav ul {
+    display: flex;
+
 }
 
 }
