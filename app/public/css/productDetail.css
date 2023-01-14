@@ -3,7 +3,7 @@ body {
     padding: 10px;
     border: 7px;
     margin: 10px;
-    box-sizing:content-box;
+    box-sizing: content-box ;
   
 }
 
@@ -92,17 +92,16 @@ div img {
 }
 
  .muestreo .btn-car{
-    display: flex;
+     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 0.7rem;
-    padding: 0.3rem;
-    margin: 0.3rem;
+    padding: 0.4rem;
+    margin: 0.4rem;
     height: 70px;
     width: 240px;
     background-color:burlywood;
-   z-index:inherit ;
-   box-shadow: 100%;
+    box-shadow: 100%;
    
 }
 button.blink{
@@ -241,7 +240,7 @@ display: flex;
     }
 
     .muestreo {
-        width: 455px;
+        width: 500px;
        height: 555px;
       
     }
@@ -249,10 +248,11 @@ display: flex;
    .muestreo .btn-car {
     position: absolute;
     bottom: 25%;
-    left: 55%;
-    margin: 2rem;
-    width: 350px ;
+    left: 53%;
+    margin: 3rem;
+    width: 400px ;
     height: 100px;
+    
    }
 
    .muestreo p {
