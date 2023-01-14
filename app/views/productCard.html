@@ -1,17 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TITLE -->
     <title>AR Knigth - Carrito</title>
+    <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Gemstones&display=swap" rel="stylesheet">
+    <!-- FONT ICONS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
+    <!-- STYLES -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/productCard.css">
+    <!-- ICON WEB -->
+    <link rel="shortcut icon" href="images/logo.png"/>
 </head>
 <body>
-    <h1>Carrito de compras</h1>
+    <header class="main-header">
+
+        <div class="main-header__logo">
+            <a href="/">
+                <img src="/images/logo.png" alt="logo-ferreteria">
+            </a>
+        </div>
+        
+        <div class="main-header__segurity">
+            <i class="fa-solid fa-lock">  Ambiente seguro</i>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-container">
+
+            <div class="cart-container">
+                <ul class="cart-containes__title">
+                    <li class="cart-containes__title--card"><span>Carrito</span></li>
+                    <li class="cart-containes__cart">
+                        <a href="cart-containes__cart--container">
+                            <i class="fa-solid fa-cart-shopping">
+                                <span>
+                                    10
+                                </span>
+                            </i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="cart-container__tab-panel">
+                    <section class="item-row">
+                        <article class="item--cart">
+                            <div class="photo-container">
+                                <a href="/productDetail.html"><img class="photo" src="images/motocierra-b+d.jpg" alt="motocierra"></a>
+                            </div>
+                            <div class="description">
+                                <div>
+                                    <p>Motosierra 55cc 20 P Longitud Espada</p>
+                                    <div class="precio">
+                                        <h4 class="precio-tachado">$74.036</h4>
+                                        <h2>$51.826</h2>
+                                    </div>
+                                </div>
+                                <button type="submit">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                            <div class="item--cart__selecter--from">
+                                <div class="boton">
+                                    <button class="boton--resta">
+                                        <span>-</span>
+                                    </button>
+                                    <div>
+                                        <span>1</span>
+                                    </div>
+                                    <button class="boton--suma">
+                                        <span>+</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="precio--final">
+                                <h2>$51.826</h2>
+                            </div>
+                        </article>
+                    </section>
+                    <div class="separator"></div>
+                    <section class="item-row">
+                        <article class="item--cart">
+                            <div class="photo-container">
+                                <a href="/productDetail.html"><img class="photo" src="/images/rotomartillo-deWalt-2.jpg" alt="martillo"></a>
+                            </div>
+                            <div class="description">
+                                <div>
+                                    <p>Rotomartillo Taladro Percutor Stanley 1250W + ACC</p>
+                                    <div class="precio">
+                                        <h4 class="precio-tachado">$74.036</h4>
+                                        <h2>$51.826</h2>
+                                    </div>
+                                </div>
+                                <button type="submit">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                            <div class="item--cart__selecter--from">
+                                <div class="boton">
+                                    <button class="boton--resta">
+                                        <span>-</span>
+                                    </button>
+                                    <div>
+                                        <span>1</span>
+                                    </div>
+                                    <button class="boton--suma">
+                                        <span>+</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="precio--final">
+                                <h2>$51.826</h2>
+                            </div>
+                        </article>
+                    </section>
+                    <div class="separator"></div>
+                    
+                    <div class="cart-container__footer-container">
+                        <div class="cart-container__footer-container--title">
+                            <h2>Seleccion la zona de entrega o envio</h2>
+                        </div>
+                        <div class="cart-container__footer-container--delivery">
+                            <div class="cart-container__footer-container--delivery--send">
+                                <button class="icon">
+                                    <i class="fa-sharp fa-solid fa-truck"></i>
+                                </button>
+                                <div class="sub-title">
+                                    <h4>
+                                        Envio a domicilio
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="cart-container__footer-container--delivery--in--story">
+                                <button class="icon">
+                                    <i class="fa-sharp fa-solid fa-store"></i>
+                                </button>
+                                <div class="sub-title">
+                                    <h4>
+                                        Retirar en tienda
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-container__footer-container--title">
+                            <h2>Resumen</h2>
+                        </div>
+                        <div class="cart-container__footer-container--ticket">
+                            <div class="tickek--row">
+                                <div class="ticket--row__concepts">
+                                    <h6>Precio de mis productos</h6>
+                                </div>
+                                <div class="ticket--row__NUMBER">
+                                    <h5>$9999</h5>
+                                </div>
+                            </div>
+                            <div class="tickek--row">
+                                <div class="ticket--row__concepts">
+                                    <h6>ENVIOS</h6>
+                                </div>
+                                <div class="ticket--row__NUMBER delivery">
+                                    <h5>$9999</h5>
+                                </div>
+                            </div>
+                            <div class="tickek--row">
+                                <div class="ticket--row__concepts">
+                                    <h6>TOTAL:</h6>
+                                </div>
+                                <div class="ticket--row__NUMBER">
+                                    <h5>$9999</h5>
+                                </div>
+                            </div>
+                            <button class="btn">Comprar</button>
+                            <button class="btn">Seguir comprando</button>
+                        </div>
+
+                        <div class=" cart-container__footer-container--credit__card">
+                            <div class="cart-container__footer-container--credit__card--title">
+                                <h5>
+                                    Medios de pagos:
+                                </h5>
+                            </div>
+                            <ul class="cart-container__footer-container--credit__card--cards">
+                                <li>
+                                    <img src="images/visa.jpg" alt="Visa">
+                                </li>
+                                <li>
+                                    <img src="images/master-card.jpg" alt="Mastercard">
+                                </li>
+                                <li>
+                                    <img src="images/cash.jpg" alt="Efectivo">
+                                </li>
+                                <li>
+                                    <img src="images/mercadoPago.jpg" alt="Mercado pago">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <article>
+            <img src="" alt="">
+        </article>
+        <span class="copy">Copyright ©️ 2022-2023 AR Knight Ferreteria S.R.L.</span>
+    </footer>
+
 </body>
 </html>
