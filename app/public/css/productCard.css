@@ -89,6 +89,9 @@ main .main-container .cart-container li.cart-container__cart--container a span {
 
 /* TAB PANEL*/
 
+main .cart-container .cart-container__tab-panel .item-row {
+    width: 100%;
+}
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart {
     display: flex;
@@ -97,12 +100,18 @@ main .cart-container .cart-container__tab-panel .item-row .item--cart {
     height: 160px;
 }
 
+main .cart-container .cart-container__tab-panel .item-row .item--cart .photo-container {
+    max-width: 110px;
+}
+
 main .cart-container .cart-container__tab-panel .item-row .item--cart .photo-container .photo {
-    width: 100px;
+    width: 100%;
     padding: 0.4rem;
+    background-size: 100%;
 }
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -113,14 +122,24 @@ main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .des
     align-items: flex-start;
     margin: 0.5rem;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .description p {
     margin-right: 0.5rem;
 }
 
+main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .description div .precio h2 {
+    margin-top: 0.5rem;
+}
+
+main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .description button {
+    display: inline-block;
+    border: none;
+}
+
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .description button i {
-    font-size: 0.8rem;
+    font-size: 1.5rem;
 }
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .item--cart__selecter--from {
@@ -132,8 +151,27 @@ main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .ite
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .item--cart__selecter--from .boton {
     display: flex;
+    border: red 2px solid;
+    border-radius: 7px;
+    min-width: 70px;
+    height: 28px;
+    justify-content: space-around;
 }
+
+main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .item--cart__selecter--from .boton div {
+    display: flex;
+    align-items: center;
+}
+
+main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .item--cart__selecter--from .boton .boton--resta ,
+main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .item--cart__selecter--from .boton .boton--suma {
+    display: inline-block;
+    min-width: 24px;
+    border: none;
+    background-color: white;
+} 
 
 .separator {
     height: 20px;
 }
+
