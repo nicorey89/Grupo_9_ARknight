@@ -8,12 +8,9 @@
 header.main-header {
     padding: 0;
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
-}
-
-.main-header__logo {
-    padding-top: 0.5rem;
 }
 
 
@@ -55,6 +52,10 @@ main .main-container .cart-container .cart-container__title {
     align-items: center;
     padding-right: 0.4rem;
     margin: 0.5rem 0;
+}
+
+main .main-container .cart-container .cart-container__title li {
+    list-style: none;
 }
 
 main .main-container .cart-container .cart-container__title .cart-container__title--card{
