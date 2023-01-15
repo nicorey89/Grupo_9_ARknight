@@ -91,7 +91,7 @@ h2.seco{
     display: none;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 889px) {
     h2.seco{
         display:block;
     }
