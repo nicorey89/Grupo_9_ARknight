@@ -1,8 +1,4 @@
 
-
-
-
-
 /* STYLES GENERAL*/
 
 :root {
@@ -11,7 +7,8 @@
     --celeste: #CAF4FF;
     --marron: #C29669;
     /*-- FONT-SIZE --*/
-    
+    --parrafo: 12px;
+    --titulo: 30px;
 }
 
 *{
@@ -29,156 +26,29 @@ body {
 header{
     background-color: var(--naranja);
     display: flex;
-    padding: 25px 10px;
+    padding: 15px 5px;
     justify-content: center;
     align-items: center;
 }
-
-header div.logo {
-    width: 130px;
-    margin-left: 15px;
-    font-size: 1.2rem;
+.main-header{
+    display: flex;
+    flex-direction: column;
 }
-
-header div.busqueda{
-    margin-left: 15px;
-    width: 170px;
-    margin-bottom: 10px;
-    
+.main-header-top-bar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-
-a {
-    color: #03264C;
-    text-decoration: none;
+.main-header-top-bar .logo img{
+    width: 200px;
 }
-
-li {
-    list-style: none;
+.main-header-rigth-bar{
+    display: flex;
+    width: 100px;
+    justify-content: space-around;
 }
-
-header nav,
-header div.main-header-top-bar {
+.busqueda, .main-header-nav-bar{
     display: none;
-}
-
-header div.burger-menu {
-    background-color: #03264C;
-    border: 1px solid var(--celeste);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    color: white;
-    width: 2.3rem;
-    height: 2.1rem;
-    font-size: 1.5rem;
-}
-
-
-/*FOOTER*/
-
-footer{
-    background-color: var(--marron);
-    padding: 25px;
-    
-}
-
-footer div.footer-logo-img {
-    width: 130px;
-    margin-right: 25px;
-    font-size: 1.2rem;
-    background-color: var(--marron);
-}
-
-footer span.copy {
-    display: flex;
-    justify-content: center;
-    color: #03264C;
-}
-
-footer div.facebook {
-    display: flex;
-    border-radius: 15px;
-    padding: 2.5px;
-    justify-content: center;
-    align-items: center;  
-}
-
-footer div.instagram {
-    display: flex;
-    border-radius: 15px;
-    padding: 2.5px;
-    justify-content: center;
-    align-items: center;
-}
-
-footer div.twitter {
-    display: flex;
-    border-radius: 15px;
-    padding: 2.5px;
-    justify-content: center;
-    align-items: center;  
-}
-section.redes-sociales {
-    display: flex;
-}
-
-section p.redes {
-    color: #03264C;
-    padding: 2.5px;
-}
-
-/*MEDIA QUERY*/
-@media (min-width: 769px) {
-    header nav,
-header div.main-header-top-bar {
-    display: inherit;
-}
-
-header div.logo {
-    width: 130px;
-    margin-left: 15px;
-    font-size: 1.2rem;
-}
-
-header div.burger-menu {
-    display: none;
-}
-
-header nav ul {
-    display: flex;
-
-}
-
-header div.user{
-    display: flex;
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: 50%;
-    border: 1px solid green;
-    justify-content: center;
-    align-items: center;
-}
-
-header div.carrito{
-    display: flex;
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: 50%;
-    border: 1px solid green;
-    justify-content: center;
-    align-items: center;
-}
-
-footer nav,
-footer div.main-header-top-bar {
-    display: inherit;
-}
-
-footer nav ul {
-    display: flex;
-
-}
-
 }
 
