@@ -9,7 +9,14 @@
     /*-- FONT-SIZE --*/
     --parrafo: 12px;
     --titulo: 30px;
+    --subtitulo: 20px;
+    --boton: 16px
+    /*-- FONT-WIGHT --*/
+    --bold: 400;
 }
+
+/*line-height: 48px*/
+
 
 *{
     padding: 0;
@@ -19,6 +26,10 @@
 
 body {
     background-color: var(--celeste);
+}
+
+li {
+    list-style: none;
 }
 
 /*HEADER*/
