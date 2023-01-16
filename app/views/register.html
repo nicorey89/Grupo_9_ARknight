@@ -18,6 +18,18 @@
     <link rel="shortcut icon" href="images/AR-Knight2.png"/>
 </head>
 <body>
+
+
+
+
+
+   
+
+    
+
+
+
+
     <header class="main-header">
       <div class="main-header-top-bar">
           <div class="logo">
@@ -74,7 +86,107 @@
           </ul>
       </nav>
     </header>
-    <h1>Registro</h1>
+    <main class="register">
+        <div class="form-container">
+            <hr>
+            <form action="" method="">
+                <div class="form">
+                    <div class="input-container">
+                        <input class="input-style" type="text" name="name" placeholder="Ingrese su Nombre">
+                        <span class="error-message">Debe ingresar su Nombre</span>
+                    </div>
+                    <div class="input-container">
+                        <input class="input-style" type="text" name="lastName" placeholder="Ingrese su Apellido">
+                        <span class="error-message">Debe ingresar su Apellido</span>
+                    </div>
+                    <div class="input-container">
+                        <input class="input-style" type="email" name="email" placeholder="Ingrese su email">
+                        <span class="error-message">Debe ingresar su email</span>
+                    </div>
+                    <div class="input-container">
+                        <input class="input-style" type="tel" name="tel" placeholder="Ingrese su telefono">
+                        <span class="error-message">Debe ingresar su Telefono</span>
+                    </div>
+                    <div class="input-container">
+                        <select name="provincia" class="input-select">
+                            <option value="" hidden selected>Elija una provincia</option>
+                            <option value="buenos aires">Buenos Aires</option>
+                            <option value="catamarca">Catamarca</option>
+                            <option value="chaco">Chaco</option>
+                            <option value="chubut">Chubut</option>
+                            <option value="cordoba">Cordoba</option>
+                            <option value="corrientes">Corrientes</option>
+                            <option value="entre rios">Entre Rios</option>
+                            <option value="formosa">Formosa</option>
+                            <option value="jujuy">Jujuy</option>
+                            <option value="la pampa">La Pampa</option>
+                            <option value="la rioja">La Rioja</option>
+                            <option value="mendoza">Mendoza</option>                                
+                            <option value="misiones">Misiones</option>
+                            <option value="neuquen">Neuquen</option>
+                            <option value="rio Negro">Rio Negro</option>
+                            <option value="salta">Salta</option>
+                            <option value="san juan">San Juan</option>
+                            <option value="san luis">San Luis</option>
+                            <option value="santa cruz">Santa Cruz</option>
+                            <option value="santa fe">Santa Fe</option>
+                            <option value="santiago del estero">Santiago del Estero</option>
+                            <option value="tierra del fuego">Tierra del Fuego</option>
+                            <option value="tucuman">Tucuman</option>
+                        </select>
+                    </div>
+                    <div class="input-container">    
+                        <select name="localidad" class="input-select">
+                            <option value="" hidden selected>Elija una localidad</option>
+                            <option value="san miguel">San Miguel</option>
+                            <option value="bella vista">Bella Vista</option>
+                            <option value="muñiz">Muñiz</option>
+                            <option value="torcuato">Torcuato</option>
+                            <option value="pacheco">Pacheco</option>
+                            <option value="polvorines">Polvorines</option>
+                            <option value="moreno">Moreno</option>
+                            <option value="moron">Moron</option>
+                            <option value="ituzaingo">Ituzaingo</option>
+                            <option value="Castelar">Castelar</option> 
+                            <option value="haedo">Haedo</option>
+                            <option value="tortuguitas">Tortuguitas</option>                                
+                            <option value="lanus">Lanus</option>
+                            <option value="palermo">Palermo</option>
+                            <option value="tigre">Tigre</option>
+                        </select>
+                    </div>
+                    <div class="input-container">
+                        <input class="input-style" type="password" name="password" placeholder="Ingrese su contraseña">
+                        <span class="error-message">Debe ingresar su contraseña</span>
+                    </div>
+                    <div class="input-container">
+                        <input class="input-style" type="password" name="password2" placeholder="Re-ingrese su contraseña">
+                        <span class="error-message">Debe Re-ingresar su contraseña</span>
+                    </div>
+                    <div class="input-container">
+                        <input class="input-style" type="number" name="codigo postal" placeholder="Ingrese su codigo postal">
+                        <span class="error-message">Debe ingresar su codigo postal</span>
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" name="terms" id="recordar"> 
+                        <label for="terms">  Acepto los <a href="">términos y condiciones</a> </label>
+                        <span class="error-message">Debe aceptar los términos y condiciones</span>
+                    </div>
+                    <div class="submit-container">
+                        <div class="button-container">
+                            <span class="error-message">Credenciales inválidas</span>
+                            <button type="reset" class="btn btn-reset">Cancelar</button>
+                        </div>
+                        <div class="button-container">
+                            <span class="error-message">Credenciales inválidas</span>
+                            <button type="submit" class="btn btn-submit">Registrarme</button>
+                        </div>
+                    </div>
+                     
+                </div>
+            </form>
+        </div>
+    </main>
     <footer>
         <div class="footer-container">
             <div class="footer-logo-img">
@@ -114,3 +226,4 @@
     </footer>
 </body>
 </html>
+

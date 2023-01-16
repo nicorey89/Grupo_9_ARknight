@@ -1,3 +1,65 @@
-body {
-    background-color: blueviolet;
+main.register{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.register .form-container{
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.register .input-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+.register span.error-message{
+    color: tomato;
+    font-size: .7rem;
+    display: none;
+}
+.register input.input-style, .input-select{
+    border: none;
+    border-radius: 0.2rem;
+    height: 2rem;
+    padding: 0 0.5rem;
+    outline: none;
+}
+.register input.input-style:focus{
+    box-shadow: 0 0 6px;
+}
+
+.register label{
+    font-size: 0.8rem;
+}
+.register .submit-container{
+    display: flex;
+    justify-content: space-around;
+}
+.register .check{
+    display: flex;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+.register .button-container{
+    width: 80px;
+    margin: .5rem 0 1rem 0;
+}
+.register .btn-submit, .btn-reset {
+    width: 80px;
+    height: 1.5rem;
+    border-radius: 4px;
+}
+.register .btn-submit:hover{
+    background-color: blue;
+    color: white;
+} 
+.register .btn-reset:hover{
+    background-color: red;
+    color: white;
 }
