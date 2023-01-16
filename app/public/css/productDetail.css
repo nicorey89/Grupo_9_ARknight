@@ -7,10 +7,13 @@
     border: 0.3rem solid orange ;
     border-radius: 1.5rem;
     padding: 0.3rem  ;
+    margin: 10px;
     background-color: white;
     display: flex;
     flex-direction: column;
     text-align: center;
+    position: relative;
+    
     }
 
    
@@ -52,7 +55,7 @@ div img {
 
 
 .muestreo {
-    width: 355px;
+    width: 350px;
    height: 575px;
    background-color:grey;
    border-radius: 1rem;
@@ -97,7 +100,7 @@ button.blink{
     padding: 0.2rem;
     border: 2px solid black;
     border-radius: 1rem;
-    transition: all 0.5s ;
+    transition: all 0.5s;
     margin: 5px;
 }
 button.blink:hover {
@@ -112,7 +115,7 @@ button.blink2  {
     padding: 0.2rem;
     border: 2px solid black;
     border-radius: 1rem ;
-    transition: all 0.5s ;
+    transition: all 0.5s;
     margin: 5px;
     
 }
