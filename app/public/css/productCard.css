@@ -2,36 +2,6 @@
 @import url('style.css');
 
 
-
-/* START HEADER */
-/* 
-header.main-header {
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-
-.main-header__segurity {
-    display: flex;
-    align-items: center;
-}
-
-.main-header__segurity i {
-    font-size: 1.1rem;
-    padding-right: 0.3rem;
-}
-
-.main-header__segurity p {
-    font-size: var(--parrafo);
-} */
-
-/* END HEADER */
-
-/* -----START MAIN */
-
 /* TITLE */
 
 main {
@@ -141,6 +111,7 @@ main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .des
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .description button {
     display: inline-block;
     border: none;
+    cursor: pointer;
 }
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .description button i {
@@ -174,6 +145,7 @@ main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .ite
     min-width: 24px;
     border: none;
     background-color: white;
+    cursor: pointer;
 } 
 
 .separator {
@@ -222,6 +194,7 @@ main .cart-container .cart-container__tab-panel .cart-container__footer-containe
     display: inline-block;
     border: none;
     background: none;
+    cursor: pointer;
 }
 
 main .cart-container .cart-container__tab-panel .cart-container__footer-container .cart-container__footer-container--delivery .cart-container__footer-container--delivery--send .icon i {
@@ -252,6 +225,7 @@ main .cart-container .cart-container__tab-panel .cart-container__footer-containe
     display: inline-block;
     border: none;
     background: none;
+    cursor: pointer;
 }
 
 main .cart-container .cart-container__tab-panel .cart-container__footer-container .cart-container__footer-container--delivery .cart-container__footer-container--delivery--in--story .icon i {
@@ -292,6 +266,7 @@ main .cart-container .cart-container__tab-panel .cart-container__footer-containe
 main .cart-container .cart-container__tab-panel .cart-container__footer-container .cart-container__footer-container--ticket .btn {
     line-height: 45px;
     margin-top: 0.5rem;
+    cursor: pointer;
 }
 
 /* CONTAINER CARD*/
@@ -340,13 +315,33 @@ main .cart-container .cart-container__tab-panel .cart-container__footer-containe
 /* FOOTER */
 
 
-footer {
-    display: flex;
-    justify-content: center;
-    margin-top: 0.5rem;
+footer{
     background-color: var(--marron);
+    padding: 5px;
+}
+footer li{
+    list-style: none;
+}
+footer a{
+    text-decoration: none;
+    color: black;
+}
+.footer-logo-img img{
+    width: 100px;
+}
+.redes-sociales{
+    display: flex;
+}
+.redes-sociales i{
+    font-size: 2rem;
+    color: black;
+    padding: 2px;
+}
+.main-footer-top-bar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-footer .copy {
-    font-size: 0.9rem;
-}
