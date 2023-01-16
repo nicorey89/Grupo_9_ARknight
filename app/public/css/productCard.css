@@ -315,13 +315,3 @@ main .cart-container .cart-container__tab-panel .cart-container__footer-containe
 /* FOOTER */
 
 
-footer {
-    display: flex;
-    justify-content: center;
-    margin-top: 0.5rem;
-    background-color: var(--marron);
-}
-
-footer .copy {
-    font-size: 0.9rem;
-}
