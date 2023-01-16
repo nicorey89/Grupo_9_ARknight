@@ -33,7 +33,7 @@ li {
 /*HEADER*/
 
 header{
-    background-color: var(--naranja);
+    background: linear-gradient(180deg, rgba(244,165,83,1) 98%, rgba(255,255,255,1) 99%, rgba(0,212,255,1) 100%);
     display: flex;
     padding: 15px 5px;
     justify-content: center;
@@ -107,7 +107,7 @@ div.dropdown{
 
 /* FOOTER */
 footer{
-    background-color: var(--marron);
+    background: linear-gradient(0deg, rgba(194,150,105,1) 98%, rgba(255,255,255,1) 93%, rgba(0,212,255,1) 100%);
     padding: 1rem;
 }
 footer li{

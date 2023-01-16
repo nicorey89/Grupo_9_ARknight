@@ -156,6 +156,11 @@ main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .ite
 
 /*TITLE*/
 
+main .cart-container .cart-container__tab-panel .cart-container__footer-container {
+    max-width: 324px;
+    margin-bottom: 0.5rem;
+}
+
 main .cart-container .cart-container__tab-panel .cart-container__footer-container .cart-container__footer-container--title {
     background-color: var(--celeste);
     height: 50px;
