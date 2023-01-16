@@ -8,8 +8,7 @@
     border: 0.3rem solid orange ;
     border-radius: 1.5rem;
     padding: 0.3rem  ;
-    margin: 20px;
-    box-sizing:border-box ;
+    margin: 15px;
     background-color: white;
     
 }
@@ -41,7 +40,7 @@ div img {
     border-radius: 15px;
     width: 200px;
     height: 30px;
-  margin: 20px;
+  margin: 15px;
 
     
 }
@@ -61,6 +60,7 @@ div img {
    display: flex; 
   flex-direction: column;
   justify-content: center;
+ 
 }
 
 .muestreo h1 {
@@ -133,7 +133,7 @@ button.blink2:hover{
 
      width: 250px;
      height: 900px;
-    margin: 10px;
+    margin: 15px;
     border: 0.3rem solid orange ;
 background-color: white;
 border-radius: 2.0rem;
