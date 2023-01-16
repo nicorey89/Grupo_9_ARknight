@@ -51,7 +51,7 @@ header{
     align-items: center;
 }
 .main-header-top-bar .logo img{
-    width: 150px;
+    width: 120px;
 }
 .main-header-rigth-bar{
     display: flex;
@@ -201,7 +201,7 @@ footer a{
 }
 @media (min-width: 1020px){
     .main-header-top-bar .logo img{
-        width: 250px;
+        width: 140px;
     }
     .busqueda input{
         width: 500px;
