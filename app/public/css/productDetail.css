@@ -1,14 +1,16 @@
 
    main {
     display: flex;
+    flex-wrap: wrap;
      
    }
     .detalles {
     border: 0.3rem solid orange ;
     border-radius: 1.5rem;
     padding: 0.3rem  ;
-    margin: 10px;
-    box-sizing: content-box ;
+    margin: 20px;
+    box-sizing:border-box ;
+    background-color: white;
     
 }
 
@@ -19,12 +21,13 @@
      height:100%;
      border-radius: 1rem;
      padding: 0.2rem;
+    
     }
 
 div img {
-   width: 170px;
-   height: 170px;
-
+   width: 200px;
+   height: 200px;
+   
 
 }
 
@@ -38,7 +41,7 @@ div img {
     border-radius: 15px;
     width: 200px;
     height: 30px;
-  margin: 10px;
+  margin: 20px;
 
     
 }
@@ -107,9 +110,9 @@ button.blink:hover {
 
 button.blink2  {
     color: orange;
-    background-color: black;
+    background-color: #1259c3;
     padding: 0.1rem;
-    border: 2px solid aqua;
+    border: 2px solid black;
     border-radius: 1rem;
     margin:0.2rem;
     transition: all 0.7s ease;
