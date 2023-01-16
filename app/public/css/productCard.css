@@ -315,33 +315,13 @@ main .cart-container .cart-container__tab-panel .cart-container__footer-containe
 /* FOOTER */
 
 
-footer{
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
     background-color: var(--marron);
-    padding: 5px;
-}
-footer li{
-    list-style: none;
-}
-footer a{
-    text-decoration: none;
-    color: black;
-}
-.footer-logo-img img{
-    width: 100px;
-}
-.redes-sociales{
-    display: flex;
-}
-.redes-sociales i{
-    font-size: 2rem;
-    color: black;
-    padding: 2px;
-}
-.main-footer-top-bar{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
 }
 
+footer .copy {
+    font-size: 0.9rem;
+}
