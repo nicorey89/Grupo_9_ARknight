@@ -1,33 +1,4 @@
-body {
-    background-color: rgb(255, 136, 0);
-}
-
-ody, html {
-    height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  .bg-img {
-    
-    background-image: url("img_nature.jpg");
-  
-    min-height: 380px;
-  
-    
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  }
-  
-  
-  .container {
-    position: absolute;
-    right: 0;
+ .container {
     margin: 20px;
     max-width: 300px;
     padding: 16px;
@@ -35,7 +6,7 @@ ody, html {
   }
   
   
-  input[type=text], input[type=password] {
+  input[type=email], input[type=password] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -43,17 +14,14 @@ ody, html {
     background: #f1f1f1;
   }
   
-  input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
+  input[type=email]:focus, input[type=password]:focus {
+    box-shadow: 0 0 6px;
   }
   
   
   .btn {
-    background-color: #04AA6D;
-    color: white;
     padding: 16px 20px;
-    border: none;
+    border-radius: 4px;
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
@@ -61,6 +29,8 @@ ody, html {
   
   .btn:hover {
     opacity: 1;
+    background-color: blue;
+    color: white;
   }
 
 
