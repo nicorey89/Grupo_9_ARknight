@@ -4,7 +4,7 @@ body {
     border: 7px;
     margin: 10px;
     box-sizing: content-box ;
-  
+    
 }
 
     
@@ -127,7 +127,7 @@ button.blink2  {
     border-radius: 1rem;
     margin:0.2rem;
     transition: all 0.7s ease;
-    
+
 }
 button.blink2 a  {
     color: orange;
