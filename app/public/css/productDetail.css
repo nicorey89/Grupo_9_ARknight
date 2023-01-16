@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(87, 219, 219, 0.781);
+    background-color: rgb(97, 174, 174);
     padding: 10px;
     border: 7px;
     margin: 10px;
@@ -11,16 +11,16 @@ body {
 
 
 .detalles {
-    border: 0.5rem ;
-    border-radius: 2.5rem;
-    padding: 0.7rem  ;
-    height: 80vh;
-    background-color: rgba(255, 166, 0, 0.959);
+    border: 0.3rem solid orange ;
+    border-radius: 2.0rem;
+    padding: 0.3rem  ;
+    height: 90vh;
+    background-color: white;
+    
      display: flex;
-     flex-direction: row;
+     flex-direction: column;
      justify-content: space-evenly ;
-     flex-wrap: wrap;
-     box-shadow: 2.4rem;
+     text-align: center;
     }
 
    
@@ -38,25 +38,25 @@ div img {
    width: 200px;
    height: 200px;
    display: flex;
-   justify-content: center;
 }
 
 .botones button {
 
-   text-transform:uppercase;
-    border-radius: 1.5rem;
-    border: 0.1rem solid aqua ;
-    padding: 0.7rem 1rem;
-    font-size:medium;
-    background-color: black;
-    font-weight: 500;
-    color:orange;
-    transition: all 0.7s ease;
+    border: 0.1rem solid black ;
+    padding: 0.7rem 0.7rem;
+     background-color:  #1259c3;
+    color:rgb(234, 234, 234);
+    transition:all 0.5s ease;
+    border-radius: 15px;
+    width: 200px;
+    height: 30px;
+  margin: 10px;
+
     
 }
 .botones button:hover {
-    background-color: white;
-    color: burlywood ;
+    background-color: orange;
+    color: rgb(233, 233, 232) ;
     border: 5px solid aqua;
 }
 
@@ -64,24 +64,24 @@ div img {
 
 .muestreo {
     width: 255px;
-   height: 255px;
-   background-color: gray;
+   height: 275px;
+   background-color:grey;
    border-radius: 1rem;
-
-
+   display: flex; 
+  flex-direction: column;
+  justify-content: center;
 }
 
 .muestreo h1 {
     text-align: center;
-    padding: 2.0rem;
-    border: o.3rem;
+    border: 0.3rem;
     text-decoration: underline;
     
 }
 
 .muestreo h4 {
     text-align: center;
-    padding-bottom: 2rem;
+    padding-bottom: 1.5rem;
 }
 .muestreo p {
     text-align: center;
@@ -97,21 +97,20 @@ div img {
     justify-content: space-between;
     border-radius: 0.7rem;
     padding: 0.4rem;
-    margin: 0.4rem;
-    height: 70px;
-    width: 240px;
-    background-color:burlywood;
-    box-shadow: 100%;
-   
+    width: 200px;
+    height: 30px;
+  margin: 25px;
+
+  
 }
 button.blink{
-      color: orange;
-    background-color: black;
+      color: rgb(206, 205, 203);
+    background-color:  #1259c3;
     padding: 0.2rem;
-    border: 2px solid aqua;
+    border: 2px solid black;
     border-radius: 1rem;
-    margin:0.3rem;
-    transition: all 0.7s ease;
+    transition: all 0.5s ease;
+    margin: 5px;
 }
 button.blink:hover {
     background-color: white;
@@ -120,23 +119,23 @@ button.blink:hover {
 }
 
 button.blink2  {
-    color: orange;
-    background-color: black;
-    padding: 0.1rem;
-    border: 2px solid aqua;
-    border-radius: 1rem;
-    margin:0.2rem;
-    transition: all 0.7s ease;
+    color: rgb(209, 205, 199);
+    background-color:  #1259c3;
+    padding: 0.2rem;
+    border: 2px solid black;
+    border-radius: 1rem ;
+    transition: all 0.5s ease;
+    margin: 5px;
     
 }
 button.blink2 a  {
-    color: orange;
+    color: rgb(197, 197, 196);
     text-decoration: none;
 }
 
 button.blink2:hover{
-    background-color: white;
-    color: burlywood ;
+    background-color:orange;
+    color: white ;
     border: 5px solid aqua;
 }
 
@@ -145,9 +144,9 @@ button.blink2:hover{
      width: 250px;
      height: 900px;
     margin: 10px;
-    border: 0.5rem ;
-background-color: orange;
-border-radius: 2.5rem;
+    border: 0.3rem solid orange ;
+background-color: white;
+border-radius: 2.0rem;
   
 }
 
@@ -155,16 +154,15 @@ border-radius: 2.5rem;
 
 .rulo h1 {
     text-align: center;
-   height: 90px;
-   width: auto;
-   border-radius: 1rem;
-   background-color: burlywood;
-  
+   height: 70px;
+   background-color: gray;
+   border-radius: 1.5rem;
+   border: 0.3px solid aqua;
 }
 
 @media  (min-width: 769px){ 
    
-     
+   
 
       div img {
         width: 300px;
@@ -172,38 +170,15 @@ border-radius: 2.5rem;
         
      }
 
-    .botones button{
-       
-       margin: 40px;
-    }
+
 
     .muestreo {
-        width: 255px;
+        width: 740px;
        height: 485px;
       
     }
 
-   .muestreo .btn-car {
-    position: absolute;
-    bottom: 25%;
-    margin: 0.5rem;
-   }
 
-   .muestreo p {
-    position: absolute;
-     bottom: 45%;
-    right: 15%;
-}
-.muestreo p.rallado {
-     position: absolute;
-     bottom: 40%;
-     
-}
-.muestreo h4 {
-    position: absolute;
-     bottom: 50%;
-     right: 20%;
-}
 
 .pasarela{
     width: 750px;
