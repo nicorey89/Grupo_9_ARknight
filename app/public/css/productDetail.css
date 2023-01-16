@@ -46,7 +46,7 @@ div img {
     padding: 0.7rem 0.7rem;
      background-color:  #1259c3;
     color:rgb(234, 234, 234);
-    transition:all 0.5s ease;
+    transition:all 0.5s;
     border-radius: 15px;
     width: 200px;
     height: 30px;
@@ -109,7 +109,7 @@ button.blink{
     padding: 0.2rem;
     border: 2px solid black;
     border-radius: 1rem;
-    transition: all 0.5s ease;
+    transition: all 0.5s ;
     margin: 5px;
 }
 button.blink:hover {
@@ -124,7 +124,7 @@ button.blink2  {
     padding: 0.2rem;
     border: 2px solid black;
     border-radius: 1rem ;
-    transition: all 0.5s ease;
+    transition: all 0.5s ;
     margin: 5px;
     
 }
