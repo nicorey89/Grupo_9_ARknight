@@ -1,7 +1,8 @@
 
    main {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    
       }
     .detalles {
     border: 0.3rem solid orange ;
@@ -13,21 +14,16 @@
 }
 
    
- img{
+ .moto{
      object-fit: cover;
      width:100%;
      height:100%;
      border-radius: 0.7rem;
-     
-    
+     height:200px ;
+     width: 200px ;
     }
-
-div img {
-   width: 170px;
-   height: 170px;
    
 
-}
 
 .botones button {
 
@@ -39,8 +35,8 @@ div img {
     border-radius: 15px;
     width: 200px;
     height: 30px;
-    margin: 10px;
-  
+  margin: 15px;
+  margin-left: 80px;
     
 }
 .botones button:hover {
@@ -52,8 +48,8 @@ div img {
 
 
 .muestreo {
-    width: 350px;
-   height: 575px;
+    width: 370px;
+   height: 475px;
    background-color:grey;
    border-radius: 1.5rem;
    display: flex; 
@@ -114,7 +110,7 @@ button.blink2  {
     border: 2px solid black;
     border-radius: 1rem;
     margin:0.2rem;
-    transition: all 0.7s ease;
+    transition: all 0.5s;
 
 }
 button.blink2 a  {
@@ -128,6 +124,8 @@ button.blink2:hover{
     border: 5px solid aqua;
 }
 
+
+
 .pasarela {
 
      width: 250px;
@@ -138,9 +136,6 @@ background-color: white;
 border-radius: 2.0rem;
   
 }
-
-
-
 .rulo h1 {
     text-align: center;
    height: 70px;
@@ -149,26 +144,46 @@ border-radius: 2.0rem;
    border: 0.3px solid aqua;
 }
 
+
+
+
+.rulo.pasarimg {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.pasarimg img {
+    object-fit: cover;
+    width:100%;
+    height:100%;
+    border-radius: 0.7rem;
+    height:200px ;
+    width: 200px ;
+}
+  
+
+
 @media  (min-width: 769px){ 
    
    
 
-      div img {
-        width: 300px;
-        height: 300px;
-        
+   
+
+     .moto {
+        width: 325px;
+        height: 325px;
      }
 
 
      
     .muestreo {
-        width: 500px;
+        width: 650px;
        height: 400px;
       
     }
     .muestreo .btn-car {
-     margin-left: 150px;
-     
+    margin-left: 220px;
     }
 
 
@@ -179,35 +194,38 @@ border-radius: 2.0rem;
 
 }
 
-.rulo .pasarimg {
-
-    display: flex;
-    
+.rulo.pasarimg {
+    display : flex ;
+    flex-direction: column;
 
 }
- 
-.rulo .pasarimg2 {
-display: flex;
-   
+.pasarimg img {
+    width: 155px;
+    height: 155px;
+
 }
+
+
 
 
 }
 @media (min-width: 1200px){
  
-    div img {
-        width: 350px;
-        height: 350px;
-        
-     }
+   .moto{
+    width: 400px ;
+    height: 400px;
+   }
+ 
 
     .muestreo {
-        width: 500px;
+        width: 600px;
        height: 470px;
-      
+      margin: 15px;
     }
 
-  
+   
+
+ 
 .muestreo h4 {
   
      
@@ -221,26 +239,24 @@ display: flex;
    color: whitesmoke;
    
 }
-
-
-.pasarela{
-    width: 900px;
-    height: 900px;
-    
-
+.pasarela {
+    width: 600px;
+    height: 130vh;
 }
 
-.rulo .pasarimg {
-
-    display: flex;
-    
-
-}
- 
-.rulo .pasarimg2 {
-display: flex;
+.pasarimg img {
    
+   
+   width: 285px ;
+   height: 285px;
 }
+
+
+
+
+
+
+
 }
 
 
