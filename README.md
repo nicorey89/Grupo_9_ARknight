@@ -35,3 +35,8 @@ Utilice esta pagina de guia para el proyecto https://www.ferreteriaexpress.com.a
 https://www.laobraferreteria.com/ vistas de home.
 
 https://www.somosrex.com/ general.
+
+plataformas utilizadas para organizarnos:
+https://trello.com/b/rmKD3Yel/proyecto-integrador
+nuestro repositrio:
+https://github.com/nicorey89/Grupo_9_ARknight
