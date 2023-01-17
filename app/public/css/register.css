@@ -67,13 +67,14 @@ main.register{
     padding: 16px 20px;
     border-radius: 4px;
     cursor: pointer;
+    background-color:#1259c3;
 }
 .register .btn-submit:hover{
-    background-color: blue;
+    background-color:var(--naranja);
     color: white;
 } 
 .register .btn-reset:hover{
-    background-color: red;
+    background-color: tomato;
     color: white;
 }
 

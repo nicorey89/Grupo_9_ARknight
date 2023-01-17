@@ -39,11 +39,12 @@ input.input-style:focus{
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
+    background-color:#1259c3;
   }
   
   .btn:hover {
     opacity: 1;
-    background-color: blue;
+    background-color: var(--naranja);
     color: white;
   }
   div.check{
