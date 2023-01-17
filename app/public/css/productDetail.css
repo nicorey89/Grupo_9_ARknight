@@ -39,7 +39,7 @@ div img {
     border-radius: 15px;
     width: 200px;
     height: 30px;
-  margin: 10px;
+    margin: 10px;
   
     
 }
@@ -160,7 +160,7 @@ border-radius: 2.0rem;
      }
 
 
-
+     
     .muestreo {
         width: 500px;
        height: 400px;
@@ -200,7 +200,6 @@ display: flex;
         height: 350px;
         
      }
- 
 
     .muestreo {
         width: 500px;

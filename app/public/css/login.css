@@ -1,23 +1,37 @@
+ @import url("style.css");
+
+ div.login-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
  .container {
     margin: 20px;
+    width: 100%;
     max-width: 300px;
     padding: 16px;
     background-color: white;
+    border: black 1px solid;
+    border-radius: 4px;
+    box-shadow: 5px 5px 15px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  
-  
-  input[type=email], input[type=password] {
+
+  input.input-style, .input-select{
+    border: 0.5px solid gray;
+    border-radius: 0.2rem;
+    height: 2rem;
+    padding: 0 0.5rem;
+    outline: none;
     width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
-  }
-  
-  input[type=email]:focus, input[type=password]:focus {
+}
+input.input-style:focus{
     box-shadow: 0 0 6px;
-  }
-  
+}
+
   
   .btn {
     padding: 16px 20px;
@@ -31,6 +45,17 @@
     opacity: 1;
     background-color: blue;
     color: white;
+  }
+  div.check{
+    margin: 15px 0;
+  }
+  .login-container span{
+    margin: 10px 0
+  }
+  @media (min-width: 769px){
+    .container{
+      max-width: 500px;
+    }
   }
 
 

@@ -29,6 +29,10 @@ body {
 li {
     list-style: none;
 }
+a{
+    text-decoration: none;
+    color: black;
+}
 
 /*HEADER*/
 
@@ -132,7 +136,7 @@ footer a{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items:center;
     margin-bottom: 10px;
 }
 

@@ -75,16 +75,20 @@
     </nav>
   </header>
     <main>
-        <div class="bg-img">
+        <div class="login-container">
             <form action="/" method="post" class="container">
               <h1>Usuario</h1>
-          
-              <label for="email"><b>Email</b></label>
-              <input type="email" placeholder="Ingrese su Email" name="email">
-          
-              <label for="password"><b>Password</b></label>
-              <input type="password" placeholder="Ingrese su contraseña" name="password">
+                <label for="email"><b>Email</b></label>
+                <input class="input-style"type="email" placeholder="Ingrese su Email" name="email">
+                <label for="password"><b>Contraseña</b></label>
+                <input class= "input-style"type="password" placeholder="Ingrese su contraseña" name="password">
+              <div class="check">
+                  <input type="checkbox" name="recordar" id="recordar"> 
+                  <label for="recordar">  Recordarme </label>
+              </div>
               <button type="submit" class="btn">Ingresar</button>
+              <span><a href="">¿Olvidaste tu contraseña?</a></span>
+              <span><a href="register.html">Aún no tengo cuenta</a></span>
             </form>
           </div>
     </main>
@@ -101,6 +105,7 @@
                     <li><a href="/">Sucursales</a></li>
                 </ul>
                 <ul>
+                    <li><a href="/">Suscribirse</a></li>
                     <li><a href="/register">Crear cuenta</a></li>
                     <li><a href="/login">Ingresar</a></li>
                     <li><a href="/">Mis compras</a></li>
