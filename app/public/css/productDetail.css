@@ -110,7 +110,7 @@ button.blink2  {
     border: 2px solid black;
     border-radius: 1rem;
     margin:0.2rem;
-    transition: all 0.7s ease;
+    transition: all 0.5s;
 
 }
 button.blink2 a  {
