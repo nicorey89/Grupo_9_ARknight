@@ -10,6 +10,7 @@ main.home div.product-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 20px;
 }
 
 .home div.ofertas section h2, div.nuevo section h2, h2.seco, h2.pintura {
@@ -32,7 +33,7 @@ main.home div.product-container{
 .home article.product:hover{
     border: 3px solid var(--naranja);
     transform: scale(1.05);
-    z-index: 10;
+    z-index: 100;
 }
 
 .home article.product div.photo-container{

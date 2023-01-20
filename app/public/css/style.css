@@ -64,12 +64,14 @@ header{
     display: flex;
     width: 100px;
     justify-content: space-around;
+    align-items: center;
 }
 .main-header-rigth-bar i{
     color: black;
 }
 .main-header-rigth-bar i:hover{
     color: var(--celeste);
+    transform: scale(1.5);
 }
 .busqueda, .main-header-nav-bar{
     display: none;
@@ -139,6 +141,15 @@ footer li{
 footer a{
     text-decoration: none;
     color: black;
+    padding: 5px;
+}
+footer ul{
+    width: 120px;
+}
+footer li a:hover{
+    color: var(--celeste);
+    border-right: 3px solid var(--celeste);
+    z-index: 10;
 }
 .footer-logo-img img{
     width: 100px;
@@ -151,6 +162,12 @@ footer a{
     color: black;
     padding: 2px;
 }
+.redes-sociales i:hover{
+    color: var(--celeste);
+    transform: scale(1.2);
+    z-index: 10;
+}
+
 .main-footer-top-bar{
     width: 100%;
     display: flex;
@@ -163,10 +180,16 @@ footer a{
     .busqueda{
         display: block;
         position: relative;
+        
     }
     .busqueda input{
         width: 200px;
         height: 25px;
+        border: none;
+        border-radius: 4px;
+    }
+    .busqueda input:focus {
+        box-shadow: 5px 5px 15px gray;
     }
     .busqueda button{
         background-color: white;
@@ -179,11 +202,17 @@ footer a{
         border-left: 0.5px solid lightgray;
 
     }
-    .glass{
+    .burger-menu {
+        display: none;
+    }
+    div.glass{
         display: none;
     }
 }
 @media (min-width: 769px){
+    .main-header{
+        flex-direction: column;
+    }
     div.dropdown{
         display: none;
     }
@@ -204,7 +233,10 @@ footer a{
         border-radius: 4px;
         border-top: 3px solid var(--celeste);
         box-shadow: 1px 1px 5px var(--marron);
-    
+    }
+    .main-header-nav-bar li:hover{
+        transform: scale(1.2);
+        z-index: 10;
     }
     .left-nav-bar{
         flex-grow: 0.4;
@@ -215,6 +247,22 @@ footer a{
         flex-grow: 0.3;
         display: flex;
         justify-content: space-around;
+    }
+    div.categorias{
+    display: inline-block;
+    position: relative;
+    }
+    .categorias-content{
+    display: none;
+    position: absolute;
+    background-color: var(--naranja);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    }
+    .categorias:hover .categorias-content{
+        display: flex;
+        flex-direction: column;
     }
     .busqueda input{
         width: 300px;
