@@ -84,6 +84,7 @@ div.dropdown{
 .dropdown-content{
     display: none;
     position: absolute;
+    right: 0px;
     background-color: var(--naranja);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -124,6 +125,14 @@ div.glass{
 .glass-content{
     display: none;
     position: absolute;
+    right: -50px;
+    top: 20px;
+}
+.glass-content input{
+    width: 200px;
+    height: 25px;
+    border: none;
+    border-radius: 4px;
 }
 .glass:hover .glass-content{
     display: block;
@@ -132,7 +141,7 @@ div.glass{
 
 /* FOOTER */
 footer{
-    background: linear-gradient(0deg, rgba(194,150,105,1) 98%, rgba(255,255,255,1) 93%, rgba(0,212,255,1) 100%);
+    background-color: var(--marron);
     padding: 1rem;
 }
 footer li{
@@ -176,7 +185,7 @@ footer li a:hover{
     margin-bottom: 10px;
 }
 
-@media (min-width: 479px){
+@media (min-width: 579px){
     .busqueda{
         display: block;
         position: relative;
