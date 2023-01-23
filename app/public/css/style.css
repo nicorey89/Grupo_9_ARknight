@@ -141,8 +141,7 @@ div.glass{
 
 /* FOOTER */
 footer{
-    background-color: var(--marron);
-    padding: 1rem;
+    background: linear-gradient(180deg, #C29669 98%, rgba(255,255,255,1) 99%, rgba(0,212,255,1) 100%);
 }
 footer li{
     list-style: none;
@@ -176,13 +175,20 @@ footer li a:hover{
     transform: scale(1.2);
     z-index: 10;
 }
-
+div.footer-container{
+    padding: 1rem;
+}
 .main-footer-top-bar{
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items:center;
     margin-bottom: 10px;
+}
+footer .copy{
+    background:linear-gradient(250deg,  #CAF4FF 20%, #C29669 80%);
+    display: flex;
+    justify-content: center;
 }
 
 @media (min-width: 579px){
