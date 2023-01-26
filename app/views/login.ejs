@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- TITLE -->
-    <title>AR Knigth - Login</title>
+    <title>ArKnight - Login</title>
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,22 +74,30 @@
         </ul>
     </nav>
   </header>
-    <main>
+    <main class="login">
         <div class="login-container">
             <form action="/" method="post" class="container">
-              <h1>Usuario</h1>
-                <label for="email"><b>Email</b></label>
-                <input class="input-style"type="email" placeholder="Ingrese su Email" name="email">
-                <label for="password"><b>Contraseña</b></label>
-                <input class= "input-style"type="password" placeholder="Ingrese su contraseña" name="password">
-              <div class="check">
-                  <input type="checkbox" name="recordar" id="recordar"> 
-                  <label for="recordar">  Recordarme </label>
-              </div>
-              <button type="submit" class="btn">Ingresar</button>
-              <span><a href="">¿Olvidaste tu contraseña?</a></span>
-              <span><a href="register.html">Aún no tengo cuenta</a></span>
+                <h1>Login</h1>
+                <hr>                    
+                <div class="input-container">
+                    <input class="input-style" type="email" name="email" placeholder="Ingrese su email">
+                    <span class="error-message">Debe ingresar su email</span>
+                </div>
+                <div class="input-container">
+                    <input class="input-style" type="password" name="password" placeholder="Ingrese su contraseña">
+                    <span class="error-message">Debe ingresar su contraseña</span>
+                </div>
+                <div class="check">
+                    <input type="checkbox" name="recordar" id="recordar"> 
+                    <label for="recordar">  Recordarme </label>
+                </div>
+                <button type="submit" class="btn">Ingresar</button>
+                <span><a href="">¿Olvidaste tu contraseña?</a></span>
+                <span><a href="/register">Aún no tengo cuenta</a></span>
             </form>
+          </div>
+          <div>
+            <img src="/images/AR-Knight2.png" alt="">
           </div>
     </main>
     <footer>

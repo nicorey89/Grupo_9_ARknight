@@ -7,6 +7,7 @@ div.banner-conteiner img{
 }
 
 main.home div.product-container{
+    height: 500px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -18,6 +19,7 @@ main.home div.product-container{
 
 .home article.product{
     width: 250px;
+    height: 420px;
     background-color: white;
     border: 1.5px solid black;
     border-radius: 5px;
@@ -31,7 +33,7 @@ main.home div.product-container{
 }
 .home article.product:hover{
     border: 3px solid var(--naranja);
-    transform: scale(1.05);
+    transform: scale(1.1);
     z-index: 10;
 }
 

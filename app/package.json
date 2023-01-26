@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/nicorey89/Grupo_9_ARknight#readme",
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.2"
   }
 }
