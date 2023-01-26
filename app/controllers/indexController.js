@@ -1,5 +1,5 @@
 const controller ={
-    index: (req, res, next)=>{
+    index: (req, res)=>{
        res.render('index');
     },
     login:(req, res)=>{
@@ -16,4 +16,4 @@ const controller ={
     }
 }
 
-module.exports = controller
+module.exports = controller;
