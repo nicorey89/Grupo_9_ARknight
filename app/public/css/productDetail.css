@@ -1,27 +1,31 @@
 
-   main {
+   .productdetail {
         display: flex;
-        flex-direction: row;
+      flex-direction: column;
+       box-sizing: border-box;
     
     }
-    .detalles {
+   .productdetail .detalles {
         border: 0.3rem solid orange ;
         border-radius: 1.5rem;
         padding: 0.3rem  ;
-        margin: 15px;
+        margin: 10px;
         background-color: white;
+
 }
 
+div .moto {
+    width:100%;
+    height:100%;
+}
    
 .moto {
     object-fit: cover;
-    width:100%;
-    height:100%;
     border-radius: 0.7rem;
-    height:200px ;
-    width: 200px ;
 }
- 
+ .botones{
+    display: flex;
+   }
 
 
 .botones button {
@@ -34,7 +38,6 @@
     width: 200px;
     height: 30px;
     margin: 15px;
-    margin-left: 80px;
 }   
 
 .botones button:hover {
@@ -46,14 +49,12 @@
 
 
 .muestreo {
-   width: 370px;
-   height: 475px;
-   background-color:grey;
-   border-radius: 1.5rem;
-   display: flex; 
+   display: flex;
    flex-direction: column;
-   justify-content: center;
- 
+   background-color:grey;
+   border-radius: 1rem;
+    
+   
 }
 
 .muestreo h1 {
@@ -74,16 +75,14 @@
     text-decoration: line-through;
 }
 
- .muestreo .btn-car{
+  .btn-car{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    border-radius: 0.7rem;
-    padding: 0.7rem;
-    width: 200px;
-    height: 30px;
-    margin: 75px;
+    justify-content: center;   
+    align-items: center; 
 }
+
+
 button.blink{
     color: rgb(206, 205, 203);
     background-color:  #1259c3;
@@ -92,6 +91,8 @@ button.blink{
     border-radius: 1rem;
     transition: all 0.5s;
     margin: 5px;
+    width: 200px;
+    height: 30px;
 }
 button.blink:hover {
     background-color: orange;
@@ -107,6 +108,8 @@ button.blink2  {
     border-radius: 1rem;
     margin:5px;
     transition: all 0.5s;
+    width: 200px;
+    height: 30px;
 
 
 }
@@ -124,14 +127,16 @@ button.blink2:hover{
 
 
 .pasarela {
-
-    width: 250px;
-    height: 900px;
-    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+     margin: 15px;
     border: 0.3rem solid orange ;
     background-color: white;
-    border-radius: 2.0rem;
+    border-radius: 1.5rem;
 }
+
+
 .rulo h1 {
    text-align: center;
    height: 70px;
@@ -145,38 +150,68 @@ button.blink2:hover{
 
 
 
-.pasarimg img {
-    object-fit: cover;
-    width:100%;
-    height:100%;
+ .pasarimg {
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 0.7rem;
-    border: 0.2rem solid black ;
-    height: 150px ;
-    width: 150px ;
-    margin: 20px;
+    gap: 2;
 }
+
+    
+
+
+.r-img , .n-img {
+   display : flex ;
+    gap: 50px;
+    margin: 10px;
+    padding: 3px;
+}
+.r-i1 , .r-i2 {
+width: 100px;
+height: 100px;
+border: 0.2rem solid black;
+border-radius: 0.7rem;
+}
+
+.n-i1, .n-i2 {
+width: 100px;
+height: 100px;
+border: 0.2rem solid black;
+border-radius: 0.7rem;
+}
+
+
   
 
 
 @media  (min-width: 769px){ 
     .moto {
-        width: 325px;
-        height: 325px;
+        width: 300px;
+        height: 300px;
+    }
+
+
+    .botones {
+        display: flex;
+        justify-content: space-around;
     }
      
     .muestreo {
-        width: 650px;
-        height: 400px;
+     height: 400px;
+     
     }
 
-    .muestreo .btn-car {
-        margin-left: 220px;
+     .btn-car {
+        margin: 100px;
     }
 
 
     .pasarela{
-        width: 750px;
-        height: 750px;
+        
+        height: 450px;
     }
 
     .rulo.pasarimg {
@@ -191,17 +226,20 @@ button.blink2:hover{
 }
 
 @media (min-width: 1200px){
- 
+    .detalles{
+        display: flex;
+    }
    .moto{
-        width: 400px ;
-        height: 400px;
+        width: 300px ;
+        height: 300px;
+        border: 5px solid black;
    }
     
 
     .muestreo {
-        width: 600px;
-        height: 470px;
-        margin: 50px;
+        
+      width: 800px;
+      margin: 25px;
     }
 
 
@@ -218,14 +256,28 @@ button.blink2:hover{
     }
 
     .pasarela {
-        width: 600px;
-        height: 130vh;
+         display: flex;
+         flex-direction: row;
+        height:300px;
+    }
+    .pasarela h1 {
+        height: 270px;
+        margin: 5px;
+        font-size: 50px;
     }
 
+    .pasarimg {
+      display: flex; 
+      flex-direction: row; 
+      gap: 20px;
+    }
+
+
+
     .pasarimg img {
-        width: 350px ;
-        height: 170px;
-        margin: 20px;
+        width: 200px ;
+        height: 200px;
+        
     }
 }
 
