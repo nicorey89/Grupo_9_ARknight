@@ -1,6 +1,5 @@
 main.register{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
      
@@ -10,6 +9,9 @@ hr{
     height: 4px;
     margin: 10px 0;
     background: linear-gradient(90deg, black, white);
+}
+main.register img{
+    display: none;
 }
 .register .form-container{
     margin: 20px;
