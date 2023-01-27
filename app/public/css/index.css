@@ -7,7 +7,6 @@ div.banner-conteiner img{
 }
 
 main.home div.product-container{
-    height: 500px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
