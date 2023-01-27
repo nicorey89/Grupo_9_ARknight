@@ -30,7 +30,6 @@ div .moto {
 
 .botones button {
     border: 0.1rem solid black ;
-    padding: 0.5rem 0.5rem;
     background-color:  #1259c3;
     color:rgb(234, 234, 234);
     transition:all 0.5s;
@@ -42,7 +41,7 @@ div .moto {
 
 .botones button:hover {
     background-color: orange;
-    color: rgb(233, 233, 232) ;
+    color: rgb(18, 18, 17) ;
     border: 5px solid aqua;
 }
 
@@ -96,7 +95,7 @@ button.blink{
 }
 button.blink:hover {
     background-color: orange;
-    color: burlywood ;
+    color: rgb(2, 2, 2) ;
     border: 5px solid aqua;
 }
 
@@ -120,7 +119,7 @@ button.blink2 a  {
 
 button.blink2:hover{
     background-color:orange;
-    color: white ;
+    color: rgb(0, 0, 0) ;
     border: 5px solid aqua;
 }
 
