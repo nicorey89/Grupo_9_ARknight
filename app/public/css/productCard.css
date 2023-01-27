@@ -76,18 +76,17 @@ main .cart-container .cart-container__tab-panel .item-row .item--cart {
     display: flex;
     flex-direction: row;
     background-color: white;
-    height: 160px;
     border-radius: 1%;
+    padding: 0.5rem;
 }
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart .photo-container {
-    max-width: 120px;
+    max-width: 110px;
 }
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart .photo-container .photo {
     width: 100%;
     padding: 0.4rem;
-    background-size: 100%;
 }
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a {
@@ -111,10 +110,12 @@ main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .des
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .description div .precio h2 {
     margin-top: 0.5rem;
+    font-size: 1rem;
 }
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .description button {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     border: none;
     cursor: pointer;
 }
@@ -130,15 +131,13 @@ main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .des
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .item--cart__selecter--from {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
-    margin: 0.5rem;
+    width: 100%;
 }
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .item--cart__selecter--from .boton {
     display: flex;
     border: 0.5px solid rgba(244, 165, 83, 1);
     border-radius: 9px;
-    min-width: 70px;
     height: 25px;
     justify-content: space-between;
 }
@@ -151,11 +150,11 @@ main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .ite
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .item--cart__selecter--from .boton .boton--resta ,
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .item--cart__selecter--from .boton .boton--suma {
     display: inline-block;
-    min-width: 24px;
     border: none;
     background-color: white;
     cursor: pointer;
     border-radius: 0.5rem;
+    padding: 0 0.5rem;
 } 
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .item--cart__selecter--from .boton .boton--resta:hover {
@@ -166,6 +165,13 @@ main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .ite
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .item--cart__selecter--from .boton .boton--suma:hover {
     background: linear-gradient(266deg, rgba(244,165,83,1) 63%, rgba(255,255,255,1) 100%);
 }
+
+main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .item--cart__selecter--from  .precio--final h2 {
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+}
+
+
 
 .separator {
     height: 8px;
