@@ -99,7 +99,7 @@ button.blink:hover {
     border: 5px solid aqua;
 }
 
-button.blink2  {
+button.blink2 {
     color: orange;
     background-color: #1259c3;
     padding: 0.2rem;
@@ -113,14 +113,17 @@ button.blink2  {
 
 }
 button.blink2 a  {
-    color: rgb(197, 197, 196);
+    color: rgb(255, 255, 249);
     text-decoration: none;
 }
 
+
 button.blink2:hover{
     background-color:orange;
-    color: rgb(0, 0, 0) ;
     border: 5px solid aqua;
+}
+button.blink2:hover a {
+    color: rgb(16, 16, 16) ; 
 }
 
 
@@ -210,7 +213,7 @@ border-radius: 0.7rem;
 
     .pasarela{
         
-        height: 450px;
+        height: 650px;
     }
 
     .rulo.pasarimg {
@@ -219,11 +222,11 @@ border-radius: 0.7rem;
     }
 
     .pasarimg img {
-        width: 155px;
-        height: 155px;
-    }
-}
-
+        width: 250px;
+        height: 250px;
+       
+} }
+  
 @media (min-width: 1200px){
     .detalles{
         display: flex;
@@ -237,7 +240,7 @@ border-radius: 0.7rem;
 
     .muestreo {
         
-      width: 800px;
+      width: 950px;
       margin: 25px;
     }
 
@@ -246,12 +249,14 @@ border-radius: 0.7rem;
     .muestreo h4 {
         text-decoration: underline;
         text-transform:uppercase;
+        font-size: 20px;
     }
 
     .muestreo h1 {
         text-transform: uppercase;
         text-decoration: none;
         color: whitesmoke;
+        font-size: 30px;
     }
 
     .pasarela {
@@ -263,12 +268,14 @@ border-radius: 0.7rem;
         height: 270px;
         margin: 5px;
         font-size: 50px;
+        text-decoration: underline;
+      
     }
 
     .pasarimg {
       display: flex; 
       flex-direction: row; 
-      gap: 20px;
+      gap: 15px;
     }
 
 
