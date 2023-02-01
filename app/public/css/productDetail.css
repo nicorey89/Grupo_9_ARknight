@@ -234,7 +234,7 @@ border-radius: 0.7rem;
    .moto{
         width: 300px ;
         height: 300px;
-        border: 5px solid black;
+        border: 2px solid black;
    }
     
 
@@ -263,14 +263,16 @@ border-radius: 0.7rem;
          display: flex;
          flex-direction: row;
         height:300px;
+        box-shadow: 10px black;
+       
     }
     .pasarela h1 {
-        height: 270px;
+        height: 185px;
         margin: 5px;
-        font-size: 50px;
-        text-decoration: underline;
-      
-    }
+        font-size: 40px;
+        text-transform:uppercase;
+        
+        }
 
     .pasarimg {
       display: flex; 
