@@ -3,16 +3,16 @@ const controller ={
        res.render('index');
     },
     login:(req, res)=>{
-        res.render('login')
+        res.render('users/login')
     },
     register:(req, res)=>{
-        res.render('register')
+        res.render('users/register')
     },
     pDetail:(req, res)=>{
-        res.render('productDetail')
+        res.render('products/productDetail')
     },
     pCard:(req, res)=>{
-        res.render('productCard')
+        res.render('products/productCard')
     }
 }
 
