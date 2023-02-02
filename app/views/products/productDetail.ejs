@@ -1,79 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- TITLE -->
-    <title>ArKnight - Detalle de producto</title>
-    <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Gemstones&display=swap" rel="stylesheet">
-    <!-- STILES -->
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/productDetail.css">
-    <!-- ICON WEB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="images/AR-Knight2.png"/>
-</head>
+
+    <%-include("partials/head" {title: 'ArKnight - Detalle De Producto'}) %>
+
 <body>
-    <header class="main-header">
-      <div class="main-header-top-bar">
-          <div class="logo">
-              <a href="/">
-                  <img src="/images/AR-Knight2.png" alt="logo-ferreteria">
-              </a>
-          </div>
-          <form action="/productDetail" method="get">
-              <div class="busqueda">
-                  <input type="search" placeholder="Buscar productos, marcas...">
-                  <button>
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                  </button> 
-              </div>
-          </form>
-    
-          <div class="main-header-rigth-bar">
-                  <div class="glass">
-                      <a href="/"><i class="fa-solid fa-magnifying-glass"></i></a>
-                  </div>    
-                  <div class="user">
-                      <a href="/login"><i class="fa-solid fa-user"></i></a>
-                  </div>
-                  <div class="carrito"> 
-                      <a href="/productcard"><i class="fa-solid fa-cart-shopping"></i></a>
-                  </div>
-          </div>
-      </div>
-      <div class="dropdown">
-          <button class="burger-menu">
-              <i class="fas fa-bars"></i>
-          </button>
-          <div class="dropdown-content">
-              <a href="/">Categorias</a>
-              <a href="/">Ofertas</a>
-              <a href="/">Contactenos</a>
-              <a href="/">Sucursales</a>
-              <a href="/register">Crear cuenta</a>
-              <a href="/login">Ingresar</a>
-              <a href="/">Mis compras</a>
-          </div>
-      </div>
-      <nav class="main-header-nav-bar">
-          <ul class="left-nav-bar">
-              <li><a href="/">Categorias</a></li>
-              <li><a href="/">Ofertas</a></li>
-              <li><a href="/">Contactenos</a></li>
-              <li><a href="/">Sucursales</a></li>
-          </ul>
-          <ul class="rigth-nav-bar">
-              <li><a href="/register">Crear cuenta</a></li>
-              <li><a href="/login">Ingresar</a></li>
-              <li><a href="/">Mis compras</a></li>
-          </ul>
-      </nav>
-    </header>
+
+    <%-include("partials/header")%>
+
     <main class="productdetail">
         <section class="detalles">
             <article class="arti">
@@ -128,44 +61,7 @@
             </article>
     </main>
 
-         <footer>
-             <div class="footer-container">
-                 <div class="footer-logo-img">
-                     <a href="/"><img src="/images/AR-Knight2.png" alt="logo-ferreteria"></a>
-                 </div>
-                 <nav class="main-footer-top-bar">
-                     <ul>
-                         <li><a href="/">Categorias</a></li>
-                         <li><a href="/">Ofertas</a></li>
-                         <li><a href="/">Contactenos</a></li>
-                         <li><a href="/">Sucursales</a></li>
-                     </ul>
-                     <ul>
-                        <li><a href="/">Suscribirse</a></li>
-                         <li><a href="/register">Crear cuenta</a></li>
-                         <li><a href="/login">Ingresar</a></li>
-                         <li><a href="/">Mis compras</a></li>
-                     </ul>
-                     <section class="redes-sociales-container">
-                         <p class="redes">Seguinos en:</p>
-                         <div class="redes-sociales">
-                             <div class="facebook">
-                                 <a href="https://www.facebook.com/profile.php?id=100089611234902"><i class="fa-brands fa-facebook"></i></a>
-                             </div>
-                             <div class="instagram">
-                                 <a href="https://www.instagram.com/arknightferreteria/"><i class="fa-brands fa-instagram"></i></a>
-                             </div>
-                             <div class="twitter">
-                                 <a href="/"><i class="fa-brands fa-twitter"></i></a>
-                             </div>
-                         </div>
-         
-                     </section>  
-                 </nav>
-             </div>
-     
-             <span class="copy">Copyright ©️ 2022-2023 AR Knight Ferreteria S.R.L.</span>
-         </footer>
+    <%-include("partials/footer")%>
    
 </body>
 </html>
