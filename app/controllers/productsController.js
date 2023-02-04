@@ -11,9 +11,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
     create: (req, res) => {
-		res.render("products/product-create-form", {
-
-    })
+		res.render("products/product-create-form")
 	}
     //edit: (req, res) => {
 
