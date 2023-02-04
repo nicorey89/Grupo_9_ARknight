@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('partials/head"')  %> 
+    <%- include('../partials/head')  %> 
 <body>
     <!-- HEADER-->
-    <%- include("partials/header") %>
+    <%- include("../partials/header") %>
     <!-- MAIN-->
     <main>
         <div class="container products-wrapper">
@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <form action="/products/edit/" method="">
+                <form action="/products/edit/:id/?_method=PUT" method="POST">
                     <div class="row product-detail">
                         <div class="col-12 col-md-6">
                             <label for="titulo" class="form-label">Nombre del producto:</label>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-12">
                             <label for="image" class="form-label">Imagen:</label>
-                            <input type="file" id="image" name="image" value="<%= productToEdit.image%>" class="form-input">
+                            <input type="file" id="imagen" name="imagen" value="<%= productToEdit.imagen%>" class="form-input">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="buy-now-button">Editar producto</button>
@@ -54,6 +54,6 @@
 
     </main>
     <!-- FOOTER-->
-    <%-include("partials/footer")%>
+    <%-include("../partials/footer")%>
 </body>
 </html>

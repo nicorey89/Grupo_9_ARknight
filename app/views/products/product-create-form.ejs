@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('partials/head") %> 
+    <%- include("../partials/head") %> 
 <body>
-    <%- include('partials/header') %>
+    <%- include('../partials/header') %>
     <main>
         <div class="container products-wrapper">
             <div class="row">
@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <form action="/products/" method="post">
+                <form action="/products/create/" method="POST">
                     <div class="row product-detail">
                         <div class="col-12 col-md-6">
                             <label for="titulo" class="form-label">Nombre del producto:</label>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="col-12">
                             <label for="image" class="form-label">Imagen:</label>
-                            <input type="file" id="image" name="image" value="image" class="form-input">
+                            <input type="file" id="imagen" name="imagen" value="imagen" class="form-input">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="buy-now-button">Guardar producto</button>
@@ -52,7 +52,7 @@
 
     </main>
     
-    <%- include("partials/footer")%>
+    <%- include("../partials/footer")%>
 
 </body>
 </html>
