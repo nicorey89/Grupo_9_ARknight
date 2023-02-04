@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head"')  %> 
+<body>
+    <!-- HEADER-->
+    <%- include("partials/header") %>
+    <!-- MAIN-->
+    <main>
+        <div class="container products-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="products-title">Estás editando: <i><%= productToEdit.name %></i></h2>
+                </div>
+            </div>
+            <div class="col-12">
+                <form action="/products/edit/" method="">
+                    <div class="row product-detail">
+                        <div class="col-12 col-md-6">
+                            <label for="titulo" class="form-label">Nombre del producto:</label>
+                            <input type="text" id="titulo" name="titulo" placeholder="Ej: Zapatillas Reebok" value="<%= productToEdit.name %>" class="form-input">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for="price" class="form-label">Precio del producto:</label>
+                            <input type="number" id="price" name="price" value="<%= productToEdit.price%>" placeholder="Ej: 5678" class="form-input">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for="discount" class="form-label">Descuento:</label>
+                            <input type="number" id="discount" name="discount" placeholder="Ej: 15" value="<%= productToEdit.discount %>" class="form-input">
+                        </div>
+                        <div class="col-12">
+                            <label for="cuotas" class="form-label">Cuotas</label>
+                            <input type="number" id="cuotas" name="cuotas" value="<%= productToEdit.cuotas%>" placeholder="Edite cuotas" class="form-input">
+                        </div>
+                        <div class="col-12">
+                            <label for="description" class="form-label">Descripción:</label>
+                            <textarea name="description" id="description" class="form-input"><%= productToEdit.description %></textarea>
+                        </div>
+                        <div class="col-12">
+                            <label for="modelo" class="form-label">Sub-categoria</label>
+                            <input type="text" id="modelo" name="modelo" value="<%= productToEdit.modelo%>" placeholder="Edite el modelo" class="form-input">
+                        </div>
+                        <div class="col-12">
+                            <label for="image" class="form-label">Imagen:</label>
+                            <input type="file" id="image" name="image" value="<%= productToEdit.image%>" class="form-input">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="buy-now-button">Editar producto</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    
+        </div>
+
+    </main>
+    <!-- FOOTER-->
+    <%-include("partials/footer")%>
+</body>
+</html>

@@ -1,8 +1,9 @@
-const express = require ("express");
-const app = express ();
-const path = require ("path");
+const express = require("express");
+const app = express();
+const path = require("path");
 const PORT = 3000;
-const indexRouter= require ('./routes/index')
+const indexRouter= require('./routes/index')
+const productsRouter = require('./routes/product')
 
 
 app.set('views', path.join(__dirname, 'views'))
@@ -13,6 +14,7 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
 app.use("/", indexRouter);
+app.use("/products", productsRouter);
 
 
 
