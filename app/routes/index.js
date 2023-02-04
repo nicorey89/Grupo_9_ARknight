@@ -6,7 +6,6 @@ const controller = require ("../controllers/indexController");
 router.get('/', controller.index);
 router.get('/login', controller.login);
 router.get('/register', controller.register);
-router.get('/productDetail', controller.pDetail);
-router.get('/productCard', controller.pCard);
+
 
 module.exports = router;

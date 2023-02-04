@@ -22,12 +22,6 @@ const controller ={
     },
     register:(req, res)=>{
         res.render('users/register')
-    },
-    pDetail:(req, res)=>{
-        res.render('products/productDetail')
-    },
-    pCard:(req, res)=>{
-        res.render('products/productCard')
     }
 }
 
