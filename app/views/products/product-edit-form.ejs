@@ -5,55 +5,68 @@
     <!-- HEADER-->
     <%- include("../partials/header") %>
     <!-- MAIN-->
-    <main>
-        <div class="container products-wrapper">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="products-title">Estás editando: <i><%= productToEdit.name %></i></h2>
-                </div>
+    <main class="">
+        <div class="">
+            <div class="">
+                <h2 class="">Cargar producto:</h2>
             </div>
-            <div class="col-12">
-                <form action="/products/edit/:id/?_method=PUT" method="POST">
-                    <div class="row product-detail">
-                        <div class="col-12 col-md-6">
-                            <label for="titulo" class="form-label">Nombre del producto:</label>
-                            <input type="text" id="titulo" name="titulo" placeholder="Ej: Zapatillas Reebok" value="<%= productToEdit.name %>" class="form-input">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label for="price" class="form-label">Precio del producto:</label>
-                            <input type="number" id="price" name="price" value="<%= productToEdit.price%>" placeholder="Ej: 5678" class="form-input">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label for="discount" class="form-label">Descuento:</label>
-                            <input type="number" id="discount" name="discount" placeholder="Ej: 15" value="<%= productToEdit.discount %>" class="form-input">
-                        </div>
-                        <div class="col-12">
-                            <label for="cuotas" class="form-label">Cuotas</label>
-                            <input type="number" id="cuotas" name="cuotas" value="<%= productToEdit.cuotas%>" placeholder="Edite cuotas" class="form-input">
-                        </div>
-                        <div class="col-12">
-                            <label for="description" class="form-label">Descripción:</label>
-                            <textarea name="description" id="description" class="form-input"><%= productToEdit.description %></textarea>
-                        </div>
-                        <div class="col-12">
-                            <label for="modelo" class="form-label">Sub-categoria</label>
-                            <input type="text" id="modelo" name="modelo" value="<%= productToEdit.modelo%>" placeholder="Edite el modelo" class="form-input">
-                        </div>
-                        <div class="col-12">
-                            <label for="image" class="form-label">Imagen:</label>
-                            <input type="file" id="imagen" name="imagen" value="<%= productToEdit.imagen%>" class="form-input">
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="buy-now-button">Editar producto</button>
-                        </div>
+            <form action="/products/edit/:id/?_method=PUT" method="POST">
+                <div class="form">
+                    <div class="input-container">
+                        <input class="input-style" type="text" name="name" placeholder="Ingrese su Nombre y apellido">
+                        <span class="error-message">Debe ingresar su Nombre y Apellido</span>
                     </div>
-                </form>
-            </div>
-    
+                    <div class="input-container">
+                        <input class="input-style" type="email" name="email" placeholder="Ingrese su email">
+                        <span class="error-message">Debe ingresar su email</span>
+                    </div>
+                    <div class="input-container">
+                        <input class="input-style" type="password" name="password" placeholder="Ingrese su contraseña">
+                        <span class="error-message">Debe ingresar su contraseña</span>
+                    </div>
+                    <div class="input-container">
+                        <input class="input-style" type="password" name="password2" placeholder="Re-ingrese su contraseña">
+                        <span class="error-message">Debe Re-ingresar su contraseña</span>
+                    </div>
+                    
+                </div>
+            </form>
         </div>
-
     </main>
     <!-- FOOTER-->
     <%-include("../partials/footer")%>
 </body>
 </html>
+<!-- <div class="row product-detail">
+    <div class="col-12 col-md-6">
+        <label for="titulo" class="form-label">Nombre del producto:</label>
+        <input type="text" id="titulo" name="titulo" placeholder="Ej: Zapatillas Reebok" value="<%= productToEdit.name %>" class="form-input">
+    </div>
+    <div class="col-12 col-md-6">
+        <label for="price" class="form-label">Precio del producto:</label>
+        <input type="number" id="price" name="price" value="<%= productToEdit.price%>" placeholder="Ej: 5678" class="form-input">
+    </div>
+    <div class="col-12 col-md-6">
+        <label for="discount" class="form-label">Descuento:</label>
+        <input type="number" id="discount" name="discount" placeholder="Ej: 15" value="<%= productToEdit.discount %>" class="form-input">
+    </div>
+    <div class="col-12">
+        <label for="cuotas" class="form-label">Cuotas</label>
+        <input type="number" id="cuotas" name="cuotas" value="<%= productToEdit.cuotas%>" placeholder="Edite cuotas" class="form-input">
+    </div>
+    <div class="col-12">
+        <label for="description" class="form-label">Descripción:</label>
+        <textarea name="description" id="description" class="form-input"><%= productToEdit.description %></textarea>
+    </div>
+    <div class="col-12">
+        <label for="modelo" class="form-label">Sub-categoria</label>
+        <input type="text" id="modelo" name="modelo" value="<%= productToEdit.modelo%>" placeholder="Edite el modelo" class="form-input">
+    </div>
+    <div class="col-12">
+        <label for="image" class="form-label">Imagen:</label>
+        <input type="file" id="imagen" name="imagen" value="<%= productToEdit.imagen%>" class="form-input">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="buy-now-button">Editar producto</button>
+    </div>
+</div> -->
