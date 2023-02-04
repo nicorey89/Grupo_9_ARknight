@@ -10,6 +10,12 @@ const writeJson = (products) => {
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
+  index: (req, res) => {
+    res.render('products/products', {
+      products,
+      toThousand
+    })
+  },
   pDetail:(req, res)=>{
     res.render('products/productDetail')
   },
@@ -18,55 +24,52 @@ const controller = {
   },
   create: (req, res) => {
   res.render("products/product-create-form")
-  }
-  // store: (req, res) => {
-  //   // Do the magic
+  },
+  store: (req, res) => {
+      let lastId = products[products.length - 1].id
 
-  //   let lastId = products[products.length - 1].id
+      let newProduct = {
+         id:lastId + 1,
+         titulo: req.body.titulo,
+         modelo: req.body.modelo,
+         precio: req.body.precio,
+         descuento: req.body.descuento,
+         cuotas: req.body.cuotas,
+         categoria: req.body.categoria,
+         subcCategoria: req.body.subCategoria,
+         descripcion: req.body.descripcion,
+         imagen: "default-image.png"
+       }
+       products.push(newProduct);
 
-  //   newProduct = {
-  //     id:lastId + 1,
-  //     name: req.body.name,
-  //     price: req.body.price,
-  //     discount: req.body.discount,
-  //     category: req.body.category,
-  //     description: req.body.description,
-  //     image: "default-image.png"
-  //   }
-  //   products.push(newProduct);
+       writeJson(products);
+       res.redirect('/products/')
+  },
+  edit: (req, res) => {
+	   	let productId = Number(req.params.id);
 
-  //   writeJson(products);
-  //   res.redirect('/products/')
-  //   },
-  //   edit: (req, res) => {
-	// 	// Do the magic
-	// 	let productId = Number(req.params.id);
+	   	let productToEdit = products.find(product => product.id === productId);
 
-	// 	let productToEdit = products.find(product => product.id === productId);
+	   	res.render('products/product-edit-form', {
+	   		productToEdit
+	   	})
+	},
+	   update: (req, res) => {
+	   	let productId = Number(req.params.id)
 
-	// 	res.render('product-edit-form', {
-	// 		productToEdit
-	// 	})
-	// },
-	// // Update - Method to update
-	// update: (req, res) => {
-	// 	// Do the magic
-	// 	let productId = Number(req.params.id)
+	   	products.forEach(product => {
+	   		if(product.id === productId) {
+	   		product.name = req.body.name,
+	   		product.price = req.body.price,
+	   		product.discount = req.body.discount,
+	   		product.category = req.body.category,
+	   		product.description = req.body.description
+	   		}
+	 	  });
 
-	// 	products.forEach(product => {
-	// 		if(product.id === productId) {
-	// 		product.name = req.body.name,
-	// 		product.price = req.body.price,
-	// 		product.discount = req.body.discount,
-	// 		product.category = req.body.category,
-	// 		product.description = req.body.description
-	// 		}
-	// 	});
-
-	// 	writeJson(products);
-	// 	res.send('Producto editado correctamente');
-	// }
+	   	writeJson(products);
+	   	res.send('Producto editado correctamente');
+	   }
 }
-
 
 module.exports = controller;
