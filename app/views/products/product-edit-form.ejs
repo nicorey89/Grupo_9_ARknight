@@ -7,54 +7,55 @@
     <!-- MAIN-->
     <main class="registerMain">
         <div class="container">
-            <form action="/products/create/" method="POST">
+            <form action="/products/:id?_method=PUT" method="POST">
                 <div class="form">
                     <div class="">
-                        <h2 class="">Editas Producto:</i></h2>
+                        <h2 class="">Estas editando:</h2>
+                        <h2 class=""><%= productToEdit.titulo %></h2>
                     </div>
                     <hr>
                     <div class="input-container">
                         <label for="titulo" class="form-label"></label>
-                        <input type="text" id="titulo" name="titulo" placeholder="titulo" value="titulo" class="input-style">
+                        <input type="text" id="titulo" name="titulo" placeholder="titulo" value="<%= productToEdit.titulo %>" class="input-style">
+                        <span class="error-message">Debe ingresar su Nombre del producto</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="modelo" class="form-label"></label>
+                        <input type="text" id="modelo" name="modelo" placeholder="modelo" value="<%= productToEdit.modelo %>" class="input-style">
                         <span class="error-message">Debe ingresar su Nombre del producto</span>
                     </div>
                     <div class="input-container">
                         <label for="price" class="form-label"></label>
-                        <input type="number" id="precio" name="precio" value="precio" placeholder="Ej: 5678" class="input-style">
+                        <input type="number" id="precio" name="precio" value="<%= productToEdit.precio %>" placeholder="Ej: 5678" class="input-style">
                         <span class="error-message">Debe ingresar el Precio</span>
                     </div>
                     <div class="input-container">
                         <label for="discount" class="form-label"></label>
-                        <input type="number" id="descuento" name="descuento" placeholder="Ej: 15" value="descuento" class="input-style">
+                        <input type="number" id="descuento" name="descuento" placeholder="Ej: 15" value="<%= productToEdit.descuento %>" class="input-style">
                         <span class="error-message">Debe ingresar el descuento</span>
                     </div>
                     <div class="input-container">
                         <label for="cuotas" class="form-label"></label>
-                        <input type="number" id="cuotas" name="cuotas" value="cuotas" placeholder="Ej: 3 " class="input-style">
+                        <input type="number" id="cuotas" name="cuotas" value="<%= productToEdit.cuotas %>" placeholder="Ej: 3 " class="input-style">
                         <span class="error-message">Debe ingresar las cuotas</span>
                     </div>
                     <div class="input-container">
                         <label for="categoria" class="form-label"></label>
-                        <input type="text" id="categoria" name="categoria" value="categoria" placeholder="Ej: Herramientas electricas" class="input-style">
+                        <input type="text" id="categoria" name="categoria" value="<%= productToEdit.categoria %>" placeholder="Ej: Herramientas electricas" class="input-style">
                         <span class="error-message">Debe ingresar la Categoria</span>
                     </div>
                     <div class="input-container">
                         <label for="cuotas" class="form-label"></label>
-                        <input type="number" id="subCategoria" name="subCategoria" value="subCategoria" placeholder="Ej: amoladoras" class="input-style">
+                        <input type="text" id="subCategoria" name="subCategoria" value="<%= productToEdit.subCategoria %>" placeholder="Ej: amoladoras" class="input-style">
                         <span class="error-message">Debe ingresar la Sub-Categoria</span>
                     </div>
-                    <div class="input-container">
+                    <div class="input-container textarea">
                         <label for="description" class="form-label"></label>
-                        <textarea type="textarea" name="descripcion" id="descripcion" value="descripcion" class="input-style maxStile"></textarea>
-                    </div>
-                    <div class="input-container">
-                        <label for="image" class="form-label"></label>
-                        <input type="file" id="imagen" name="imagen" value="imagen" class="">
-                        <span class="error-message">Debe ingresar la</span>
+                        <textarea type="textarea" name="descripcion" id="descripcion" value="" class="input-style maxStile"><%= productToEdit.descripcion %></textarea>
                     </div>
                     <div class="button-container">
-                        <button type="submit" class="btnSubmit2">
-                            <a href="/products">Guardar Producto</a>
+                        <button type="submit" class="btn">
+                            <a href="/products">Editar producto</a>
                         </button>
                     </div>
                 </div>
