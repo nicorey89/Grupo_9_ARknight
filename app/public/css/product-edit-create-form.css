@@ -34,10 +34,11 @@
 .registerMain .container .form .input-container .input-style {
     width: 100%;
     padding: 0.5rem;
+    outline: none;
 }
 
 .registerMain .container .form .input-container input.input-style:focus{
-    box-shadow: 0 0 6px;
+    box-shadow: 0 0 5px;
 }
 
 .registerMain .container .form  .button-container .btnSubmit2 {
