@@ -35,6 +35,11 @@
     width: 100%;
     padding: 0.5rem;
 }
+
+.registerMain .container .form .input-container input.input-style:focus{
+    box-shadow: 0 0 6px;
+}
+
 .registerMain .container .form  .button-container .btnSubmit2 {
     width: 8rem;
     height: 3rem;
