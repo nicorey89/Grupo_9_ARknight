@@ -33,6 +33,7 @@
 
 .registerMain .container .form .input-container .input-style {
     width: 100%;
+    padding: 0.5rem;
 }
 .registerMain .container .form  .button-container .btnSubmit2 {
     width: 8rem;
