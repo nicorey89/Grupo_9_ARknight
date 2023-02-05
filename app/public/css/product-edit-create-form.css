@@ -1,0 +1,55 @@
+/*  STAR MAIN  */
+
+.registerMain {        
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+/* CONTAINER FORM */
+.registerMain .container .form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.registerMain .container .form .form-label {
+    display: none;
+}
+
+.registerMain .container .form .error-message {
+    display: none;
+}
+
+/* INPUT CONTAINER */
+
+.registerMain .container .form .input-container {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    height: 2rem;
+}
+
+.registerMain .container .form .input-container .input-style {
+    width: 100%;
+}
+.registerMain .container .form  .button-container .btnSubmit2 {
+    width: 8rem;
+    height: 3rem;
+    border-radius: 4px;
+    padding: 16px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color:#1259c3;
+    display: flex;
+    align-items: center;
+}
+.register .btnSubmit2:hover{
+    background-color:var(--naranja);
+    color: white;
+} 
+
+
+
+

@@ -2,8 +2,8 @@ main.register{
     display: flex;
     justify-content: center;
     align-items: center;
-     
 }
+
 hr{
     width: 100%;
     height: 4px;

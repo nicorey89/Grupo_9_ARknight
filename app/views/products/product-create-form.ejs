@@ -3,61 +3,61 @@
     <%- include("../partials/head") %> 
 <body>
     <%- include('../partials/header') %>
-    <main>
-        <div class="container products-wrapper">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="products-title">Cargar producto:</i></h2>
-                </div>
-            </div>
-            <div class="col-12">
-                <form action="/products/create/" method="POST">
-                    <div class="row product-detail">
-                        <div class="col-12 col-md-6">
-                            <label for="titulo" class="form-label">Nombre del producto:</label>
-                            <input type="text" id="titulo" name="titulo" placeholder="Ej: Zapatillas Reebok" value="titulo" class="form-input">
-                        </div>
-                        <div class="col-12">
-                            <label for="modelo" class="form-label">Sub-categoria</label>
-                            <input type="text" id="modelo" name="modelo" value="modelo" placeholder="Edite el modelo" class="form-input">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label for="price" class="form-label">Precio del producto:</label>
-                            <input type="number" id="precio" name="precio" value="precio" placeholder="Ej: 5678" class="form-input">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label for="discount" class="form-label">Descuento:</label>
-                            <input type="number" id="descuento" name="descuento" placeholder="Ej: 15" value="descuento" class="form-input">
-                        </div>
-                        <div class="col-12">
-                            <label for="cuotas" class="form-label">Cuotas</label>
-                            <input type="number" id="cuotas" name="cuotas" value="cuotas" placeholder="Ej: 3 " class="form-input">
-                        </div>
-                        <div class="col-12">
-                            <label for="cuotas" class="form-label">Categorias</label>
-                            <input type="number" id="categoria" name="categoria" value="categoria" placeholder="Ej: Herramientas electricas" class="form-input">
-                        </div>
-                        <div class="col-12">
-                            <label for="cuotas" class="form-label">sub-categorias</label>
-                            <input type="number" id="subCategoria" name="subCategoria" value="subCategoria" placeholder="Ej: amoladoras" class="form-input">
-                        </div>
-                        <div class="col-12">
-                            <label for="description" class="form-label">Descripción:</label>
-                            <textarea type="textarea" name="descripcion" id="descripcion" value="descripcion" class="form-input"></textarea>
-                        </div>
-                        <div class="col-12">
-                            <label for="image" class="form-label">Imagen:</label>
-                            <input type="file" id="imagen" name="imagen" value="imagen" class="form-input">
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="buy-now-button">Guardar producto</button>
-                        </div>
+    <main class="registerMain">
+        <div class="container">
+            <form action="/products/create/" method="POST">
+                <div class="form">
+                    <div class="">
+                        <h2 class="">Cargar producto:</i></h2>
                     </div>
-                </form>
-            </div>
-    
+                    <hr>
+                    <div class="input-container">
+                        <label for="titulo" class="form-label"></label>
+                        <input type="text" id="titulo" name="titulo" placeholder="titulo" value="titulo" class="input-style">
+                        <span class="error-message">Debe ingresar su Nombre del producto</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="price" class="form-label"></label>
+                        <input type="number" id="precio" name="precio" value="precio" placeholder="Ej: 5678" class="input-style">
+                        <span class="error-message">Debe ingresar el Precio</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="discount" class="form-label"></label>
+                        <input type="number" id="descuento" name="descuento" placeholder="Ej: 15" value="descuento" class="input-style">
+                        <span class="error-message">Debe ingresar el descuento</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="cuotas" class="form-label"></label>
+                        <input type="number" id="cuotas" name="cuotas" value="cuotas" placeholder="Ej: 3 " class="input-style">
+                        <span class="error-message">Debe ingresar las cuotas</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="categoria" class="form-label"></label>
+                        <input type="text" id="categoria" name="categoria" value="categoria" placeholder="Ej: Herramientas electricas" class="input-style">
+                        <span class="error-message">Debe ingresar la Categoria</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="cuotas" class="form-label"></label>
+                        <input type="number" id="subCategoria" name="subCategoria" value="subCategoria" placeholder="Ej: amoladoras" class="input-style">
+                        <span class="error-message">Debe ingresar la Sub-Categoria</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="description" class="form-label"></label>
+                        <textarea type="textarea" name="descripcion" id="descripcion" value="descripcion" class="input-style maxStile"></textarea>
+                    </div>
+                    <div class="input-container">
+                        <label for="image" class="form-label"></label>
+                        <input type="file" id="imagen" name="imagen" value="imagen" class="">
+                        <span class="error-message">Debe ingresar la</span>
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="btnSubmit2">
+                            <a href="/products">Guardar Producto</a>
+                        </button>
+                    </div>
+                </div>
+            </form>    
         </div>
-
     </main>
     
     <%- include("../partials/footer")%>
