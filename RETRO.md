@@ -1,9 +1,23 @@
-Seguir haciendo:  trabajo en equipo.
+SPRINT 1:
 
-Hacer mas: reuniones diarias los dias martes, jueves y sabados 23hs.
+Seguir haciendo:  Trabajo en equipo.
 
-Empezar a hacer: mejorar la comunicacion y organizacion del grupo.
+Hacer mas: Reuniones diarias los dias martes, jueves y sabados 23hs.
 
-Dejar de hacer: reuniones muy extensas.
+Empezar a hacer: Mejorar la comunicacion y organizacion del grupo.
 
-Hacer menos: dejar cosas para ultimo momento.
+Dejar de hacer: Reuniones muy extensas.
+
+Hacer menos: Dejar cosas para ultimo momento.
+
+SPRIT 2:
+
+Seguir haciendo:  Reuniones para tomar decisiones y trabajo en equipo.
+
+Hacer mas: Comunicar al grupo cualquier duda o inpedimento para completar la tarea asignada.
+
+Empezar a hacer: Comunicar al grupo en caso de no poder cumplir con las tareas asignadas por cualquier problema personal.
+
+Dejar de hacer: Dejar las tareas para ultimo momento.
+
+Hacer menos: Procastinar.
