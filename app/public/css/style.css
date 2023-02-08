@@ -13,9 +13,9 @@
 
 :root {
     /* --- COLOR --- */
-    --naranja: #F4A553;
-    --celeste: #CAF4FF;
-    --marron: #C29669;
+    --naranja: #4b9d4a;
+    --celeste: white;
+    --marron: white;
     /* --- FONT --- */
     font-family:'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
     /*-- FONT-SIZE --*/
@@ -49,7 +49,7 @@ a{
 /*HEADER*/
 
 header{
-    background: linear-gradient(180deg, rgba(244,165,83,1) 98%, rgba(255,255,255,1) 99%, rgba(0,212,255,1) 100%);
+    background-color: var(--naranja);
     display: flex;
     padding: 15px 5px;
     justify-content: center;
@@ -150,23 +150,29 @@ div.glass{
 
 /* FOOTER */
 footer{
-    background: linear-gradient(180deg, #C29669 98%, rgba(255,255,255,1) 99%, rgba(0,212,255,1) 100%);
+   border-top: 5px solid var(--naranja);
+   border-radius: 10px;
+   margin-top: 15px;
+ 
 }
 footer li{
     list-style: none;
+    margin: 7px;
 }
 footer a{
     text-decoration: none;
-    color: black;
+    color:  black;
     padding: 5px;
 }
 footer ul{
     width: 120px;
 }
 footer li a:hover{
-    color: var(--celeste);
-    border-right: 3px solid var(--celeste);
+    color: var(--naranja);
+     border-right: 3px solid var(--naranja); 
+   box-shadow: 5px 5px 10px var(--naranja);
     z-index: 10;
+    border-radius: 3px;
 }
 .footer-logo-img img{
     width: 100px;
@@ -180,7 +186,7 @@ footer li a:hover{
     padding: 2px;
 }
 .redes-sociales i:hover{
-    color: var(--celeste);
+    color: var(--naranja);
     transform: scale(1.2);
     z-index: 10;
 }
