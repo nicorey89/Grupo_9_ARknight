@@ -5,7 +5,7 @@
     <%- include('../partials/header') %>
     <main class="registerMain">
         <div class="container">
-            <form action="/products/create/" method="POST">
+            <form action="/products/" method="POST" enctype="multipart/form-data">
                 <div class="form">
                     <div class="">
                         <h2 class="">Cargar producto:</i></h2>
@@ -51,14 +51,12 @@
                         <textarea type="textarea" name="descripcion" id="descripcion" value="descripcion" class="input-style maxStile" placeholder="descripcion"></textarea>
                     </div>
                     <div class="input-container">
-                        <label for="image" class="form-label"></label>
-                        <input type="file" id="imagen" name="imagen" value="imagen" class="">
+					    <label for="file" class="form-label">Imagen:</label>
+					    <input type="file" id="file" name="imagen" class="form-input" multiple>
                         <span class="error-message">Debe ingresar la imagen</span>
-                    </div>
+				    </div>
                     <div class="button-container">
-                        <button type="submit" class="btn">
-                            <a href="/products">Guardar Producto</a>
-                        </button>
+                        <button type="submit" class="btn">Guardar Producto</button>
                     </div>
                 </div>
             </form>    

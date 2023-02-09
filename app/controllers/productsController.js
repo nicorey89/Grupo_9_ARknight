@@ -29,19 +29,18 @@ const controller = {
       let lastId = products[products.length - 1].id
 
       let newProduct = {
-         id:lastId + 1,
-         titulo: req.body.titulo,
-         modelo: req.body.modelo,
-         precio: req.body.precio,
-         descuento: req.body.descuento,
-         cuotas: req.body.cuotas,
-         categoria: req.body.categoria,
-         subcCategoria: req.body.subCategoria,
-         descripcion: req.body.descripcion,
-         imagen: "default-image.png"
+         "id":lastId + 1,
+         "titulo": req.body.titulo,
+        "modelo": req.body.modelo,
+         "precio": req.body.precio,
+         "descuento": req.body.descuento,
+         "cuotas": req.body.cuotas,
+         "categoria": req.body.categoria,
+         "subcCategoria": req.body.subCategoria,
+        "descripcion": req.body.descripcion,
+         "imagen": req.file.filename
        }
        products.push(newProduct);
-
        writeJson(products);
        res.redirect('/products/')
   },
