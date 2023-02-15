@@ -27,7 +27,16 @@ div .moto {
  .botones{
     display: flex;
     justify-content: center;
+    flex-direction: column;
    }
+
+ .Descripcion-detalle {
+    display: none;
+}
+
+.botones:hover .Descripcion-detalle {
+    display: block;
+}
 
 
 .botones button {
@@ -39,7 +48,9 @@ div .moto {
     width: 200px;
     height: 30px;
     margin: 55px;
-}   
+} 
+
+
 
 .botones button:hover {
     background-color: rgb(22, 136, 218);
@@ -157,7 +168,22 @@ button.blink2:hover a {
 width: 150px;
 
 }
+.b-carri button {
+    border: 0.1rem solid black ;
+    background-color:  #1259c3;
+    color:rgb(234, 234, 234);
+    transition:all 0.5s;
+    border-radius: 15px;
+    width: 200px;
+    height: 30px;
+   margin: 10px;
+}   
 
+.b-carri button:hover {
+    background-color: rgb(22, 136, 218);
+    color: rgb(18, 18, 17) ;
+    border: 3px solid black;
+}
 
 
 
