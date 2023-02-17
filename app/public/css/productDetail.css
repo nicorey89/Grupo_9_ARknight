@@ -15,11 +15,7 @@
 }
 
 .pasarella-img{
-    width: 30%;
-    height: 100%;
-  border: 1px solid black; 
-  margin: 20px; 
-  padding: 15px;
+display: none;
 }
 
 .img1-1 , .img2-2 {
@@ -30,14 +26,14 @@
 }
 
 .i1 , .i2 {
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 150px;
 }
 
 
 .i3 , .i4 {
-    width: 80px;
-    height: 80px; 
+    width: 150px;
+    height: 150px; 
 }
 
 
@@ -45,8 +41,8 @@
     display: flex;
 }
 .moto {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
     margin: 10px;
 }
@@ -239,10 +235,27 @@ width: 150px;
   
 
 
-@media  (min-width: 769px){ 
+@media  (min-width: 769px){
+
+
+    
+    .pasarella-img{
+        display: block;
+        width: 25%;
+        height: 100%;
+      border: 1px solid black; 
+      margin: 15px; 
+      padding: 10px;
+    }
+
+
+
+
+
+
     .moto {
-        width: 300px;
-        height: 300px;
+        width: 400px;
+        height: 400px;
     }
 
 
@@ -251,10 +264,7 @@ width: 150px;
         justify-content: space-around;
     }
      
-    .muestreo {
-     height: 400px;
-     
-    }
+   
 
      .btn-car {
         margin: 100px;
@@ -273,8 +283,27 @@ width: 150px;
 }
   
 @media (min-width: 1200px){
- 
   
+  
+
+  .moto{
+    width: 700px;
+    height: 700px;
+    margin: 30px;
+  }
+
+  .i1 , .i2 {
+    width: 250px;
+    height: 250px;
+}
+
+
+.i3 , .i4 {
+    width: 250px;
+    height: 250px; 
+}
+
+
 
 
     
