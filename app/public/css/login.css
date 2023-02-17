@@ -4,6 +4,10 @@ main.login{
   justify-content: center;
   align-items: center;
 }
+main h1.title {
+  color: #4b9d4a;;
+}
+  
 div.login-container{
   display: flex;
   justify-content: center;
@@ -52,6 +56,7 @@ hr{
   padding: 0 0.5rem;
   outline: none;
   width: 100%;
+  color: #4b9d4a;
 }
 .login input.input-style:focus{
   box-shadow: 0 0 6px;
@@ -82,7 +87,7 @@ div.check{
     justify-content: center;
 }
 .login span a:hover{
-    color: lightskyblue;
+    color: #4b9d4a;;
 }
 @media (min-width: 769px){
     .container{

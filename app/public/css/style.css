@@ -167,6 +167,9 @@ footer a{
 footer ul{
     width: 120px;
 }
+footer li a {
+    color: var(--naranja);
+}
 footer li a:hover{
     color: var(--naranja);
      border-right: 3px solid var(--naranja); 
