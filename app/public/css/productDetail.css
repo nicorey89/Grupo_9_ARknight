@@ -242,7 +242,7 @@ width: 150px;
     .pasarella-img{
         display: block;
         width: 25%;
-        height: 100%;
+        height: 95%;
       border: 1px solid black; 
       margin: 15px; 
       padding: 10px;
@@ -284,23 +284,37 @@ width: 150px;
   
 @media (min-width: 1200px){
   
-  
+  .detalles{
+    display:flex;
+
+  }
+
+ .detalles .botones{
+    top: 650px;
+   right: 1100px;
+  }
+
+
+  .btn-car{
+    display: flex;
+    flex-direction: column;
+  }
 
   .moto{
     width: 700px;
     height: 700px;
-    margin: 30px;
+    margin: 20px;
   }
 
   .i1 , .i2 {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
 }
 
 
 .i3 , .i4 {
-    width: 250px;
-    height: 250px; 
+    width: 200px;
+    height: 200px; 
 }
 
 
