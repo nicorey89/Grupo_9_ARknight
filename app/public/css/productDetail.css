@@ -9,7 +9,7 @@
         border: 2px solid #39b54a;
         border-radius: 1rem;
         padding: 3px  ;
-        margin: 20px;
+        margin: 40px;
         background-color: white;
 
 }
@@ -192,7 +192,7 @@ button.blink2:hover a {
     display: flex;
     flex-direction: column;
     height: 350px;
-     margin: 15px;
+     margin: 10px;
     border: 2px solid #39b54a ;
     background-color: white;
     border-radius: 1rem;

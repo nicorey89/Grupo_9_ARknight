@@ -22,6 +22,10 @@ const controller ={
     },
     register:(req, res)=>{
         res.render('users/register')
+    },
+
+    pAdmit:(req,res)=>{
+        res.render("users/admitProducts")
     }
 }
 
