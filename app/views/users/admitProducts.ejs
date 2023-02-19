@@ -37,9 +37,10 @@
          </p>
           </div>
           <div class="btn-car">
-            <button class="blink"> <a href=""> Editar</a></button>
-            <button class="blink2">
-                <a href="/products/productCard"> Eliminar </a></button>
+            <button class="blink"><a href='/products/edit/1'>Editar</a></button>
+						<form action="/products/delete/?_method=DELETE" method="POST" style="display: inline-flex">
+							<button type="submit" class="blink2">eliminar</button>
+						</form>
             </div>
           </article>
         <div class="botones">
@@ -104,18 +105,6 @@
            <button  type="submit"><a href="/products/productCard">Agregar al carrito</a></button>
              </div>
             </article>
-
-
-
-
-
-
-
-
-
-
-
-
            </section>
            
 
