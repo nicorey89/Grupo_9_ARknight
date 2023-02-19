@@ -8,9 +8,24 @@ const writeJson = (users) => {
 };
 
 const controller = {
+
      login:(req, res)=>{
           res.render('users/login')
       },
+      create: (req, res)=> {
+        //  res.send(req.body)
+        let lastId = users[users.length - 1].id
+
+        let newUser = {
+            "id":lastId + 1,
+            "name": req.body.name,
+            "email": req.body.email,
+            "password": req.body.password 
+        }
+        users.push(newUser)
+        writeJson(users)
+        res.redirect("/")
+       },
       register:(req, res)=>{
           res.render('users/register')
       },
@@ -30,7 +45,7 @@ const controller = {
      users.push(newUsers);
      writeJson(users);
      res.redirect('/')
-} */
+}  */
        
 	}
 

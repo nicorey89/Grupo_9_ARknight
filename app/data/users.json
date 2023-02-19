@@ -1,2 +1,9 @@
-[]
+[
+    {
+        "id":1,
+        "name": "tomas", 
+        "email": "tomas@hotmail"
+        
+    }
+]
   
