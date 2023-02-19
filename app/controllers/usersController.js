@@ -18,20 +18,7 @@ const controller = {
       pAdmit:(req,res)=>{
           res.render("users/admitProducts")
       }
-/* create: (req, res) => {
-    let lastId = users[user.length - 1].id
-
-    let newUsers = {
-       "id":lastId + 1,
-       "name": req.body.name,
-       "email": req.body.email,
-       "password": req.body.password  
-}
-     users.push(newUsers);
-     writeJson(users);
-     res.redirect('/')
-} */
-       
+  
 	}
 
 
