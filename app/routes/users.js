@@ -5,7 +5,11 @@ const controller = require('../controllers/usersController');
 
 
 router.get('/login', controller.login);
+
+
 router.get('/register', controller.register);
+router.post("/", controller.create)
+
 router.get('/admitProducts', controller.pAdmit);
 
 module.exports = router
