@@ -9,54 +9,94 @@
         border: 2px solid #39b54a;
         border-radius: 1rem;
         padding: 3px  ;
-        margin: 10px;
+        margin: 40px;
         background-color: white;
 
 }
 
-div .moto {
-    width:70%;
-    height:70%;
+.pasarella-img{
+display: none;
 }
-   
-.moto {
-    object-fit: cover;
-    border-radius: 10px;
-    margin: 20px;
-}
- .botones{
-    display: flex;
-    justify-content: center;
+
+.img1-1 , .img2-2 {
+    display:flex;
     flex-direction: column;
+  margin: 20px;
+  gap: 20px;
+}
+
+.i1 , .i2 {
+    width: 150px;
+    height: 150px;
+}
+
+
+.i3 , .i4 {
+    width: 150px;
+    height: 150px; 
+}
+
+
+.arti-menu{
+    display: flex;
+}
+.moto {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin: 10px;
+}
+
+div.moto{
+    width: 100%;
+    height: 100%;
+    margin: 10px ;
+    padding: 20px;
+}
+
+ .botones{
+    position: relative;
+  display: inline-flex;
+     margin: 70px;
    }
 
- .Descripcion-detalle {
+   
+  .Descripcion-detalle {
     display: none;
-}
+  position: absolute;
+  z-index: 1;
+  
+  }
+
+  .Descripcion-detalle p{
+    margin: 35px;
+    padding: 40px;
+    text-align: justify;
+    
+  }
+
 
 .botones:hover .Descripcion-detalle {
     display: block;
+
 }
+
 
 
 .botones button {
     border: 0.1rem solid black ;
     background-color:  #1259c3;
     color:rgb(234, 234, 234);
-    transition:all 0.5s;
     border-radius: 15px;
     width: 200px;
     height: 30px;
-    margin: 55px;
+    margin: 50px;
+    
+    
 } 
 
 
 
-.botones button:hover {
-    background-color: rgb(22, 136, 218);
-    color: rgb(18, 18, 17) ;
-    border: 3px solid black;
-}
 
 
 
@@ -152,7 +192,7 @@ button.blink2:hover a {
     display: flex;
     flex-direction: column;
     height: 350px;
-     margin: 15px;
+     margin: 10px;
     border: 2px solid #39b54a ;
     background-color: white;
     border-radius: 1rem;
@@ -187,13 +227,35 @@ width: 150px;
 
 
 
+
+
+
+
+
   
 
 
-@media  (min-width: 769px){ 
+@media  (min-width: 769px){
+
+
+    
+    .pasarella-img{
+        display: block;
+        width: 25%;
+        height: 95%;
+      border: 1px solid black; 
+      margin: 15px; 
+      padding: 10px;
+    }
+
+
+
+
+
+
     .moto {
-        width: 300px;
-        height: 300px;
+        width: 400px;
+        height: 400px;
     }
 
 
@@ -202,10 +264,7 @@ width: 150px;
         justify-content: space-around;
     }
      
-    .muestreo {
-     height: 400px;
-     
-    }
+   
 
      .btn-car {
         margin: 100px;
@@ -224,8 +283,40 @@ width: 150px;
 }
   
 @media (min-width: 1200px){
- 
- 
+  
+  .detalles{
+    display:flex;
+
+  }
+
+ .detalles .botones{
+    top: 650px;
+   right: 1100px;
+  }
+
+
+  .btn-car{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .moto{
+    width: 700px;
+    height: 700px;
+    margin: 20px;
+  }
+
+  .i1 , .i2 {
+    width: 200px;
+    height: 200px;
+}
+
+
+.i3 , .i4 {
+    width: 200px;
+    height: 200px; 
+}
+
 
 
 
