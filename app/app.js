@@ -16,7 +16,6 @@ app.use(express.static("public"));
 app.use("/", indexRouter);
 app.use("/products", productsRouter);
 
-
 app.use("/users", usersRouter);
 
 app.listen(PORT, () => console.log(`Server listen in port ${PORT}\n http://localhost:${PORT}`));
