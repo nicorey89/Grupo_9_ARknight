@@ -25,7 +25,9 @@ const controller ={
     },
 
     pAdmit:(req,res)=>{
-        res.render("users/admitProducts")
+        res.render("users/admitProducts" , {
+            products
+        })
     }
 }
 
