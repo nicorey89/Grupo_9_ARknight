@@ -9,6 +9,12 @@ const writeJson = (products) => {
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+const usersFilePath = path.join(__dirname, '../data/users.json');
+const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+const writejson = (users) => {
+	fs.writeFileSync(usersFilePath, JSON.stringify(users), 'utf-8')
+}; 
+
 
 const controller ={
     index: (req, res)=>{

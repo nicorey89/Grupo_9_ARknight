@@ -7,5 +7,8 @@ router.get('/', controller.index);
 router.get('/login', controller.login);
 router.get('/register', controller.register);
 
+const controller = require ("../controllers/registerController");
+router.get('/login', controller.login);
+router.post('/register', controller.register);
 
 module.exports = router;
