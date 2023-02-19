@@ -1,11 +1,20 @@
 const fs = require('fs');
 const path = require('path');
+const {readJSON, writeJSON} = require('../data')
+
+ 
+
+
 
 const productsFilePath = path.join(__dirname, '../data/productos.json');
+
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 const writeJson = (products) => {
 	fs.writeFileSync(productsFilePath, JSON.stringify(products), 'utf-8')
 };
+
+
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -17,7 +26,17 @@ const controller = {
     })
   },
   pDetail:(req, res)=>{
-    res.render('products/productDetail')
+    //res.render('products/productDetail')
+    const products = readJSON("products.json")
+
+    const product = products.find(product => product.id === +req.params.id) 
+
+    return res.render("products/productDetail", {
+        ...product,
+        toThousand,
+        tittle : "Product Detail "
+    })
+
   },
   pCard:(req, res)=>{
     res.render('products/productCard')
