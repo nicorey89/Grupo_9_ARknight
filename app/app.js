@@ -4,8 +4,7 @@ const path = require("path");
 const PORT = 3000;
 const indexRouter= require('./routes/index')
 const productsRouter = require('./routes/product')
-
-//const usersRouter = require('./routes/users') 
+const usersRouter = require("./routes/users")
 
 app.set('views', path.join(__dirname, 'views'))
 
@@ -18,6 +17,6 @@ app.use("/", indexRouter);
 app.use("/products", productsRouter);
 
 
-
+app.use("/users", usersRouter);
 
 app.listen(PORT, () => console.log(`Server listen in port ${PORT}\n http://localhost:${PORT}`));
