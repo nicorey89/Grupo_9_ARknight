@@ -31,6 +31,8 @@ const controller = {
 
     const product = products.find(product => product.id === +req.params.id) 
 
+    
+
     return res.render("products/productDetail", {
         ...product,
         toThousand,
