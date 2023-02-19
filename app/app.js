@@ -5,6 +5,7 @@ const PORT = 3000;
 const indexRouter= require('./routes/index')
 const productsRouter = require('./routes/product')
 
+//const usersRouter = require('./routes/users') 
 
 app.set('views', path.join(__dirname, 'views'))
 
@@ -15,6 +16,7 @@ app.use(express.static("public"));
 
 app.use("/", indexRouter);
 app.use("/products", productsRouter);
+
 
 
 

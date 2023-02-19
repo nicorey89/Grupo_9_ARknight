@@ -7,7 +7,7 @@ const writejson = (users) => {
 	fs.writeFileSync(usersFilePath, JSON.stringify(users), 'utf-8')
 };
 
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+""
 
 const controller = {
   index: (req, res) => {
