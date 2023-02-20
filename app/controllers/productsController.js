@@ -25,7 +25,7 @@ const controller = {
   },
   pDetail:(req, res)=>{
     //res.render('products/productDetail')
-    const products = readJSON("products.json")
+    const products = readJSON("productos.json")
 
     const product = products.find(product => product.id === +req.params.id) 
 
@@ -34,7 +34,7 @@ const controller = {
     return res.render("products/productDetail", {
         ...product,
         toThousand,
-        tittle : "Product Detail "
+        tittle : "Product Detail"
     })
 
   },
