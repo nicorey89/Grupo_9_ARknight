@@ -105,8 +105,8 @@ div.dropdown{
 .burger-menu{
     background-color: var(--celeste);
     color: black;
-    padding: 16px;
-    font-size: 16px;
+    padding: 10px;
+    font-size: 15px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -193,6 +193,9 @@ footer li a:hover{
     transform: scale(1.2);
     z-index: 10;
 }
+footer p.redes {
+    color: var(--naranja);
+}
 div.footer-container{
     padding: 1rem;
 }
@@ -207,6 +210,7 @@ footer .copy{
     background:linear-gradient(250deg,  #CAF4FF 20%, #C29669 80%);
     display: flex;
     justify-content: center;
+    color: var(--naranja);
 }
 
 @media (min-width: 579px){
