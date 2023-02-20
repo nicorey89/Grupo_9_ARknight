@@ -17,18 +17,22 @@
             <form action="/users/" method="POST">
                 <div class="form">
                     <div class="input-container">
-                        <input class="input-style" type="text" name="name" placeholder="Ingrese su Nombre y apellido">
+                        <label for="id"></label>
+                        <input class="input-style" type="text" id="id" name="id" placeholder="Ingrese su Nombre y apellido">
                         <span class="error-message">Debe ingresar su Nombre y Apellido</span>
                     </div>
                     <div class="input-container">
-                        <input class="input-style" type="email" name="email" placeholder="Ingrese su email">
+                        <label for="email"></label>
+                        <input class="input-style" type="email" name="email" id="email" placeholder="Ingrese su email">
                         <span class="error-message">Debe ingresar su email</span>
                     </div>
                     <div class="input-container">
-                        <input class="input-style" type="password" name="password" placeholder="Ingrese su contraseña">
+                        <label for="password"></label>
+                        <input class="input-style" type="password" id="password" name="password" placeholder="Ingrese su contraseña">
                         <span class="error-message">Debe ingresar su contraseña</span>
                     </div>
                     <div class="input-container">
+                        <label for="password2"></label>
                         <input class="input-style" type="password" name="password2" placeholder="Re-ingrese su contraseña">
                         <span class="error-message">Debe Re-ingresar su contraseña</span>
                     </div>

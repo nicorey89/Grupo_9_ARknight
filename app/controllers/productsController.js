@@ -4,8 +4,6 @@ const {readJSON, writeJSON} = require('../data')
 
  
 
-
-
 const productsFilePath = path.join(__dirname, '../data/productos.json');
 
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));

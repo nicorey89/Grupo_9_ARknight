@@ -8,7 +8,7 @@ router.get('/login', controller.login);
 
 
 router.get('/register', controller.register);
-router.post("/", controller.create)
+router.post("/", controller.crear)
 
 router.get('/admitProducts', controller.pAdmit);
 
