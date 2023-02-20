@@ -11,44 +11,28 @@ const writeJson = (users) => {
 
 const controller = {
 
-     login:(req, res)=>{
+    login:(req, res)=>{
           res.render('users/login')
-      },
-      register:(req, res)=>{
+    },
+    register:(req, res)=>{
           res.render('users/register')
-        },
-        crear: (req, res) => {
-            let newUser = {
-                id: req.body.id,
-                email: req.body.email,
-                password: req.body.password,
-                password2: req.body.password2,
-                cel: req.body.cel
+    },
+    crear: (req, res) => {
+        let lastId = users[users.length - 1].id
+        let newUser = {
+            id: lastId + 1,
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password
             }
             users.push(newUser);
             writeJson(users);
             res.redirect("/users/login");
-        },
-  
+    },
     pAdmit:(req,res)=>{
         res.render("users/admitProducts")
     }
-/* create: (req, res) => {
-    let lastId = users[user.length - 1].id
-
-    let newUsers = {
-       "id":lastId + 1,
-       "name": req.body.name,
-       "email": req.body.email,
-       "password": req.body.password  
 }
-     users.push(newUsers);
-     writeJson(users);
-     res.redirect('/')
-}  */
-       
-  
-	}
 
 
 module.exports = controller;
