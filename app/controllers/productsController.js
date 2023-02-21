@@ -96,9 +96,6 @@ const controller = {
 
 		writeJson(products)
     res.redirect('/');
-  },
-  registro : (req, res) => {
-     res.send('llegue')
   }
 }
 module.exports = controller;
