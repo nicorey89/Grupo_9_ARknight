@@ -7,7 +7,7 @@ const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 
-
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
 
     login:(req, res)=>{
@@ -29,10 +29,22 @@ const controller = {
             res.redirect("/users/login");
     },
     pAdmit:(req,res)=>{
-        
-        res.render("users/admitProducts")
-    }
+          //res.render('products/productDetail')
+     const products = readJSON("productos.json") 
+
+     //const product = products.find(product => product.id === +req.params.id) 
+ 
+     let productId = req.params.id
+     let product = products.find(product => product.id == productId)
+     
+ 
+     return res.render("users/adminProducts", {
+         product,
+         toThousand,
+         tittle : "administracion de productos"
+       
+    })}
 }
 
 
-module.exports = controller;
+module.exports = controller

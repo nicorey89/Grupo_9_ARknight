@@ -10,6 +10,8 @@ router.get('/login', controller.login);
 router.get('/register', controller.register);
 router.post("/", controller.crear)
 
-router.get('/admitProducts', controller.pAdmit);
+router.get('/adminProducts/:id', controller.pAdmit);
+
+
 
 module.exports = router

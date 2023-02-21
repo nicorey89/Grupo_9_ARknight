@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <%- include("../partials/head") %>
+    <%- include("../partials/head" , { tittle : "Product Detail"}) %>
 
 <body>
 
@@ -21,20 +21,27 @@
           </div> 
         </div> 
         <div>
-          <img  class="moto" src="/images/rotomartillo bosch.jpg" alt="agujereadora">
+          <img  class="moto" src="/images/<%-product.imagen%>" alt="agujereadora">
         </div>
         </article>
           <article class="muestreo">
           <div class="confin">
           <h1>
-          Rotomartillo bosch   
+         <%=product.titulo %>
           </h1>
-           <p>
-            precio $40000    
-           </p>
-         <p class="rallado">
-           precio anterior $60000 
-         </p>
+          <% if (product.descuento > 0 ) { %>
+            <p class="precio-final">
+              <span><%-toThousand( product.precio) %></span>
+              
+              <b><%-product.descuento %>% off</b>
+            </p>
+            <p class="rellado">
+              <%=toThousand(product.precio -(product.precio * product.descuento/ 100))%></p>
+              
+              <% } else { %>
+                <p>
+                  <%-toThousand(product.precio)%></p>
+         <% } %> 
           </div>
           <div class="btn-car">
             <button class="blink"><a href=""></a>Comprar</button>
@@ -44,10 +51,10 @@
           </article>
         <div class="botones">
            <button class="b-datalle">
-            Descripcion 
+            descripcion
            </button>
            <div class="Descripcion-detalle">
-           <p>Poderoso motor de 1250W para un amplio rango de aplicaciones de taladro y cincelado     Diseño con piston en L para mayor poder </p>   
+           <p><%=product.detalle%></p>   
            
           </div>
      </div>

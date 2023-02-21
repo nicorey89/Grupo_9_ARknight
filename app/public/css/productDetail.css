@@ -62,16 +62,17 @@ div.moto{
 
    
   .Descripcion-detalle {
-    display: none;
-  position: absolute;
+    display:none;
+   margin-right: 30px;
+    position: absolute;
   z-index: 1;
-  
+    border: 1px solid black;
+    background-color: azure;
+
   }
 
   .Descripcion-detalle p{
-    margin: 35px;
-    padding: 40px;
-    text-align: justify;
+    width: 450px;
     
   }
 
@@ -90,7 +91,7 @@ div.moto{
     border-radius: 15px;
     width: 200px;
     height: 30px;
-    margin: 50px;
+    margin-left: 70px;
     
     
 } 
@@ -224,17 +225,6 @@ width: 150px;
     color: rgb(18, 18, 17) ;
     border: 3px solid black;
 }
-
-
-
-
-
-
-
-
-  
-
-
 @media  (min-width: 769px){
 
 

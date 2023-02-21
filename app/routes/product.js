@@ -27,6 +27,6 @@ router.get('/edit/:id', productController.edit);
 router.put('/edit/:id', productController.update);
 
 /*** DETAIL ONE PRODUCT ***/ 
-//router.detele('/detele/:id', productController.destroy);
+router.delete('/delete/:id', productController.destroy);
 
 module.exports = router;
