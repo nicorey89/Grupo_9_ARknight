@@ -87,7 +87,18 @@ const controller = {
 
 	   	writeJson(products);
 	   	res.send('Producto editado correctamente');
-	   }
-}
+	   },
+	destroy : (req, res ) => {
+		
+		let productId = Number(req.params.id)
 
+		let products = products.filter(product => product.id != productId)
+
+		writeJson(products)
+    res.redirect('/');
+  },
+  registro : (req, res) => {
+     res.send('llegue')
+  }
+}
 module.exports = controller;
