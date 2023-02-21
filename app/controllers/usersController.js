@@ -30,6 +30,7 @@ const controller = {
             res.redirect("/users/login");
     },
     pAdmit:(req,res)=>{
+        
         res.render("users/admitProducts")
     }
 }
