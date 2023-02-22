@@ -129,8 +129,7 @@ div.moto{
 
   .btn-car{
     display: flex;
-    justify-content: center;
-    flex-direction: column;    
+    flex-direction: column;   
 }
 
 
@@ -281,7 +280,7 @@ width: 150px;
   }
 
  .detalles .botones{
-    top: 650px;
+    top: 400px;
    right: 1100px;
   }
 
@@ -292,20 +291,20 @@ width: 150px;
   }
 
   .moto{
-    width: 600px;
-    height: 600px;
-    margin: 20px;
+    width: 400px;
+    height: 400px;
+    margin: 15px;
   }
 
   .i1 , .i2 {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
 }
 
 
 .i3 , .i4 {
-    width: 200px;
-    height: 200px; 
+    width: 120px;
+    height: 120px; 
 }
 
 
