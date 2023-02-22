@@ -77,12 +77,11 @@ const controller = {
 	   },
 	destroy : (req, res ) => {
 		
-		let productId = Number(req.params.id)
+      let productId = Number(req.params.id)
+     let products = products.filter(product => product.id !== productId)
 
-		let products = products.filter(product => product.id != productId)
+       writeJSON(products)
+    
+      res.redirect('/');  }}
 
-		writeJSON(products)
-    res.redirect('/');
-  }
-}
-module.exports = controller;
+module.exports = controller 
