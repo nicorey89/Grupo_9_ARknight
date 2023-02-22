@@ -47,7 +47,7 @@ const controller = {
          "imagen": req.file.filename
        }
        products.push(newProduct);
-       writeJSON(products);
+       writeJSON('productos.json',products);
        res.redirect('/products/')
   },
   edit: (req, res) => {
@@ -72,7 +72,7 @@ const controller = {
 	   		}
 	 	  });
 
-	   	writeJSON(products);
+	   	writeJSON('productos.json',products);
 	   	res.send('Producto editado correctamente');
 	   },
 	destroy : (req, res ) => {
@@ -81,7 +81,7 @@ const controller = {
 
 		let products = products.filter(product => product.id != productId)
 
-		writeJSON(products)
+    writeJSON('productos.json',products);
     res.redirect('/');
   }
 }

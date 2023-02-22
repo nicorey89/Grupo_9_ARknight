@@ -1,7 +1,13 @@
 [
-    {
-        "id": 1,
-        "name": "tomas",
-        "email": "tomas@hotmail"
-    }
+   {
+      "id": 1,
+      "name": "tomas",
+      "email": "tomas@hotmail"
+   },
+   {
+      "id": 2,
+      "name": "Nicolas Ezequiel ",
+      "email": "nicolasthian8907@gmail.com",
+      "password": "123456"
+   }
 ]

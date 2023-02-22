@@ -4,7 +4,6 @@ const users = readJSON('users.json');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
-
     login:(req, res)=>{
           res.render('users/login')
     },
@@ -20,7 +19,7 @@ const controller = {
             password: req.body.password
             }
             users.push(newUser);
-            writeJSON(users);
+            writeJSON('users.json',users);
             res.redirect("/users/login");
     },
     pAdmit:(req,res)=>{
