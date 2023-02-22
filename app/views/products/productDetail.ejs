@@ -21,17 +21,17 @@
           </div> 
         </div> 
         <div>
-          <img  class="moto" src="/images/<%-product.imagen%>" alt="agujereadora">
+          <img  class="moto" src="/images/<%=product.imagen%>" alt="agujereadora">
         </div>
         </article>
           <article class="muestreo">
           <div class="confin">
           <h1>
-         <%=product.titulo %>
+         <%=product.titulo%>
           </h1>
           <% if (product.descuento > 0 ) { %>
             <p class="precio-final">
-              <span><%-toThousand( product.precio) %></span>
+              <span><%-toThousand( product.precio)%></span>
               
               <b><%-product.descuento %>% off</b>
             </p>
@@ -44,7 +44,9 @@
          <% } %> 
           </div>
           <div class="btn-car">
-            <button class="blink"><a href=""></a>Comprar</button>
+            <button class="blink"><a href='/products/edit/<%=product.id%>'>Editar</a></button>
+            <form action="/products/<%=product.id%>?_method=delete" method="POST" style="display: inline-flex">
+							<button type="submit" class="blink2">eliminar</button>
             <button class="blink2">
                 <a href="/products/productCard"> Agregar al carrito</a></button>
             </div>

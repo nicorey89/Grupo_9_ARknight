@@ -21,3 +21,19 @@ Empezar a hacer: Comunicar al grupo en caso de no poder cumplir con las tareas a
 Dejar de hacer: Dejar las tareas para ultimo momento.
 
 Hacer menos: Procastinar.
+
+
+
+
+SPRINT 3 : 
+
+
+Seguir haciendo: Reuniones para tomar decisiones y trabajo en equipo.
+
+Hacer mas:  Comunicar al grupo cualquier duda o inpedimento para completar la tarea asignada.
+
+Empezar a hacer: Adelantar tareas. 
+
+Dejar de hacer: Dejar las tareas para ultimo momento.
+
+Hacer menos: Procastinar.

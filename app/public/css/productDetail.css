@@ -8,7 +8,6 @@
    .productdetail .detalles {
         border: 2px solid #39b54a;
         border-radius: 1rem;
-        padding: 3px  ;
         margin: 40px;
         background-color: white;
 
@@ -16,12 +15,13 @@
 
 .pasarella-img{
 display: none;
+margin: 5px;
 }
 
 .img1-1 , .img2-2 {
     display:flex;
     flex-direction: column;
-  margin: 20px;
+  margin: 15px;
   gap: 20px;
 }
 
@@ -41,8 +41,8 @@ display: none;
     display: flex;
 }
 .moto {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     margin: 10px;
 }
@@ -50,8 +50,8 @@ display: none;
 div.moto{
     width: 100%;
     height: 100%;
-    margin: 10px ;
-    padding: 20px;
+    margin: 5px ;
+    padding: 10px;
 }
 
  .botones{
@@ -91,7 +91,7 @@ div.moto{
     border-radius: 15px;
     width: 200px;
     height: 30px;
-    margin-left: 70px;
+    margin-left: 50px;
     
     
 } 
@@ -129,7 +129,8 @@ div.moto{
 
   .btn-car{
     display: flex;
-    justify-content: center;    
+    justify-content: center;
+    flex-direction: column;    
 }
 
 
@@ -291,8 +292,8 @@ width: 150px;
   }
 
   .moto{
-    width: 700px;
-    height: 700px;
+    width: 600px;
+    height: 600px;
     margin: 20px;
   }
 

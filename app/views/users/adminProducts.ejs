@@ -48,7 +48,7 @@
           </div>
           <div class="btn-car">
             <button class="blink"><a href='/products/edit/<%=product.id%>'>Editar</a></button>
-						<form action="/products/delete/?_method=DELETE<%=product.id%> " method="POST" style="display: inline-flex">
+						<form action="/products/delete/<%=product.id%>?_method=delete" method="POST" style="display: inline-flex">
 							<button type="submit" class="blink2">eliminar</button>
 						</form>
             </div>
