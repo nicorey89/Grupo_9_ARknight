@@ -42,7 +42,7 @@ const controller = {
          "descuento": req.body.descuento,
          "cuotas": req.body.cuotas,
          "categoria": req.body.categoria,
-         "subcCategoria": req.body.subCategoria,
+         "subCategoria": req.body.subCategoria,
         "descripcion": req.body.descripcion,
          "imagen": req.file.filename
        }
@@ -64,16 +64,19 @@ const controller = {
 
 	   	products.forEach(product => {
 	   		if(product.id === productId) {
-	   		product.name = req.body.name,
-	   		product.price = req.body.price,
-	   		product.discount = req.body.discount,
-	   		product.category = req.body.category,
-	   		product.description = req.body.description
+	   		product.titulo = req.body.titulo,
+	   		product.modelo = req.body.modelo,
+	   		product.precio = req.body.precio,
+	   		product.descuento = req.body.descuento,
+	   		product.cuotas = req.body.cuotas,
+	   		product.categoria = req.body.categoria,
+	   		product.subCategoria = req.body.subCategoria,
+	   		product.descripcion = req.body.descripcion
 	   		}
 	 	  });
 
 	   	writeJSON('productos.json',products);
-	   	res.send('Producto editado correctamente');
+	   	res.redirect('/products/')
 	   },
 	destroy : (req, res ) => {
       

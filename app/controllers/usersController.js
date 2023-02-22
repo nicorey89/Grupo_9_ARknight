@@ -22,7 +22,7 @@ const controller = {
             writeJSON('users.json',users);
             res.redirect("/users/login");
     },
-/*     pAdmit:(req,res)=>{
+     pAdmit:(req,res)=>{
      const products = readJSON("productos.json");
  
      let productId = req.params.id;
@@ -34,7 +34,7 @@ const controller = {
          toThousand,
          tittle : "administracion de productos"
        
-    })} */
+    })} 
 }
 
 
