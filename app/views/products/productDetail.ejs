@@ -21,17 +21,17 @@
           </div> 
         </div> 
         <div>
-          <img  class="moto" src="/images/<%-product.imagen%>" alt="agujereadora">
+          <img  class="moto" src="/images/<%=product.imagen%>" alt="agujereadora">
         </div>
         </article>
           <article class="muestreo">
           <div class="confin">
           <h1>
-         <%=product.titulo %>
+         <%=product.titulo%>
           </h1>
           <% if (product.descuento > 0 ) { %>
             <p class="precio-final">
-              <span><%-toThousand( product.precio) %></span>
+              <span><%-toThousand( product.precio)%></span>
               
               <b><%-product.descuento %>% off</b>
             </p>

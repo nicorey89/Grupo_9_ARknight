@@ -76,12 +76,29 @@ const controller = {
 	   	res.send('Producto editado correctamente');
 	   },
 	destroy : (req, res ) => {
+      
+   
+		let productId = Number(req.params.id)
 		
-      let productId = Number(req.params.id)
+		  products.forEach(product =>{
+			if (product.id === productId){
+           let productToDestroy = products.indexOf(product);
+		   products.splice(productToDestroy , 1)
+
+			}
+		  })
+
+		   writeJson(products)
+	
+           res.send("producto eliminado")
+	}
+
+ 
+   /* let productId = Number(req.params.id)
      let products = products.filter(product => product.id !== productId)
 
        writeJSON(products)
     
-      res.redirect('/');  }}
+      res.redirect('/');  } */}
 
 module.exports = controller 
