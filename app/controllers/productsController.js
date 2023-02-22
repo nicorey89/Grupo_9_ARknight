@@ -1,17 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-const {readJSON,writeJSON} = require('../data')
+const { readJSON, writeJSON } = require('../data')
 
- 
 
-const productsFilePath = path.join(__dirname, '../data/productos.json');
-
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-const writejson = (products) => {
-	fs.writeFileSync(productsFilePath, JSON.stringify(products), 'utf-8')
-};
-
+const products = readJSON('productos.json');
 
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -24,10 +14,6 @@ const controller = {
     })
   },
   pDetail:(req, res)=>{
-    //res.render('products/productDetail')
-     const products = readJSON("productos.json") 
-
-    //const product = products.find(product => product.id === +req.params.id) 
 
     let productId = req.params.id
     let product = products.find(product => product.id == productId)
@@ -61,7 +47,7 @@ const controller = {
          "imagen": req.file.filename
        }
        products.push(newProduct);
-       writeJson(products);
+       writeJSON(products);
        res.redirect('/products/')
   },
   edit: (req, res) => {
@@ -86,7 +72,7 @@ const controller = {
 	   		}
 	 	  });
 
-	   	writeJson(products);
+	   	writeJSON(products);
 	   	res.send('Producto editado correctamente');
 	   },
 	destroy : (req, res ) => {
@@ -95,7 +81,7 @@ const controller = {
 
 		let products = products.filter(product => product.id != productId)
 
-		writeJson(products)
+		writeJSON(products)
     res.redirect('/');
   }
 }

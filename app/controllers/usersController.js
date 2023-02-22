@@ -1,11 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-
 const { readJSON, writeJSON } = require('../data')
 
-const usersFilePath = path.join(__dirname, '../data/users.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-
+const users = readJSON('users.json');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
@@ -25,17 +20,14 @@ const controller = {
             password: req.body.password
             }
             users.push(newUser);
-            writeJson(users);
+            writeJSON(users);
             res.redirect("/users/login");
     },
     pAdmit:(req,res)=>{
-          //res.render('products/productDetail')
-     const products = readJSON("productos.json") 
-
-     //const product = products.find(product => product.id === +req.params.id) 
+     const products = readJSON("productos.json");
  
-     let productId = req.params.id
-     let product = products.find(product => product.id == productId)
+     let productId = req.params.id;
+     let product = products.find(product => product.id == productId);
      
  
      return res.render("users/adminProducts", {

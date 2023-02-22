@@ -29,6 +29,9 @@
           <h1>
          <%=product.titulo%>
           </h1>
+          <h4>
+            <%=product.modelo%>
+          </h4>
           <% if (product.descuento > 0 ) { %>
             <p class="precio-final">
               <span><%-toThousand( product.precio) %></span>
@@ -52,10 +55,10 @@
           </article>
         <div class="botones">
            <button class="b-datalle">
-            Descripcion 
+            Descripcion
            </button>
            <div class="Descripcion-detalle">
-           <p>Poderoso motor de 1250W para un amplio rango de aplicaciones de taladro y cincelado     Diseño con piston en L para mayor poder </p>   
+           <p><%=product.detalle%></p>   
            
           </div>
      </div>
