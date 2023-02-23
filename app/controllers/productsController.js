@@ -79,7 +79,7 @@ const controller = {
 	 	  });
 
 	   	writeJSON('productos.json',products);
-	   	res.render('products/products');
+	   	res.redirect('/products/');
 	   },
 	destroy : (req, res ) => {
       
