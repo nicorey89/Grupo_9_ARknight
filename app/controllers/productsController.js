@@ -44,7 +44,9 @@ const controller = {
          "categoria": req.body.categoria,
          "subCategoria": req.body.subCategoria,
         "descripcion": req.body.descripcion,
-         "imagen": req.file.filename
+         "imagen": req.file ? req.file.filename : null
+
+
        }
        products.push(newProduct);
        writeJSON('productos.json',products);
@@ -60,10 +62,11 @@ const controller = {
 	   	})
 	},
 	   update: (req, res) => {
-	   	let productId = Number(req.params.id)
-
+	   	let productId = req.params.id
+       console.log(productId)
 	   	products.forEach(product => {
-	   		if(product.id === productId) {
+        console.log(product.id == productId)
+	   		if(product.id == productId) {
 	   		product.titulo = req.body.titulo,
 	   		product.modelo = req.body.modelo,
 	   		product.precio = req.body.precio,
