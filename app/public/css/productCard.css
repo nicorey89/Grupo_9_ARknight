@@ -75,7 +75,7 @@ main .main-container .cart-container .containerHF  .cart-container__tab-panel {
 
 main .cart-container .cart-container__tab-panel .item-row {
     width: 100%;
-    border: 2px solid var(--naranja) ;
+    border: 2px solid rgba(244, 165, 83, 1);
     border-radius: 2%;
 }
 
@@ -143,7 +143,7 @@ main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .ite
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a .item--cart__selecter--from .boton {
     display: flex;
-    border: 0.5px solid var(--naranja);
+    border: 0.5px solid rgba(244, 165, 83, 1);
     border-radius: 9px;
     height: 25px;
     justify-content: space-between;
@@ -224,7 +224,7 @@ main .cart-container .containerHF .cart-container__footer-container .cart-contai
     background-color: white;
     border-radius: 15px;
     margin-right: 0.5rem;
-    border: 2px var(--naranja) solid;
+    border: 2px rgba(244, 165, 83, 1) solid;
 }
 
 main .cart-container .containerHF .cart-container__footer-container .cart-container__footer-container--delivery .cart-container__footer-container--delivery--send .icon{
@@ -261,7 +261,7 @@ main .cart-container .containerHF .cart-container__footer-container .cart-contai
     background-color: white;
     border-radius: 15px;
     margin-left: 0.5rem;
-    border: 2px var(--naranja) solid;
+    border: 2px rgba(244, 165, 83, 1) solid;
 }
 
 main .cart-container .containerHF .cart-container__footer-container .cart-container__footer-container--delivery .cart-container__footer-container--delivery--in--story .icon{
@@ -293,7 +293,7 @@ main .cart-container .containerHF .cart-container__footer-container .cart-contai
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px var(--naranja) solid;
+    border: 1px rgba(244, 165, 83, 1) solid;
     border-radius: 0.5rem 0.5rem 0 0;
     border-bottom: none;
 }
@@ -307,8 +307,8 @@ main .cart-container .containerHF .cart-container__footer-container .cart-contai
 
 
 main .cart-container .containerHF .cart-container__footer-container .cart-container__footer-container--ticket .fondo {
-    background-color: var(--naranja);
-    border: 0.2rem solid rgb(15, 145, 33);
+    background-color: rgba(244, 165, 83, .8);
+    border: 0.2rem solid rgba(244, 165, 83, 1);
     border-radius: 5px;
     margin-bottom: 0.4rem
 }
@@ -351,7 +351,7 @@ main .cart-container .containerHF .cart-container__footer-container .cart-contai
     padding: 0.5rem;
     display: flex;
     align-items: flex-start;
-    border: 0.2px solid var(--naranja);
+    border: 0.2px solid rgba(244, 165, 83, 1);
     border-top: none;
     border-radius: 0 0 0.5rem 0.5rem;  
     width: 100%;  
@@ -376,6 +376,10 @@ main .cart-container .containerHF .cart-container__footer-container .cart-contai
     padding: 0.1rem;
 } 
 
+section.contai {
+    margin : 3rem
+}
+
 
 /* MEDIA TABLET */
 
@@ -394,6 +398,11 @@ main .main-container .cart-container .containerHF  .cart-container__tab-panel {
 main .cart-container .containerHF .cart-container__footer-container {
     flex-grow: 0.4;
 }
+
+section.contai {
+    margin : 7rem
+}
+
 
 }
 

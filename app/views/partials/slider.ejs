@@ -1,0 +1,26 @@
+<section class="special-offers">
+    <h3 class="section__title"><%= sliderTitle %></h3>
+    <!-- Product Slider -->
+
+    <div class="gallery productSlider js-flickity"
+    data-flickity-options='{ "wrapAround": true }' >
+        <% sliderProducts.forEach(product => { %>
+            <div class="carousel-cell  productSlide">
+                <a href="/products/productDetail/<%= product.id %>">
+                    <% if (product.descuento > 0) { %>
+                        <div class="productDiscount"><%- product.descuento %>% OFF</div>
+                    <% } %>
+                    <img src="/images/products/<%= product.imagen %>" alt="">
+                    <p class="productName"> 
+                        <% if (product.titulo.length > 30) { %>
+                            <%- `${product.titulo.slice(0,30)}...` %>
+                        <% } else { %>
+                            <%= product.titulo %>
+                        <% } %>
+                    </p>
+                    <h4 class="productPrice">$<%- product.precio %></h4>
+                </a>
+            </div>
+        <% }) %>
+    </div>
+</section>

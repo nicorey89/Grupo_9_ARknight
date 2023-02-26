@@ -25,9 +25,16 @@ const controller = {
         tittle : "Product Detail"
     })
 },
-  pCard:(req, res)=>{
-    res.render('products/productCard')
-  },
+pCard:(req, res)=>{
+  let products = readJSON('productos.json')
+
+  console.log(products);
+  res.render('products/productCard', {
+    sliderTitle: "PRODUCTOS EN OFERTAS",
+    sliderProducts: products
+    
+  })
+},
   create: (req, res) => {
   res.render("products/product-create-form")
   },
