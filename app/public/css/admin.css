@@ -1,0 +1,59 @@
+.admin a{
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+    width: 200px;
+}
+.admin .Administrador{
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.admin .Administrador div.buttons{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.admin .buttons button{
+    width: 100%;
+    height: 30px;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.admin .buttons button:hover{
+    background-color: grey;
+    color: black;
+    box-shadow: 5px 5px 15px black;
+}
+.admin .Administrador div.bienvenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+@media (min-width: 769px){
+    .admin .Administrador{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+@media (min-width: 1024px){
+    .admin .Administrador{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .admin .Administrador div.buttons{
+        justify-content:left;
+    }
+    .admin div.bienvenido{
+        flex-grow: 1;
+    }
+}

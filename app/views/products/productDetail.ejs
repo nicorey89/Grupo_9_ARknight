@@ -21,7 +21,7 @@
           </div> 
         </div> 
         <div>
-          <img  class="moto" src="/images/<%=product.imagen%>" alt="agujereadora">
+          <img  class="moto" src="/images/products/<%= product.imagen ? product.imagen : 'default-image.png' %>" alt="agujereadora">
         </div>
         </article>
           <article class="muestreo">

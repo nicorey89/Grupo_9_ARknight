@@ -4,6 +4,9 @@ const users = readJSON('users.json');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
+    admin:(req, res)=>{
+        res.render('users/admin')
+    },
     login:(req, res)=>{
           res.render('users/login')
     },
