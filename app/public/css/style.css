@@ -58,12 +58,20 @@ header{
     padding: 15px 5px;
     justify-content: center;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 .main-header{
     display: flex;
     padding: 1rem;
     justify-content: space-around;
 }
+
+.header-opacity {
+    opacity: 0.95;
+}
+
 .main-header-top-bar{
     width: 100%;
     display: flex;

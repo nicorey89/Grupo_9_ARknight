@@ -28,7 +28,7 @@ const controller = {
 pCard:(req, res)=>{
   let products = readJSON('productos.json')
 
-  console.log(products);
+  
   res.render('products/productCard', {
     sliderTitle: "PRODUCTOS EN OFERTAS",
     sliderProducts: products
