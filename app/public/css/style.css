@@ -259,14 +259,11 @@ footer .copy{
     }
 }
 @media (min-width: 769px){
-    .main-header{
-        flex-direction: column;
-    }
+
     div.dropdown{
         display: none;
     }
     .main-header-nav-bar{
-        width: 100%;
         display: flex;
         justify-content: space-between;
     }
@@ -277,6 +274,7 @@ footer .copy{
     }
     .main-header-nav-bar li{
         list-style: none;
+        margin: 10px;
     }
     .main-header-nav-bar a:hover{
         border-radius: 10px;
@@ -313,9 +311,6 @@ footer .copy{
         display: flex;
         flex-direction: column;
     }
-    .busqueda input{
-        width: 300px;
-    }
     .footer-container{
         display: flex;
     }
@@ -329,8 +324,5 @@ footer .copy{
 @media (min-width: 1020px){
     .main-header-top-bar .logo img{
         width: 140px;
-    }
-    .busqueda input{
-        width: 500px;
     }
 }
