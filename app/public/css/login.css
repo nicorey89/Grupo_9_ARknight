@@ -64,20 +64,21 @@ hr{
   
 .btn {
     padding: 16px 20px;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
-    width: 100%;
+    width: 60%;
     opacity: 0.9;
-    background-color:#1259c3;
+    background-color:#4b9d4a;
 }
   
 .btn:hover {
     opacity: 1;
-    background-color: var(--naranja);
+    background-color: #1259c3;
     color: white;
 }
 div.check{
     margin: 15px 0;
+    color: #4b9d4a;
 }
 .login-container span{
     margin: 10px 0

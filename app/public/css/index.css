@@ -4,7 +4,9 @@ div.banner-conteiner img{
     width: 100%;
     margin-top: 0.2rem;
 }
-
+main section h2.titulo-productos {
+    color: var(--naranja);
+}
 main.home div.product-container{
     display: flex;
     flex-wrap: wrap;
@@ -79,11 +81,11 @@ main.home div.product-container{
     border-radius: 15px;
     width: 200px;
     height: 30px;
-    background-color: #1259c3;
+    background-color: var(--naranja);
 }
 
 .home article.product button:hover{
-    background-color: var(--naranja);
+    background-color: #1259c3;
 }
 
 .home article.product button a{
