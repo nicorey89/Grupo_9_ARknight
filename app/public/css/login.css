@@ -61,21 +61,6 @@ hr{
 .login input.input-style:focus{
   box-shadow: 0 0 6px;
 }
-  
-.btn {
-    padding: 16px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 60%;
-    opacity: 0.9;
-    background-color:#4b9d4a;
-}
-  
-.btn:hover {
-    opacity: 1;
-    background-color: #1259c3;
-    color: white;
-}
 div.check{
     margin: 15px 0;
     color: #4b9d4a;

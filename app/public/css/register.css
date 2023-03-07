@@ -70,26 +70,6 @@ main.register img{
     align-items: center;
     margin-bottom: .5rem;
 }
-.register .button-container{
-    width: 120px;
-    margin: .5rem 0 1rem 0;
-}
-.register .btn-submit, .btn-reset {
-    width: 8rem;
-    height: 3rem;
-    padding: 16px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color:#4b9d4a;
-}
-.register .btn-submit:hover{
-    background-color:#1259c3;
-    color: white;
-} 
-.register .btn-reset:hover{
-    background-color: tomato;
-    color: white;
-}
 .register span{
     display: flex;
     justify-content: center;
