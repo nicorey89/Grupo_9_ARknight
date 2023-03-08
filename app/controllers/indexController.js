@@ -13,7 +13,9 @@ const controller ={
     index: (req, res)=>{
        res.render('index', {
         products,
-        toThousand
+        toThousand,
+        sliderTitle: "PRODUCTOS EN OFERTAS",
+    sliderProducts: products
         
        });
     },

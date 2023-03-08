@@ -12,29 +12,13 @@
     justify-content: center;
     align-items: center;
 }
-.admin .Administrador div.buttons{
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-}
-.admin .buttons button{
-    width: 100%;
-    height: 30px;
-    background-color: blue;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-}
-.admin .buttons button:hover{
-    background-color: grey;
-    color: black;
-    box-shadow: 5px 5px 15px black;
-}
+
 .admin .Administrador div.bienvenido{
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    color: var(--naranja);
 }
 @media (min-width: 769px){
     .admin .Administrador{

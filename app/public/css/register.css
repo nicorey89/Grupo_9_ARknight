@@ -11,7 +11,7 @@ hr{
     width: 100%;
     height: 4px;
     margin: 10px 0;
-    background: linear-gradient(90deg, black, white);
+    background: linear-gradient(90deg, #1259c3, white);
 }
 main.register img{
     display: none;
@@ -59,6 +59,7 @@ main.register img{
 
 .register label{
     font-size: 0.8rem;
+    color: #4b9d4a;
 }
 .register .submit-container{
     display: flex;
@@ -69,33 +70,12 @@ main.register img{
     align-items: center;
     margin-bottom: .5rem;
 }
-.register .button-container{
-    width: 120px;
-    margin: .5rem 0 1rem 0;
-}
-.register .btn-submit, .btn-reset {
-    width: 8rem;
-    height: 3rem;
-    border-radius: 4px;
-    padding: 16px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color:#1259c3;
-}
-.register .btn-submit:hover{
-    background-color:var(--naranja);
-    color: white;
-} 
-.register .btn-reset:hover{
-    background-color: tomato;
-    color: white;
-}
 .register span{
     display: flex;
     justify-content: center;
 }
 .register span a:hover{
-    color: #4b9d4a;
+    color: #1259c3;
 }
 @media (min-width: 479px){
     .register .form-container{

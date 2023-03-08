@@ -1,0 +1,70 @@
+.register .button-container{
+    width: 120px;
+    margin: .5rem 0 1rem 0;
+}
+.register .btn-submit, .btn-reset {
+    width: 8rem;
+    height: 3rem;
+    padding: 16px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color:var(--naranja);
+}
+.register .btn-submit:hover{
+    background-color:gray;
+    color: white;
+} 
+.register .btn-reset:hover{
+    background-color: tomato;
+    color: white;
+}
+.btn {
+    padding: 16px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 60%;
+    opacity: 0.9;
+    background-color:var(--naranja);
+}
+  
+.btn:hover {
+    opacity: 1;
+    background-color: gray;
+    color: black;
+}
+.home article.product button{
+    text-align: center;
+    border-radius: 15px;
+    width: 200px;
+    height: 30px;
+    background-color: var(--naranja);
+}
+
+.home article.product button:hover{
+    background-color:gray;
+    color: black;
+    box-shadow: 5px 5px 15px black;}
+
+.home article.product button a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+.admin .Administrador div.buttons{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.admin .buttons button{
+    width: 100%;
+    height: 30px;
+    background-color: var(--naranja);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.admin .buttons button:hover{
+    background-color:gray;
+    color: black;
+    box-shadow: 5px 5px 15px black;
+}

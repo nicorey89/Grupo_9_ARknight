@@ -61,23 +61,9 @@ hr{
 .login input.input-style:focus{
   box-shadow: 0 0 6px;
 }
-  
-.btn {
-    padding: 16px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-    background-color:#1259c3;
-}
-  
-.btn:hover {
-    opacity: 1;
-    background-color: var(--naranja);
-    color: white;
-}
 div.check{
     margin: 15px 0;
+    color: #4b9d4a;
 }
 .login-container span{
     margin: 10px 0
