@@ -29,3 +29,6 @@ li {
 a{
     text-decoration: none;
 }
+main section h3.section__title {
+    color: var(--naranja);
+}
