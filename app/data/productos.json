@@ -1,18 +1,5 @@
 [
    {
-      "id": 1,
-      "titulo": "Amoladora Angular Black & Decker",
-      "modelo": "115mm 820w G720",
-      "precio": 15999,
-      "descuento": 10,
-      "cuotas": 3,
-      "categoria": "herramientas electricas",
-      "subCategoria": "amoladoras",
-      "descripcion": "Caja de engranajes metalica     Interrutor de bloqueo para uso intensivo y sellado contra el polvo    Traba de eje manual    Incluye: Amoladora, Esmeriladora angular, Empuñadura lateral, llave, 1 disco abrasivo",
-      "detalle": "Potente motor de 820W    Velocidad de 11000 rpm     Eje de 5/8 - 11 m 14    Empuñadura lateral de 3 posiciones",
-      "imagen": "amoladora-angular.jpg"
-   },
-   {
       "id": 2,
       "titulo": "Rotomartillo Taladro Percutor Stanley",
       "modelo": "1250w sthr1232k + ACC",
@@ -64,5 +51,4 @@
       "detalle": "Mandril de 1.5/13mm(con llave)    Velocidad variable reversible de 0 a 2800 rpm    Tension: 220v~50 Hz    Velocidad sin carga: 0- 3000rpm    Golpes por minuto: 0 - 54000(bpm)     Perforacion en acero: 13mm(1/2)     Perforacion en concreto: 16mm(5/8)     Perforacion en madera: 32mm(25/32)     Peso:2.85 Kg     Rosca de 1/2 x 20 UNF para diametros de 1.5mm a 13mm",
       "imagen": "agujereadora-stanley.jpg"
    }
-   
 ]

@@ -22,7 +22,10 @@ const controller = {
     return res.render("products/productDetail", {
         product,
         toThousand,
-        tittle : "Product Detail"
+        tittle : "Product Detail",
+        sliderTitle: "PRODUCTOS EN OFERTAS",
+    sliderProducts: products
+        
     })
 },
 pCard:(req, res)=>{

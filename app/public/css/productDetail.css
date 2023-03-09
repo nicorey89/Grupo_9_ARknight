@@ -2,335 +2,126 @@
    .productdetail {
         display: flex;
       flex-direction: column;
-       box-sizing: border-box;
+      margin: 15px;
     
-    }
-   .productdetail .detalles {
-        border: 2px solid #39b54a;
-        border-radius: 1rem;
-        margin: 40px;
-        background-color: white;
-
-}
-
-.pasarella-img{
-display: none;
-margin: 5px;
-}
-
-.img1-1 , .img2-2 {
-    display:flex;
-    flex-direction: column;
-  margin: 15px;
-  gap: 20px;
-}
-
-.i1 , .i2 {
-    width: 150px;
-    height: 150px;
-}
-
-
-.i3 , .i4 {
-    width: 150px;
-    height: 150px; 
-}
-
-
-.arti-menu{
-    display: flex;
-}
-.moto {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
+     }
+    
+.productdetail .arti-menu {
+    border: 2px solid #4b9d4a;
     margin: 10px;
-}
-
-div.moto{
-    width: 100%;
-    height: 100%;
-    margin: 5px ;
-    padding: 10px;
-}
-
- .botones{
-    position: relative;
-  display: inline-flex;
-     margin: 70px;
-   }
-
+   text-align: center;
+    display: flex;
+    flex-direction: column;
    
-  .Descripcion-detalle {
+}
+
+.botones .b-datalle {
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 60%;
+    opacity: 0.9;
+    background-color:var(--naranja);
+}
+    
+.b-datalle:hover {
+    opacity: 1;
+    background-color: gray;
+    color: black;
+} 
+
+.Descripcion-detalle {
     display:none;
-   margin-right: 30px;
     position: absolute;
   z-index: 1;
     border: 1px solid black;
-    background-color: azure;
-
-  }
-
-  .Descripcion-detalle p{
-    width: 450px;
+    background-color: #4b9d4a;
+    width: 50%;
     
-  }
+   }
 
 
 .botones:hover .Descripcion-detalle {
     display: block;
-
+    
 }
 
+  .pasarella-img .moto {
+ width: 100%;
 
-
-.botones button {
-    border: 0.1rem solid black ;
-    background-color:  #1259c3;
-    color:rgb(234, 234, 234);
-    border-radius: 15px;
-    width: 200px;
-    height: 30px;
-    margin-left: 50px;
-    
-    
-} 
-
-
-
-
-
-
+}
+  
 .muestreo {
-   display: flex;
-   flex-direction: column;
-   justify-content:space-around;
+ display : flex ;
+ flex-direction: column;
+ justify-content:space-around
+
+}
+
+.muestreo .confin {
+  margin: 15px;
+  text-transform: lowercase;
+}
+.confin .rellado{
+    padding: 15px;
+    text-transform:uppercase ;
     
-   
 }
-
-.muestreo h1 {
-    text-align: center;
-    text-decoration: underline;
-   
-}
-
-.muestreo h4 {
-    text-align: center;
-    padding-bottom: 1.2rem;
-}
-.muestreo p {
-    text-align: center;
-
-}
-.muestreo p.rallado {
+.confin .precio-final .rallo {
+    padding: 10px;
     text-decoration: line-through;
 }
 
-  .btn-car{
+.muestreo .btn-car {
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;
 }
 
-
-button.blink{
-    color: rgb(206, 205, 203);
-    background-color:  #1259c3;
-    padding: 0.2rem;
-    border: 2px solid black;
-    border-radius: 1rem;
-    transition: all 0.5s;
+.blink , .blink2{
+    padding: 8px 12px;
     margin: 5px;
-    width: 200px;
-    height: 30px;
-}
-button.blink:hover {
-    background-color:  rgb(22, 136, 218);
-    color: rgb(2, 2, 2) ;
-    border: 3px solid black;
-}
-
-button.blink2 {
-   
-    background-color: #1259c3;
-    padding: 0.2rem;
-    border: 2px solid black;
-    border-radius: 1rem;
-    margin:5px;
-    transition: all 0.5s;
-    width: 200px;
-    height: 30px;
-
+    border-radius: 10px;
+    cursor: pointer;
+    width: 60%;
+    opacity: 0.9;
+    background-color:var(--naranja);
 
 }
-button.blink2 a  {
-    color: rgb(255, 255, 249);
+
+ .blink:hover {
+    opacity: 1;
+    background-color: gray;
+    color: black;
+}
+
+ .blink2:hover {
+    opacity: 1;
+    background-color: gray;
+    color: black;
+}
+
+
+
+.blink a {
+    color: black;
     text-decoration: none;
-}
-
-
-button.blink2:hover{
-    background-color:rgb(22, 136, 218);
-    border: 3px solid black;
-}
-button.blink2:hover a {
-    color: rgb(16, 16, 16) ; 
-}
-
-.rulo h1 {
-    text-align: center;
-    height: 70px;
-    border-radius: 1rem;
-  
- }
-
-
- .arti-recomendados {
-    display: flex;
- }
-
-.pasarela {
-    display: flex;
-    flex-direction: column;
-    height: 350px;
-     margin: 10px;
-    border: 2px solid #39b54a ;
-    background-color: white;
-    border-radius: 1rem;
-    align-items: center;
-    justify-content: space-between;
-}
-.r-img  {
-   display : flex ;
-    margin: 10px;
-    padding: 3px;
-}
- .r-i {
-width: 150px;
 
 }
-.b-carri button {
-    border: 0.1rem solid black ;
-    background-color:  #1259c3;
-    color:rgb(234, 234, 234);
-    transition:all 0.5s;
-    border-radius: 15px;
-    width: 200px;
-    height: 30px;
-   margin: 10px;
-}   
+.blink2 a {
+    color: black;
+    text-decoration: none;
 
-.b-carri button:hover {
-    background-color: rgb(22, 136, 218);
-    color: rgb(18, 18, 17) ;
-    border: 3px solid black;
 }
-@media  (min-width: 769px){
 
-
-    
-    .pasarella-img{
-        display: block;
-        width: 25%;
-        height: 95%;
-      border: 1px solid black; 
-      margin: 15px; 
-      padding: 10px;
-    }
-
-
-
-
-
-
-    .moto {
-        width: 400px;
-        height: 400px;
-    }
-
-
-    .botones {
-        display: flex;
-        justify-content: space-around;
+@media (min-width: 769px) {
+ 
+    .detalles{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
      
    
 
-     .btn-car {
-        margin: 100px;
-    }
-
-   .arti-recomendados{
-    display : flex ;
-    
-   }
-    
-     
-    .r-img {
-        width: 250px;
-       
-} 
 }
-  
-@media (min-width: 1200px){
-  
-  .detalles{
-    display:flex;
-
-  }
-
- .detalles .botones{
-    top: 400px;
-   right: 1000px;
-  }
-
-
-  .btn-car{
-    display: flex;
-    flex-direction: column;
-  }
-
-  .moto{
-    width: 400px;
-    height: 400px;
-    margin: 15px;
-  }
-
-  .i1 , .i2 {
-    width: 120px;
-    height: 120px;
-}
-
-
-.i3 , .i4 {
-    width: 120px;
-    height: 120px; 
-}
-
-
-
-
-    
-    .rulo h1 {
-    margin: 10px;
-    font-size: 30px;
-    text-transform:uppercase;
-    
-    }
-
-    .pasarela {
-         display: flex;
-        height: 400px;
-       
-    }
-
-
-
-    .r-img {
-        width: 250px ;
-        height: 200px;
-        
-    }
-}
-
-
