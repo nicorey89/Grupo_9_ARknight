@@ -4,7 +4,7 @@ div.banner-conteiner img{
     width: 100%;
     margin-top: 0.2rem;
 }
-main section h2.titulo-productos {
+main section h3.titulo-productos {
     color: var(--naranja);
 }
 main.home div.product-container{
@@ -13,8 +13,9 @@ main.home div.product-container{
     justify-content: center;
 }
 
-.home div.ofertas section h2, div.nuevo section h2, h2.pintura {
-    text-align: center;
+.home div.ofertas section h3, div.nuevo section h3, h3.pintura {
+    margin-left: 60px;
+    color: var(--naranja)
 }
 
 .home article.product{
