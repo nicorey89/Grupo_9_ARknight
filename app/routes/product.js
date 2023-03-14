@@ -24,7 +24,7 @@ router.post('/', uploadFile.single('imagen'), productController.store);
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id', productController.edit); 
-router.put('/edit/:id', productController.update);
+router.put('/edit/:id',uploadFile.single('imagen'), productController.update);
 
 /*** DETAIL ONE PRODUCT ***/ 
 router.delete('/:id', productController.destroy);

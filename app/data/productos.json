@@ -1,6 +1,6 @@
 [
    {
-      "id": 2,
+      "id": 1,
       "titulo": "Rotomartillo Taladro Percutor Stanley",
       "modelo": "1250w sthr1232k + ACC",
       "precio": 73998,
@@ -13,20 +13,7 @@
       "imagen": "rotomartillo-stanley.jpg"
    },
    {
-      "id": 3,
-      "titulo": "Generador Electrico Lusqtoff Extreme",
-      "modelo": "3500w Lg3500ex",
-      "precio": "225000",
-      "descuento": "20",
-      "cuotas": "3",
-      "categoria": "herramientas electricas",
-      "subCategoria": "generadores",
-      "descripcion": "No incluye bateria, solo posee una bateria de prueba de primer arranque, luego debe reponerse por una definitiva",
-      "detalle": "Arranque electrico   Regulador de voltaje    Combustible: Nafta    Autonomia media: 9 horas    Capacidad tanque de combustible: 12L     Consumo: 1.3 L/H    Peso: 44kg    Potencia maxima: 3500watts    Velocidad nominal: 3000 RPM    Potencia de motor: 7 HP    salida: 220 V     Garantia: 6 meses",
-      "imagen": "generador-lusqtoff.jpg"
-   },
-   {
-      "id": 4,
+      "id": 2,
       "titulo": "Rotomartillo De Walt",
       "modelo": "800w 2.6 J 26mm D25133k",
       "precio": 77598,
@@ -39,7 +26,7 @@
       "imagen": "rotomartillo deWalt 2.jpg"
    },
    {
-      "id": 5,
+      "id": 3,
       "titulo": "Taladro Percutor Stanley",
       "modelo": "13mm 800w Stdh8013",
       "precio": 32799,

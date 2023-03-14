@@ -72,25 +72,37 @@ pCard:(req, res)=>{
 	   	})
 	},
 	   update: (req, res) => {
-	   	let productId = req.params.id
-       console.log(productId)
+      const productId = Number(req.params.id);
+
+      let {
+        titulo, 
+        modelo, 
+        precio, 
+        descuento, 
+        cuotas, 
+        categoria,
+        subCategoria,
+        descripcion
+        } = req.body;
+
 	   	products.forEach(product => {
-        console.log(product.id == productId)
-	   		if(product.id == productId) {
-	   		product.titulo = req.body.titulo,
-	   		product.modelo = req.body.modelo,
-	   		product.precio = req.body.precio,
-	   		product.descuento = req.body.descuento,
-	   		product.cuotas = req.body.cuotas,
-	   		product.categoria = req.body.categoria,
-	   		product.subCategoria = req.body.subCategoria,
-	   		product.descripcion = req.body.descripcion
+	   		if(product.id === productId) {
+	   		product.titulo = titulo,
+	   		product.modelo = modelo,
+	   		product.precio = precio,
+	   		product.descuento = descuento,
+	   		product.cuotas = cuotas,
+	   		product.categoria = categoria,
+	   		product.subCategoria = subCategoria,
+	   		product.descripcion = descripcion,
+        product.imagen =  req.file ? req.file.filename : product.imagen
 	   		}
 	 	  });
 
 	   	writeJSON('productos.json',products);
 	   	res.redirect('/products/');
-	   },
+
+  },
 	destroy : (req, res ) => {
       
    
