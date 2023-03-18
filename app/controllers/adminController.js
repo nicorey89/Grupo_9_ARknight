@@ -12,7 +12,8 @@ module.exports = {
 
     },
      listar: (req,res)=>{
-      res.render("admin/product" , {
+        const products = readJSON("productos.json");
+      res.render("admin/products" , {
           products,
           toThousand,
           session:req.session
@@ -41,8 +42,9 @@ module.exports = {
         })
     },
     store: (req, res) => {
+        const products = readJSON("productos.json");
         let lastId = products[products.length - 1].id
-  
+    
         let newProduct = {
            "id":lastId + 1,
            "titulo": req.body.titulo,
@@ -68,8 +70,8 @@ module.exports = {
 
     edit: (req, res) => {
             let productId = req.params.id;
-
-            let productToEdit = products.find(product => product.id === productId);
+            const products = readJSON("productos.json");
+            let productToEdit = products.find(product => product.id == productId);
             console.log(productToEdit);
 
             res.render('admin/product-edit-form', {
@@ -80,7 +82,7 @@ module.exports = {
 
     update: (req, res) => {
         const productId = Number(req.params.id);
-  
+        const products = readJSON("productos.json");
         let {
           titulo, 
           modelo, 
@@ -107,12 +109,12 @@ module.exports = {
              });
   
              writeJSON('productos.json',products);
-             res.redirect('/products/');
+             res.redirect('/admin/products/');
   
     },
     destroy : (req, res ) => {
       
-   
+        const products = readJSON("productos.json");
 		let productId = Number(req.params.id)
 		
 		  products.forEach(product =>{

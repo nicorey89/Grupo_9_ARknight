@@ -34,25 +34,28 @@
                   <h3><%= cuotas %> cuotas sin interes de $<%= toThousand(precio/cuotas)%></h3>
                 <% } %>
               </div>
+              <form action="/admin/delete/?_method=delete" method="post">
+              <div class="button-container">
+                <button type="submit" class="btn">
+                   eliminar
+                </button>
+              </div>
+              </form>
               <button class="detail-dropdown">
                   <h4>detalles</h4>
                   <div class="detail-content">
                     <%= detalle %>
                   </div>
               </button>
-              <a href="/admin/edit/<%=id%>">
+              <a href="/admin/edit/<%= id %>">
                   <button>
                       <h4>Editar</h4>
                   </button>
               </a>
-              <form action="/admin/delete/?_method=delete" method="post"><input type="submit">Eliminar</form>
           </div>
       </section>
   </main>
-    <%- include("../partials/slider")%> 
     <%- include("../partials/footer") %>
- <!-- JavaScript -->
- <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
- <script src="/js/productslider.js"></script>
+ 
 </body>
 </html>
