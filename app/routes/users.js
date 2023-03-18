@@ -27,7 +27,7 @@ router.get('/register', sessionUserCheck,controller.register);
 /* POST - Register user data */
 router.post("/", uploadAvatar.single("avatar") ,registerValidator, controller.crear)
 
-//router.get("/logout", logout);
+router.get("/logout", controller.logout);
 
 /* profile */
 router.get("/profile", userInSessionCheck  ,controller.profile);
@@ -38,4 +38,3 @@ router.get("/profile/edit",userInSessionCheck  ,controller.editProfile);
 router.put("/profile/edit",uploadAvatar.single("avatar"), updateUserValidator  ,controller.updateProfile);
 
 module.exports = router
-/* uploadAvatar.single("avatar") */
