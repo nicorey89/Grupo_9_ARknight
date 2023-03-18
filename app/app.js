@@ -3,26 +3,37 @@ const app = express();
 const path = require("path");
 const PORT = 3000;
 const methodOverride = require('method-override');
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+const cookieCheck = require("./middleware/cookieCheck");
 
+
+/*---- TEMPLATE ENGINE CONFIG ----*/
 app.use(express.static("public"));
 app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}))
-
-
-/*---- TEMPLATE ENGINE CONFIG ----*/
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs');
+app.use(session({
+    secret: "AKnigth",
+    resave: false,
+    saveUninitialized: true
+}));
+app.use(cookieParser());
+app.use(cookieCheck);
+console.log(session);
 
 /*---- ROUTERS ----- */
 const indexRouter= require('./routes/index')
 const productsRouter = require('./routes/product')
 const usersRouter = require("./routes/users")
-
+const adminRouter = require("./routes/admin")
+ 
 /* --------ROUTER MIDDLEWARES------- */ 
 app.use("/", indexRouter);
 app.use("/products", productsRouter);
 app.use("/users", usersRouter);
-
+app.use("/admin", adminRouter)
 
 app.listen(PORT, () => console.log(`Server listen in port ${PORT}\n http://localhost:${PORT}`));

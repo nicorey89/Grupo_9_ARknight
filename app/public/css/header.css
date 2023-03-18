@@ -67,6 +67,8 @@ div.dropdown{
     color: black;
     padding: 10px;
     font-size: 15px;
+    width: 35px;
+    height: 35px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -109,14 +111,16 @@ div.glass{
 div.user{
     display: inline-block;
     position: relative;
-    }
-    .user-content{
+}
+.user-content{
     display: none;
     position: absolute;
     color: black;
     background-color: var(--naranja);
     min-width: 160px;
-    height: 80px;
+    height: 100%;
+    min-height: 80px;
+    max-height: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1000;
 }
@@ -138,7 +142,16 @@ div.user{
     border-top: 3px solid #1259c3;
     box-shadow: 1px 1px 5px var(--marron);
 }
-
+.session {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #00d900;
+    border-radius: 50px;
+    position: relative;
+    top: -10px;
+    right: 0px;
+}
 @media (min-width: 579px){
     .busqueda{
         display: block;
@@ -172,7 +185,7 @@ div.user{
         display: none;
     }
 }
-@media (min-width: 769px){
+@media (min-width: 817px){
 
     div.dropdown{
         display: none;

@@ -57,10 +57,10 @@ footer{
      margin-bottom: 10px;
  }
  footer .copy{
-     background:linear-gradient(250deg,  #CAF4FF 20%, #C29669 80%);
+     background:linear-gradient(250deg,  var(--celeste) 20%, var(--naranja) 80%);
      display: flex;
      justify-content: center;
-     color: var(--naranja);
+     color: black;
  }
 
 @media (min-width: 769px){

@@ -1,17 +1,41 @@
 const express = require('express');
 const router = express.Router();
+
+// CONTROLLERS
 const controller = require('../controllers/usersController');
 
-router.get('/admin', controller.admin)
+const uploadAvatar = require("../middleware/uploadAvatar");
 
-router.get('/login', controller.login);
+const loginValidator = require("../validations/loginValidation");
+
+const registerValidator = require("../validations/registerValidation");
+
+const userInSessionCheck = require("../middleware/userInSessionCheck");
+
+const updateUserValidator = require("../validations/updateUserValidator");
+
+const sessionUserCheck = require("../middleware/sessionUserCheck");
 
 
-router.get('/register', controller.register);
-router.post("/", controller.crear)
+/* GET - Login Form */
+router.get('/login', sessionUserCheck, controller.login);
+/* POST - PROCESS LOGIN*/
+router.post("/login", loginValidator ,controller.processLogin);
 
-/* router.get('/adminProducts/:id', controller.pAdmit); */
+/* GET - Register form */
+router.get('/register', sessionUserCheck,controller.register);
+/* POST - Register user data */
+router.post("/", uploadAvatar.single("avatar") ,registerValidator, controller.crear)
 
+//router.get("/logout", logout);
 
+/* profile */
+router.get("/profile", userInSessionCheck  ,controller.profile);
+
+/*  User edit form */
+router.get("/profile/edit",userInSessionCheck  ,controller.editProfile);
+/*  Profile update */
+router.put("/profile/edit",uploadAvatar.single("avatar"), updateUserValidator  ,controller.updateProfile);
 
 module.exports = router
+/* uploadAvatar.single("avatar") */

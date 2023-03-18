@@ -10,4 +10,6 @@ module.exports = {
     writeJSON : (json, array) => {
         fs.writeFileSync(path.resolve(__dirname,json), JSON.stringify(array, null,3), 'utf-8')
     },
+
+    users: JSON.parse(fs.readFileSync(path.join(__dirname, "/users.json"), "utf-8")),
 }

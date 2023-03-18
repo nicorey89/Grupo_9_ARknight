@@ -1,0 +1,74 @@
+.profileEdit{
+    padding: 2rem 2rem;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.uTitle{
+  text-align: center;
+  font-size: 30px;
+}
+
+.userForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .25);
+  padding: 2.5rem 0.7rem;
+ 
+}
+
+.formEdit{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.formEdit input {
+  border: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
+  width: 100%;
+  height: 2rem;
+  color: var(--naranja);
+  padding: 0 1rem;
+  border-radius: .5rem;
+  outline: none;
+}
+
+.formEdit input::placeholder{
+  color: var(--naranja);
+}
+
+.avatarFile{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 250px;
+  position: relative;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
+  color: var(--naranja);
+  padding: 0.2rem 1rem;
+  margin: .5rem;
+  width: 100%;
+  height: 3rem;
+  text-align: center;
+}
+.avatarFile input{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+@media(min-width: 769px){
+  .formEdit input {
+    height: 3.5rem;
+  }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("../partials/head") %>    
+<body>
+<%- include("../partials/header") %>
+<main class="userProfile_conteiner">
+<div class="avatarUser">
+    <img src="/images/avatar/<%= user.avatar %>" alt="">
+</div>
+<section class="userProfile_box">
+<div class="userbox">
+<h2 class="user_title">Tus datos </h2>
+<p class="user_item">Nombre:<%= user.name %></p>
+<p class="user_item">Email:<%= user.email %></p>
+<p class="user_item">Telefono: <%= user.tel ? user.tel: "___" %> </p>
+</div>
+<div class="userbox">
+<h2 class="user_title">Datos opcionales</h2>
+<p class="user_item">Codigo postal:  <%= user.postal_code ? user.postal_code: "___" %> </p>
+<p class="user_item">Provincia:  <%= user.province ? user.province : "_______" %> </p>
+<p class="user_item">Localidad:  <%= user.city ? user.city: "_______"  %></p>
+</div>
+<a href="/users/profile/edit" class="userB">Editar</a>
+</section>
+</main>
+</body>
+
+<%- include("../partials/footer") %>
+</html>
+

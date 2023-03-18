@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include("../partials/head" , { tittle : "Product Detail"}) %>
+
+<body>
+
+    <%- include("../partials/header") %>
+    <main class="product-detail">
+      <section class="product-detail-conteiner">
+          <div class="image-container">
+              <div class="img">
+                  <img src="/images/products/<%= imagen ? imagen : 'default-image.png' %>" alt="">
+              </div>
+          </div>
+          <div class="detail-container">
+              <div class="title">
+                  <h1><%= titulo %></h1>
+              </div>
+              <div class="model">
+                  <h2><%= modelo %></h2>
+              </div>
+              <div class="price">
+                  <% if(descuento){%>
+                    <h4 class="precio-rayado">$<%= toThousand(precio) %></h4>
+                    <h3>$<%= toThousand(precio - (precio*descuento/100))%></h3>
+                    <h4 class="descuento"><%= descuento %>%</h4>
+                  <% }else{ %>
+                    <h3 class="precio-sin-descuento">$<%= toThousand(precio) %></h3>
+                  <% } %>
+              </div>
+              <div>
+                <% if(cuotas){%>
+                  <h3><%= cuotas %> cuotas sin interes de $<%= toThousand(precio/cuotas)%></h3>
+                <% } %>
+              </div>
+              <button class="detail-dropdown">
+                  <h4>detalles</h4>
+                  <div class="detail-content">
+                    <%= detalle %>
+                  </div>
+              </button>
+              <a href="/admin/edit/<%=id%>">
+                  <button>
+                      <h4>Editar</h4>
+                  </button>
+              </a>
+              <form action="/admin/delete/?_method=delete" method="post"><input type="submit">Eliminar</form>
+          </div>
+      </section>
+  </main>
+    <%- include("../partials/slider")%> 
+    <%- include("../partials/footer") %>
+ <!-- JavaScript -->
+ <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+ <script src="/js/productslider.js"></script>
+</body>
+</html>

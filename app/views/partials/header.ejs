@@ -50,11 +50,23 @@
                     </div>
                 </div>    
                 <div class="user">
-                    <a href="/"><i class="fa-solid fa-user"></i></a>
+                        <% if (typeof session.user != "undefined") { %>
+                            <i class="fas fa-user"></i><span class="session"></span>
+                        <% } else {%>
+                            <a href=""><i class="fa-solid fa-user"></i></a>
+                        <% } %>
                     <div class="user-content">
-                        <a href="users/register">crear usuario</a>
-                        <a href="users/login">iniciar sesion</a>
-                    </div>
+                        <% if (typeof session.user != "undefined") { %>
+                                <a href="/users/profile">Mis datos</a>
+                                <a href="/users/logout">Cerrar sesión</a>
+                            <% if (session.user.rol === "ADMIN") { %>
+                                <a href="/admin">Admin</a>
+                            <% } %>
+                        </div>
+                    <% } else {%>
+                        <a href="/users/login">iniciar sesion</a>
+                        <a href="/users/register">crear usuario</a>
+                    <% } %>
                 </div>
                 <div class="carrito"> 
                     <a href="/products/productCard"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -62,7 +74,7 @@
             </div>
         </div>
         <div class="dropdown">
-            <button class="burger-menu">
+            <button class="burger-menu btn-3">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="dropdown-content">

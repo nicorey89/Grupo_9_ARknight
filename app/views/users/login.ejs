@@ -9,21 +9,28 @@
 
     <main class="login">
         <div class="login-container">
-            <form action="/users/" method="post" class="container">
+            <form action="/users/login" method="post" class="container">
                 <h1 class="title">Ingresar</h1>
                 <hr>                    
                 <div class="input-container">
                     <input class="input-style" type="email" name="email" placeholder="Ingrese su email">
-                    <span class="error-message">Debe ingresar su email</span>
+                    <% if (locals.errors && errors.email) { %>
+                        <small class="text-danger"><%= errors.email.msg %> </small>
+                    <% } %>
                 </div>
                 <div class="input-container">
                     <input class="input-style" type="password" name="password" placeholder="Ingrese su contraseña">
-                    <span class="error-message">Debe ingresar su contraseña</span>
+                    <% if (locals.errors && errors.password) { %>
+                        <small class="text-danger"><%= errors.password.msg %> </small>
+                    <% } %>
                 </div>
                 <div class="check">
                     <input type="checkbox" name="recordar" id="recordar"> 
                     <label for="recordar">  Recordarme </label>
                 </div>
+                <% if (locals.errorMsg ) { %>
+                    <small class="text-danger"><%= errorMsg %> </small>
+            <% } %>
                 <button type="submit" class="btn">Ingresar</button>
                 <span><a href="">¿Olvidaste tu contraseña?</a></span>
                 <span><a href="/users/register">Aún no tengo cuenta</a></span>

@@ -14,12 +14,14 @@
         <div class="form-container">
             <h1 class="title">Registrate</h1>
             <hr>
-            <form action="/users/" method="POST">
+            <form action="/users/" method="POST" enctype="multipart/form-data">
                 <div class="form">
                     <div class="input-container">
                         <label for="id"></label>
                         <input class="input-style" type="text" id="name" name="name" placeholder="Ingrese su Nombre y apellido">
-                        <span class="error-message">Debe ingresar su Nombre y Apellido</span>
+                        <% if (locals.errors && errors.email) { %>
+                            <small class="text-danger"><%= errors.email.msg %> </small>
+                        <% } %>
                     </div>
                     <div class="input-container">
                         <label for="email"></label>
@@ -36,6 +38,10 @@
                         <input class="input-style" type="password" name="password2" placeholder="Re-ingrese su contraseña">
                         <span class="error-message">Debe Re-ingresar su contraseña</span>
                     </div>
+                    <div class="input-file">
+                        <p>Agregar foto</p>
+                        <input type="file" name="avatar">
+                    </div>
                     <div class="check">
                         <input type="checkbox" name="terms" id="recordar"> 
                         <label for="terms">  Acepto los <a href="">términos y condiciones</a> </label>
@@ -44,16 +50,17 @@
                     <div class="submit-container">
                         <div class="button-container">
                             <span class="error-message">Credenciales inválidas</span>
-                            <button type="reset" class="btn btn-reset">Cancelar</button>
+                            <button type="reset" class="btn-reset">Cancelar</button>
                         </div>
                         <div class="button-container">
                             <span class="error-message">Credenciales inválidas</span>
-                            <button type="submit" class="btn btn-submit">Registrarme</button>
+                            <button type="submit" class=" btn-submit">Registrarme</button>
                         </div>
                     </div>
                     <span><a href="/users/login">Ya tengo cuenta</a></span>
                      
                 </div>
+                
             </form>
         </div>
     </main>

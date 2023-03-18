@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head") %> 
+<body>
+    <%- include('../partials/header') %>
+    <main class="registerMain">
+        <div class="container">
+            <form action="/products/" method="POST" enctype="multipart/form-data">
+                <div class="form">
+                    <div class="">
+                        <h2 class="">Cargar producto:</i></h2>
+                    </div>
+                    <hr>
+                    <div class="input-container">
+                        <label for="titulo" class="form-label"></label>
+                        <input type="text" id="titulo" name="titulo" placeholder="titulo" value="" class="input-style">
+                        <span class="error-message">Debe ingresar el Nombre del producto</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="modelo" class="form-label"></label>
+                        <input type="text" id="modelo" name="modelo" placeholder="modelo" value="" class="input-style">
+                        <span class="error-message">Debe ingresar el Modelo del producto</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="precio" class="form-label"></label>
+                        <input type="number" id="precio" name="precio" value="precio" placeholder="Precio" class="input-style">
+                        <span class="error-message">Debe ingresar el Precio</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="descuento" class="form-label"></label>
+                        <input type="number" id="descuento" name="descuento" placeholder="Descuento" value="descuento" class="input-style">
+                        <span class="error-message">Debe ingresar el descuento</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="cuotas" class="form-label"></label>
+                        <input type="number" id="cuotas" name="cuotas" value="cuotas" placeholder="Cuotas" class="input-style">
+                        <span class="error-message">Debe ingresar las cuotas</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="categoria" class="form-label"></label>
+                        <input type="text" id="categoria" name="categoria" value="" placeholder="Ej: Herramientas electricas" class="input-style">
+                        <span class="error-message">Debe ingresar la Categoria</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="subCategoria" class="form-label"></label>
+                        <input type="text" id="subCategoria" name="subCategoria" value="" placeholder="Ej: amoladoras" class="input-style">
+                        <span class="error-message">Debe ingresar la Sub-Categoria</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="detalle" class="form-label"></label>
+                        <textarea type="textarea" name="detalle" id="detalle" value="detalle" class="input-style maxStile" placeholder="detalle"></textarea>
+                    </div>
+                    <div class="input-container">
+					    <label for="file" class="form-label">Imagen:</label>
+					    <input type="file" id="file" name="imagen" class="form-input">
+                        <span class="error-message">Debe ingresar la imagen</span>
+				    </div>
+                    <div class="button-container">
+                        <button type="submit" class="btn">Guardar Producto</button>
+                    </div>
+                </div>
+            </form>    
+        </div>
+    </main>
+    
+    <%- include("../partials/footer")%>
+
+</body>
+</html>
