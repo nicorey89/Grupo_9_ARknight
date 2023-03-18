@@ -12,7 +12,7 @@ module.exports = {
 
     },
      listar: (req,res)=>{
-      res.render("admin/product" , {
+      res.render("admin/products" , {
           products,
           toThousand,
           session:req.session
