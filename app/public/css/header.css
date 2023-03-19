@@ -109,7 +109,6 @@ div.glass{
     display: block;
 }
 div.user{
-    display: inline-block;
     position: relative;
 }
 .user-content{
@@ -118,9 +117,7 @@ div.user{
     color: black;
     background-color: var(--naranja);
     min-width: 160px;
-    height: 100%;
-    min-height: 80px;
-    max-height: 100px;
+    height: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1000;
 }

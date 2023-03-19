@@ -1,116 +1,16 @@
 [
    {
       "id": 1,
-      "name": "tomas",
-      "email": "tomas@hotmail"
-   },
-   {
-      "id": 2,
-      "name": "Nicolas Ezequiel ",
-      "email": "nicolasthian8907@gmail.com",
-      "password": "123456"
-   },
-   {
-      "id": 3,
-      "name": "pruebaHash",
-      "last_name": "uno",
-      "email": "hash@mail.com",
-      "pass": "$2a$12$0E5iygX0oukJZOPsynRlbuvW9zuRkHRLDNSBT1uOlTYIoH8ofy8W2",
-      "avatar": "default-image.png",
-      "rol": "USER",
-      "tel": "",
-      "address": "",
-      "postal_code": "",
-      "province": "",
-      "city": ""
-   },
-   {
-      "id": 4,
-      "name": "a",
-      "email": "faustinoyagua@gmail.com",
-      "password": "1234",
-      "avatar": "1678520386122_avatar_.jpg",
-      "rol": "USER",
-      "tel": "",
-      "address": "",
-      "postal_code": "",
-      "province": "",
-      "city": ""
-   },
-   {
-      "id": 5,
-      "email": "",
-      "password": "",
-      "avatar": "default-image.png",
-      "rol": "USER",
-      "tel": "",
-      "address": "",
-      "postal_code": "",
-      "province": "",
-      "city": ""
-   },
-   {
-      "id": 6,
-      "email": "",
-      "password": "",
-      "avatar": "default-image.png",
-      "rol": "USER",
-      "tel": "",
-      "address": "",
-      "postal_code": "",
-      "province": "",
-      "city": ""
-   },
-   {
-      "id": 7,
-      "email": "",
-      "password": "",
-      "avatar": "default-image.png",
-      "rol": "USER",
-      "tel": "",
-      "address": "",
-      "postal_code": "",
-      "province": "",
-      "city": ""
-   },
-   {
-      "id": 8,
-      "name": "Maxi",
-      "email": "lionel.gegena@gmail.com",
-      "password": "123456",
-      "avatar": "default-image.png",
-      "rol": "USER",
-      "tel": "",
-      "address": "",
-      "postal_code": "",
-      "province": "",
-      "city": ""
-   },
-   {
-      "id": 9,
-      "name": "Nicolas Ezequiel ",
-      "email": "nicolasthian8907@gmail.com",
-      "password": "112233445",
-      "avatar": "1678927883580_avatar_.jpeg",
-      "rol": "ADMIN",
-      "tel": "",
-      "address": "",
-      "postal_code": "",
-      "province": "",
-      "city": ""
-   },
-   {
-      "id": 10,
-      "name": "Barbara cohello",
+      "last_name": "cohello",
+      "name": "Barbara",
       "email": "barbara.a.cohello@gmail.com",
       "password": "$2a$12$nfrjko0X2.wfdo90y9uCj.LcsRtlHU3iVajikjAQVBFPIsPIBe7Cy",
-      "avatar": "1679101958691_avatar_.jpg",
+      "avatar": "1679182900890_avatar_.jpg",
       "rol": "ADMIN",
-      "tel": "1242356",
-      "address": "bahathst",
-      "postal_code": "12354",
-      "province": "Santa Fe",
-      "city": "Zona Sur",
-      "last_name": ""
+      "tel": "1122334455",
+      "address": "Juncal 2938",
+      "postal_code": "1824",
+      "province": "Buenos Aires",
+      "city": "Zona Sur"
    }
 ]

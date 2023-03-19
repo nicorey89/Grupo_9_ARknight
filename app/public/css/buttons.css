@@ -2,36 +2,6 @@
     width: 120px;
     margin: .5rem 0 1rem 0;
 }
-.register .btn-submit, .btn-reset {
-    width: 8rem;
-    height: 3rem;
-    padding: 16px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color:var(--naranja);
-}
-.register .btn-submit:hover{
-    background-color:gray;
-    color: white;
-} 
-.register .btn-reset:hover{
-    background-color: tomato;
-    color: white;
-}
-.btn {
-    padding: 16px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 60%;
-    opacity: 0.9;
-    background-color:var(--naranja);
-}
-  
-.btn:hover {
-    opacity: 1;
-    background-color: gray;
-    color: black;
-}
 .home article.product button{
     text-align: center;
     border-radius: 15px;

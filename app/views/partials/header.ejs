@@ -14,7 +14,6 @@
                         <a href="">Herramientas Electricas</a>
                         <a href="">Herramientas Manuales</a>
                         <a href="">Pinturas</a>
-                        <a href="">Construccion en Seco</a>
                         <a href="">Jardin</a>
                         <a href="">Decoracion</a>
                         <a href="">Plomeria</a>
@@ -29,7 +28,7 @@
                         <a href="">Sucursal Lanus</a>
                         <a href="">Sucursal CABA</a>
                         <a href="">Sucursal La Plata</a>
-                        <a href="">Sucursal Concepcion Tucuman</a>
+                        <a href="">Sucursal Tucuman</a>
                     </div>
                 </div>
             </ul>
@@ -50,10 +49,10 @@
                     </div>
                 </div>    
                 <div class="user">
-                        <% if (typeof session.user != "undefined") { %>
-                            <i class="fas fa-user"></i><span class="session"></span>
+                        <% if (typeof session.user == "undefined") { %>
+                            <i class="fa-solid fa-user"></i>
                         <% } else {%>
-                            <a href=""><i class="fa-solid fa-user"></i></a>
+                            <i class="fa-solid fa-user"></i><span class="session"></span>
                         <% } %>
                     <div class="user-content">
                         <% if (typeof session.user != "undefined") { %>
@@ -62,15 +61,17 @@
                             <% if (session.user.rol === "ADMIN") { %>
                                 <a href="/admin">Admin</a>
                             <% } %>
-                        </div>
+                    </div>
                     <% } else {%>
                         <a href="/users/login">iniciar sesion</a>
                         <a href="/users/register">crear usuario</a>
                     <% } %>
                 </div>
+                <% if (typeof session.user != "undefined") { %>
                 <div class="carrito"> 
                     <a href="/products/productCard"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
+                <% } %>
             </div>
         </div>
         <div class="dropdown">

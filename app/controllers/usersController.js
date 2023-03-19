@@ -23,6 +23,7 @@ const controller = {
         let newUser = {
             id: lastId + 1,
             name: req.body.name,
+            last_name: "",
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 12),
             avatar: req.file ? req.file.filename : "default-image.png",
