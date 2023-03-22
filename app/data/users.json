@@ -12,5 +12,19 @@
       "postal_code": "1824",
       "province": "Buenos Aires",
       "city": "Zona Sur"
+   },
+   {
+      "id": 2,
+      "name": "Franco ",
+      "last_name": "Urrutia",
+      "email": "Francosusfu@mail.com",
+      "password": "$2a$12$h2JzzLEY2Oxepo33UdzCguMLXAblzEjK9TSUFI/RHSEIB7NTPyf7i",
+      "avatar": "1679264207188_avatar_.jpg",
+      "rol": "USER",
+      "tel": "11245577545",
+      "address": "Santo 431",
+      "postal_code": "3241",
+      "province": "Buenos Aires",
+      "city": "Zona Sur"
    }
 ]
