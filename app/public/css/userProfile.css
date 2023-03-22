@@ -68,5 +68,6 @@
         flex-wrap: wrap;
         justify-content: space-around;
         gap: 2rem;
+        color: #4b9d4a;
     }
  }
