@@ -56,7 +56,7 @@ const controller = {
 
     processLogin: (req, res) => {
         let errors = validationResult(req);
-        //return res.send(errors)
+
         if (errors.isEmpty()) {
 
             let user = users.find(user => user.email === req.body.email);
@@ -72,7 +72,7 @@ const controller = {
 
             if(req.body.remember) {
                 res.cookie(
-                    "userAKnight", 
+                    "userARKnight", 
                     req.session.user, 
                     {
                         expires: tiempoDeVidaCookie,
@@ -94,7 +94,7 @@ const controller = {
 
         req.session.destroy();
         if(req.cookies.userAKnight){
-            res.cookie("userAKnight", "", {maxAge: -1})
+            res.cookie("userARKnight", "", {maxAge: -1})
         }
 
         res.redirect("/");

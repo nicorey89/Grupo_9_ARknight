@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-
-
 const sessionAdminCheck = require("../middleware/sessionAdminCheck");   
 
 const {index, pAdmit, create,edit , destroy , store , update , listar} = require('../controllers/adminController')

@@ -116,6 +116,7 @@ div.user{
     position: absolute;
     color: black;
     background-color: var(--naranja);
+    right: -20px;
     min-width: 160px;
     height: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
