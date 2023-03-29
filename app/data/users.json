@@ -24,21 +24,8 @@
       "tel": "",
       "address": "",
       "postal_code": "",
-      "province": "Buenos Aires",
-      "city": "CABA"
-   },
-   {
-      "id": 3,
-      "name": "Tomas Alberto Luis Gongora",
-      "last_name": "",
-      "email": "tomasgongora@hotmail.com",
-      "password": "$2a$12$DbFxHZO5tmF1d9rJkxRGz.JRqt0ck0J7BPqwP2LoZyi5ThyGXEPw.",
-      "avatar": "1679445319768_avatar_.png",
-      "rol": "ADMIN",
-      "tel": "",
-      "address": "",
-      "postal_code": "",
       "province": "",
-      "city": ""
+      "city": "CABA"
    }
+   
 ]
