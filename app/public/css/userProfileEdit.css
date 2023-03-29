@@ -1,13 +1,13 @@
 .profileEdit{
     padding: 2rem 2rem;
-  max-width: 350px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
 .uTitle{
   text-align: center;
   font-size: 30px;
-  color: var(--naranja);
+  color: black;
 }
 
 .userForm{
@@ -34,25 +34,25 @@
   box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
   width: 100%;
   height: 2rem;
-  color: var(--naranja);
+  color: black;
   padding: 0 1rem;
   border-radius: .5rem;
   outline: none;
 }
 
 .formEdit input::placeholder{
-  color: var(--naranja);
+  color: black;
 }
 
 div select#province{
-  color: #4b9d4a;
+  color: black;
   padding: 1rem;
   background-color: white;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
 }
 
 div select#city {
-color: #4b9d4a;
+color: black;
 padding: 1rem;
 background-color: white;
 box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
@@ -66,7 +66,7 @@ box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
   max-width: 250px;
   position: relative;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
-  color: var(--naranja);
+  color: black;
   padding: 0.2rem 1rem;
   margin: .5rem;
   width: 100%;
