@@ -13,7 +13,7 @@ module.exports = {
     },
      listar: (req,res)=>{
         const products = readJSON("productos.json");
-      res.render("admin/products" , {
+      res.render("admin/products2" , {
           products,
           toThousand,
           session:req.session
