@@ -21,8 +21,18 @@ div.imagen-producto{
     border: 1px solid black;
     margin: 10px;
 }
+div.imagen-user{
+    width: 100px;
+    height: 150px;
+    border: 1px solid black;
+    margin: 10px;
+}
 img.producto{
     width: 100%;
+}
+img.user{
+    width: 100%;
+    height: 100%;
 }
 .botones{
     width: 150px;
