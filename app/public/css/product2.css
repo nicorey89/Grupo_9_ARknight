@@ -1,0 +1,70 @@
+#global {
+	height: 400px;
+	width: 1000px;
+	border: 1px solid #ddd;
+	background: #f1f1f1;
+	overflow-y: scroll;
+}
+#mensajes {
+	height: auto;
+}
+.texto {
+	padding:4px;
+	background:#fff;
+}
+article{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 975px;
+    height: 160px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+div.detalle{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+div.imagen-producto{
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    margin: 10px;
+}
+div.imagen-user{
+    width: 100px;
+    height: 150px;
+    border: 1px solid black;
+    margin: 10px;
+}
+img.producto{
+    width: 100%;
+}
+img.user{
+    width: 100%;
+    height: 100%;
+}
+.botones{
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    margin: 10px;
+    cursor: pointer;
+}
+button:hover{
+    box-shadow: 5px 5px 15px black;
+}
+.btn1{
+    background: lightgreen;
+}
+.btn2{
+    background: lightcoral;
+}

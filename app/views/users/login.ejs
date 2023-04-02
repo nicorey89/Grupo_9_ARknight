@@ -10,7 +10,7 @@
     <main class="login">
         <div class="login-container">
             <form action="/users/login" method="post" class="container">
-                <h1 class="title">Ingresar</h1>
+                <h1 class="title">INGRESAR</h1>
                 <hr>                    
                 <div class="input-container">
                     <input class="input-style" type="email" name="email" placeholder="Ingrese su email">
@@ -28,9 +28,6 @@
                     <input type="checkbox" name="recordar" id="recordar"> 
                     <label for="recordar">  Recordarme </label>
                 </div>
-                <% if (locals.errorMsg ) { %>
-                    <small class="text-danger"><%= errorMsg %> </small>
-            <% } %>
                 <button type="submit">Ingresar</button>
                 <span><a href="">¿Olvidaste tu contraseña?</a></span>
                 <span><a href="/users/register">Aún no tengo cuenta</a></span>

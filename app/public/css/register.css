@@ -4,7 +4,7 @@ main.register{
     align-items: center;
 }
 main h1.title {
-    color: #4b9d4a;;
+    color: black;
   }
 
 hr{
@@ -51,7 +51,7 @@ main.register img{
     padding: 0 0.5rem;
     outline: none;
     width: 100%;
-    color: #4b9d4a;
+    color: black;
 }
 .register input.input-style:focus{
     box-shadow: 0 0 6px;
@@ -75,7 +75,7 @@ main.register img{
     justify-content: center;
 }
 .register span a:hover{
-    color: #1259c3;
+    color: #4b9d4a;
 }
 @media (min-width: 479px){
     .register .form-container{

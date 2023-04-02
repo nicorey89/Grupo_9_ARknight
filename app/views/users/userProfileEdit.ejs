@@ -5,8 +5,9 @@
     <body>
     <%- include("../partials/header") %>
     <main class="profileEdit">
-     <h3 class="uTitle">Editar perfil</h3>
+     
      <form action="?_method=PUT" method="POST" enctype="multipart/form-data" class="userForm" >
+        <h3 class="uTitle">EDITAR PERFIL</h3>
         <div class="formEdit">
             <input type="text" name="name" placeholder="Nombre" value="<%= locals.old ? old.name : user.name %>">
             <% if (locals.errors && errors.name) { %>

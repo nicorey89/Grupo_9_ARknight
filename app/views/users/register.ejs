@@ -12,31 +12,37 @@
             <img src="/images/AR-Knight2.png" alt="">
         </div>
         <div class="form-container">
-            <h1 class="title">Registrate</h1>
+            <h1 class="title">REGISTRATE</h1>
             <hr>
             <form action="/users/" method="POST" enctype="multipart/form-data">
                 <div class="form">
                     <div class="input-container">
                         <label for="id"></label>
                         <input class="input-style" type="text" id="name" name="name" placeholder="Ingrese su Nombre y apellido">
-                        <% if (locals.errors && errors.email) { %>
-                            <small class="text-danger"><%= errors.email.msg %> </small>
+                        <% if (locals.errors && errors.name) { %>
+                            <small class="text-danger"><%= errors.name.msg %> </small>
                         <% } %>
                     </div>
                     <div class="input-container">
                         <label for="email"></label>
                         <input class="input-style" type="email" name="email" id="email" placeholder="Ingrese su email">
-                        <span class="error-message">Debe ingresar su email</span>
+                        <% if (locals.errors && errors.email) { %>
+                            <small class="text-danger"><%= errors.email.msg %> </small>
+                        <% } %>
                     </div>
                     <div class="input-container">
                         <label for="password"></label>
                         <input class="input-style" type="password" id="password" name="password" placeholder="Ingrese su contraseña">
-                        <span class="error-message">Debe ingresar su contraseña</span>
+                        <% if (locals.errors && errors.password) { %>
+                            <small class="text-danger"><%= errors.password.msg %> </small>
+                        <% } %>
                     </div>
                     <div class="input-container">
                         <label for="password2"></label>
                         <input class="input-style" type="password" name="password2" placeholder="Re-ingrese su contraseña">
-                        <span class="error-message">Debe Re-ingresar su contraseña</span>
+                        <% if (locals.errors && errors.password2) { %>
+                            <small class="text-danger"><%= errors.password2.msg %> </small>
+                        <% } %>
                     </div>
                     <div class="avatarFile">
                         <p>Agregar foto</p>
@@ -45,15 +51,15 @@
                     <div class="check">
                         <input type="checkbox" name="terms" id="recordar"> 
                         <label for="terms">  Acepto los <a href="">términos y condiciones</a> </label>
-                        <span class="error-message">Debe aceptar los términos y condiciones</span>
+                        <% if (locals.errors && errors.terms) { %>
+                            <small class="text-danger"><%= errors.terms.msg %> </small>
+                        <% } %>
                     </div>
                     <div class="submit-container">
                         <div class="button-container">
-                            <span class="error-message">Credenciales inválidas</span>
                             <button type="reset">Cancelar</button>
                         </div>
                         <div class="button-container">
-                            <span class="error-message">Credenciales inválidas</span>
                             <button type="submit">Registrarme</button>
                         </div>
                     </div>

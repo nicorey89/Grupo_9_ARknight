@@ -5,7 +5,7 @@ main.login{
   align-items: center;
 }
 main h1.title {
-  color: #4b9d4a;;
+  color: black;;
 }
   
 div.login-container{
@@ -56,14 +56,14 @@ hr{
   padding: 0 0.5rem;
   outline: none;
   width: 100%;
-  color: #4b9d4a;
+  color: black;
 }
 .login input.input-style:focus{
   box-shadow: 0 0 6px;
 }
 div.check{
     margin: 15px 0;
-    color: #4b9d4a;
+    color: black;
 }
 .login-container span{
     margin: 10px 0

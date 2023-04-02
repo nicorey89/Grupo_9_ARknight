@@ -1,4 +1,4 @@
-const {products, readJSON, writeJSON } = require('../data')
+const {readJSON, writeJSON } = require('../data')
 
 const { validationResult } = require("express-validator")
 
@@ -13,28 +13,20 @@ module.exports = {
     },
      listar: (req,res)=>{
         const products = readJSON("productos.json");
-      res.render("admin/products" , {
+      res.render("admin/products2" , {
           products,
           toThousand,
           session:req.session
          
       })
-     },
-
-    pAdmit:(req,res)=>{
-        const products = readJSON("productos.json");
-    
-        let productId = req.params.id;
-        let product = products.find(product => product.id == productId);
-        
-    
-        return res.render("admin/adminProducts", {
-            ...product,
-            toThousand,
-            tittle : "administracion de productos",
-            session:req.session
-          
-       })
+    },
+     listarUsers: (req,res)=>{
+        const users = readJSON("users.json");
+      res.render("admin/users-admin" , {
+          users,
+          session:req.session
+         
+      })
     },
     create: (req, res) => {
         res.render("admin/product-create-form", {
@@ -63,11 +55,6 @@ module.exports = {
          writeJSON('productos.json',products);
          res.redirect('/admin/')
     },
-
-
-
-
-
     edit: (req, res) => {
             let productId = req.params.id;
             const products = readJSON("productos.json");
@@ -79,7 +66,6 @@ module.exports = {
                 session:req.session
             })
     },
-
     update: (req, res) => {
         const productId = Number(req.params.id);
         const products = readJSON("productos.json");
@@ -127,7 +113,35 @@ module.exports = {
 
     writeJSON('productos.json',products);
     res.redirect('/');
+  },
+  userUpdate: (req,res) => {
+    const users = readJSON("users.json");
+    let userId = Number(req.params.id)
+    let {rol} = req.body;
+    users.forEach(user => {
+        if(user.id === userId) {
+        user.rol = rol
+        }
+    });
+
+    writeJSON("users.json", users );
+
+    return res.redirect("/");
+
+  },
+  destroyUser:(req,res) => {
+    const users = readJSON("users.json");
+    let userId = Number(req.params.id)
+    
+      users.forEach(user =>{
+        if (user.id === userId){
+       let userToDestroy = users.indexOf(user);
+       users.splice(userToDestroy , 1)
+
+        }
+      })
+
+writeJSON('users.json',users);
+res.redirect('/admin');
   }
-
-
 }

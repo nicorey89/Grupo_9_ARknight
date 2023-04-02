@@ -9,54 +9,47 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
     
     login:(req, res)=>{
-          res.render('users/login', {
+        res.render('users/login', {
             session:req.session
-          })
+        })
     },
     register:(req, res)=>{
-          res.render('users/register', {
+        res.render('users/register', {
             session:req.session
-          })
+        })
     },
     crear: (req, res) => {
-        let lastId = users[users.length - 1].id
-        let newUser = {
-            id: lastId + 1,
-            name: req.body.name,
-            last_name: "",
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 12),
-            avatar: req.file ? req.file.filename : "default-image.png",
-            rol: "USER",
-            tel: "",
-            address: "",
-            postal_code: "",
-            province: "",
-            city: ""
-            }
-            users.push(newUser);
-            writeJSON('users.json',users);
-            res.redirect("/users/login");
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+            let lastId = users[users.length - 1].id
+            let newUser = {
+                id: lastId + 1,
+                name: req.body.name,
+                last_name: "",
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 12),
+                avatar: req.file ? req.file.filename : "default-image.png",
+                rol: "USER",
+                tel: "",
+                address: "",
+                postal_code: "",
+                province: "",
+                city: ""
+                }
+                users.push(newUser);
+                writeJSON('users.json',users);
+                res.redirect("/users/login");
+        } else {
+            return res.render("users/register", {
+                errors: errors.mapped(),
+                session: req.session
+            })
+        }
     },
-     pAdmit:(req,res)=>{
-     const products = readJSON("productos.json");
- 
-     let productId = req.params.id;
-     let product = products.find(product => product.id == productId);
-     
- 
-     return res.render("users/adminProducts", {
-         product,
-         toThousand,
-         tittle : "administracion de productos",
-         session: req.session
-       
-    })} ,
-
-
     processLogin: (req, res) => {
         let errors = validationResult(req);
-        //return res.send(errors)
+
         if (errors.isEmpty()) {
 
             let user = users.find(user => user.email === req.body.email);
@@ -72,7 +65,7 @@ const controller = {
 
             if(req.body.remember) {
                 res.cookie(
-                    "userAKnight", 
+                    "userARKnight", 
                     req.session.user, 
                     {
                         expires: tiempoDeVidaCookie,
@@ -93,17 +86,15 @@ const controller = {
     logout: (req, res) => {
 
         req.session.destroy();
-        if(req.cookies.userAKnight){
-            res.cookie("userAKnight", "", {maxAge: -1})
+        if(req.cookies.userARKnight){
+            res.cookie("userARKnight", "", {maxAge: -1})
         }
 
         res.redirect("/");
       
-
-   
     },
     profile: (req, res) => {
-         let userInSessionId = req.session.user.id;
+        let userInSessionId = req.session.user.id;
 
         let userInSession = users.find(user => user.id === userInSessionId); 
 
@@ -166,11 +157,6 @@ const controller = {
                 errors: errors.mapped(),
             })
         }
-
-        
-
     },
 }
-
-
 module.exports = controller 
