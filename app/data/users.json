@@ -12,5 +12,47 @@
       "postal_code": "1824",
       "province": "Buenos Aires",
       "city": "Zona Sur"
+   },
+   {
+      "id": 2,
+      "name": "Nicolas Ezequiel Rey",
+      "last_name": "",
+      "email": "nicolasthian8907@gmail.com",
+      "password": "$2a$12$qIrY4R47jcFrUXINfEDqDeA8DssIMNBtZZzHtZtxGZUq9qpUv9uWG",
+      "avatar": "1680404682917_avatar_.jpeg",
+      "rol": "ADMIN",
+      "tel": "",
+      "address": "",
+      "postal_code": "",
+      "province": "",
+      "city": ""
+   },
+   {
+      "id": 3,
+      "name": "nicolas perez",
+      "last_name": "",
+      "email": "nico@mail.com",
+      "password": "$2a$12$6ehJR2a8QZ7KrQRxIGhFd.51snVT8i2DYlVBPOueuJ1Bbl.4AO1rS",
+      "avatar": "1680442732202_avatar_.jpeg",
+      "rol": "USER",
+      "tel": "",
+      "address": "",
+      "postal_code": "",
+      "province": "",
+      "city": ""
+   },
+   {
+      "id": 4,
+      "name": "Barbara",
+      "last_name": "",
+      "email": "test@mail.com",
+      "password": "$2a$12$dASr7.W7bM06SaqZjBh3puBszBTpFI2WoJ72LFZtxdVK/D05Cj2S2",
+      "avatar": "default-image.png",
+      "rol": "USER",
+      "tel": "",
+      "address": "",
+      "postal_code": "",
+      "province": "",
+      "city": ""
    }
 ]
