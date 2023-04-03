@@ -60,7 +60,7 @@
 
 
 .flickity-prev-next-button.next {
-    right: -25x !important;
+    right: -25px !important;
     background: linear-gradient(90deg, rgba(255,255,255,1) 1%, rgba(45,200,42,0.4514180672268907) 12%);
 }
 

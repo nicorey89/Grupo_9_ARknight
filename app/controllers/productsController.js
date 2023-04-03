@@ -35,10 +35,11 @@ const controller = {
   
       
       res.render('products/productCard', {
+          products,
           sliderTitle: "PRODUCTOS EN OFERTAS",
           sliderProducts: products,
-          session:req.session
-          
+          session:req.session,
+          toThousand
       })
       },
       

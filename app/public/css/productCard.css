@@ -75,7 +75,7 @@ main .main-container .cart-container .containerHF  .cart-container__tab-panel {
 
 main .cart-container .cart-container__tab-panel .item-row {
     width: 100%;
-    border: 2px solid rgba(244, 165, 83, 1);
+    border: 2px solid black;
     border-radius: 2%;
 }
 
@@ -95,6 +95,9 @@ main .cart-container .cart-container__tab-panel .item-row .item--cart .photo-con
     width: 100%;
     padding: 0.4rem;
 }
+
+
+
 
 main .cart-container .cart-container__tab-panel .item-row .item--cart div.a {
     width: 100%;
@@ -392,7 +395,7 @@ main .main-container .cart-container .containerHF {
     justify-content: space-between;
 }
 main .main-container .cart-container .containerHF  .cart-container__tab-panel {
-    flex-grow: 0.6;
+    flex-grow: 0.7;
     margin-right: 0.8rem;
 }
 main .cart-container .containerHF .cart-container__footer-container {

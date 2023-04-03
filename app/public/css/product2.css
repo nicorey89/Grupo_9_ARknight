@@ -1,8 +1,8 @@
-article{
+article.contenedor-productos{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1000px;
+    width: 800px;
     height: 160px;
     border: 2px solid black;
     border-radius: 10px;
@@ -41,11 +41,11 @@ img.user{
     justify-content: center;
     align-items: center;
 }
-button{
+button.lupa{
     margin: 10px;
     cursor: pointer;
 }
-button:hover{
+button.lupa:hover{
     box-shadow: 5px 5px 15px black;
 }
 .btn1{

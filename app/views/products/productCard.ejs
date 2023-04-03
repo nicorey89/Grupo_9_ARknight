@@ -12,37 +12,29 @@
         <div class="main-container">
 
             <div class="cart-container">
-                <ul class="cart-container__title">
-                    <li class="cart-container__title--card"><span>Carrito</span></li>
-                    <li class="cart-container__cart--container">
-                        <a href="#" >
-                            <i class="fa-solid fa-cart-shopping">
-                            </i>
-                            <span>
-                                10
-                            </span>
-                        </a>
-                    </li>
-                </ul>
+                <h1>mi carrito</h1>
                 <div class="containerHF">
                     <div class="cart-container__tab-panel">
+                        <% products.forEach(producto => { %>
                         <section class="item-row">
                             <article class="item--cart">
                                 <div class="photo-container">
-                                    <img class="photo" src="/images/motocierra-b+d.jpg" alt="motocierra">
+                                    <a href="/admin/adminProducts/<%= producto.id %>">
+                                        <img class="photo" src="/images/products/<%= producto.imagen ? producto.imagen : 'default-image.png' %>" alt="">
+                                    </a>
                                 </div>
                                 <div class="a">
                                     <div class="description">
                                         <div>
-                                            <p>Motosierra 55cc 20 P Longitud Espada</p>
+                                            <p><%= producto.titulo%></p>
+                                            <br>
                                             <div class="precio">
-                                                <h2>$51.826</h2>
+                                                <h2>
+                                                    $<%= toThousand(producto.precio/producto.cuotas)%>
+                                                </h2>
                                             </div>
                                         </div>
-                                        <!-- <button type="submit">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button> -->
-                                        <button type="submit" class="btn-close" aria-label="Close"></button>
+                                        <button type="submit" class="btn-close" aria-label="Close"><i class="fa-solid fa-trash"></i></button>
                                     </div>
                                     <div class="item--cart__selecter--from">
                                         <div class="boton">
@@ -57,13 +49,16 @@
                                             </button>
                                         </div>
                                         <div class="precio--final">
-                                            <h2>$51.826</h2>
+                                            <h2>
+                                                $<%= toThousand(producto.precio/producto.cuotas)%>
+                                            </h2>
                                         </div>
                                     </div>
                                 </div>
                             </article>
                         </section>
                         <div class="separator"></div>
+                        <% }) %>
                     </div>
                     <div class="cart-container__footer-container">
                             <div class="cart-container__footer-container--title">
