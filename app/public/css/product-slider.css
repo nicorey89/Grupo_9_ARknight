@@ -2,6 +2,11 @@
     font-family: var(--font_poppins);
 }
 
+.special-offers{
+    width: 80%;
+    margin: auto;
+}
+
 .productSlide {
     width: 230px;
     height: 400px;
@@ -84,6 +89,9 @@
         width: 30%;
         padding: 20px;
     }
+    .special-offers{
+        width: 90%;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -91,5 +99,9 @@
         width: 20%;
         min-height: fit-content;
     }
+    .special-offers{
+        width: 95%;
+    }
+    
 }
 
