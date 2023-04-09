@@ -54,5 +54,19 @@
       "postal_code": "",
       "province": "",
       "city": ""
+   },
+   {
+      "id": 5,
+      "name": "max",
+      "last_name": "",
+      "email": "gege@email.com",
+      "password": "$2a$12$8Xe45V8iFPgr4kuGLkNoGe5Et7.RvUMNu7TvJb9T2o.xbe1gTVi16",
+      "avatar": "default-image.png",
+      "rol": "USER",
+      "tel": "",
+      "address": "",
+      "postal_code": "",
+      "province": "",
+      "city": ""
    }
 ]
