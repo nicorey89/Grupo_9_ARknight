@@ -31,7 +31,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
         },
         descripcion: {
-            type: dataTypes.INTEGER(11),
+            type: dataTypes.STRING(800),
         },
         imagen_id: {
             type: dataTypes.INTEGER(11),
@@ -49,8 +49,8 @@ module.exports = (sequelize, dataTypes) => {
 
     PRODUCTO.associate = (models) => {
         PRODUCTO.belongsTo(models.Subcategoria, {
-            as: "subcategory",
-            foreignKey: "subcategory_id",
+            as: "subcategoria",
+            foreignKey: "subCategory_id",
         });
         
         PRODUCTO.hasMany(models.Imagen, {

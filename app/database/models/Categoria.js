@@ -25,7 +25,7 @@ module.exports = (sequelize, dataTypes) => {
     const CATEGORIA = sequelize.define(alias, cols, config);
 
     CATEGORIA.associate = (models) => {
-        PRODUCT_IMAGE.belongsTo(models.Subcategoria, {
+        CATEGORIA.belongsTo(models.Subcategoria, {
             as: "subcategorias",
             foreignKey: "categoria_id"
         });

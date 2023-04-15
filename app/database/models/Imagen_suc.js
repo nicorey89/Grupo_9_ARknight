@@ -21,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
     const SUC_IMAGE = sequelize.define(alias, cols, config);
 
     SUC_IMAGE.associate = (models) => {
-        SUC_IMAGE.hasMany(models.Sucursal, {
+        SUC_IMAGE.belongTo(models.Sucursal, {
             as: "sucursal",
             foreignKey: "imagensuc_id"
         });
