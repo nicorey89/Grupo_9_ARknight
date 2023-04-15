@@ -13,7 +13,7 @@ const controller = {
     res.render('products/products', {
       products,
       toThousand,
-      session:req.session
+      session: req.session
     })
   },
  
@@ -45,10 +45,35 @@ const controller = {
         
     })
     })
-    
+    .catch(error => console.log(error))
     },
-    pCard:(req, res)=>{
-      let products = readJSON('productos.json')
+    category: (req, res) => {
+      const categoryId = req.params.id;
+
+    category.findByPk(categoryId, {
+      include: [
+        {
+        association: 'subcategories',
+        inckudes: {association: 'products',
+      include: {association: 'images'}}
+      }]
+    })
+    .then((category) => {
+      const PRODUCTS = category.subcategories.map(
+        subcategory => subcategory)
+      return res.render('categories', {
+        category,
+        subcategories: category.subcategories,
+        products: PRODUCTS.flat(),
+        session: req.session
+    })
+    
+    })
+    .catch(error => console.log(error))
+    }
+  }
+    /* pCard:(req, res)=>{
+      // let products = readJSON('productos.json')
   
       
       res.render('products/productCard', {
@@ -58,8 +83,8 @@ const controller = {
           session:req.session,
           toThousand
       })
-      },
+      }, */
       
 
-}
+
 module.exports = controller;
