@@ -105,12 +105,12 @@ h3.precio-sin-descuento{
 h4.precio-rayado{
     text-decoration: line-through;
 }
-button h4{
+button.agregarAlCarrito h4{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-button{
+button.agregarAlCarrito{
     background-color: blue;
     color: white;
     border-radius: 10px;
@@ -118,7 +118,7 @@ button{
     height: 30px;
     cursor: pointer;
 }
-button:hover{
+button.agregarAlCarrito:hover{
     background-color: gray;
     color: black;
 }

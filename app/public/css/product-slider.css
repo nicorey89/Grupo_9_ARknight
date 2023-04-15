@@ -2,6 +2,11 @@
     font-family: var(--font_poppins);
 }
 
+.special-offers{
+    width: 80%;
+    margin: auto;
+}
+
 .productSlide {
     width: 230px;
     height: 400px;
@@ -60,7 +65,7 @@
 
 
 .flickity-prev-next-button.next {
-    right: -25x !important;
+    right: -25px !important;
     background: linear-gradient(90deg, rgba(255,255,255,1) 1%, rgba(45,200,42,0.4514180672268907) 12%);
 }
 
@@ -84,6 +89,9 @@
         width: 30%;
         padding: 20px;
     }
+    .special-offers{
+        width: 90%;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -91,5 +99,9 @@
         width: 20%;
         min-height: fit-content;
     }
+    .special-offers{
+        width: 95%;
+    }
+    
 }
 

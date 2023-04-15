@@ -34,21 +34,21 @@
                   <h3><%= cuotas %> cuotas sin interes de $<%= toThousand(precio/cuotas)%></h3>
                 <% } %>
               </div>
-              <button class="detail-dropdown">
+              <button class="detail-dropdown agregarAlCarrito">
                   <h4>detalles</h4>
                   <div class="detail-content">
                     <%= detalle %>
                   </div>
               </button>
               <a href="/products/productCard">
-                  <button>
+                  <button class="agregarAlCarrito">
                       <h4>agregar al carrito</h4>
                   </button>
               </a>
           </div>
       </section>
+      <%- include("../partials/slider")%> 
   </main>
-    <%- include("../partials/slider")%> 
     <%- include("../partials/footer") %>
  <!-- JavaScript -->
  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>

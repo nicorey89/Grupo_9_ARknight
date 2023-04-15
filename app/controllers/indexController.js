@@ -20,6 +20,20 @@ const controller ={
         
        });
     },
+    search: (req,res) => {
+        const loQueBuscoElUsuario = req.query.search;
+        let productsResults = [];
+        for(let i = 0; i < products.length; i++){
+            if(products[i].titulo.includes(loQueBuscoElUsuario)){
+                productsResults.push(products[i]);
+            }
+        }
+        res.render('products/search', {
+            productsResults,
+            toThousand,
+            session:req.session
+            })
+    }
     
 }
 
