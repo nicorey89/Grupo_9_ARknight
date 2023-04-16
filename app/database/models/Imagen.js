@@ -12,6 +12,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false,
         },
+        producto_id : {
+            type: dataTypes.INTEGER(11),
+            allowNull: false 
+        }
     }
 
     const config = {
@@ -22,9 +26,9 @@ module.exports = (sequelize, dataTypes) => {
     const PRODUCTO_IMAGE = sequelize.define(alias, cols, config);
 
     PRODUCTO_IMAGE.associate = (models) => {
-        PRODUCTO_IMAGE.hasMany(models.Producto, {
+        PRODUCTO_IMAGE.belongsTo(models.Producto, {
             as: "producto",
-            foreignKey: "imagen_id"
+            foreignKey: "producto_id"
         });
     }
 

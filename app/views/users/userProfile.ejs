@@ -5,20 +5,20 @@
 <%- include("../partials/header") %>
 <main class="userProfile_conteiner">
 <div class="avatarUser">
-    <img src="/images/avatar/<%= user.avatar %>" alt="">
+    <img src="/images/avatar/<%= usuario.avatar %>" alt="">
 </div>
 <section class="userProfile_box">
 <div class="userbox">
 <h2 class="user_title">TUS DATOS </h2>
-<p class="user_item">Nombre:<%= user.name %></p>
-<p class="user_item">Email:<%= user.email %></p>
-<p class="user_item">Telefono: <%= user.tel ? user.tel: "___" %> </p>
+<p class="user_item">Nombre:<%= usuario.nombre %></p>
+<p class="user_item">Email:<%= usuario.email %></p>
+<p class="user_item">Telefono: <%= usuario.telefono ? usuario.telefono : "___" %> </p>
 </div>
 <div class="userbox">
 <h2 class="user_title">DATOS OPCIONALES</h2>
-<p class="user_item">Codigo postal:  <%= user.postal_code ? user.postal_code: "___" %> </p>
-<p class="user_item">Provincia:  <%= user.province ? user.province : "_______" %> </p>
-<p class="user_item">Localidad:  <%= user.city ? user.city: "_______"  %></p>
+<p class="user_item">Codigo postal:  <%= usuario.codigo_postal ? usuario.codigo_postal: "___" %> </p>
+
+<p class="user_item">Localidad:  <%= usuario.Localidad ? usuario.Localidad: "_______"  %></p>
 </div>
 <a href="/users/profile/edit" class="userB">Editar</a>
 </section>

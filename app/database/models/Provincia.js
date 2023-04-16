@@ -21,12 +21,12 @@ module.exports = (sequelize, dataTypes) => {
 
     const PROVINCIAS = sequelize.define(alias, cols, config);
 
-    PROVINCIAS.associate = (models) => {
-        PROVINCIAS.hasMany(models.Usuario, {
-            as: "usuarios",
-            foreignKey: "provincia_id"
-        });
-    }
+    // PROVINCIAS.associate = (models) => {
+    //     PROVINCIAS.hasMany(models.Usuario, {
+    //         as: "usuario",
+    //         foreignKey: "provincia_id"
+    //     });
+    // }
 
     return PROVINCIAS;
 }

@@ -9,32 +9,32 @@
      <form action="?_method=PUT" method="POST" enctype="multipart/form-data" class="userForm" >
         <h3 class="uTitle">EDITAR PERFIL</h3>
         <div class="formEdit">
-            <input type="text" name="name" placeholder="Nombre" value="<%= locals.old ? old.name : user.name %>">
+            <input type="text" name="nombre" placeholder="Nombre" value="<%= locals.old ? old.nombre : usuario.nombre %>">
             <% if (locals.errors && errors.name) { %>
-                <small class="text-danger"><%= errors.name.msg %> </small>
+                <small class="text-danger"><%= errors.nombre.msg %> </small>
             <% } %> 
         </div>
         <div class="formEdit">
-            <input type="text" name="last_name" placeholder="Apellido" value="<%= locals.old ? old.last_name : user.last_name %>" >
-             <% if (locals.errors && errors.last_name) { %>
-                <small class="text-danger"><%= errors.last_name.msg %> </small>
+            <input type="text" name="apellido" placeholder="Apellido" value="<%= locals.old ? old.apellido : usuario.apellido %>" >
+             <% if (locals.errors && errors.apellido) { %>
+                <small class="text-danger"><%= errors.apellido.msg %> </small>
             <% } %> 
         </div>
         <div class="formEdit">
-            <input type="text" name="email" placeholder="Ingresa tu email" readonly value="<%= user.email %>" >
+            <input type="text" name="email" placeholder="Ingresa tu email" readonly value="<%= usuario.email %>" >
              <% if (locals.errors && errors.email.msg ) { %>
                 <small class="text-danger"><%= errors.email.msg %> </small>
             <% } %> 
         </div>
         <div class="formEdit">
-            <input type="text" name="tel" placeholder="Ingresá tu numero" value="<%= user.tel ? user.tel : "" %>" >
+            <input type="text" name="tel" placeholder="Ingresá tu numero" value="<%= usuario.telefono ? usuario.telefono : "" %>" >
 
         </div>
         <div class="formEdit">
-            <input type="text" name="address" placeholder="Domicilio" value="<%= user.address ? user.address : "" %>">
+            <input type="text" name="address" placeholder="Domicilio" value="<%= usuario.direccion ? usuario.direccion : "" %>">
         </div>
         <div class="formEdit">
-            <input type="text" name="postal_code" placeholder="Código postal" value="<%= user.cp ? user.cp : "" %>">
+            <input type="text" name="postal_code" placeholder="Código postal" value="<%= usuario.codigo_postal ? usuario.codigo_postal : "" %>">
         </div>
        
         <div class="formEdit">

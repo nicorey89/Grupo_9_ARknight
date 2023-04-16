@@ -1,11 +1,8 @@
-const { readJSON, writeJSON } = require('../data')
+const { Usuario , Sequelize} = require('../database/models');
+
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 
-
-const users = readJSON('users.json');
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
     
     login:(req, res)=>{
@@ -22,28 +19,30 @@ const controller = {
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            let lastId = users[users.length - 1].id
             let newUser = {
-                id: lastId + 1,
-                name: req.body.name,
-                last_name: "",
+                nombre: req.body.name,
+                apellido: req.body.apellido ,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 12),
                 avatar: req.file ? req.file.filename : "default-image.png",
-                rol: "USER",
-                tel: "",
-                address: "",
-                postal_code: "",
-                province: "",
-                city: ""
+                telefono: "",
+                direccion: "",
+                codigo_postal: "",
+                provincia_id: 1,
+                localidad: ""
                 }
-                users.push(newUser);
-                writeJSON('users.json',users);
-                res.redirect("/users/login");
+
+            Usuario.create(newUser)
+            .then(() => {
+               return res.redirect("/users/login");
+            })
+            .catch(error => console.log(error))
+              
         } else {
             return res.render("users/register", {
                 errors: errors.mapped(),
-                session: req.session
+                session: req.session,
+                old: req.body,
             })
         }
     },
@@ -51,31 +50,36 @@ const controller = {
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
+            Usuario.findOne({
+                where: {
+                    email: req.body.email,
+                }
+            })
+            .then((usuario)  => {
+                req.session.usuario = {
+                    id: usuario.id,
+                    name: usuario.nombre,
+                    avatar: usuario.avatar,
+                    rol: usuario.rol
+                }
 
-            let user = users.find(user => user.email === req.body.email);
+                let tiempoDeVidaCookie = new Date(Date.now() + 60000);
 
-            req.session.user = {
-                id: user.id,
-                name: user.name,
-                avatar: user.avatar,
-                rol: user.rol
-            }
-
-            let tiempoDeVidaCookie = new Date(Date.now() + 600000);
-
-            if(req.body.remember) {
-                res.cookie(
-                    "userARKnight", 
-                    req.session.user, 
-                    {
-                        expires: tiempoDeVidaCookie,
-                        httpOnly: true
-                    })
-            }
-
-            res.locals.user = req.session.user;
-
-            res.redirect("/");
+                if(req.body.remember) {
+                    res.cookie(
+                        "ArKnight", 
+                        req.session.usuario, 
+                        {
+                            expires: tiempoDeVidaCookie,
+                            httpOnly: true
+                        })
+                }
+    
+                res.locals.usuario = req.session.usuario;
+    
+                res.redirect("/");
+            })
+            .catch(error => console.log(error))
         } else {
             return res.render("users/login", {
                 errors: errors.mapped(),
@@ -94,14 +98,16 @@ const controller = {
       
     },
     profile: (req, res) => {
-        let userInSessionId = req.session.user.id;
+        let userInSessionId = req.session.usuario.id;
 
-        let userInSession = users.find(user => user.id === userInSessionId); 
-
-        res.render("users/userProfile" , {
-            user: userInSession,
-            session: req.session
-        } )
+        Usuario.findByPk(userInSessionId)
+        .then((usuario) => {
+            res.render("users/userProfile", {
+                usuario,
+                session: req.session
+            })
+        })
+        .catch(error => console.log(error))
     },
     editProfile: (req, res) => {
          let userInSessionId = req.session.user.id;
@@ -118,33 +124,34 @@ const controller = {
 
         if(errors.isEmpty()) {
 
-            let userId = req.session.user.id;
-            let user = users.find(user => user.id === userId);
-
+            let userId = req.session.usuario.id;
+            console.log(userId)
             const {
-                name,
-                last_name,
-                tel,
-                address,
-                postal_code,
-                province,
-                city
+                nombre,
+                apellido,
+                telefono,
+                direccion,
+                codigo_postal,
+                provincia,
+                localidad
             } = req.body;
 
-            user.name = name;
-            user.last_name = last_name;
-            user.tel = tel;
-            user.address = address;
-            user.postal_code = postal_code;
-            user.province = province;
-            user.city = city;
-            user.avatar = req.file ? req.file.filename : user.avatar;
-
-            writeJSON("users.json", users )
-
-            delete user.password;
-
-            req.session.user = user;
+            Usuario.update(
+                {
+                    nombre,
+                    apellido,
+                    telefono,
+                    direccion,
+                    codigo_postal,
+                    provincia,
+                    localidad
+                }, {
+                    where: {
+                        id : userId
+                    }
+                }
+            )
+            req.session.usuario = usuario;
 
             return res.redirect("/users/profile");
         } else {

@@ -33,10 +33,6 @@ module.exports = (sequelize, dataTypes) => {
         descripcion: {
             type: dataTypes.STRING(800),
         },
-        imagen_id: {
-            type: dataTypes.INTEGER(11),
-            allowNull: false,
-        },
     }
 
     const config = {
@@ -53,9 +49,9 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "subCategory_id",
         });
         
-        PRODUCTO.belongsTo(models.Imagen, {
-            as: "imagenes",
-            foreignKey: "imagen_id",
+        PRODUCTO.hasOne(models.Imagen, {
+            as: "imagen",
+            foreignKey: "producto_id",
         });
 
        /*  PRODUCTO.belongsTo(models.OrderItem, {
