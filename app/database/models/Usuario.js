@@ -21,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
         },
         email: {
-            type: dataTypes.STRING(100).UNIQUE,
+            type: dataTypes.STRING(100),
             allowNull: false,
         },
         pasword: {
@@ -64,11 +64,11 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "provincia_id"
         });
         
-        USUARIO.belongTo(models.Avatar, {
+        USUARIO.belongsTo(models.Avatar, {
             as: "avatar",
             foreignKey: "avatar_id",
         });
-        USUARIO.belongTo(models.Rol, {
+        USUARIO.belongsTo(models.Rol, {
             as: "rol",
             foreignKey: "rol_id",
         });

@@ -1,29 +1,30 @@
-/* const { readJSON, writeJSON } = require('../data')
-
-
-const products = readJSON('productos.json'); */
-
- const {products,Sequelize} = require ('../database/modeLs')//, category}
- const {Op} = Sequelize;
+const { Producto, Sequelize, } = require ('../database/modeLs');
+const {Op} = Sequelize;
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
   index: (req, res) => {
-    res.render('products/products', {
-      products,
-      toThousand,
-      session: req.session
+    Producto.findAll({
+      include: [{association: 'imagenes'}
+    ]
     })
+    .then(([product, sliderProducts]) => {
+      return res.render("products/productDetail", {
+        ...product,
+        toThousand,
+        sliderTitle: "OFERTAS",
+        sliderProducts,
+        session: req.session
+        })
+    })
+    .catch(error => console.log(error))
   },
- 
   pDetail:(req, res)=>{
 
-    let productId = req.params.id
-    let product = products.find(product => product.id == productId)
-    
-    const PRODUCT_PROMISE = Product.findByPk(product.id, {
-      include: [{association: 'images'}]
+  
+    const PRODUCT_PROMISE = Producto.findByPk(productos.id, {
+      include: [{association: 'imagenes'}]
     })
     const ALL_PRODUCTS_PROMISE = Product.findALL({
       where: {
@@ -47,14 +48,14 @@ const controller = {
     })
     .catch(error => console.log(error))
     },
-    category: (req, res) => {
+    /* category: (req, res) => {
       const categoryId = req.params.id;
 
     category.findByPk(categoryId, {
       include: [
         {
         association: 'subcategories',
-        inckudes: {association: 'products',
+        includes: {association: 'products',
       include: {association: 'images'}}
       }]
     })
@@ -71,9 +72,9 @@ const controller = {
     })
     .catch(error => console.log(error))
     }
-  }
-    /* pCard:(req, res)=>{
-      // let products = readJSON('productos.json')
+  } */
+  pCard:(req, res)=>{
+      let products = readJSON('productos.json')
   
       
       res.render('products/productCard', {
@@ -83,7 +84,8 @@ const controller = {
           session:req.session,
           toThousand
       })
-      }, */
+      }
+    }
       
 
 

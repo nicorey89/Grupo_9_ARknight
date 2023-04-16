@@ -28,10 +28,10 @@ module.exports = (sequelize, dataTypes) => {
 
     ORDEN.associate = (models) => {
 
-        ORDEN.belongsTo(models.User, {
+/*         ORDEN.belongsTo(models.User, {
             as: "usuario",
             foreignKey: "user_id",
-        });
+        }); */
 
         ORDEN.hasMany(models.Orden_item, {
             as: "orden_items",
