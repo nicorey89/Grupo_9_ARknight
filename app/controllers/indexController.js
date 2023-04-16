@@ -12,6 +12,7 @@ const controller ={
             return res.render("index", {
                 sliderTitle: "Productos en oferta",
                 sliderProducts: producto,
+                products : producto,
                 session: req.session
             })
         })

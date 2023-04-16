@@ -53,7 +53,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "subCategory_id",
         });
         
-        PRODUCTO.hasMany(models.Imagen, {
+        PRODUCTO.belongsTo(models.Imagen, {
             as: "imagenes",
             foreignKey: "imagen_id",
         });
