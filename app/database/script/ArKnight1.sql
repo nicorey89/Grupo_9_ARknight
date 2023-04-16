@@ -14,13 +14,13 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE arknight_db;
+
+USE arknight_db;
 
 --
 -- Table structure for table `avatares`
 --
-CREATE DATABASE `ArKnight`;
-
-USE `ArKnight`;
 
 DROP TABLE IF EXISTS `avatares`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -52,10 +52,10 @@ DROP TABLE IF EXISTS `categorias`;
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
-  `banner` varchar(100) NOT NULL,
+  `banner` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,6 +64,7 @@ CREATE TABLE `categorias` (
 
 LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
+INSERT INTO `categorias` VALUES (1,'Herramientas Electricas','NULL'),(2,'Herramientas de Mano','NULL'),(3,'Pinturas','NULL'),(4,'Jardin','NULL'),(5,'Decoracion','NULL'),(6,'Plomeria','NULL'),(7,'Electricidad','NULL'),(8,'Ferreteria','NULL');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,10 +101,10 @@ DROP TABLE IF EXISTS `imagenes_suc`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `imagenes_suc` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,6 +113,7 @@ CREATE TABLE `imagenes_suc` (
 
 LOCK TABLES `imagenes_suc` WRITE;
 /*!40000 ALTER TABLE `imagenes_suc` DISABLE KEYS */;
+INSERT INTO `imagenes_suc` VALUES (1,'NULL');
 /*!40000 ALTER TABLE `imagenes_suc` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,7 +194,7 @@ CREATE TABLE `productos` (
   `descuento` int(11) DEFAULT NULL,
   `subCategory_id` int(11) NOT NULL,
   `descripcion` varchar(300) DEFAULT NULL,
-  `imagen_id` int(11) DEFAULT NULL,
+  `imagen_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -225,7 +227,7 @@ CREATE TABLE `provincias` (
   `nombre` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,6 +236,7 @@ CREATE TABLE `provincias` (
 
 LOCK TABLES `provincias` WRITE;
 /*!40000 ALTER TABLE `provincias` DISABLE KEYS */;
+INSERT INTO `provincias` VALUES (1,'Buenos Aires'),(2,'Entre Rios'),(3,'La Rioja'),(4,'Neuquen'),(5,'Chaco'),(6,'Formosa'),(7,'Misiones'),(8,'Corrientes'),(9,'Salta'),(10,'Jujuy'),(11,'Santa Fe'),(12,'Tucuman'),(13,'Tierra del Fuego'),(14,'Cordoba'),(15,'San Luis'),(16,'Santa Cruz'),(17,'Rio Negro'),(18,'La Pampa'),(19,'Mendoza'),(20,'Chubut'),(21,'San Juan'),(22,'Catamarca'),(23,'Santiago del Estero');
 /*!40000 ALTER TABLE `provincias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -249,7 +252,7 @@ CREATE TABLE `roles` (
   `nombre` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -258,6 +261,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'ADMIN'),(2,'USER'),(3,'VENTAS');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -276,7 +280,7 @@ CREATE TABLE `sub_categorias` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `sub_categorias_FK` (`categoria_id`),
   CONSTRAINT `sub_categorias_FK` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -285,6 +289,7 @@ CREATE TABLE `sub_categorias` (
 
 LOCK TABLES `sub_categorias` WRITE;
 /*!40000 ALTER TABLE `sub_categorias` DISABLE KEYS */;
+INSERT INTO `sub_categorias` VALUES (1,'Amoladoras',1),(2,'Agujereadoras',1),(3,'Circulares',1),(4,'Rotomartillos',1),(5,'Soldadoras',1),(6,'Compresores',1),(7,'Atornilladoras',1),(8,'Minitornos',1),(9,'Frezadoras',1),(10,'Hidrolavadoras',1),(11,'Martillos',2),(12,'Prensas',2),(13,'Serruchos',2),(14,'Pinzas y Alicates',2),(15,'Llaves y Tubos',2),(16,'Destornilladores',2),(17,'Medicion',2),(18,'Cajas y Set de Herramientas',2),(19,'Carros y Zorras',2),(20,'Linternas',2),(21,'Latex',3),(22,'Sinteticos',3),(23,'Pinceles',3),(24,'Rodillos',3),(25,'Diluyentes',3),(26,'Masillas',3),(27,'Espatulas',2),(28,'Lijadoras',1),(29,'Entonadores',3),(30,'Barniz',3),(31,'Texturados',3),(32,'Piletas',4),(33,'Parrillas',4),(34,'Camping y Playa',4),(35,'Jardineria',4),(36,'Muebles de Exterior',5),(37,'Muebles de Interior',5),(38,'Bazar',5),(39,'Sabanas y Cortinas',5),(40,'Espejos',5),(41,'Portaretratos',5),(42,'Sanitarios',6),(43,'Griferias',6),(44,'Gas',6),(45,'Agua',6),(46,'Bachas',6),(47,'Mamparas',6),(48,'Accesorios de Baño',6),(49,'Accesorios de Cocina',6),(50,'Tomas y Puntos',7),(51,'Cables',7),(52,'Caños y Cajas',7),(53,'Termicas y Disyuntores',7),(54,'Iluminacion',7),(55,'Aerosoles',3),(56,'Exteriores',7),(57,'Sensores',7),(58,'Aislantes',7),(59,'Clavos',8),(60,'Cintas',8),(61,'Tornillos',8),(62,'Mechas',8),(63,'Cinceles',8),(64,'Terminales',8),(65,'Hojas de Sierra',8),(66,'Discos',8),(67,'Presintos',8),(68,'Buloneria',8),(69,'Adhesivos',8),(70,'Accesorios Minitorno',8);
 /*!40000 ALTER TABLE `sub_categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -308,11 +313,12 @@ CREATE TABLE `sucursales` (
   `provincia_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `email` (`email`),
   KEY `sucursales_FK` (`imagensuc_id`),
   KEY `sucursales_FK_1` (`provincia_id`),
   CONSTRAINT `sucursales_FK` FOREIGN KEY (`imagensuc_id`) REFERENCES `imagenes_suc` (`id`),
   CONSTRAINT `sucursales_FK_1` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -321,6 +327,7 @@ CREATE TABLE `sucursales` (
 
 LOCK TABLES `sucursales` WRITE;
 /*!40000 ALTER TABLE `sucursales` DISABLE KEYS */;
+INSERT INTO `sucursales` VALUES (1,'Lanus','Juncal','2938','lanus_suc@arknight.com.ar',1,'42202020','1133866202','Lanus',1),(2,'CABA','Corrientes','1212','caba_suc@arknight.com.ar',1,'42303030','1122334455','CABA',1),(3,'La Plata','CALLE 11','555','laplata_suc@arknight.com.ar',1,'42404040','1133225544','La Plata',1),(4,'Tucuman','Concepcion','1356','tucuman_suc@arknight.com.ar',1,'3562012523','35615243625','Concepcion',12);
 /*!40000 ALTER TABLE `sucursales` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -347,6 +354,7 @@ CREATE TABLE `usuarios` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `email` (`email`),
   KEY `usuarios_FK` (`provincia_id`),
   KEY `usuarios_FK_1` (`rol_id`),
   KEY `usuarios_FK_2` (`avatar_id`),
@@ -378,4 +386,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-10 23:39:58
+-- Dump completed on 2023-04-15 19:07:21

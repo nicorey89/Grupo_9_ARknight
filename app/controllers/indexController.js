@@ -1,38 +1,42 @@
-const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/productos.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const writeJSON=(products)=> {
-	fs.writeFileSync(productsFilePath ,JSON.stringify(products),(encoding = "utf-8") ) }
+const { Producto, Sequelize, } = require ('../database/modeLs');
+const {Op} = Sequelize;
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-
 const controller ={
-    index: (req, res)=>{
-       res.render('index', {
-        products,
-        toThousand,
-        sliderTitle: "PRODUCTOS EN OFERTAS",
-        sliderProducts: products,
-        session:req.session
-        
-       });
+    index: (req, res) => {
+        Producto.findAll({
+            include: [{association: "imagenes"}]
+        })
+        .then(producto=> {
+            return res.render("index", {
+                sliderTitle: "Productos en oferta",
+                sliderProducts: producto,
+                session: req.session
+            })
+        })
+        .catch(error => console.log(error));
     },
     search: (req,res) => {
         const loQueBuscoElUsuario = req.query.search;
-        let productsResults = [];
-        for(let i = 0; i < products.length; i++){
-            if(products[i].titulo.includes(loQueBuscoElUsuario)){
-                productsResults.push(products[i]);
-            }
-        }
-        res.render('products/search', {
-            productsResults,
-            toThousand,
-            session:req.session
+
+        const SEARCH_PRODUCTS_PROMISE = Producto.findAll({
+            where: {
+              titulo: {
+                [Op.like]: loQueBuscoElUsuario,
+              },
+            },
+            include: [{ association: "images" }],
+        })
+        Promise.all([SEARCH_PRODUCTS_PROMISE])
+        .then(([productsResults]) => {
+            res.render('products/search', {
+                productsResults,
+                toThousand,
+                session:req.session
+                })
             })
+
     }
     
 }
