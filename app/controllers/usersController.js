@@ -123,18 +123,18 @@ const controller = {
     },
     updateProfile: (req, res) => {
         let errors = validationResult(req);
+        let userId = req.session.usuario.id;
+        console.log(userId)
 
         if(errors.isEmpty()) {
 
-            let userId = req.session.usuario.id;
-            console.log(userId)
             const {
                 nombre,
                 apellido,
                 telefono,
                 direccion,
                 codigo_postal,
-                provincia,
+                provincia_id,
                 localidad
             } = req.body;
 
@@ -145,25 +145,34 @@ const controller = {
                     telefono,
                     direccion,
                     codigo_postal,
-                    provincia,
+                    provincia_id,
                     localidad
                 }, {
                     where: {
                         id : userId
                     }
                 }
-            )
-            req.session.usuario = usuario;
-
-            return res.redirect("/users/profile");
+            ).then((usuario) => {
+                if(usuario){
+                    req.session.usuario = usuario;
+                    return res.redirect("/users/profile");
+                }else {
+                    throw new Error('ERRRORRRR AQUI')
+                }
+            })
         } else {
             const userInSessionId = req.session.usuario.id;
 
-            return res.render("users/userProfileEdit", {
-                usuario: userInSession,
-                session: req.session,
-                errors: errors.mapped(),
-            })
+            Usuario.findByPk(userInSessionId)
+            .then(usuario => {
+                return res.render("users/userProfileEdit", {
+                    usuario: usuario,
+                    session: req.session,
+                    errors: errors.mapped(),
+                    old: req.body,
+                })
+
+            }).catch(error => console.log(error))
         }
     },
 }

@@ -10,7 +10,7 @@
         <h3 class="uTitle">EDITAR PERFIL</h3>
         <div class="formEdit">
             <input type="text" name="nombre" placeholder="Nombre" value="<%= locals.old ? old.nombre : usuario.nombre %>">
-            <% if (locals.errors && errors.name) { %>
+            <% if (locals.errors && errors.nombre) { %>
                 <small class="text-danger"><%= errors.nombre.msg %> </small>
             <% } %> 
         </div>

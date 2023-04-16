@@ -101,7 +101,7 @@ module.exports = {
     destroy : (req, res ) => {
       
         const products = readJSON("productos.json");
-		let productId = Number(req.params.id)
+		  let productId = Number(req.params.id)
 		
 		  products.forEach(product =>{
 			if (product.id === productId){
