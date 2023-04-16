@@ -110,14 +110,16 @@ const controller = {
         .catch(error => console.log(error))
     },
     editProfile: (req, res) => {
-         let userInSessionId = req.session.user.id;
+         let userInSessionId = req.session.usuario.id;
 
-        let userInSession = users.find(user => user.id === userInSessionId); 
-
-        res.render("users/userProfileEdit",  {
-            user: userInSession,
-            session: req.session
-        } )
+         Usuario.findByPk(userInSessionId)
+         
+         .then(usuario => {
+             res.render("users/userProfileEdit",  {
+                 usuario: usuario,
+                 session: req.session
+             } )
+         })
     },
     updateProfile: (req, res) => {
         let errors = validationResult(req);
@@ -155,11 +157,10 @@ const controller = {
 
             return res.redirect("/users/profile");
         } else {
-            const userInSessionId = req.session.user.id;
-            const userInSession = users.find(user => user.id === userInSessionId);
+            const userInSessionId = req.session.usuario.id;
 
             return res.render("users/userProfileEdit", {
-                user: userInSession,
+                usuario: userInSession,
                 session: req.session,
                 errors: errors.mapped(),
             })

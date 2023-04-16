@@ -1,4 +1,4 @@
-const { Producto, Sequelize, } = require ('../database/modeLs');
+const { Producto, Sequelize, } = require ('../database/models');
 const {Op} = Sequelize;
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
