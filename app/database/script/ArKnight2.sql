@@ -78,9 +78,12 @@ DROP TABLE IF EXISTS `imagenes`;
 CREATE TABLE `imagenes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
+  `producto_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `imagenes_FK` (`producto_id`),
+  CONSTRAINT `imagenes_FK` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,6 +92,7 @@ CREATE TABLE `imagenes` (
 
 LOCK TABLES `imagenes` WRITE;
 /*!40000 ALTER TABLE `imagenes` DISABLE KEYS */;
+INSERT INTO `imagenes` VALUES (1,'1678759996449_products_.jpg',1),(2,'rotomartillo-deWalt-2.jpg',2),(3,'amoladora-angular.jpg',3),(4,'motocierra-b+d.jpg',4),(5,'atornillador_inalambrico_lusqtoff.jpg',5),(6,'podadora_b+d.jpg',6);
 /*!40000 ALTER TABLE `imagenes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,9 +205,8 @@ CREATE TABLE `productos` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `productos_FK` (`subCategory_id`),
   KEY `productos_FK_1` (`imagen_id`),
-  CONSTRAINT `productos_FK` FOREIGN KEY (`subCategory_id`) REFERENCES `sub_categorias` (`id`),
-  CONSTRAINT `productos_FK_1` FOREIGN KEY (`imagen_id`) REFERENCES `imagenes` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  CONSTRAINT `productos_FK` FOREIGN KEY (`subCategory_id`) REFERENCES `sub_categorias` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,6 +215,7 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+INSERT INTO `productos` VALUES (1,'Taladro Percutor Bosch','450w 10mm ','23073',3,10,2,'Potencia absorbida 450w      Velocidad 0 - 3100 rpm         Impacto 0 - 49600 rpm        Peso sin cable 1.2 kg       Incluye: llave de mandril, un año de garantia',1,NULL,NULL),(2,'Rotomartillo DeWalt','800w 2.6 joules 26mm','77602',6,0,4,'Potencia 800 W        Impacto 2.6 J      peso 2.6 kg        Porta herramientas SDS-Plus        Impactos por minuto 0-5500 ipm',2,NULL,NULL),(3,'Amoladora Angular Black & Decker ','820w 115mm','16013',3,15,1,'Velocidad 11000rpm     Eje de 5/8\" - 11/m 14          Empuñadura lateral 3 posiciones       Traba eje manual        Incluye 1 disco abrasivo, llave, empuñadura lateral',3,NULL,NULL),(4,'Motosierra Electrica Black & Decker','1850w 40cm','53887',6,20,71,'Ajuste de cadena        Freno anti-retroceso         longitud max de corte 40cm     Potencia 1850w       Velocidad 5500/min rpm         Peso 6kg',4,NULL,NULL),(5,'Atornillador Inalambrico Lusqtoff','18v 2 baterias','53561',3,10,7,'Bateria 2.0 Ah      Voltaje 18v      mandril 1-10mm         Torque 25N.m      Peso 3.2kg        Incluye: cargador, 2 baterias, maletin',5,NULL,NULL),(6,'Podadora Cortacesped inalambrica Black & Decker','20v','33834',3,5,35,'Potencia 20V        Ancho de corte 25.4cm        Velocidad 9000 rpm         Sistema de alineacion Automatico         Incluye: guarda, bateria de 20v cargador',6,NULL,NULL);
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -280,7 +284,7 @@ CREATE TABLE `sub_categorias` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `sub_categorias_FK` (`categoria_id`),
   CONSTRAINT `sub_categorias_FK` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,7 +293,7 @@ CREATE TABLE `sub_categorias` (
 
 LOCK TABLES `sub_categorias` WRITE;
 /*!40000 ALTER TABLE `sub_categorias` DISABLE KEYS */;
-INSERT INTO `sub_categorias` VALUES (1,'Amoladoras',1),(2,'Agujereadoras',1),(3,'Circulares',1),(4,'Rotomartillos',1),(5,'Soldadoras',1),(6,'Compresores',1),(7,'Atornilladoras',1),(8,'Minitornos',1),(9,'Frezadoras',1),(10,'Hidrolavadoras',1),(11,'Martillos',2),(12,'Prensas',2),(13,'Serruchos',2),(14,'Pinzas y Alicates',2),(15,'Llaves y Tubos',2),(16,'Destornilladores',2),(17,'Medicion',2),(18,'Cajas y Set de Herramientas',2),(19,'Carros y Zorras',2),(20,'Linternas',2),(21,'Latex',3),(22,'Sinteticos',3),(23,'Pinceles',3),(24,'Rodillos',3),(25,'Diluyentes',3),(26,'Masillas',3),(27,'Espatulas',2),(28,'Lijadoras',1),(29,'Entonadores',3),(30,'Barniz',3),(31,'Texturados',3),(32,'Piletas',4),(33,'Parrillas',4),(34,'Camping y Playa',4),(35,'Jardineria',4),(36,'Muebles de Exterior',5),(37,'Muebles de Interior',5),(38,'Bazar',5),(39,'Sabanas y Cortinas',5),(40,'Espejos',5),(41,'Portaretratos',5),(42,'Sanitarios',6),(43,'Griferias',6),(44,'Gas',6),(45,'Agua',6),(46,'Bachas',6),(47,'Mamparas',6),(48,'Accesorios de Baño',6),(49,'Accesorios de Cocina',6),(50,'Tomas y Puntos',7),(51,'Cables',7),(52,'Caños y Cajas',7),(53,'Termicas y Disyuntores',7),(54,'Iluminacion',7),(55,'Aerosoles',3),(56,'Exteriores',7),(57,'Sensores',7),(58,'Aislantes',7),(59,'Clavos',8),(60,'Cintas',8),(61,'Tornillos',8),(62,'Mechas',8),(63,'Cinceles',8),(64,'Terminales',8),(65,'Hojas de Sierra',8),(66,'Discos',8),(67,'Presintos',8),(68,'Buloneria',8),(69,'Adhesivos',8),(70,'Accesorios Minitorno',8);
+INSERT INTO `sub_categorias` VALUES (1,'Amoladoras',1),(2,'Agujereadoras',1),(3,'Circulares',1),(4,'Rotomartillos',1),(5,'Soldadoras',1),(6,'Compresores',1),(7,'Atornilladoras',1),(8,'Minitornos',1),(9,'Frezadoras',1),(10,'Hidrolavadoras',1),(11,'Martillos',2),(12,'Prensas',2),(13,'Serruchos',2),(14,'Pinzas y Alicates',2),(15,'Llaves y Tubos',2),(16,'Destornilladores',2),(17,'Medicion',2),(18,'Cajas y Set de Herramientas',2),(19,'Carros y Zorras',2),(20,'Linternas',2),(21,'Latex',3),(22,'Sinteticos',3),(23,'Pinceles',3),(24,'Rodillos',3),(25,'Diluyentes',3),(26,'Masillas',3),(27,'Espatulas',2),(28,'Lijadoras',1),(29,'Entonadores',3),(30,'Barniz',3),(31,'Texturados',3),(32,'Piletas',4),(33,'Parrillas',4),(34,'Camping y Playa',4),(35,'Jardineria',4),(36,'Muebles de Exterior',5),(37,'Muebles de Interior',5),(38,'Bazar',5),(39,'Sabanas y Cortinas',5),(40,'Espejos',5),(41,'Portaretratos',5),(42,'Sanitarios',6),(43,'Griferias',6),(44,'Gas',6),(45,'Agua',6),(46,'Bachas',6),(47,'Mamparas',6),(48,'Accesorios de Baño',6),(49,'Accesorios de Cocina',6),(50,'Tomas y Puntos',7),(51,'Cables',7),(52,'Caños y Cajas',7),(53,'Termicas y Disyuntores',7),(54,'Iluminacion',7),(55,'Aerosoles',3),(56,'Exteriores',7),(57,'Sensores',7),(58,'Aislantes',7),(59,'Clavos',8),(60,'Cintas',8),(61,'Tornillos',8),(62,'Mechas',8),(63,'Cinceles',8),(64,'Terminales',8),(65,'Hojas de Sierra',8),(66,'Discos',8),(67,'Presintos',8),(68,'Buloneria',8),(69,'Adhesivos',8),(70,'Accesorios Minitorno',8),(71,'Motosierras',1);
 /*!40000 ALTER TABLE `sub_categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -386,4 +390,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-15 19:07:21
+-- Dump completed on 2023-04-16 14:56:04
