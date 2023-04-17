@@ -28,7 +28,7 @@ const controller = {
                 telefono: "",
                 direccion: "",
                 codigo_postal: "",
-                provincia_id: 1,
+                provincia: "",
                 localidad: ""
                 }
 

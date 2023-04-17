@@ -6,16 +6,17 @@
 <main class="home">
     <section>
         <h2 class="titulo-productos">Resultado de la busqueda</h2>
-        <% if (!producto) { %>
+        <% if (!products) { %>
             <div class="">
                 <h2 class="" style="color: tomato;">No hay productos que coincidan con esa búsqueda</h2>
             </div>
         <% } else { %>
         <div class="product-container">
+            <% products.forEach(producto => { %>
               <article class="product">
                   <div class="photo-container">
                      <a href="/products/productDetail/<%= producto.id %>">
-                        <img class="photo" src="/images/products/<%= producto.imagenes ? producto.imagenes : 'default-image.png' %>" alt="pdto 02">
+                        <img class="photo" src="/images/products/<%= producto.imagen ? producto.imagen.nombre : 'default-image.png' %>" alt="pdto 02">
                     </a>
                      <img class="special" src="/images/img-descuento.png" alt="nuevo">
                   </div>
@@ -30,6 +31,7 @@
                   </p>
                   <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
               </article>
+              <% }) %>
             </div>
         <% } %>
     </section>
