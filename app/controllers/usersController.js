@@ -134,9 +134,10 @@ const controller = {
                 codigo_postal,
                 provincia,
                 localidad,
-                avatar,
             } = req.body
-            // console.log(               
+
+            const {avatar} =  req.file.filename;
+             console.log(               
             //         req.body.nombre,
             //         req.body.apellido,
             //         req.body.telefono,
@@ -144,8 +145,8 @@ const controller = {
             //         req.body.codigo_postal,
             //         req.body.provincia,
             //         req.body.localidad,
-            //         req.body.avatar,
-            // );
+            req.file.filename,
+             );
 
 
 
@@ -157,7 +158,7 @@ const controller = {
                     codigo_postal : codigo_postal,
                     provincia : provincia,
                     localidad : localidad,
-                    avatar : avatar,
+                    avatar : req.file ? req.file.filename : avatar,
                 }, {
                     where: {
                         id : req.session.usuario.id
