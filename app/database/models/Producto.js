@@ -33,6 +33,10 @@ module.exports = (sequelize, dataTypes) => {
         descripcion: {
             type: dataTypes.STRING(800),
         },
+        imagen_id: {
+            type: dataTypes.INTEGER(11),
+            allowNull: false,
+        },
     }
 
     const config = {
