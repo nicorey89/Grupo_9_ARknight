@@ -24,8 +24,8 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false,
         },
-        imagensuc_id: {
-            type: dataTypes.INTEGER(11)
+        imagen_suc: {
+            type: dataTypes.STRING(100)
         },
         telefono: {
             type: dataTypes.STRING(100),
@@ -39,8 +39,8 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false,
         },
-        provincia_id: {
-            type: dataTypes.INTEGER(11)
+        provincia: {
+            type: dataTypes.STRING(100)
         },
     }
 
@@ -50,19 +50,6 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const SUCURSAL = sequelize.define(alias, cols, config);
-
-    SUCURSAL.associate = (models) => {
-        SUCURSAL.hasMany(models.Imagen_suc, {
-            as: "imagenes_suc",
-            foreignKey: "imagensuc_id"
-        });
-    }
-    SUCURSAL.associate = (models) => {
-        SUCURSAL.hasMany(models.Provincia, {
-            as: "provincias",
-            foreignKey: "provincia_id"
-        });
-    }
 
     return SUCURSAL;
 }

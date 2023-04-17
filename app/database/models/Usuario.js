@@ -39,9 +39,8 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false,
         },
-        provincia_id: {
-            type: dataTypes.INTEGER(11),
-            allowNull: false,
+        provincia: {
+            type: dataTypes.STRING(100),
         },
         localidad: {
             type: dataTypes.STRING(100),
@@ -57,12 +56,6 @@ module.exports = (sequelize, dataTypes) => {
 
     const USUARIO = sequelize.define(alias, cols, config);
 
-    // USUARIO.associate = (models) => {
-    //     USUARIO.belongsTo(models.Provincia, {
-    //         as: "provincia",
-    //         foreignKey: "provincia_id"
-    //     });
-    // }
 
     return USUARIO;
 }

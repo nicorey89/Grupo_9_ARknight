@@ -63,9 +63,9 @@ const controller = {
                     rol: usuario.rol
                 }
 
-                let tiempoDeVidaCookie = new Date(Date.now() + 60000);
+                let tiempoDeVidaCookie = new Date(Date.now() + 6000000);
 
-                if(req.body.remember) {
+                if(req.body.recordar) {
                     res.cookie(
                         "ArKnight", 
                         req.session.usuario, 
@@ -123,9 +123,7 @@ const controller = {
     },
     updateProfile: (req, res) => {
         let errors = validationResult(req);
-        let userId = req.session.usuario.id;
-        console.log(userId)
-
+        //console.log(errors);
         if(errors.isEmpty()) {
 
             const {
@@ -134,45 +132,54 @@ const controller = {
                 telefono,
                 direccion,
                 codigo_postal,
-                provincia_id,
-                localidad
-            } = req.body;
+                provincia,
+                localidad,
+                avatar,
+            } = req.body
+            // console.log(               
+            //         req.body.nombre,
+            //         req.body.apellido,
+            //         req.body.telefono,
+            //         req.body.direccion,
+            //         req.body.codigo_postal,
+            //         req.body.provincia,
+            //         req.body.localidad,
+            //         req.body.avatar,
+            // );
 
-            Usuario.update(
-                {
-                    nombre,
-                    apellido,
-                    telefono,
-                    direccion,
-                    codigo_postal,
-                    provincia_id,
-                    localidad
+
+
+             Usuario.update({
+                    nombre : nombre,
+                    apellido : apellido,
+                    telefono : telefono,
+                    direccion : direccion,
+                    codigo_postal : codigo_postal,
+                    provincia : provincia,
+                    localidad : localidad,
+                    avatar : avatar,
                 }, {
                     where: {
-                        id : userId
+                        id : req.session.usuario.id
                     }
                 }
-            ).then((usuario) => {
-                if(usuario){
-                    req.session.usuario = usuario;
-                    return res.redirect("/users/profile");
-                }else {
-                    throw new Error('ERRRORRRR AQUI')
-                }
-            })
+            ).then(() => {
+                return res.redirect("/");
+            }).catch(error => console.log(error))
+
         } else {
             const userInSessionId = req.session.usuario.id;
 
             Usuario.findByPk(userInSessionId)
             .then(usuario => {
                 return res.render("users/userProfileEdit", {
-                    usuario: usuario,
+                    usuario,
                     session: req.session,
                     errors: errors.mapped(),
                     old: req.body,
                 })
 
-            }).catch(error => console.log(error))
+            })
         }
     },
 }
