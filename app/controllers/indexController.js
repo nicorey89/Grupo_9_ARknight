@@ -1,4 +1,4 @@
-const { Producto, Sequelize, sequelize } = require ('../database/models');
+const { Producto, Sequelize } = require ('../database/models');
 const {Op} = Sequelize;
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -21,28 +21,23 @@ const controller ={
     },
     search: (req,res) => {
         const loQueBuscoElUsuario = req.query.search;
-
-        console.log(loQueBuscoElUsuario);
-
         Producto.findAll({
             where: {
               titulo: {
-                [Op.like]: `%${loQueBuscoElUsuario}%` ,
-              },
-            }
-        }, {include: [{association: "imagen"}]})
-        .then((loQueBuscoElUsuario) => {
-           if (loQueBuscoElUsuario != 0) {
-                //return res.send(loQueBuscoElUsuario);
-               res.render('products/search', {
-                  products : loQueBuscoElUsuario,
+                [Op.like]: `%${loQueBuscoElUsuario}%`
+              }
+            },include: [{association: "imagen"}]}
+        )
+        .then((producto) => {
+           if (producto) {
+               return res.render('products/search', {
+                  products : producto,
                   toThousand,
                   session:req.session
                    })
            }else {
             throw new Error('NO SE ENCONTRO EL PRODUCTO')
-           }
-            }).catch(error => console.log(error))
+           }})
     }
     
 }
