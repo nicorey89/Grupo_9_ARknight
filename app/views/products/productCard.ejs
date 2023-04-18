@@ -20,7 +20,7 @@
                             <article class="item--cart">
                                 <div class="photo-container">
                                     <a href="/admin/adminProducts/<%= producto.id %>">
-                                        <img class="photo" src="/images/products/<%= producto.imagen ? producto.imagen : 'default-image.png' %>" alt="">
+                                        <img class="photo" src="/images/products/<%= producto.imagen.nombre ? producto.imagen.nombre : 'default-image.png' %>" alt="">
                                     </a>
                                 </div>
                                 <div class="a">

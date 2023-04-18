@@ -21,29 +21,27 @@ const controller = {
     .catch(error => console.log(error))
   },
   pDetail:(req, res)=>{
-
-  
-    const PRODUCT_PROMISE = Producto.findByPk(productos.id, {
-      include: [{association: 'imagenes'}]
+    const producto = req.params.id
+    const PRODUCT_PROMISE = Producto.findByPk( producto, {
+      include: [{association: 'imagen'}]
     })
-    const ALL_PRODUCTS_PROMISE = Product.findALL({
+    const ALL_PRODUCTS_PROMISE = Producto.findAll({
       where: {
-        discount: {
+        descuento: {
           [Op.gte]: 10,
         },
       },
-      include: [{association: 'images'}]
+      include: [{association: 'imagen'}]
     });
     Promise.all([PRODUCT_PROMISE, ALL_PRODUCTS_PROMISE])
     .then(([product, sliderProducts]) => {
       return res.render("products/productDetail", {
-        ...product,
+        producto : product,
         toThousand,
         tittle : "Product Detail",
         sliderTitle: "PRODUCTOS EN OFERTAS",
         sliderProducts,
         session: req.session
-        
     })
     })
     .catch(error => console.log(error))
@@ -74,15 +72,17 @@ const controller = {
     }
   } */
   pCard:(req, res)=>{
-      let products = readJSON('productos.json')
-  
-      
-      res.render('products/productCard', {
-          products,
-          sliderTitle: "PRODUCTOS EN OFERTAS",
-          sliderProducts: products,
-          session:req.session,
-          toThousand
+      Producto.findAll({
+        include: [{association: 'imagen'}
+      ]
+      }).then((productos) => {
+        res.render('products/productCard', {
+            products : productos,
+            sliderTitle: "PRODUCTOS EN OFERTAS",
+            sliderProducts: productos,
+            session:req.session,
+            toThousand
+        })
       })
       }
     }

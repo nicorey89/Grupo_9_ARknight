@@ -24,21 +24,21 @@ const controller ={
 
         console.log(loQueBuscoElUsuario);
 
-        Producto.findOne({
+        Producto.findAll({
             where: {
               titulo: {
                 [Op.like]: `%${loQueBuscoElUsuario}%` ,
               },
             }
-        })
+        }, {include: [{association: "imagen"}]})
         .then((loQueBuscoElUsuario) => {
            if (loQueBuscoElUsuario != 0) {
+                //return res.send(loQueBuscoElUsuario);
                res.render('products/search', {
-                  producto : loQueBuscoElUsuario,
+                  products : loQueBuscoElUsuario,
                   toThousand,
                   session:req.session
                    })
-                   
            }else {
             throw new Error('NO SE ENCONTRO EL PRODUCTO')
            }
