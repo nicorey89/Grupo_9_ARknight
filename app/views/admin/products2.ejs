@@ -26,7 +26,7 @@
                         <% products.forEach(product => { %>
                         <article>
                             <div class="imagen-producto">
-                                <img class="producto" src="/images/products/<%= product.imagen ? product.imagen.nombre : 'default-image.png' %>" alt="">
+                                <img class="producto" src="/images/products/<%= product.imagen ? product.imagen : 'default-image.png' %>" alt="">
                             </div>
                             <div class="detalle">
                                 <div><%= product.titulo%></div>

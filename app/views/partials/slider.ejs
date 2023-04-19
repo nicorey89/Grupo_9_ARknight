@@ -10,7 +10,7 @@
                     <% if (product.descuento > 0) { %>
                         <div class="productDiscount"><%- product.descuento %>% OFF</div>
                     <% } %>
-                    <img src="/images/products/<%= product.imagen.nombre %>" alt="">
+                    <img src="/images/products/<%= product.imagen %>" alt="">
                     <p class="productName"> 
                         <% if (product.titulo.length > 30) { %>
                             <%- `${product.titulo.slice(0,30)}...` %>

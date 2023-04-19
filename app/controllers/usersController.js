@@ -123,7 +123,6 @@ const controller = {
     },
     updateProfile: (req, res) => {
         let errors = validationResult(req);
-        //console.log(errors);
         if(errors.isEmpty()) {
 
             const {
@@ -137,19 +136,7 @@ const controller = {
             } = req.body
 
             const {avatar} =  req.file.filename;
-             console.log(               
-            //         req.body.nombre,
-            //         req.body.apellido,
-            //         req.body.telefono,
-            //         req.body.direccion,
-            //         req.body.codigo_postal,
-            //         req.body.provincia,
-            //         req.body.localidad,
-            req.file.filename,
-             );
-
-
-
+            
              Usuario.update({
                     nombre : nombre,
                     apellido : apellido,

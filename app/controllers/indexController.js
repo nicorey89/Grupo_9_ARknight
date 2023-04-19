@@ -5,9 +5,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller ={
     index: (req, res) => {
-        Producto.findAll({
-            include: [{association: "imagen"}]
-        })
+        Producto.findAll()
         .then(producto=> {
             return res.render("index", {
                 sliderTitle: "Productos en oferta",
@@ -26,7 +24,7 @@ const controller ={
               titulo: {
                 [Op.like]: `%${loQueBuscoElUsuario}%`
               }
-            },include: [{association: "imagen"}]}
+            }}
         )
         .then((producto) => {
            if (producto) {
