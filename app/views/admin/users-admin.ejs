@@ -26,7 +26,7 @@
                     <% users.forEach(user => { %>
                     <article>
                         <div class="imagen-user">
-                            <img class="user" src="/images/avatar/<%= user.avatar ? user.avatar.nombre : 'default-image.png' %>" alt="">
+                            <img class="user" src="/images/avatar/<%= user ? user.avatar : 'default-image.png' %>" alt="">
                         </div>
                         <div class="detalle">
                             <div><%= user.nombre%></div>

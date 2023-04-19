@@ -26,10 +26,8 @@ module.exports = {
       });
     },
      listarUsers: (req,res)=>{
-      Usuario.findAll({
-        include : [{association: 'imagen'}]
-      }
-      ).then((usuarios) => {
+      Usuario.findAll()
+      .then((usuarios) => {
         if(usuarios){
           res.render("admin/users-admin" , {
               users : usuarios,
