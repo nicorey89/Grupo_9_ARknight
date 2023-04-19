@@ -40,7 +40,7 @@ const controller = {
         toThousand,
         tittle : "Product Detail",
         sliderTitle: "PRODUCTOS EN OFERTAS",
-        sliderProducts,
+        sliderProducts: sliderProducts,
         session: req.session
     })
     })

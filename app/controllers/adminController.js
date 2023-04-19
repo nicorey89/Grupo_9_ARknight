@@ -1,4 +1,4 @@
-const {readJSON, writeJSON } = require('../data')
+const { Producto, Sequelize, Usuario } = require ('../database/models');
 
 const { validationResult } = require("express-validator")
 
@@ -9,23 +9,35 @@ module.exports = {
         res.render('admin/admin',{
             session:req.session
         })
-
     },
      listar: (req,res)=>{
-        const products = readJSON("productos.json");
-      res.render("admin/products2" , {
-          products,
-          toThousand,
-          session:req.session
-         
-      })
+      Producto.findAll({
+        include: [{association: 'imagen'}]
+      }).then((productos) => {
+        if(productos){
+          res.render("admin/products2" , {
+            products : productos,
+            toThousand,
+            session:req.session
+           })    
+        }else {
+          throw new Error('ERRRRRoOR Aquii!!');
+        }
+      });
     },
      listarUsers: (req,res)=>{
-        const users = readJSON("users.json");
-      res.render("admin/users-admin" , {
-          users,
-          session:req.session
-         
+      Usuario.findAll({
+        include : [{association: 'imagen'}]
+      }
+      ).then((usuarios) => {
+        if(usuarios){
+          res.render("admin/users-admin" , {
+              users : usuarios,
+              session : req.session
+          })
+        }else{
+          throw new Error('Error aquiiii')
+        }
       })
     },
     create: (req, res) => {
@@ -34,8 +46,20 @@ module.exports = {
         })
     },
     store: (req, res) => {
-        const products = readJSON("productos.json");
-        let lastId = products[products.length - 1].id
+      let newUser = {
+        nombre: req.body.name,
+        apellido: req.body.apellido ,
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password, 12),
+        avatar: req.file ? req.file.filename : "default-image.png",
+        telefono: "",
+        direccion: "",
+        codigo_postal: "",
+        provincia: "",
+        localidad: ""
+        }
+
+    Usuario.create(newUser)
     
         let newProduct = {
            "id":lastId + 1,
@@ -48,9 +72,7 @@ module.exports = {
            "subCategoria": req.body.subCategoria,
           "descripcion": req.body.descripcion,
            "imagen": req.file ? req.file.filename : null
-  
-  
-         }
+          }
          products.push(newProduct);
          writeJSON('productos.json',products);
          res.redirect('/admin/')
