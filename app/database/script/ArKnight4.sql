@@ -17,31 +17,6 @@
 CREATE DATABASE arknight_db;
 
 USE arknight_db;
-
---
--- Table structure for table `avatares`
---
-
-DROP TABLE IF EXISTS `avatares`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `avatares` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `avatares`
---
-
-LOCK TABLES `avatares` WRITE;
-/*!40000 ALTER TABLE `avatares` DISABLE KEYS */;
-/*!40000 ALTER TABLE `avatares` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Table structure for table `categorias`
 --
@@ -66,59 +41,6 @@ LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
 INSERT INTO `categorias` VALUES (1,'Herramientas Electricas','NULL'),(2,'Herramientas de Mano','NULL'),(3,'Pinturas','NULL'),(4,'Jardin','NULL'),(5,'Decoracion','NULL'),(6,'Plomeria','NULL'),(7,'Electricidad','NULL'),(8,'Ferreteria','NULL');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `imagenes`
---
-
-DROP TABLE IF EXISTS `imagenes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `imagenes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
-  `producto_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `imagenes_FK` (`producto_id`),
-  CONSTRAINT `imagenes_FK` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `imagenes`
---
-
-LOCK TABLES `imagenes` WRITE;
-/*!40000 ALTER TABLE `imagenes` DISABLE KEYS */;
-INSERT INTO `imagenes` VALUES (1,'1678759996449_products_.jpg',1),(2,'rotomartillo-deWalt-2.jpg',2),(3,'amoladora-angular.jpg',3),(4,'motocierra-b+d.jpg',4),(5,'atornillador_inalambrico_lusqtoff.jpg',5),(6,'podadora_b+d.jpg',6);
-/*!40000 ALTER TABLE `imagenes` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `imagenes_suc`
---
-
-DROP TABLE IF EXISTS `imagenes_suc`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `imagenes_suc` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `imagenes_suc`
---
-
-LOCK TABLES `imagenes_suc` WRITE;
-/*!40000 ALTER TABLE `imagenes_suc` DISABLE KEYS */;
-INSERT INTO `imagenes_suc` VALUES (1,'NULL');
-/*!40000 ALTER TABLE `imagenes_suc` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -198,13 +120,12 @@ CREATE TABLE `productos` (
   `descuento` int(11) DEFAULT NULL,
   `subCategory_id` int(11) NOT NULL,
   `descripcion` varchar(300) DEFAULT NULL,
-  `imagen_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `imagen` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `productos_FK` (`subCategory_id`),
-  KEY `productos_FK_1` (`imagen_id`),
   CONSTRAINT `productos_FK` FOREIGN KEY (`subCategory_id`) REFERENCES `sub_categorias` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -215,58 +136,8 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (1,'Taladro Percutor Bosch','450w 10mm ','23073',3,10,2,'Potencia absorbida 450w      Velocidad 0 - 3100 rpm         Impacto 0 - 49600 rpm        Peso sin cable 1.2 kg       Incluye: llave de mandril, un año de garantia',1,NULL,NULL),(2,'Rotomartillo DeWalt','800w 2.6 joules 26mm','77602',6,0,4,'Potencia 800 W        Impacto 2.6 J      peso 2.6 kg        Porta herramientas SDS-Plus        Impactos por minuto 0-5500 ipm',2,NULL,NULL),(3,'Amoladora Angular Black & Decker ','820w 115mm','16013',3,15,1,'Velocidad 11000rpm     Eje de 5/8\" - 11/m 14          Empuñadura lateral 3 posiciones       Traba eje manual        Incluye 1 disco abrasivo, llave, empuñadura lateral',3,NULL,NULL),(4,'Motosierra Electrica Black & Decker','1850w 40cm','53887',6,20,71,'Ajuste de cadena        Freno anti-retroceso         longitud max de corte 40cm     Potencia 1850w       Velocidad 5500/min rpm         Peso 6kg',4,NULL,NULL),(5,'Atornillador Inalambrico Lusqtoff','18v 2 baterias','53561',3,10,7,'Bateria 2.0 Ah      Voltaje 18v      mandril 1-10mm         Torque 25N.m      Peso 3.2kg        Incluye: cargador, 2 baterias, maletin',5,NULL,NULL),(6,'Podadora Cortacesped inalambrica Black & Decker','20v','33834',3,5,35,'Potencia 20V        Ancho de corte 25.4cm        Velocidad 9000 rpm         Sistema de alineacion Automatico         Incluye: guarda, bateria de 20v cargador',6,NULL,NULL);
+INSERT INTO `productos` VALUES (1,'Taladro Percutor Bosch','450w 10mm ','23073',3,10,2,'Potencia absorbida 450w      Velocidad 0 - 3100 rpm         Impacto 0 - 49600 rpm        Peso sin cable 1.2 kg       Incluye: llave de mandril, un año de garantia',NULL,'2023-04-19 02:25:59','1681871158992_products_.jpg'),(2,'Rotomartillo DeWalt','800w 2.6 joules 26mm','77602',6,0,4,'Potencia 800 W        Impacto 2.6 J      peso 2.6 kg        Porta herramientas SDS-Plus        Impactos por minuto 0-5500 ipm',NULL,NULL,'rotomartillo-deWalt-2.jpg'),(3,'Amoladora Angular Black & Decker ','820w 115mm','16013',3,15,1,'Velocidad 11000rpm     Eje de 5/8\" - 11/m 14          Empuñadura lateral 3 posiciones       Traba eje manual        Incluye 1 disco abrasivo, llave, empuñadura lateral',NULL,NULL,'amoladora-angular.jpg'),(4,'Motosierra Electrica Black & Decker','1850w 40cm','53887',6,20,71,'Ajuste de cadena        Freno anti-retroceso         longitud max de corte 40cm     Potencia 1850w       Velocidad 5500/min rpm         Peso 6kg',NULL,NULL,'motocierra-b+d.jpg'),(5,'Atornillador Inalambrico Lusqtoff','18v 2 baterias','53561',3,10,7,'Bateria 2.0 Ah      Voltaje 18v      mandril 1-10mm         Torque 25N.m      Peso 3.2kg        Incluye: cargador, 2 baterias, maletin',NULL,NULL,'atornillador_inalambrico_lusqtoff.jpg'),(6,'Podadora Cortacesped inalambrica Black & Decker','20v','33834',3,5,35,'Potencia 20V        Ancho de corte 25.4cm        Velocidad 9000 rpm         Sistema de alineacion Automatico         Incluye: guarda, bateria de 20v cargador',NULL,NULL,'podadora_b+d.jpg');
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `provincias`
---
-
-DROP TABLE IF EXISTS `provincias`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `provincias` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `provincias`
---
-
-LOCK TABLES `provincias` WRITE;
-/*!40000 ALTER TABLE `provincias` DISABLE KEYS */;
-INSERT INTO `provincias` VALUES (1,'Buenos Aires'),(2,'Entre Rios'),(3,'La Rioja'),(4,'Neuquen'),(5,'Chaco'),(6,'Formosa'),(7,'Misiones'),(8,'Corrientes'),(9,'Salta'),(10,'Jujuy'),(11,'Santa Fe'),(12,'Tucuman'),(13,'Tierra del Fuego'),(14,'Cordoba'),(15,'San Luis'),(16,'Santa Cruz'),(17,'Rio Negro'),(18,'La Pampa'),(19,'Mendoza'),(20,'Chubut'),(21,'San Juan'),(22,'Catamarca'),(23,'Santiago del Estero');
-/*!40000 ALTER TABLE `provincias` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `roles`
---
-
-DROP TABLE IF EXISTS `roles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `roles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `roles`
---
-
-LOCK TABLES `roles` WRITE;
-/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'ADMIN'),(2,'USER'),(3,'VENTAS');
-/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -355,7 +226,7 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -364,6 +235,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'nicolas','rey','nico@gmail.com','$2a$12$vb4cP5uJjl8x2Gs2CQnUI.fuWJ8xPRHAgrh.nUaCmVyQGO/S/W2xe','01133866202','B1822','Zona Sur','2023-04-19 01:04:15','2023-04-19 02:27:10',1,'Buenos Aires','1681866327974_avatar_.jpeg');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -380,4 +252,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-16 20:08:20
+-- Dump completed on 2023-04-18 23:52:37

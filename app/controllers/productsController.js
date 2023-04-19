@@ -5,10 +5,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
   index: (req, res) => {
-    Producto.findAll({
-      include: [{association: 'imagenes'}
-    ]
-    })
+    Producto.findAll()
     .then(([product, sliderProducts]) => {
       return res.render("products/productDetail", {
         ...product,
@@ -22,16 +19,13 @@ const controller = {
   },
   pDetail:(req, res)=>{
     const producto = req.params.id
-    const PRODUCT_PROMISE = Producto.findByPk( producto, {
-      include: [{association: 'imagen'}]
-    })
+    const PRODUCT_PROMISE = Producto.findByPk(producto)
     const ALL_PRODUCTS_PROMISE = Producto.findAll({
       where: {
         descuento: {
           [Op.gte]: 10,
         },
-      },
-      include: [{association: 'imagen'}]
+      }
     });
     Promise.all([PRODUCT_PROMISE, ALL_PRODUCTS_PROMISE])
     .then(([product, sliderProducts]) => {
@@ -40,7 +34,7 @@ const controller = {
         toThousand,
         tittle : "Product Detail",
         sliderTitle: "PRODUCTOS EN OFERTAS",
-        sliderProducts,
+        sliderProducts: sliderProducts,
         session: req.session
     })
     })
@@ -72,10 +66,7 @@ const controller = {
     }
   } */
   pCard:(req, res)=>{
-      Producto.findAll({
-        include: [{association: 'imagen'}
-      ]
-      }).then((productos) => {
+      Producto.findAll().then((productos) => {
         res.render('products/productCard', {
             products : productos,
             sliderTitle: "PRODUCTOS EN OFERTAS",
