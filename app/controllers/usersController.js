@@ -63,11 +63,11 @@ const controller = {
                     rol: usuario.rol
                 }
 
-                let tiempoDeVidaCookie = new Date(Date.now() + 6000000);
+                let tiempoDeVidaCookie = new Date(Date.now() + 60000);
 
                 if(req.body.recordar) {
                     res.cookie(
-                        "ArKnight", 
+                        "userARKnight", 
                         req.session.usuario, 
                         {
                             expires: tiempoDeVidaCookie,

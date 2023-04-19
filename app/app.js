@@ -22,7 +22,6 @@ app.use(session({
 }));
 app.use(cookieParser());
 app.use(cookieCheck);
-console.log(session);
 
 /*---- ROUTERS ----- */
 const indexRouter= require('./routes/index')

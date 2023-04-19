@@ -43,36 +43,32 @@ module.exports = {
         })
     },
     store: (req, res) => {
-      let newUser = {
-        nombre: req.body.name,
-        apellido: req.body.apellido ,
-        email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 12),
-        avatar: req.file ? req.file.filename : "default-image.png",
-        telefono: "",
-        direccion: "",
-        codigo_postal: "",
-        provincia: "",
-        localidad: ""
-        }
-
-    Usuario.create(newUser)
-    
+        console.log(req.body.titulo, req.body.modelo)
+      
+        
         let newProduct = {
-           "id":lastId + 1,
-           "titulo": req.body.titulo,
-          "modelo": req.body.modelo,
-           "precio": req.body.precio,
-           "descuento": req.body.descuento,
-           "cuotas": req.body.cuotas,
-           "categoria": req.body.categoria,
-           "subCategoria": req.body.subCategoria,
-          "descripcion": req.body.descripcion,
-           "imagen": req.file ? req.file.filename : null
-          }
-         products.push(newProduct);
-         writeJSON('productos.json',products);
-         res.redirect('/admin/')
+              titulo: req.body.titulo,
+              modelo: req.body.modelo,
+              precio: req.body.precio,
+              descuento: req.body.descuento,
+              cuotas: req.body.cuotas,
+              categoria: req.body.categoria,
+              subCategoria: req.body.subCategoria,
+              descripcion: req.body.descripcion,
+              imagen: req.file ? req.file.filename : "default-image.png"
+            }
+
+            res.send(newProduct)
+          Producto.create(newProduct)
+          .then((USER) => {
+            if (USER) {
+              res.redirect('/admin/')
+            }else {
+              throw new Error(error)
+            }
+          })
+      
+
     },
     edit: (req, res) => {
             let productId = req.params.id;
@@ -135,20 +131,14 @@ module.exports = {
         }
     },
     destroy : (req, res ) => {
-      
-        const products = readJSON("productos.json");
 		  let productId = Number(req.params.id)
-		
-		  products.forEach(product =>{
-			if (product.id === productId){
-           let productToDestroy = products.indexOf(product);
-		   products.splice(productToDestroy , 1)
 
-			}
-		  }) 
-
-    writeJSON('productos.json',products);
-    res.redirect('/');
+      Producto.destroy({where: {
+       id: productId
+      }})
+      .then(() => {
+        res.redirect('/admin');
+      }) 
   },
   userUpdate: (req,res) => {
     let userId = Number(req.params.id)
