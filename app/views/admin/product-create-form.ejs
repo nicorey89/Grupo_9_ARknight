@@ -5,7 +5,7 @@
     <%- include('../partials/header') %>
     <main class="registerMain">
         <div class="container">
-            <form action="/" method="POST" enctype="multipart/form-data">
+            <form action="/admin/create" method="POST" enctype="multipart/form-data">
                 <div class="form">
                     <div class="">
                         <h2 class="">CARGAR PRODUCTO:</i></h2>
@@ -35,11 +35,6 @@
                         <label for="cuotas" class="form-label"></label>
                         <input type="number" id="cuotas" name="cuotas" value="cuotas" placeholder="Cuotas" class="input-style">
                         <span class="error-message">Debe ingresar las cuotas</span>
-                    </div>
-                    <div class="input-container">
-                        <label for="categoria" class="form-label"></label>
-                        <input type="text" id="categoria" name="categoria" value="" placeholder="Ej: Herramientas electricas" class="input-style">
-                        <span class="error-message">Debe ingresar la Categoria</span>
                     </div>
                     <div class="input-container">
                         <label for="subCategoria" class="form-label"></label>

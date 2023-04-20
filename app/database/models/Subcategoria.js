@@ -12,7 +12,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false,
         },
-        Category_id: {
+        category_id: {
             type: dataTypes.INTEGER(11)
         },
     }
@@ -25,17 +25,18 @@ module.exports = (sequelize, dataTypes) => {
     const SUB_CATEGORIA = sequelize.define(alias, cols, config);
 
     SUB_CATEGORIA.associate = (models) => {
+
         SUB_CATEGORIA.belongsTo(models.Categoria, {
             as: "categoria",
-            foreignKey: "categoria_id"
+            foreignKey: "category_id"
         });
-    }
-    SUB_CATEGORIA.associate = (models) => {
+
         SUB_CATEGORIA.hasMany(models.Producto, {
-            as: "Sub_categorias",
+            as: "productos",
             foreignKey: "subCategory_id"
         });
     }
+    
 
     return SUB_CATEGORIA;
 }
