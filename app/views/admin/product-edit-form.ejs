@@ -43,9 +43,8 @@
                         <label for="categoria" class="form-label">Categoría:</label>
                         <select name="categoria" id="categoria" class="">
                                     <% for(let i = 0; i<categoria.length;i++) {%>
-                                          
-                                                <option value="<%= categoria[i].idCategory %>"> <%= categoria[i].nombre %></option>
-                                           <% } %>     
+                                                <option value="<%= categoria[i].id %>"> <%= categoria[i].nombre %></option>
+                                    <% } %>     
                         </select>
                   </div>
                   <div class="input-container">
