@@ -49,16 +49,16 @@
                     </div>
                 </div>    
                 <div class="user">
-                        <% if (typeof session.user == "undefined") { %>
+                        <% if (typeof session.usuario == "undefined") { %>
                             <i class="fa-solid fa-user"></i>
                         <% } else {%>
                             <i class="fa-solid fa-user"></i><span class="session"></span>
                         <% } %>
                     <div class="user-content">
-                        <% if (typeof session.user != "undefined") { %>
+                        <% if (typeof session.usuario != "undefined") { %>
                                 <a href="/users/profile">Mis datos</a>
                                 <a href="/users/logout">Cerrar sesión</a>
-                            <% if (session.user.rol === "ADMIN") { %>
+                            <% if (session.usuario.rol === 1) { %>
                                 <a href="/admin">Admin</a>
                             <% } %>
                     </div>
@@ -67,7 +67,7 @@
                         <a href="/users/register">crear usuario</a>
                     <% } %>
                 </div>
-                <% if (typeof session.user != "undefined") { %>
+                <% if (typeof session.usuario != "undefined") { %>
                 <div class="carrito"> 
                     <a href="/products/productCard"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>

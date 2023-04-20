@@ -17,12 +17,12 @@ router.put('/users/:id', userUpdate);
 
 /*** CREATE ONE PRODUCT ***/
 router.get('/create/', sessionAdminCheck ,create);
-router.post('/', uploadFile.single('imagen'), store);
+router.post('/create/', uploadFile.single('imagen'), store);
 /*** EDIT ONE PRODUCT ***/
 router.get('/edit/:id', sessionAdminCheck ,edit);
 router.put('/edit/:id', uploadFile.single('imagen') , update);
 /*** DELETE ONE PRODUCT ***/
-router.delete('/:id', destroy)
+router.delete('/products/:id', destroy)
 router.delete('/users/:id', destroyUser)
 
 module.exports = router;

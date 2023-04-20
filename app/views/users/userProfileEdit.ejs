@@ -9,36 +9,34 @@
      <form action="?_method=PUT" method="POST" enctype="multipart/form-data" class="userForm" >
         <h3 class="uTitle">EDITAR PERFIL</h3>
         <div class="formEdit">
-            <input type="text" name="name" placeholder="Nombre" value="<%= locals.old ? old.name : user.name %>">
-            <% if (locals.errors && errors.name) { %>
-                <small class="text-danger"><%= errors.name.msg %> </small>
+            <label for="nombre"></label>
+            <input type="text" name="nombre" placeholder="Nombre" value="<%= locals.old ? old.nombre : usuario.nombre %>">
+            <% if (locals.errors && errors.nombre) { %>
+                <small class="text-danger"><%= errors.nombre.msg %> </small>
             <% } %> 
         </div>
         <div class="formEdit">
-            <input type="text" name="last_name" placeholder="Apellido" value="<%= locals.old ? old.last_name : user.last_name %>" >
-             <% if (locals.errors && errors.last_name) { %>
-                <small class="text-danger"><%= errors.last_name.msg %> </small>
+            <label for="nombre"></label>
+            <input type="text" name="apellido" placeholder="Apellido" value="<%= locals.old ? old.apellido : usuario.apellido %>" >
+             <% if (locals.errors && errors.apellido) { %>
+                <small class="text-danger"><%= errors.apellido.msg %> </small>
             <% } %> 
         </div>
         <div class="formEdit">
-            <input type="text" name="email" placeholder="Ingresa tu email" readonly value="<%= user.email %>" >
-             <% if (locals.errors && errors.email.msg ) { %>
-                <small class="text-danger"><%= errors.email.msg %> </small>
-            <% } %> 
+            <label for="nombre"></label>
+            <input type="text" name="telefono" placeholder="Ingresá tu numero" value="<%= locals.old ? old.telefono : usuario.telefono %>" >
         </div>
         <div class="formEdit">
-            <input type="text" name="tel" placeholder="Ingresá tu numero" value="<%= user.tel ? user.tel : "" %>" >
-
+            <label for="nombre"></label>
+            <input type="text" name="direccion" placeholder="Domicilio" value="<%= locals.old ? old.direccion : usuario.direccion %>">
         </div>
         <div class="formEdit">
-            <input type="text" name="address" placeholder="Domicilio" value="<%= user.address ? user.address : "" %>">
-        </div>
-        <div class="formEdit">
-            <input type="text" name="postal_code" placeholder="Código postal" value="<%= user.cp ? user.cp : "" %>">
+            <label for="nombre"></label>
+            <input type="text" name="codigo_postal" placeholder="Código postal" value="<%= locals.old ? old.codigo_postal : usuario.codigo_postal %>">
         </div>
        
         <div class="formEdit">
-            <select name="province" id="province">
+            <select name="provincia" id="provincia">
                 <option value="Buenos Aires">Buenos Aires</option>
                 <option value="Entre Rios">Entre Rios</option>
                 <option value="Misiones">Misiones</option>
@@ -66,7 +64,7 @@
             </select>
         </div>
         <div class="formEdit">
-            <select name="city" id="city">
+            <select name="localidad" id="localidad">
                 <option value="CABA">CABA</option>
                 <option value="Zona Sur">Zona Sur</option>
                 <option value="Zona Norte">Zona Norte</option>
