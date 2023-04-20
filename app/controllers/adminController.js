@@ -121,9 +121,10 @@ module.exports = {
         }
     },
     destroy : (req, res ) => {
-		  let productId = Number(req.params.id)
+		  let productId = req.params.id;
 
-      Producto.destroy({where: {
+      Producto.destroy({
+        where: {
        id: productId
       }})
       .then(() => {

@@ -22,7 +22,7 @@ router.post('/create/', uploadFile.single('imagen'), store);
 router.get('/edit/:id', sessionAdminCheck ,edit);
 router.put('/edit/:id', uploadFile.single('imagen') , update);
 /*** DELETE ONE PRODUCT ***/
-router.delete('/:id', destroy)
+router.delete('/products/:id', destroy)
 router.delete('/users/:id', destroyUser)
 
 module.exports = router;
