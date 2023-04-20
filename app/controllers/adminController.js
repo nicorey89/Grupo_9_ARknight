@@ -43,30 +43,22 @@ module.exports = {
         })
     },
     store: (req, res) => {
-        console.log(req.body.titulo, req.body.modelo)
-      
-        
-        let newProduct = {
+        const newProduct = {
               titulo: req.body.titulo,
               modelo: req.body.modelo,
               precio: req.body.precio,
-              descuento: req.body.descuento,
               cuotas: req.body.cuotas,
-              categoria: req.body.categoria,
-              subCategoria: req.body.subCategoria,
+              descuento: req.body.descuento,
+              subCategory_id: 1,
               descripcion: req.body.descripcion,
               imagen: req.file ? req.file.filename : "default-image.png"
             }
 
-            res.send(newProduct)
           Producto.create(newProduct)
-          .then((USER) => {
-            if (USER) {
-              res.redirect('/admin/')
-            }else {
-              throw new Error(error)
-            }
+          .then(() => {
+              res.redirect('/admin/products')
           })
+          .catch((error) => console.log(error))
       
 
     },
