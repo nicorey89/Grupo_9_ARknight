@@ -1,7 +1,7 @@
 module.exports = (req, res, next) => {
-    if(req.cookies.userARKnight && !req.session.user) {
-        req.session.user = req.cookies.userARKnight;
-        res.locals.user = req.session.user;
+    if(req.cookies.userARKnight && !req.session.usuario) {
+        req.session.usuario = req.cookies.userARKnight;
+        res.locals.usuario = req.session.usuario;
     }
     next();
 }

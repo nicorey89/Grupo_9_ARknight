@@ -29,21 +29,21 @@
                             <img class="user" src="/images/avatar/<%= user.avatar ? user.avatar : 'default-image.png' %>" alt="">
                         </div>
                         <div class="detalle">
-                            <div><%= user.name%></div>
-                            <div><%= user.last_name %></div>
-                            <div>tel <%= user.tel %></div>
-                            <div><%= user.address%></div>
-                            <div><%= user.province%></div>
+                            <div><%= user.nombre%></div>
+                            <div><%= user.apellido  %></div>
+                            <div>tel <%= user.telefono %></div>
+                            <div><%= user.direccion %></div>
+                            <div><%= user.provincia %></div>
                         </div>
                         <div class="botones">
-                            <form action="/admin/users/<%= user.id%>?_method=PUT" method="POST">
+                            <form action="/admin/users/<%= user.id %>?_method=PUT" method="POST">
                             <select name="rol" id="rol">
-                                <option value="USER">user</option>
-                                <option value="ADMIN">admin</option>
+                                <option value="0">user</option>
+                                <option value="1">admin</option>
                             </select>
                             <button class="btn1 agregarAlCarrito">Editar</button>
                             </form>
-                            <form action="/admin/users/<%= user.id%>?_method=delete" method="post">
+                            <form action="/admin/users/<%= user.id %>?_method=delete" method="post">
                                 <button class="btn2 agregarAlCarrito">borrar</button>
                             </form>
                         </div>

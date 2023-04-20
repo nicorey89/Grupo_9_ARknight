@@ -18,9 +18,16 @@
                 <div class="form">
                     <div class="input-container">
                         <label for="id"></label>
-                        <input class="input-style" type="text" id="name" name="name" placeholder="Ingrese su Nombre y apellido">
+                        <input class="input-style" type="text" id="name" name="name" placeholder="Ingrese su Nombre">
                         <% if (locals.errors && errors.name) { %>
                             <small class="text-danger"><%= errors.name.msg %> </small>
+                        <% } %>
+                    </div>
+                    <div class="input-container">
+                        <label for="apellido"></label>
+                        <input class="input-style" type="text" id="apellido" name="apellido" placeholder="Ingrese su Apellido">
+                        <% if (locals.errors && errors.apellido) { %>
+                            <small class="text-danger"><%= errors.apellido.msg %> </small>
                         <% } %>
                     </div>
                     <div class="input-container">
