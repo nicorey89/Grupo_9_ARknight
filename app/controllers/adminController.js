@@ -53,13 +53,11 @@ module.exports = {
               descripcion: req.body.descripcion,
               imagen: req.file ? req.file.filename : "default-image.png"
             }
-
+            res.send(newProduct)
           Producto.create(newProduct)
           .then(() => {
               res.redirect('/admin/products')
           })
-          .catch((error) => console.log(error))
-      
 
     },
     edit: (req, res) => {
