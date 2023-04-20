@@ -1,42 +1,41 @@
-const { Producto, Sequelize, } = require ('../database/modeLs');
+const { Producto, Sequelize } = require ('../database/models');
 const {Op} = Sequelize;
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller ={
     index: (req, res) => {
-        Producto.findAll({
-            include: [{association: "imagenes"}]
-        })
+        Producto.findAll()
         .then(producto=> {
             return res.render("index", {
                 sliderTitle: "Productos en oferta",
                 sliderProducts: producto,
-                session: req.session
+                products : producto,
+                session: req.session,
+                toThousand 
             })
         })
         .catch(error => console.log(error));
     },
     search: (req,res) => {
         const loQueBuscoElUsuario = req.query.search;
-
-        const SEARCH_PRODUCTS_PROMISE = Producto.findAll({
+        Producto.findAll({
             where: {
               titulo: {
-                [Op.like]: loQueBuscoElUsuario,
-              },
-            },
-            include: [{ association: "images" }],
-        })
-        Promise.all([SEARCH_PRODUCTS_PROMISE])
-        .then(([productsResults]) => {
-            res.render('products/search', {
-                productsResults,
-                toThousand,
-                session:req.session
-                })
-            })
-
+                [Op.like]: `%${loQueBuscoElUsuario}%`
+              }
+            }}
+        )
+        .then((producto) => {
+           if (producto) {
+               return res.render('products/search', {
+                  products : producto,
+                  toThousand,
+                  session:req.session
+                   })
+           }else {
+            throw new Error('NO SE ENCONTRO EL PRODUCTO')
+           }})
     }
     
 }

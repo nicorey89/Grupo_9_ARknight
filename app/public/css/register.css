@@ -45,13 +45,12 @@ main.register img{
     display: none;
 }
 .register input.input-style, .input-select{
-    border: 0.5px solid gray;
-    border-radius: 0.2rem;
-    height: 2rem;
+    border-radius: 10px;
+    height: 3rem;
     padding: 0 0.5rem;
     outline: none;
     width: 100%;
-    color: black;
+    /* color: black; */
 }
 .register input.input-style:focus{
     box-shadow: 0 0 6px;
@@ -89,9 +88,9 @@ main.register img{
     .register .form-container{
         max-width: 500px;
     }
-    .register .form{
+    /* .register .form{
         width: 450px;
-    }
+    } */
 }
 @media (min-width: 1200px){
     main.register{

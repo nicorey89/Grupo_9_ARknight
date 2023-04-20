@@ -16,20 +16,19 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false,
         },
-        rol_id: {
+        rol: {
             type: dataTypes.INTEGER(11),
-            allowNull: false,
         },
         email: {
             type: dataTypes.STRING(100),
             allowNull: false,
         },
-        pasword: {
+        password: {
             type: dataTypes.STRING(100),
             allowNull: false,
         },
-        avatar_id: {
-            type: dataTypes.INTEGER(11),
+        avatar: {
+            type: dataTypes.STRING(100),
             allowNull: false,
         },
         telefono: {
@@ -40,9 +39,8 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false,
         },
-        provincia_id: {
-            type: dataTypes.INTEGER(11),
-            allowNull: false,
+        provincia: {
+            type: dataTypes.STRING(100),
         },
         localidad: {
             type: dataTypes.STRING(100),
@@ -58,21 +56,6 @@ module.exports = (sequelize, dataTypes) => {
 
     const USUARIO = sequelize.define(alias, cols, config);
 
-    USUARIO.associate = (models) => {
-        USUARIO.hasMany(models.Provincia, {
-            as: "provincias",
-            foreignKey: "provincia_id"
-        });
-        
-        USUARIO.belongsTo(models.Avatar, {
-            as: "avatar",
-            foreignKey: "avatar_id",
-        });
-        USUARIO.belongsTo(models.Rol, {
-            as: "rol",
-            foreignKey: "rol_id",
-        });
-    }
 
     return USUARIO;
 }
