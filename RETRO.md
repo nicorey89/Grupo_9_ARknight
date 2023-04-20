@@ -45,3 +45,26 @@ Empezar a hacer: Adelantar tareas.
 Dejar de hacer: Pocas reuniones de todo el equipo.
 
 Hacer menos: Procastinar.
+SPRINT 5 : 
+
+Seguir haciendo: Trabajando con ramas y haciendo reuniones para toma de decisiones.
+
+Hacer mas:  Comunicar al grupo cualquier duda o inpedimento para completar la tarea asignada.
+
+Empezar a hacer: Adelantar tareas. 
+
+Dejar de hacer: Pocas reuniones de todo el equipo.
+
+Hacer menos: Procastinar.
+
+SPRINT 6 : 
+
+Seguir haciendo: Trabajando con ramas y haciendo reuniones para toma de decisiones.
+
+Hacer mas:  Comunicar al grupo cualquier duda o inpedimento para completar la tarea asignada.
+
+Empezar a hacer: Adelantar tareas. 
+
+Dejar de hacer: Pocas reuniones de todo el equipo.
+
+Hacer menos: Procastinar.
