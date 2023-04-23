@@ -40,21 +40,17 @@
                         <span class="error-message">Debe ingresar las cuotas</span>
                     </div>
                     <div class="input-container">
-                        <label for="categoria" class="form-label">Categoría:</label>
-                        <select name="categoria" id="categoria" class="">
-                                    <% for(let i = 0; i<categoria.length;i++) {%>
-                                                <option value="<%= categoria[i].id %>"> <%= categoria[i].nombre %></option>
-                                    <% } %>     
-                        </select>
-                  </div>
-                  <div class="input-container">
-                        <label for="subCategoria" class="form-label">SubCategoria:</label>
-                        <select name="subCategoria" id="subCategoria" class="">
-                              <% for(let i = 0; i<subcategory.length;i++) {%>
-                                    <option value="<%= subCategoria[i].id %>"> <%= subCategoria[i].nombre %></option>
-                               <% } %>  
-                        </select>
-                  </div>
+                        <select>
+                        <% subcategories.forEach(subcategory => { %>
+                           <option value="<%- subcategory.id %>" 
+                               <%- locals.old && old.subcategory == subcategory.id ?
+                                "selected" : subcategory.id == productToEdit.subcategory ?
+                               `selected` : ""  %>>
+                                 <%- subcategory.nombre %>
+                           </option>
+                        <% }) %>
+                       </select>
+                    </div>
                     <div class="input-container textarea">
                         <label for="description" class="form-label"></label>
                         <textarea type="textarea" name="descripcion" id="descripcion" value="" class="input-style maxStile"><%= productToEdit.descripcion %></textarea>

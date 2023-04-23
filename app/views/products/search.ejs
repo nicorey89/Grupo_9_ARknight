@@ -16,7 +16,7 @@
               <article class="product">
                   <div class="photo-container">
                      <a href="/products/productDetail/<%= producto.id %>">
-                        <img class="photo" src="/images/products/<%= producto.imagen ? producto.imagen : 'default-image.png' %>" alt="pdto 02">
+                        <img class="photo" src="/images/products/<%= producto.imagen ? producto.imagen.nombre : 'default-image.png' %>" alt="pdto 02">
                     </a>
                      <img class="special" src="/images/img-descuento.png" alt="nuevo">
                   </div>

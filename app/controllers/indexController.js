@@ -5,13 +5,13 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller ={
     index: (req, res) => {
-        Producto.findAll()
-        .then(producto=> {
+        Producto.findAll({include: [{association: "imagen"}]})
+        .then(producto => {
             return res.render("index", {
                 sliderTitle: "Productos en oferta",
                 sliderProducts: producto,
-                products : producto,
                 session: req.session,
+                products : producto,
                 toThousand 
             })
         })

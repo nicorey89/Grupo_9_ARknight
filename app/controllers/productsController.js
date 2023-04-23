@@ -5,40 +5,44 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
   index: (req, res) => {
-    Producto.findAll()
-    .then(([product, sliderProducts]) => {
-      return res.render("products/productDetail", {
-        ...product,
-        toThousand,
-        sliderTitle: "OFERTAS",
-        sliderProducts,
-        session: req.session
+    Producto.findAll({
+        include: [{association: "imagen"}]
+    })
+    .then(products => {
+        return res.render("index", {
+            sliderTitle: "Productos en oferta",
+            sliderProducts: products,
+            session: req.session
         })
     })
-    .catch(error => console.log(error))
+    .catch(error => console.log(error));
   },
-  pDetail:(req, res)=>{
-    const producto = req.params.id
-    const PRODUCT_PROMISE = Producto.findByPk(producto)
+  pDetail:(req, res)=>{    
+    let productId = req.params.id;
+
+    const PRODUCT_PROMISE = Producto.findByPk(productId, {
+      include: [{ association: "imagen" }],
+    });
+
     const ALL_PRODUCTS_PROMISE = Producto.findAll({
       where: {
         descuento: {
           [Op.gte]: 10,
         },
-      }
+      },
+      include: [{ association: "imagen" }],
     });
+
     Promise.all([PRODUCT_PROMISE, ALL_PRODUCTS_PROMISE])
-    .then(([product, sliderProducts]) => {
-      return res.render("products/productDetail", {
-        producto : product,
-        toThousand,
-        tittle : "Product Detail",
-        sliderTitle: "PRODUCTOS EN OFERTAS",
-        sliderProducts: sliderProducts,
-        session: req.session
-    })
-    })
-    .catch(error => console.log(error))
+      .then(([producto, sliderProducts]) => {
+        res.render("productDetail", {
+          sliderTitle: "Productos en oferta",
+          sliderProducts,
+          producto,
+          session: req.session,
+        });
+      })
+      .catch((error) => console.log(error));
     },
     /* category: (req, res) => {
       const categoryId = req.params.id;
@@ -66,7 +70,8 @@ const controller = {
     }
   } */
   pCard:(req, res)=>{
-      Producto.findAll().then((productos) => {
+      Producto.findAll({include: [{ association: "imagen" }]})
+      .then((productos) => {
         res.render('products/productCard', {
             products : productos,
             sliderTitle: "PRODUCTOS EN OFERTAS",

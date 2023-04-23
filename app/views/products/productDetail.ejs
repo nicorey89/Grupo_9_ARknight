@@ -10,7 +10,7 @@
       <section class="product-detail-conteiner">
           <div class="image-container">
               <div class="img">
-                  <img src="/images/products/<%= producto.imagen ? producto.imagen : 'default-image.png' %>" alt="">
+                  <img src="/images/products/<%= producto.imagen ? producto.imagen.nombre : 'default-image.png' %>" alt="">
               </div>
           </div>
           <div class="detail-container">

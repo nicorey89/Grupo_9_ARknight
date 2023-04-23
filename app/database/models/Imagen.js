@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const alias = "Categoria";
+    const alias = "Imagen";
 
     const cols = {
         id: {
@@ -12,24 +12,25 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false,
         },
-        banner: {
-            type: dataTypes.STRING(100)
+        product_id: {
+            type: dataTypes.INTEGER(11),
+            allowNull: false,
         },
     }
 
     const config = {
-        tableName: "categorias",
+        tableName: "imagenes",
         timestamps: false,
     }
 
-    const CATEGORIA = sequelize.define(alias, cols, config);
+    const IMAGEN = sequelize.define(alias, cols, config);
 
-    CATEGORIA.associate = (models) => {
-        CATEGORIA.hasMany(models.Subcategoria, {
-            as: "Subcategorias",
-            foreignKey: "categoria_id"
+   IMAGEN.associate = (models) => {
+        IMAGEN.belongsTo(models.Producto, {
+            as: "producto",
+            foreignKey: "product_id"
         });
     }
 
-    return CATEGORIA;
+    return IMAGEN;
 }

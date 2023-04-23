@@ -1,4 +1,4 @@
-const { Producto, Sequelize, Usuario } = require ('../database/models');
+const { Producto, Sequelize, Usuario, Categoria, Subcategoria } = require ('../database/models');
 
 const { validationResult } = require("express-validator")
 
@@ -11,18 +11,19 @@ module.exports = {
         })
     },
      listar: (req,res)=>{
-      Producto.findAll()
-      .then((productos) => {
-        if(productos){
-          res.render("admin/products2" , {
-            products : productos,
-            toThousand,
-            session:req.session
-           })    
-        }else {
-          throw new Error('ERRRRRoOR Aquii!!');
-        }
-      });
+      Producto.findAll({
+        include: [{association: "imagen"}]
+    })
+    .then(products => {
+        return res.render('admin/products2', {
+            sliderTitle: "Productos en oferta",
+            sliderProducts: products,
+            products,
+            session: req.session,
+            toThousand 
+        })
+    })
+    .catch(error => console.log(error));
     },
      listarUsers: (req,res)=>{
       Usuario.findAll()
@@ -38,38 +39,87 @@ module.exports = {
       })
     },
     create: (req, res) => {
-        res.render("admin/product-create-form", {
-            session: req.session
+      const CATEGORIES_PROMISE = Categoria.findAll();
+      const SUBCATEGORIES_PROMISE = Subcategoria.findAll();
+  
+      Promise.all([CATEGORIES_PROMISE, SUBCATEGORIES_PROMISE])
+        .then(([categories, subcategories]) => {
+          return res.render("admin/product-create-form", {
+            session: req.session,
+            categories,
+            subcategories,
+          });
         })
+        .catch((error) => console.log(error));
     },
     store: (req, res) => {
-        const newProduct = {
-              titulo: req.body.titulo,
-              modelo: req.body.modelo,
-              precio: req.body.precio,
-              cuotas: req.body.cuotas,
-              descuento: req.body.descuento,
-              subCategory_id: 1,
-              descripcion: req.body.descripcion,
-              imagen: req.file ? req.file.filename : "default-image.png"
-            }
-            res.send(newProduct)
-          Producto.create(newProduct)
-          .then(() => {
-              res.redirect('/admin/products')
-          })
+      let errors = validationResult(req);
 
+    if (errors.isEmpty()) {
+      let { titulo, modelo, precio, cuotas, descripcion, descuento, subCategory_id } = req.body;
+
+      let newProduct = {
+        titulo,
+        modelo,
+        precio,
+        cuotas,
+        descuento,
+        subCategory_id,
+        descripcion,
+      };
+
+      Producto.create(newProduct)
+        .then((product) => {
+          if (!req.file) {
+            Imagen.create({
+              image: "default-image.png",
+              product_id: product.id,
+            }).then(() => {
+              return res.redirect("/admin/products");
+            });
+          } else {
+            Imagen.create({
+              image: req.file.filename,
+              product_id: product.id,
+            }).then(() => {
+              return res.redirect("/admin/products");
+            });
+          }
+        })
+        .catch((error) => console.log(error));
+    } else {
+      const CATEGORIES_PROMISE = Categoria.findAll();
+      const SUBCATEGORIES_PROMISE = Subcategoria.findAll();
+
+      Promise.all([CATEGORIES_PROMISE, SUBCATEGORIES_PROMISE])
+        .then(([categories, subcategories]) => {
+          return res.render("admin/product-create-form", {
+            session: req.session,
+            categories,
+            subcategories,
+            errors: errors.mapped(),
+            old: req.body,
+          });
+        })
+        .catch((error) => console.log(error));
+    }
     },
     edit: (req, res) => {
-            let productId = req.params.id;
-            Producto.findByPk(productId)
-            .then((productToEdit) =>{
-              res.render('admin/product-edit-form', {
-                  productToEdit,
-                  session:req.session
-              })
-            })
-            .catch((error) => console.log(error))
+      const productId = req.params.id;
+      const PRODUCT_PROMISE = Producto.findByPk(productId);
+      const CATEGORIES_PROMISE = Categoria.findAll();
+      const SUBCATEGORIES_PROMISE = Subcategoria.findAll();
+  
+      Promise.all([PRODUCT_PROMISE, CATEGORIES_PROMISE, SUBCATEGORIES_PROMISE])
+      .then(([productToEdit, categories, subcategories]) => {
+        res.render('admin/product-edit-form', {
+          categories,
+          subcategories,
+          productToEdit,
+          session: req.session,
+        });
+      })
+      .catch(error => console.log(error))
     },
     update: (req, res) => {
       let errors = validationResult(req);
