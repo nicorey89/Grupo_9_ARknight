@@ -14,27 +14,37 @@
                     <div class="input-container">
                         <label for="titulo" class="form-label"></label>
                         <input type="text" id="titulo" name="titulo" placeholder="titulo" value="" class="input-style">
-                        <span class="error-message">Debe ingresar el Nombre del producto</span>
+                        <% if (locals.errors && errors.titulo) { %>
+                            <span class="error-message"><%= errors.titulo.msg %> </span>
+                        <% } %>
                     </div>
                     <div class="input-container">
                         <label for="modelo" class="form-label"></label>
                         <input type="text" id="modelo" name="modelo" placeholder="modelo" value="" class="input-style">
-                        <span class="error-message">Debe ingresar el Modelo del producto</span>
+                        <% if (locals.errors && errors.modelo) { %>
+                            <span class="error-message"><%= errors.modelo.msg %> </span>
+                        <% } %>
                     </div>
                     <div class="input-container">
                         <label for="precio" class="form-label"></label>
                         <input type="number" id="precio" name="precio" value="precio" placeholder="Precio" class="input-style">
-                        <span class="error-message">Debe ingresar el Precio</span>
+                        <% if (locals.errors && errors.precio) { %>
+                            <span class="error-message"><%= errors.precio.msg %> </span>
+                        <% } %>
                     </div>
                     <div class="input-container">
                         <label for="descuento" class="form-label"></label>
                         <input type="number" id="descuento" name="descuento" placeholder="Descuento" value="descuento" class="input-style">
-                        <span class="error-message">Debe ingresar el descuento</span>
+                        <% if (locals.errors && errors.descuento) { %>
+                            <span class="error-message"><%= errors.descuento.msg %> </span>
+                        <% } %>
                     </div>
                     <div class="input-container">
                         <label for="cuotas" class="form-label"></label>
                         <input type="number" id="cuotas" name="cuotas" value="cuotas" placeholder="Cuotas" class="input-style">
-                        <span class="error-message">Debe ingresar las cuotas</span>
+                        <% if (locals.errors && errors.cuotas) { %>
+                            <span class="error-message"><%= errors.cuotas.msg %> </span>
+                        <% } %>
                     </div>
 <!--                     <div class="input-container">
                         <label for="categoria" class="form-label"></label>
@@ -49,6 +59,9 @@
                     <div class="input-container">
                         <label for="detalle" class="form-label"></label>
                         <textarea type="textarea" name="detalle" id="detalle" value="detalle" class="input-style maxStile" placeholder="detalle"></textarea>
+                        <% if (locals.errors && errors.detalle) { %>
+                            <span class="error-message"><%= errors.detalle.msg %> </span>
+                        <% } %>
                     </div>
                     <div class="avatarFile">
                         <p>Agregar imagen</p>

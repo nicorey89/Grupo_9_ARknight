@@ -5,4 +5,9 @@ module.exports = [
     .notEmpty()
     .withMessage("El nombre es obligatorio"),
 
+    check("apellido")
+    .notEmpty()
+    .withMessage("El nombre es obligatorio"),
+
+
 ]

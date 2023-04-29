@@ -53,7 +53,7 @@ module.exports = {
         .catch((error) => console.log(error));
     },
     store: (req, res) => {
-      let errors = validationResult(req);
+    let errors = validationResult(req);
 
     if (errors.isEmpty()) {
       let { titulo, modelo, precio, cuotas, descripcion, descuento, subCategory_id } = req.body;
@@ -157,11 +157,16 @@ module.exports = {
             .catch(error => console.log(error))
 
         } else {
-          let productId = req.params.id;
-          Producto.findByPk(productId)
-          .then((productToEdit) =>{
+            const productId = req.params.id;
+            const PRODUCT_PROMISE = Producto.findByPk(productId);
+            const CATEGORIES_PROMISE = Categoria.findAll();
+            const SUBCATEGORIES_PROMISE = Subcategoria.findAll();
+        
+            Promise.all([PRODUCT_PROMISE, CATEGORIES_PROMISE, SUBCATEGORIES_PROMISE])
+            .then(([productToEdit, categories, subcategories]) => {
             res.render('admin/product-edit-form', {
                 productToEdit,
+                subcategories,
                 session:req.session,
                 errors: errors.mapped(),
                 old: req.body,

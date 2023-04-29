@@ -17,27 +17,37 @@
                     <div class="input-container">
                         <label for="titulo" class="form-label"></label>
                         <input type="text" id="titulo" name="titulo" placeholder="titulo" value="<%= productToEdit.titulo %>" class="input-style">
-                        <span class="error-message">Debe ingresar su Nombre del producto</span>
+                        <% if (locals.errors && errors.titulo) { %>
+                            <span class="error-message"><%= errors.titulo.msg %> </span>
+                        <% } %>
                     </div>
                     <div class="input-container">
                         <label for="modelo" class="form-label"></label>
                         <input type="text" id="modelo" name="modelo" placeholder="modelo" value="<%= productToEdit.modelo %>" class="input-style">
-                        <span class="error-message">Debe ingresar su Nombre del producto</span>
+                        <% if (locals.errors && errors.modelo) { %>
+                            <span class="error-message"><%= errors.modelo.msg %> </span>
+                        <% } %> 
                     </div>
                     <div class="input-container">
                         <label for="precio" class="form-label"></label>
                         <input type="number" id="precio" name="precio" value="<%= productToEdit.precio %>" placeholder="Ej: 5678" class="input-style">
-                        <span class="error-message">Debe ingresar el Precio</span>
+                        <% if (locals.errors && errors.precio) { %>
+                            <span class="error-message"><%= errors.precio.msg %> </span>
+                        <% } %>
                     </div>
                     <div class="input-container">
                         <label for="descuento" class="form-label"></label>
                         <input type="number" id="descuento" name="descuento" placeholder="Ej: 15" value="<%= productToEdit.descuento %>" class="input-style">
-                        <span class="error-message">Debe ingresar el descuento</span>
+                        <% if (locals.errors && errors.descuento) { %>
+                            <span class="error-message"><%= errors.descuento.msg %> </span>
+                        <% } %>
                     </div>
                     <div class="input-container">
                         <label for="cuotas" class="form-label"></label>
                         <input type="number" id="cuotas" name="cuotas" value="<%= productToEdit.cuotas %>" placeholder="Ej: 3 " class="input-style">
-                        <span class="error-message">Debe ingresar las cuotas</span>
+                        <% if (locals.errors && errors.cuotas) { %>
+                            <span class="error-message"><%= errors.cuotas.msg %> </span>
+                        <% } %>
                     </div>
                     <div class="input-container">
                         <select>
@@ -54,6 +64,9 @@
                     <div class="input-container textarea">
                         <label for="description" class="form-label"></label>
                         <textarea type="textarea" name="descripcion" id="descripcion" value="" class="input-style maxStile"><%= productToEdit.descripcion %></textarea>
+                        <% if (locals.errors && errors.descripcion) { %>
+                            <span class="error-message"><%= errors.descripcion.msg %> </span>
+                        <% } %>
                     </div>
                     <div class="input-container">
                         <input type="file" name="imagen">

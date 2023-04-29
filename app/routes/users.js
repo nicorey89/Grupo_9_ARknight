@@ -19,11 +19,13 @@ const sessionUserCheck = require("../middleware/sessionUserCheck");
 
 /* GET - Login Form */
 router.get('/login', sessionUserCheck, controller.login);
+
 /* POST - PROCESS LOGIN*/
 router.post("/login", loginValidator ,controller.processLogin);
 
 /* GET - Register form */
 router.get('/register', sessionUserCheck,controller.register);
+
 /* POST - Register user data */
 router.post("/", uploadAvatar.single("avatar") ,registerValidator, controller.crear)
 
@@ -34,6 +36,7 @@ router.get("/profile", userInSessionCheck  ,controller.profile);
 
 /*  User edit form */
 router.get("/profile/edit",userInSessionCheck  ,controller.editProfile);
+
 /*  Profile update */
 router.put("/profile/edit/",uploadAvatar.single("avatar"), updateUserValidator ,userInSessionCheck ,controller.updateProfile);
 

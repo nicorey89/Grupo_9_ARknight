@@ -6,6 +6,10 @@ module.exports = [
     .notEmpty()
     .withMessage("El nombre es obligatorio"),
 
+    check("apellido")
+    .notEmpty()
+    .withMessage("El apellido es obligatorio"),
+
     check("email")
     .notEmpty()
     .withMessage("El email es obligatorio").bail()
