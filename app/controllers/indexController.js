@@ -24,7 +24,8 @@ const controller ={
               titulo: {
                 [Op.like]: `%${loQueBuscoElUsuario}%`
               }
-            }}
+            }},
+            {include: [{association: "imagen"}]}
         )
         .then((producto) => {
            if (producto) {

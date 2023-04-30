@@ -49,9 +49,9 @@
                             <span class="error-message"><%= errors.cuotas.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <select>
-                        <% subcategories.forEach(subcategory => { %>
+<!--                     <div class="input-container">
+                        <select name="subcategory">
+                        <% subcategorias.forEach(subcategory => { %>
                            <option value="<%- subcategory.id %>" 
                                <%- locals.old && old.subcategory == subcategory.id ?
                                 "selected" : subcategory.id == productToEdit.subcategory ?
@@ -60,7 +60,7 @@
                            </option>
                         <% }) %>
                        </select>
-                    </div>
+                    </div> -->
                     <div class="input-container textarea">
                         <label for="description" class="form-label"></label>
                         <textarea type="textarea" name="descripcion" id="descripcion" value="" class="input-style maxStile"><%= productToEdit.descripcion %></textarea>

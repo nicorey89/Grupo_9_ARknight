@@ -22,7 +22,7 @@ module.exports = [
     .notEmpty()
     .withMessage("El cuotas es obligatorio"),
     
-    check("detalle")
+    check("descripcion")
     .notEmpty()
     .withMessage("El detalle es obligatorio"),
 

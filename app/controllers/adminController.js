@@ -1,4 +1,4 @@
-const { Producto, Sequelize, Usuario, Categoria, Subcategoria } = require ('../database/models');
+const { Producto, Sequelize, Usuario, Categoria, Subcategoria, Imagen } = require ('../database/models');
 
 const { validationResult } = require("express-validator")
 
@@ -56,30 +56,30 @@ module.exports = {
     let errors = validationResult(req);
 
     if (errors.isEmpty()) {
-      let { titulo, modelo, precio, cuotas, descripcion, descuento, subCategory_id } = req.body;
+      let { titulo, modelo, precio, cuotas, descripcion, descuento } = req.body;
 
       let newProduct = {
         titulo,
         modelo,
         precio,
         cuotas,
-        descuento,
-        subCategory_id,
         descripcion,
+        descuento,
+        subCategory_id: 1
       };
 
       Producto.create(newProduct)
         .then((product) => {
           if (!req.file) {
             Imagen.create({
-              image: "default-image.png",
+              nombre: "default-image.png",
               product_id: product.id,
             }).then(() => {
               return res.redirect("/admin/products");
             });
           } else {
             Imagen.create({
-              image: req.file.filename,
+              nombre: req.file.filename,
               product_id: product.id,
             }).then(() => {
               return res.redirect("/admin/products");
@@ -111,10 +111,10 @@ module.exports = {
       const SUBCATEGORIES_PROMISE = Subcategoria.findAll();
   
       Promise.all([PRODUCT_PROMISE, CATEGORIES_PROMISE, SUBCATEGORIES_PROMISE])
-      .then(([productToEdit, categories, subcategories]) => {
+      .then(([productToEdit, categorias, subcategorias]) => {
         res.render('admin/product-edit-form', {
-          categories,
-          subcategories,
+          categorias,
+          subcategorias,
           productToEdit,
           session: req.session,
         });
@@ -123,6 +123,7 @@ module.exports = {
     },
     update: (req, res) => {
       let errors = validationResult(req);
+      const productId = req.params.id;
         if(errors.isEmpty()) {
 
             const {
@@ -131,8 +132,6 @@ module.exports = {
               precio,
               descuento,
               cuotas,
-              categoria,
-              subCategoria,
               descripcion,
             } = req.body
             
@@ -142,28 +141,63 @@ module.exports = {
               precio: precio,
               descuento: descuento,
               cuotas: cuotas,
-              categoria: categoria,
-              subCategoria: subCategoria,
               descripcion: descripcion,
               imagen : req.file ? req.file.filename : "default-image.png",
              },{
               where:{
-                id: req.params.id
+                id: productId
               }
              })
-            .then(() => {
+            .then((result) => {
+              if(result){
+                if(!req.file){
                   return res.redirect("/admin/products");
-                })
-            .catch(error => console.log(error))
-
+                }else {
+                  Imagen.findAll({
+                    where : {
+                      product_id: productId
+                    }
+                  })
+                }
+              }
+            })             
+            .then((imagen) => {
+              // 2- obtener el nombre de las imagenes a eliminar
+              // 3- Eliminar los archivos
+                const MATCH = fs.existsSync("./public/images/products/", imagen.nombre);
+                if(MATCH){
+                  try {
+                    fs.unlinkSync(`./public/images/products/${imagen.nombre}`)
+                  } catch (error) {
+                    throw new Error(error)                    
+                  }
+                }else{
+                  console.log("No se encontró el archivo");
+                }
+              })
+            
+            Imagen.destroy({
+              where: {
+                product_id: productId,
+              }
+            })
+            .then(() => {
+              return {
+                nombre: req.file.filename,
+                product_id: productId,
+              };
+            });
+            Imagen.create()
+            .then(() => {
+              return res.redirect("/admin/products");
+            });
         } else {
-            const productId = req.params.id;
             const PRODUCT_PROMISE = Producto.findByPk(productId);
             const CATEGORIES_PROMISE = Categoria.findAll();
             const SUBCATEGORIES_PROMISE = Subcategoria.findAll();
         
             Promise.all([PRODUCT_PROMISE, CATEGORIES_PROMISE, SUBCATEGORIES_PROMISE])
-            .then(([productToEdit, categories, subcategories]) => {
+            .then(([productToEdit, subcategories]) => {
             res.render('admin/product-edit-form', {
                 productToEdit,
                 subcategories,

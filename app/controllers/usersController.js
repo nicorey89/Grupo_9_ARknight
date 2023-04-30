@@ -116,7 +116,7 @@ const controller = {
          
          .then(usuario => {
              res.render("users/userProfileEdit",  {
-                 usuario: usuario,
+                 usuario,
                  session: req.session
              } )
          })
