@@ -142,7 +142,6 @@ module.exports = {
               descuento: descuento,
               cuotas: cuotas,
               descripcion: descripcion,
-              imagen : req.file ? req.file.filename : "default-image.png",
              },{
               where:{
                 id: productId
@@ -158,24 +157,24 @@ module.exports = {
                       product_id: productId
                     }
                   })
+                .then((imagen) => {
+                  // 2- obtener el nombre de las imagenes a eliminar
+                  // 3- Eliminar los archivos
+                    const MATCH = fs.existsSync("./public/images/products/", imagen.nombre);
+                    if(MATCH){
+                      try {
+                        fs.unlinkSync(`./public/images/products/${imagen.nombre}`)
+                      } catch (error) {
+                        throw new Error(error)                    
+                      }
+                    }else{
+                      console.log("No se encontró el archivo");
+                    }
+                  })
                 }
               }
             })             
-            .then((imagen) => {
-              // 2- obtener el nombre de las imagenes a eliminar
-              // 3- Eliminar los archivos
-                const MATCH = fs.existsSync("./public/images/products/", imagen.nombre);
-                if(MATCH){
-                  try {
-                    fs.unlinkSync(`./public/images/products/${imagen.nombre}`)
-                  } catch (error) {
-                    throw new Error(error)                    
-                  }
-                }else{
-                  console.log("No se encontró el archivo");
-                }
-              })
-            
+
             Imagen.destroy({
               where: {
                 product_id: productId,

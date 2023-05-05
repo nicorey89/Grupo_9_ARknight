@@ -35,10 +35,11 @@ const controller = {
 
     Promise.all([PRODUCT_PROMISE, ALL_PRODUCTS_PROMISE])
       .then(([producto, sliderProducts]) => {
-        res.render("productDetail", {
+        res.render("products/productDetail", {
           sliderTitle: "Productos en oferta",
           sliderProducts,
           producto,
+          toThousand,
           session: req.session,
         });
       })
