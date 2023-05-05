@@ -39,22 +39,8 @@
                         <input type="number" id="cuotas" name="cuotas" value="<%= productToEdit.cuotas %>" placeholder="Ej: 3 " class="input-style">
                         <span class="error-message">Debe ingresar las cuotas</span>
                     </div>
-                    <div class="input-container">
-                        <label for="categoria" class="form-label">Categoría:</label>
-                        <select name="categoria" id="categoria" class="">
-                                    <% for(let i = 0; i<categoria.length;i++) {%>
-                                                <option value="<%= categoria[i].id %>"> <%= categoria[i].nombre %></option>
-                                    <% } %>     
-                        </select>
-                  </div>
-                  <div class="input-container">
-                        <label for="subCategoria" class="form-label">SubCategoria:</label>
-                        <select name="subCategoria" id="subCategoria" class="">
-                              <% for(let i = 0; i<subcategory.length;i++) {%>
-                                    <option value="<%= subCategoria[i].id %>"> <%= subCategoria[i].nombre %></option>
-                               <% } %>  
-                        </select>
-                  </div>
+                    
+                  
                     <div class="input-container textarea">
                         <label for="description" class="form-label"></label>
                         <textarea type="textarea" name="descripcion" id="descripcion" value="" class="input-style maxStile"><%= productToEdit.descripcion %></textarea>
