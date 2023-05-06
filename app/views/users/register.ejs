@@ -17,10 +17,17 @@
             <form action="/users/" method="POST" enctype="multipart/form-data">
                 <div class="form">
                     <div class="input-container">
-                        <label for="id"></label>
-                        <input class="input-style" type="text" id="name" name="name" placeholder="Ingrese su Nombre y apellido">
+                        <label for="name"></label>
+                        <input class="input-style" type="text" id="name" name="name" placeholder="Ingrese su Nombre" id="nameValidator">
                         <% if (locals.errors && errors.name) { %>
                             <small class="text-danger"><%= errors.name.msg %> </small>
+                        <% } %>
+                    </div>
+                    <div class="input-container">
+                        <label for="apellido"></label>
+                        <input class="input-style" type="text" id="apellido" name="apellido" placeholder="Ingrese su Apellido">
+                        <% if (locals.errors && errors.apellido) { %>
+                            <small class="text-danger"><%= errors.apellido.msg %> </small>
                         <% } %>
                     </div>
                     <div class="input-container">
@@ -46,7 +53,7 @@
                     </div>
                     <div class="avatarFile">
                         <p>Agregar foto</p>
-                        <input type="file" name="avatar">
+                        <input type="file" name="avatar" id="file">
                     </div>
                     <div class="check">
                         <input type="checkbox" name="terms" id="recordar"> 
@@ -60,7 +67,7 @@
                             <button type="reset" class="agregarAlCarrito">Cancelar</button>
                         </div>
                         <div class="button-container">
-                            <button type="submit" class="agregarAlCarrito">Registrarme</button>
+                            <button type="submit" class="agregarAlCarrito" id="submit">Registrarme</button>
                         </div>
                     </div>
                     <span><a href="/users/login">Ya tengo cuenta</a></span>
@@ -72,7 +79,7 @@
     </main>
 
     <%- include("../partials/footer") %>
-
+    <script src="/js/validationFormUser.js"></script>
 </body>
 </html>
 

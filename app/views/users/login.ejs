@@ -13,13 +13,13 @@
                 <h1 class="title">INGRESAR</h1>
                 <hr>                    
                 <div class="input-container">
-                    <input class="input-style" type="email" name="email" placeholder="Ingrese su email">
+                    <input class="input-style" type="email" name="email" placeholder="Ingrese su email" id="emailFormValidator">
                     <% if (locals.errors && errors.email) { %>
                         <small class="text-danger"><%= errors.email.msg %> </small>
                     <% } %>
                 </div>
                 <div class="input-container">
-                    <input class="input-style" type="password" name="password" placeholder="Ingrese su contraseña">
+                    <input class="input-style" type="password" name="password" placeholder="Ingrese su contraseña" id="password">
                     <% if (locals.errors && errors.password) { %>
                         <small class="text-danger"><%= errors.password.msg %> </small>
                     <% } %>
@@ -28,7 +28,7 @@
                     <input type="checkbox" name="recordar" id="recordar"> 
                     <label for="recordar">  Recordarme </label>
                 </div>
-                <button type="submit" class="agregarAlCarrito">Ingresar</button>
+                <button type="submit" class="agregarAlCarrito" id="submit">Ingresar</button>
                 <span><a href="">¿Olvidaste tu contraseña?</a></span>
                 <span><a href="/users/register">Aún no tengo cuenta</a></span>
             </form>
@@ -39,7 +39,7 @@
     </main>
 
     <%- include("../partials/footer") %>
-
+    <script src="/js/validationFormUser.js"></script>
 </body>
 </html>
 

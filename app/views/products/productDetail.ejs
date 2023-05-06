@@ -10,34 +10,34 @@
       <section class="product-detail-conteiner">
           <div class="image-container">
               <div class="img">
-                  <img src="/images/products/<%= imagen ? imagen : 'default-image.png' %>" alt="">
+                  <img src="/images/products/<%= producto.imagen ? producto.imagen : 'default-image.png' %>" alt="">
               </div>
           </div>
           <div class="detail-container">
               <div class="title">
-                  <h1><%= titulo %></h1>
+                  <h1><%= producto.titulo %></h1>
               </div>
               <div class="model">
-                  <h2><%= modelo %></h2>
+                  <h2><%= producto.modelo %></h2>
               </div>
               <div class="price">
-                  <% if(descuento){%>
-                    <h4 class="precio-rayado">$<%= toThousand(precio) %></h4>
-                    <h3>$<%= toThousand(precio - (precio*descuento/100))%></h3>
-                    <h4 class="descuento"><%= descuento %>%</h4>
+                  <% if(producto.descuento){%>
+                    <h4 class="precio-rayado">$<%= toThousand(producto.precio) %></h4>
+                    <h3>$<%= toThousand( producto.precio - ( producto.precio * producto.descuento/100))%> </h3>
+                    <h4 class="descuento"><%= producto.descuento %>%</h4>
                   <% }else{ %>
-                    <h3 class="precio-sin-descuento">$<%= toThousand(precio) %></h3>
+                    <h3 class="precio-sin-descuento">$<%= toThousand(producto.precio) %></h3>
                   <% } %>
               </div>
               <div>
-                <% if(cuotas){%>
-                  <h3><%= cuotas %> cuotas sin interes de $<%= toThousand(precio/cuotas)%></h3>
+                <% if(producto.cuotas){%>
+                  <h3><%= producto.cuotas %> cuotas sin interes de $<%= toThousand(producto.precio/producto.cuotas)%></h3>
                 <% } %>
               </div>
               <button class="detail-dropdown agregarAlCarrito">
                   <h4>detalles</h4>
                   <div class="detail-content">
-                    <%= detalle %>
+                    <%= producto.detalle %>
                   </div>
               </button>
               <a href="/products/productCard">

@@ -14,3 +14,14 @@
 @import url('userProfile.css');
 @import url('userProfileEdit.css');
 @import url('product2.css');
+small{
+    color: red;
+}
+input.is-invalid{
+    color: red;
+    border: 1px solid red;
+}
+input.is-valid{
+    color: green;
+    border: 1px solid green;
+}
