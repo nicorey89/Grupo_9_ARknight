@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <%-include("../partials/head")  %> 
-
+    
     <body>
     <%- include("../partials/header") %>
     <main class="profileEdit">
@@ -9,15 +9,15 @@
      <form action="?_method=PUT" method="POST" enctype="multipart/form-data" class="userForm" >
         <h3 class="uTitle">EDITAR PERFIL</h3>
         <div class="formEdit">
-            <label for="nombre"></label>
-            <input type="text" name="nombre" id="nameValidator" placeholder="Nombre" value="<%= locals.old ? old.nombre : usuario.nombre %>">
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<%= locals.old ? old.nombre : usuario.nombre %>">
+            <small id="nombreErrors"></small>
             <% if (locals.errors && errors.nombre) { %>
                 <small class="text-danger"><%= errors.nombre.msg %> </small>
             <% } %> 
         </div>
         <div class="formEdit">
-            <label for="nombre"></label>
             <input type="text" name="apellido" id="apellido" placeholder="Apellido" value="<%= locals.old ? old.apellido : usuario.apellido %>" >
+            <small id="apellidoErrors"></small>
              <% if (locals.errors && errors.apellido) { %>
                 <small class="text-danger"><%= errors.apellido.msg %> </small>
             <% } %> 
@@ -82,7 +82,6 @@
     </form>
 
 </main>
-    <script src="/js/validationFormUser.js"></script>
 </body>
 <%- include("../partials/footer") %>
 </html>

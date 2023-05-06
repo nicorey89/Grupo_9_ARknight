@@ -1,10 +1,10 @@
-let qs = (elemento) => {
+  let qs = (elemento) => {
     return document.querySelector(elemento);
-}
+} 
 
 window.addEventListener("load", () => {
-  let $nameValidator = qs("#nameValidator"),
-      $nameValidatorErrors = qs("#nameValidatorErrors"),
+  let $nameValidator = qs("#nombre"),
+      $nameValidatorErrors = qs("#nombreErrors"),
       $inputLastname = qs("#apellido"),
       $lastnameErrors = qs("#apellidoErrors"),
       $form = qs("#submit"),
@@ -31,33 +31,35 @@ window.addEventListener("load", () => {
       regExPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
 
 
-    
       $nameValidator.addEventListener("blur", () => { 
-            switch (true) {
-                case !$nameValidator.value.trim():
-                    $nameValidatorErrors.innerText = "El campo nombre es obligatorio";
-                    $nameValidator.classList.add("is-invalid");
-                    break; 
-                case !regExAlpha.test($nameValidator.value):  
-                    $nameErrors.innerText = "Nombre invalido"; 
-                    $nameValidator.classList.add("is-invalid");
+        switch (true) {
+            case !$nameValidator.value.trim():
+                $nameValidatorErrors.innerText = "El campo nombre es obligatorio";
+                $nameValidator.classList.remove("is-valid");
+                $nameValidator.classList.add("is-invalid");
                 break; 
-                default: 
-                    $nameValidator.classList.remove("is-invalid");
-                    $nameValidator.classList.add("is-valid");
-                    $nameValidatorErrors.innerText = "";
-                break;
-        } 
-    })
-
-    $inputLastname.addEventListener("blur", () => { 
+            case !regExDNI.test($nameValidator.value):  
+                $nameValidatorErrors.innerText = "Debe ingresar un nombre valido"; 
+                $nameValidator.classList.remove("is-valid");
+                $nameValidator.classList.add("is-invalid");
+            break; 
+            default: 
+                $nameValidator.classList.remove("is-invalid");
+                $nameValidator.classList.add("is-valid");
+                $nameValidatorErrors.innerText = "";
+            break;
+    } 
+     })
+     $inputLastname.addEventListener("blur", () => { 
         switch (true) {
             case !$inputLastname.value.trim():
                 $lastnameErrors.innerText = "El campo apellido es obligatorio";
-                $inputlastname.classList.add("is-invalid");
+                $inputLastname.classList.remove("is-valid");
+                $inputLastname.classList.add("is-invalid");
                 break; 
-            case !regExAlpha.test($inputLastname.value):  
-                $lastnameErrors.innerText = "Debes ingresar un apellido válido"; 
+            case !regExDNI.test($inputLastname.value):  
+                $lastnameErrors.innerText = "Debe ingresar un apellido valido"; 
+                $inputLastname.classList.remove("is-valid");
                 $inputLastname.classList.add("is-invalid");
             break; 
             default: 
@@ -66,7 +68,8 @@ window.addEventListener("load", () => {
                 $lastnameErrors.innerText = "";
             break;
     } 
-})
+     })
+
         
      
 
@@ -88,7 +91,7 @@ window.addEventListener("load", () => {
     } 
      }) */
 
-     $email.addEventListener("blur", () => { 
+   /*   $email.addEventListener("blur", () => { 
         switch (true) {
             case !$email.value.trim():
                 $emailErrors.innerText = "El campo email es obligatorio";
@@ -125,7 +128,7 @@ window.addEventListener("load", () => {
     } 
     
      })
-
+ */
      /* $pass2.addEventListener("blur", () => { 
         switch (true) {
             case !$pass2.value.trim():
@@ -179,7 +182,7 @@ window.addEventListener("load", () => {
     }  
     
      }) */
-
+/* 
      $terms.addEventListener('click',() => {
      $terms.value = 'on'
      $terms.classList.toggle('is-valid');
@@ -236,5 +239,5 @@ window.addEventListener("load", () => {
         } 
     }) 
 
-
-})
+*/ 
+}) 
