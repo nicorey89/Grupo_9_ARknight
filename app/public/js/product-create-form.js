@@ -15,7 +15,7 @@ let qs = (elemento) => {
         $descuentoError = qs("#error-message")
         $inputCuota = qs("#Cuota")
         $cuotaError = qs("#error-message")
-     
+        regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/
 
 
         $inputTitulo.addEventListener("blur" , () => {
