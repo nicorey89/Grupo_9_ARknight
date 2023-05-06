@@ -15,7 +15,7 @@ let qs = (elemento) => {
   $descuentoError = qs("#error-message")
   $inputCuota = qs("#Cuota")
   $cuotaError = qs("#error-message")
-
+  regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/
    
 
 
@@ -143,5 +143,29 @@ let qs = (elemento) => {
 
     }
    }) 
+
+   $form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const FORM_ELEMENTS = event.target.elements;
+
+      for (let index = 0; index < FORM_ELEMENTS.length - 1; index++) {
+          const element = FORM_ELEMENTS[index];
+          if(element.value === "" && element.type !== "file") {
+              element.classList.add("is-invalid")
+          }
+          
+      }
+
+   
+
+      let elementosConErrores = document.querySelectorAll(".is-invalid");
+      let errores = elementosConErrores.length > 0; 
+
+      if(errores) {
+          submitErrors.innerText = "Hay errores en el formulario"
+      } else {
+          $form.submit()
+      }
+   })
 
   })
