@@ -5,17 +5,17 @@ let qs = (elemento) => {
  // titulo - modelo - precio - descuento - cuota
 
  window.addEventListener("load" , () => { 
-  let $inputTitulo = qs("#titulo")
-  $tituloError = qs("#error-message")
-  $inputModelo = qs("#modelo")
-  $modeloError = qs("#error-message")
-  $inputPrecio = qs("#precio")
-  $precioError = qs("#error-message")
-  $inputDescuento = qs("#descuento")
-  $descuentoError = qs("#error-message")
-  $inputCuota = qs("#Cuota")
-  $cuotaError = qs("#error-message")
-  regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/
+  let $inputTitulo = qs("#titulo"),
+      $tituloErrors = qs("#error-message"),
+      $inputModelo = qs("#modelo"),
+      $modeloErrors = qs("#error-message"),
+      $inputPrecio = qs("#precio"),
+      $precioErrors = qs("#error-message"),
+      $inputDescuento = qs("#descuento"),
+      $descuentoErrors = qs("#error-message"),
+      $inputCuota = qs("#Cuota"),
+      $cuotaErrors = qs("#error-message"),
+      regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/
    
 
 
@@ -23,10 +23,12 @@ let qs = (elemento) => {
     switch (true) {
      case !$inputTitulo.value.trim():
            $tituloErrors.innerText = "La marca es obligatoria";
+           $inputTitulo.classList.remove("is-valid");
            $inputTitulo.classList.add("is-invalid");
            break;
-     case !$regExAlpha.test($inputTitulo.value):
+     case !regExAlpha.test($inputTitulo.value):
            $tituloErrors.innerText = "Marca no existe";
+           $inputTitulo.classList.remove("is-valid");
            $inputTitulo.classList.add("is-invalid");
 
        break;
@@ -48,10 +50,12 @@ let qs = (elemento) => {
     switch (true) {
      case !$inputModelo.value.trim():
            $modeloErrors.innerText = "El modelo es obligatorio";
+           $inputTitulo.classList.remove("is-valid");
            $inputModelo.classList.add("is-invalid");
            break;
-     case !$regExAlpha.test($inputModelo.value):
+     case !regExAlpha.test($inputModelo.value):
            $modeloErrors.innerText = "modelo invalido";
+           $inputTitulo.classList.remove("is-valid");
            $inputModelo.classList.add("is-invalid");
 
        break;
@@ -73,10 +77,12 @@ let qs = (elemento) => {
     switch (true) {
      case !$inputPrecio.value.trim():
            $precioErrors.innerText = "Debe ingresar el Precio";
+           $inputTitulo.classList.remove("is-valid");
            $inputPrecio.classList.add("is-invalid");
            break;
-     case !$regExAlpha.test($inputPrecio.value):
+     case !regExAlpha.test($inputPrecio.value):
            $precioErrors.innerText = "precio invalido";
+           $inputTitulo.classList.remove("is-valid");
            $inputPrecio.classList.add("is-invalid");
 
        break;
@@ -98,10 +104,12 @@ let qs = (elemento) => {
     switch (true) {
      case !$inputCuota.value.trim():
            $cuotaErrors.innerText = "Debe ingresar la cuota";
+           $inputTitulo.classList.remove("is-valid");
            $inputCuota.classList.add("is-invalid");
            break;
-     case !$regExAlpha.test($inputCuota.value):
+     case !regExAlpha.test($inputCuota.value):
            $cuotaErrors.innerText = "cuotas invalidas";
+           $inputTitulo.classList.remove("is-valid");
            $inputCuota.classList.add("is-invalid");
 
        break;
@@ -109,7 +117,7 @@ let qs = (elemento) => {
 
        default:
         $inputCuota.classList.remove("is-invalid");
-          $$inputCuota.classList.add("is-valid");
+          $inputCuota.classList.add("is-valid");
           $cuotaErrors.innerText="";
         break;
 
@@ -123,10 +131,12 @@ let qs = (elemento) => {
     switch (true) {
      case !$inputDescuento.value.trim():
            $descuentoErrors.innerText = "Ingresa el descuento";
+           $inputTitulo.classList.remove("is-valid");
            $inputDescuento.classList.add("is-invalid");
            break;
-     case !$regExAlpha.test($inputDescuento.value):
+     case !regExAlpha.test($inputDescuento.value):
            $descuentoErrors.innerText = "descuento invalido";
+           $inputTitulo.classList.remove("is-valid");
            $inputDescuento.classList.add("is-invalid");
 
        break;

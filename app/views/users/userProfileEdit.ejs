@@ -23,8 +23,8 @@
             <% } %> 
         </div>
         <div class="formEdit">
-            <label for="nombre"></label>
-            <input type="text" name="telefono" placeholder="Ingresá tu numero" value="<%= locals.old ? old.telefono : usuario.telefono %>" >
+            <input type="text" name="telefono" id="tel" placeholder="Ingresá tu numero" value="<%= locals.old ? old.telefono : usuario.telefono %>" >
+            <small id="telErrors"></small>
         </div>
         <div class="formEdit">
             <label for="nombre"></label>

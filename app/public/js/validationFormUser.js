@@ -8,8 +8,8 @@ window.addEventListener("load", () => {
       $inputLastname = qs("#apellido"),
       $lastnameErrors = qs("#apellidoErrors"),
       $form = qs("#submit"),
-      $dni = qs("#dni"),
-      $dniErrors = qs("#dniErrors"),
+      $tel = qs("#tel"),
+      $telErrors = qs("#telErrors"),
       $email = qs("#emailFormValidator"),
       $emailErrors = qs("#emailFormValidatorErrors"),
       $password = qs("#password"),
@@ -26,7 +26,7 @@ window.addEventListener("load", () => {
       $fileErrors = qs("#file"),
       $imgPreview = qs("#img-preview"),
       regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/,
-      regExDNI = /^[0-9]{7,8}$/,
+      regExTel = /^[0-9]{10,16}$/,
       regExEmail_form_validator = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
       regExPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
 
@@ -38,7 +38,7 @@ window.addEventListener("load", () => {
                 $nameValidator.classList.remove("is-valid");
                 $nameValidator.classList.add("is-invalid");
                 break; 
-            case !regExDNI.test($nameValidator.value):  
+            case !regExAlpha.test($nameValidator.value):  
                 $nameValidatorErrors.innerText = "Debe ingresar un nombre valido"; 
                 $nameValidator.classList.remove("is-valid");
                 $nameValidator.classList.add("is-invalid");
@@ -57,7 +57,7 @@ window.addEventListener("load", () => {
                 $inputLastname.classList.remove("is-valid");
                 $inputLastname.classList.add("is-invalid");
                 break; 
-            case !regExDNI.test($inputLastname.value):  
+            case !regExAlpha.test($inputLastname.value):  
                 $lastnameErrors.innerText = "Debe ingresar un apellido valido"; 
                 $inputLastname.classList.remove("is-valid");
                 $inputLastname.classList.add("is-invalid");
@@ -73,81 +73,25 @@ window.addEventListener("load", () => {
         
      
 
-     /* $dni.addEventListener("blur", () => { 
+    $tel.addEventListener("blur", () => { 
         switch (true) {
-            case !$dni.value.trim():
-                $dniErrors.innerText = "El campo DNI es obligatorio";
-                $dni.classList.add("is-invalid");
+            case !$tel.value.trim():
+                $telErrors.innerText = "El campo Tel es obligatorio";
+                $tel.classList.remove("is-valid");
+                $tel.classList.add("is-invalid");
                 break; 
-            case !regExDNI.test($dni.value):  
-                $dniErrors.innerText = "Debe ingresar un dni valido"; 
-                $dni.classList.add("is-invalid");
+            case !regExTel.test($tel.value):  
+                $telErrors.innerText = "Debe ingresar un telefono valido"; 
+                $tel.classList.remove("is-valid");
+                $tel.classList.add("is-invalid");
             break; 
             default: 
-                $dni.classList.remove("is-invalid");
-                $dni.classList.add("is-valid");
-                $dniErrors.innerText = "";
+                $tel.classList.remove("is-invalid");
+                $tel.classList.add("is-valid");
+                $telErrors.innerText = "";
             break;
     } 
-     }) */
-
-   /*   $email.addEventListener("blur", () => { 
-        switch (true) {
-            case !$email.value.trim():
-                $emailErrors.innerText = "El campo email es obligatorio";
-                $email.classList.add("is-invalid");
-                break; 
-            case !regExEmail.test($email.value):  
-                $email.innerText = "Debe ingresar un email valido"; 
-                $email.classList.add("is-invalid");
-            break; 
-            default: 
-                $email.classList.remove("is-invalid");
-                $email.classList.add("is-valid");
-                $email.innerText = "";
-            break;
-    } 
-    
-     })
-
-     $password.addEventListener("blur", () => { 
-        switch (true) {
-            case !$password.value.trim():
-                $passwordErrors.innerText = "El campo contraseña es obligatorio";
-                $password.classList.add("is-invalid");
-                break; 
-            case !regExPassword.test($password.value):  
-                $passwordErrors.innerText = "La contraseña debe tener como mínimo 6 caracteresMio"; 
-                $password.classList.add("is-invalid");
-            break; 
-            default: 
-                $password.classList.remove("is-invalid");
-                $password.classList.add("is-valid");
-                $passwordErrors.innerText = "";
-            break;
-    } 
-    
-     })
- */
-     /* $pass2.addEventListener("blur", () => { 
-        switch (true) {
-            case !$pass2.value.trim():
-                $passErrors.innerText = "'Debes reingresar la la contraseña";
-                $pass2.classList.add("is-invalid");
-                break; 
-            case $pass2.value != $pass.value:  
-                $pass2Errors.innerText = "'Las contraseñas no coinciden"; 
-                $pass2.classList.add("is-invalid");
-            break; 
-            default: 
-                $pass2.classList.remove("is-invalid");
-                $pass2.classList.add("is-valid");
-                $pass2Errors.innerText = "";
-            break;
-    } 
-    
-     }) */
-
+     }) 
      /* $fecha.addEventListener("blur", () => { 
         switch (true) {
             case !$fecha.value.trim():
