@@ -1,4 +1,4 @@
-const { Producto, Sequelize, Usuario } = require ('../database/models');
+const { Producto, Sequelize, Usuario, Categoria, Subcategoria } = require ('../database/models');
 
 const { validationResult } = require("express-validator")
 
@@ -43,24 +43,50 @@ module.exports = {
         })
     },
     store: (req, res) => {
-        const newProduct = {
-              titulo: req.body.titulo,
-              modelo: req.body.modelo,
-              precio: req.body.precio,
-              cuotas: req.body.cuotas,
-              descuento: req.body.descuento,
-              subCategory_id: 1,
-              descripcion: req.body.descripcion,
-              imagen: req.file ? req.file.filename : "default-image.png"
-            }
+  
+      let errors = validationResult(req);
 
-          Producto.create(newProduct)
-          .then(() => {
-              res.redirect('/admin/products')
-          })
-          .catch((error) => console.log(error))
-      
-
+      if(req.fileValidatorError){
+        errors.errors.push({
+          value: "",
+          msg: req.fileValidatorError,
+          param: "image",
+          location: "file",
+        });
+      }
+      if (!req.file) {
+        errors.errors.push({
+          value: "",
+          msg: "El producto debe tener una imagen",
+          param: "image",
+          location: "file",
+        });
+      }
+      if (errors.isEmpty()) {
+        let { titulo, modelo, precio, cuotas, descripcion, descuento } = req.body;
+  
+        let newProduct = {
+          titulo,
+          modelo,
+          precio,
+          cuotas,
+          descripcion,
+          descuento,
+          subCategory_id: 1,
+          imagen: req.file ? req.file.filename : "default-image.png"
+        };
+  
+        Producto.create(newProduct)
+        .then(() => {
+          return res.redirect("/admin/products");
+        })
+      } else {
+        return res.render("admin/product-create-form", {
+          session: req.session,
+          errors: errors.mapped(),
+          old: req.body,
+        });
+      }
     },
     edit: (req, res) => {
             let productId = req.params.id;
@@ -75,6 +101,25 @@ module.exports = {
     },
     update: (req, res) => {
       let errors = validationResult(req);
+
+      
+      if(req.fileValidatorError){
+        errors.errors.push({
+          value: "",
+          msg: req.fileValidatorError,
+          param: "image",
+          location: "file",
+        });
+      }
+      if (!req.file) {
+        errors.errors.push({
+          value: "",
+          msg: "El producto debe tener una imagen",
+          param: "image",
+          location: "file",
+        });
+      }
+
         if(errors.isEmpty()) {
 
             const {

@@ -21,8 +21,8 @@
     display: none;
 }
 
-.registerMain .container .form .error-message {
-    display: none;
+.registerMain .container .form .input-container .error-message {
+    color: red;
 }
 
 /* INPUT CONTAINER */
@@ -31,6 +31,7 @@
     width: 99%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin-bottom: 1rem;
     height: 100%;
 }
