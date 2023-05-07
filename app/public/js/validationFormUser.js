@@ -10,10 +10,10 @@ window.addEventListener("load", () => {
       $form = qs("#submit"),
       $tel = qs("#tel"),
       $telErrors = qs("#telErrors"),
-      $email = qs("#emailFormValidator"),
-      $emailErrors = qs("#emailFormValidatorErrors"),
-      $password = qs("#password"),
-      $passwordErrors = qs("#passwordErrors"),
+      $direccion = qs("#direccion"),
+      $direccionErrors = qs("#direccionErrors"),
+      $Cpostal = qs("#codigo_postal"),
+      $CpostalErrors = qs("#codigo_postalErrors"),
       $password2 = qs("#password2"),
       $password2Errors = qs("#password2Errors"),
       $fecha = qs("#fecha"),
@@ -25,22 +25,24 @@ window.addEventListener("load", () => {
       $file = qs("#file"),
       $fileErrors = qs("#file"),
       $imgPreview = qs("#img-preview"),
-      regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/,
+      regExAlpha = /^[a-zA-Z\sñáéíóúü0-9 ]*$/,
       regExTel = /^[0-9]{10,16}$/,
+      regExCP = /^[A-Z0-9]{4,10}$/,
       regExEmail_form_validator = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
       regExPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
 
 
-      $inputName.addEventListener("blur", () => { 
+    $inputName.addEventListener("blur", () => { 
         switch (true) {
             case !$inputName.value.trim():
                 $nameErrors.innerText = "El campo nombre es obligatorio";
+                $inputName.classList.remove("is-valid");
                 $inputName.classList.add("is-invalid");
                 break; 
-            case !regExAlpha.test($nameValidator.value):  
-                $nameValidatorErrors.innerText = "Debe ingresar un nombre valido"; 
-                $nameValidator.classList.remove("is-valid");
-                $nameValidator.classList.add("is-invalid");
+            case !regExAlpha.test($inputName.value):  
+                $nameErrors.innerText = "Debe ingresar un nombre valido"; 
+                $inputName.classList.remove("is-valid");
+                $inputName.classList.add("is-invalid");
             break; 
             default: 
                 $inputName.classList.remove("is-invalid");
@@ -49,8 +51,7 @@ window.addEventListener("load", () => {
             break;
         } 
     })
-
-     $inputLastname.addEventListener("blur", () => { 
+    $inputLastname.addEventListener("blur", () => { 
         switch (true) {
             case !$inputLastname.value.trim():
                 $lastnameErrors.innerText = "El campo apellido es obligatorio";
@@ -67,12 +68,8 @@ window.addEventListener("load", () => {
                 $inputLastname.classList.add("is-valid");
                 $lastnameErrors.innerText = "";
             break;
-    } 
-     })
-
-        
-     
-
+        } 
+    })
     $tel.addEventListener("blur", () => { 
         switch (true) {
             case !$tel.value.trim():
@@ -90,32 +87,48 @@ window.addEventListener("load", () => {
                 $tel.classList.add("is-valid");
                 $telErrors.innerText = "";
             break;
-    } 
-     }) 
-     /* $fecha.addEventListener("blur", () => { 
+        } 
+    }) 
+    $direccion.addEventListener("blur", () => { 
         switch (true) {
-            case !$fecha.value.trim():
-                $fechaErrors.innerText = "Debe ingresar su fecha de nacimiento";
-                $fecha.classList.add("is-invalid");
+            case !$direccion.value.trim():
+                $direccionErrors.innerText = "Debe ingresar su dirección";
+                $direccion.classList.remove("is-valid");
+                $direccion.classList.add("is-invalid");
                 break; 
-            case moment($fecha.value) > moment():  
-                $fechaErrors.innerText = "Fecha inválida"; 
-                $fecha.classList.add("is-invalid");
+            case !regExAlpha.test($direccion.value):  
+                $direccionErrors.innerText = "Dirección inválida";
+                $direccion.classList.remove("is-valid"); 
+                $direccion.classList.add("is-invalid");
             break; 
-            case moment().diff(moment($fecha.value), 'years') < 18:                     
-            $fechaErrors.innerText = 'Debes ser mayor de edad';
-            $fecha.classList.add('is-invalid')
-            break;
             default: 
-                $fecha.classList.remove("is-invalid");
-                $fecha.classList.add("is-valid");
-                $fechaErrors.innerText = "";
+                $direccion.classList.remove("is-invalid");
+                $direccion.classList.add("is-valid");
+                $direccionErrors.innerText = "";
             break;
-    } 
-    
-     }) */
+        } 
+    })
+    $Cpostal.addEventListener("blur", () => { 
+        switch (true) {
+            case !$Cpostal.value.trim():
+                $CpostalErrors.innerText = "Debe ingresar su codigo postal";
+                $Cpostal.classList.remove("is-valid");
+                $Cpostal.classList.add("is-invalid");
+                break; 
+            case !regExCP.test($Cpostal.value):  
+                $CpostalErrors.innerText = "codigo postal inválido";
+                $Cpostal.classList.remove("is-valid"); 
+                $Cpostal.classList.add("is-invalid");
+            break; 
+            default: 
+                $Cpostal.classList.remove("is-invalid");
+                $Cpostal.classList.add("is-valid");
+                $CpostalErrors.innerText = "";
+            break;
+        } 
+    })
 
-     /* $genero.addEventListener("blur", () => { 
+/*     $genero.addEventListener("blur", () => { 
         if(!$genero.value.trim()){ 
         $generoErrors.innerHTML = 'Campo requerido';
         $genero.classList.add('is-invalid')
@@ -123,9 +136,8 @@ window.addEventListener("load", () => {
         $genero.classList.remove('is-invalid'); 
         $genero.classList.add('is-valid'); 
         $generoErrors.innerHTML = ''          
-    }  
-    
-     }) */
+        }  
+    }) */
  
      $terms.addEventListener('click',() => {
      $terms.value = 'on'

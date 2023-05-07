@@ -46,6 +46,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false,
         },
+        direccion: {
+            type: dataTypes.STRING(100),
+            allowNull: false,
+        },
     }
 
     const config = {
