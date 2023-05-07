@@ -2,6 +2,7 @@ const { Usuario , Sequelize} = require('../database/models');
 
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
+const axios = require("axios");
 
 const controller = {
     
@@ -96,34 +97,40 @@ const controller = {
 
         res.redirect("/");
       
-    },
-    profile: (req, res) => {
+    },    
+    profile: async (req, res) => {
         let userInSessionId = req.session.usuario.id;
+        try {
+            const user = await Usuario.findByPk(userInSessionId);
+            const { data } = await axios.get("https://apis.datos.gob.ar/georef/api/provincias?campos=nombre,id")
 
-        Usuario.findByPk(userInSessionId)
-        .then((usuario) => {
             res.render("users/userProfile", {
-                usuario,
+                usuario: user,
+                provinces: data.provincias,
                 session: req.session
             })
-        })
-        .catch(error => console.log(error))
+        } catch (error) {
+            console.log(error)
+        }
     },
-    editProfile: (req, res) => {
-         let userInSessionId = req.session.usuario.id;
+    editProfile: async (req, res) => {
+        let userInSessionId = req.session.usuario.id;
+        try {
+            const user = await Usuario.findByPk(userInSessionId);
+            const { data } = await axios.get("https://apis.datos.gob.ar/georef/api/provincias?campos=nombre,id")
 
-         Usuario.findByPk(userInSessionId)
-         
-         .then(usuario => {
-             res.render("users/userProfileEdit",  {
-                 usuario: usuario,
-                 session: req.session
-             } )
-         })
+            res.render("users/userProfileEdit", {
+                usuario: user,
+                provinces: data.provincias,
+                session: req.session
+            })
+        } catch (error) {
+            console.log(error)
+        }
     },
     updateProfile: (req, res) => {
         let errors = validationResult(req);
-        if(errors.isEmpty()) {
+         if(errors.isEmpty()) {
 
             const {
                 nombre,
@@ -168,7 +175,7 @@ const controller = {
                 })
 
             })
-        }
+        } 
     },
 }
 module.exports = controller 

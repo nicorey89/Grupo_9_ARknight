@@ -9,8 +9,8 @@
      <form action="?_method=PUT" method="POST" enctype="multipart/form-data" class="userForm" >
         <h3 class="uTitle">EDITAR PERFIL</h3>
         <div class="formEdit">
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<%= locals.old ? old.nombre : usuario.nombre %>">
-            <small id="nombreErrors"></small>
+            <input type="text" name="nombre" id="name" placeholder="Nombre" value="<%= locals.old ? old.nombre : usuario.nombre %>">
+            <small id="nameErrors"></small>
             <% if (locals.errors && errors.nombre) { %>
                 <small class="text-danger"><%= errors.nombre.msg %> </small>
             <% } %> 
@@ -23,52 +23,28 @@
             <% } %> 
         </div>
         <div class="formEdit">
-            <label for="nombre"></label>
-            <input type="text" name="telefono" placeholder="Ingresá tu numero" value="<%= locals.old ? old.telefono : usuario.telefono %>" >
+            <input type="text" name="telefono" id="tel" placeholder="Ingresá tu numero" value="<%= locals.old ? old.telefono : usuario.telefono %>" >
+            <small id="telErrors"></small>
         </div>
         <div class="formEdit">
-            <label for="nombre"></label>
-            <input type="text" name="direccion" placeholder="Domicilio" value="<%= locals.old ? old.direccion : usuario.direccion %>">
+            <input type="text" id="direccion" name="direccion" placeholder="Domicilio" value="<%= locals.old ? old.direccion : usuario.direccion %>">
+            <small id="direccionErrors"></small>
         </div>
         <div class="formEdit">
-            <label for="nombre"></label>
-            <input type="text" name="codigo_postal" placeholder="Código postal" value="<%= locals.old ? old.codigo_postal : usuario.codigo_postal %>">
+            <input type="text" id="codigo_postal" name="codigo_postal" placeholder="Código postal" value="<%= locals.old ? old.codigo_postal : usuario.codigo_postal %>">
+            <small id="codigo_postalErrors"></small>
         </div>
-       
         <div class="formEdit">
-            <select name="provincia" id="provincia">
-                <option value="Buenos Aires">Buenos Aires</option>
-                <option value="Entre Rios">Entre Rios</option>
-                <option value="Misiones">Misiones</option>
-                <option value="Corrientes">Corrientes</option>
-                <option value="Santa Fe">Santa Fe</option>
-                <option value="La Pampa">La Pampa</option>
-                <option value="La Rioja">La Rioja</option>
-                <option value="Jujuy">Jujuy</option>
-                <option value="Salta">Salta</option>
-                <option value="Formosa">Formosa</option>
-                <option value="Chaco">Chaco</option>
-                <option value="Santiago del Estero">Santiago del Estero</option>
-                <option value="Catamarca">Catamarca</option>
-                <option value="Mendoza">Mendoza</option>
-                <option value="San Luis">San Luis</option>
-                <option value="Cordoba">Cordoba</option>
-                <option value="Neuquen">Neuquen</option>
-                <option value="Rio Negro">Rio Negro</option>
-                <option value="Chubut">Chubut</option>
-                <option value="Santa Cruz">Santa Cruz</option>
-                <option value="San Juan">San Juan</option>
-                <option value="Tierra del Fuego">Tierra del Fuego</option>
-                <option value="Islas Malvinas">Islas Malvinas</option>
-                <option value="Tucuman">Tucuman</option>
+            <select name="provincia" id="provincias">
+                <option value="" selected hidden>Provincia</option>
+                <% provinces.forEach(province => { %>
+                    <option value="<%- province.id %>"><%- province.nombre %></option>
+                <% }) %>
             </select>
         </div>
         <div class="formEdit">
             <select name="localidad" id="localidad">
-                <option value="CABA">CABA</option>
-                <option value="Zona Sur">Zona Sur</option>
-                <option value="Zona Norte">Zona Norte</option>
-                <option value="Zona oeste">Zona oeste</option>
+                <option value="">Localidad</option>
             </select>
         </div>
         <div class="avatarFile">
