@@ -5,19 +5,33 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller ={
     index: (req, res) => {
-        Producto.findAll({
-            limit: 5
-        })
-        .then(producto=> {
-            return res.render("index", {
-                sliderTitle: "Productos en oferta",
-                sliderProducts: producto,
-                products : producto,
-                session: req.session,
-                toThousand 
+        try {
+            const PRODUCT_OFERTAS = Producto.findAll({
+                where : {
+                    descuento : {
+                        [Op.eq]: 10
+                    }
+                },
+                limit : 5,
+
+            });
+            const PRODUCTOS = Producto.findAll({
+                limit: 5
             })
-        })
-        .catch(error => console.log(error));
+            Promise.all([PRODUCT_OFERTAS,PRODUCTOS ])
+            .then(([productosOferta, producto])=> {
+                return res.render("index", {
+                    sliderTitle: "Productos en oferta",
+                    sliderProducts: producto,
+                    productosOferta,
+                    products : producto,
+                    session: req.session,
+                    toThousand 
+                })
+            })
+        } catch (error) {
+            console.log(error)    
+        }
     },
     search: (req,res) => {
         const loQueBuscoElUsuario = req.query.search;
