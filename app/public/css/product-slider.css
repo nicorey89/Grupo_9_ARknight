@@ -20,8 +20,9 @@
     flex-direction: column;
     justify-content: center;
     margin: 5px;
-    transition: all 1s ease;
+    transition: all 1.2s ease;
     z-index: 1;
+    border: 1px solid black;
 }
 
 .productSlide:hover {
@@ -30,13 +31,13 @@
 
 .productSlide .productDiscount {
     position:absolute;
-    top: 0;
-    right: 0px;
+    top: 2px;
+    right: 2px;
     padding: 5px;
-    background-color: var(--dark-blue);
     color: white;
     border-radius: 0px 10px 0px 10px;
     font-size: 15px;
+    background-color: green;
 }
 
 
@@ -48,6 +49,27 @@
 .productSlide .productName {
     font-size: 16px;
     margin: 10px auto;
+    text-align: center;
+    color: black;
+}
+
+.productSlide .precios {
+    display: flex;
+    justify-content: space-between;
+}
+
+.productSlide .precios h4 {
+    display: flex;
+    align-items: center;
+    text-decoration: line-through;
+    color: black;
+}
+.productSlide .precios h2 {
+    color: green;
+}
+
+.productSlide p {
+    color: black;
 }
 
 .productSlide .productPrice {

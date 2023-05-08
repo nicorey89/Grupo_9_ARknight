@@ -30,7 +30,7 @@ const controller = {
                 direccion: "",
                 codigo_postal: "",
                 provincia: "",
-                localidad: ""
+                localidad: "",
                 }
 
             Usuario.create(newUser)

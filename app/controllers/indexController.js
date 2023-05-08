@@ -5,7 +5,9 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller ={
     index: (req, res) => {
-        Producto.findAll()
+        Producto.findAll({
+            limit: 5
+        })
         .then(producto=> {
             return res.render("index", {
                 sliderTitle: "Productos en oferta",

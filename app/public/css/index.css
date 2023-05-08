@@ -12,10 +12,48 @@ main.home div.product-container{
     flex-wrap: wrap;
     justify-content: center;
 }
+ 
+.titulo_oferta {
 
-.home div.ofertas section h3, div.nuevo section h3, h3.pintura {
+    display: flex;
+    background-color: green;
     margin-left: 60px;
-    color: var(--naranja)
+    width: 151px;
+    /* padding: 0.2rem; */
+    padding: 5px;
+    color: white;
+    border-radius: 0px 10px 0px 10px;
+    font-size: 15px;
+    background-color: green;
+    justify-content: space-between;
+
+ }  
+
+
+ .titulo_oferta .cartel {
+    margin-left: 22px;
+    display: flex;
+    align-items: center;
+}
+
+.nuevo section h3 {
+    margin-left: 60px;
+    background-color: green;
+    width: 200px;
+    color: white;
+    border-radius: 0px 10px 0px 10px;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.titulo_stilo {
+    margin-left: 60px;
+    background-color: green;
+    width: 200px;
+    color: white;
+    border-radius: 0px 10px 0px 10px;
+    font-size: 15px;
+    padding: 5px;
 }
 
 .home article.product{
@@ -23,8 +61,8 @@ main.home div.product-container{
     height: 480px;
     background-color: white;
     border: 1.5px solid black;
-    border-radius: 5px;
-    padding: 5px;
+    border-radius: 10px;
+    padding: 10px;
     margin: 5px;
     display: flex;
     flex-direction: column;
@@ -44,15 +82,20 @@ main.home div.product-container{
     object-fit: cover;
 }
 
-.home article.product div.photo-container img.special{
-    position: absolute;
-    top: 100;
-    right: 10;
-}
-
 .home article.product div.photo-container img.photo{
    width: 100%;
    height: 100%;
+}
+
+.home article.product div.photo-container .productDiscount {
+    position:absolute;
+    top: -4px;
+    right: -4px;
+    padding: 5px;
+    color: white;
+    border-radius: 0px 10px 0px 10px;
+    font-size: 15px;
+    background-color: green;
 }
 
 .home div.precio{
@@ -60,9 +103,6 @@ main.home div.product-container{
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    margin-top: 10px;
-    border-top: 1px solid lightgray;
-    padding: 15px;
 }
 
 .home div.precio h2 {
@@ -73,15 +113,10 @@ main.home div.product-container{
     text-decoration: line-through;
 }
 
-.home p.cuotas{
-    margin-bottom: 10px;
-}
-
-
 
 .home div.banner-pintura img{
     width: 100%;
     margin:10px 0;
 }
 
-
+/* OFERTAS ESTRELLA */

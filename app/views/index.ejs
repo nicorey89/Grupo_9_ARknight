@@ -18,16 +18,24 @@
 
       <div class="ofertas">
       <section>
-          <h3>OFERTAS</h3>
+          <div class="titulo_oferta">
+              <h3>OFERTAS</h3>
+              <div class="carter">
+                <p>10%</p>
+              </div>
+          </div>
           <div class="product-container">
             <% products.forEach(producto => { %>
               <article class="product">
                   <div class="photo-container">
                       <a href="/products/productDetail/<%= producto.id %>"><img class="photo" src="/images/products/<%= producto.imagen ? producto.imagen : 'default-image.png' %>" alt="pdto 02"></a>
-                      <img class="special" src="/images/img-descuento.png" alt="nuevo">
+                      <% if (producto.descuento > 0) { %>
+                        <div class="productDiscount"><%- producto.descuento %>% OFF</div>
+                    <% } %>
                   </div>
                   <p><%= producto.titulo%></p>
-                  <p><%= producto.modelo%></p>
+                  <p><%= producto.modelo%></p>  
+                  <hr>
                   <div class="precio">
                       <h4>$<%= toThousand(producto.precio) %></h4>
                       <h2>$<%= toThousand(producto.precio - (producto.precio*producto.descuento/100))%></h2>
@@ -44,15 +52,20 @@
      
       <div class="nuevo">
           <section>
-              <h3>PRODUCTOS NUEVOS</h3>
+             
+            <h3 class="titulo_stilo">PRODUCTOS NUEVOS</h3>
+             
               <div class="product-container">
                 <% products.forEach(producto => { %>
                     <article class="product">
                         <div class="photo-container">
-                            <a href="/products/productDetail/<%= producto.id %>"><img class="photo" src="/images/products/<%= producto.imagen ? producto.imagen : 'default-image.png' %>" alt="pdto 02"></a>                            <img class="special" src="/images/img-descuento.png" alt="nuevo">
+                            <a href="/products/productDetail/<%= producto.id %>"><img class="photo" src="/images/products/<%= producto.imagen ? producto.imagen : 'default-image.png' %>" alt="pdto 02"></a>                            <% if (producto.descuento > 0) { %>
+                                <div class="productDiscount"><%- producto.descuento %>% OFF</div>
+                            <% } %>
                         </div>
                         <p><%= producto.titulo%></p>
                         <p><%= producto.modelo%></p>
+                        <hr>
                         <div class="precio">
                             <h4>$<%= toThousand(producto.precio) %></h4>
                             <h2>$<%= toThousand(producto.precio - (producto.precio*producto.descuento/100))%></h2>
@@ -69,15 +82,19 @@
       <div class="banner-pintura">
           <a href=""><img src="/images/landing-pinturas_tendencia_1.jpg" alt="pinturas"></a>
       </div>
-      <h3 class="pintura">PINTURAS</h3>
+      <h3 class="titulo_stilo">PINTURAS</h3>
       <div class="product-container">
         <% products.forEach(producto => { %>
             <article class="product">
                 <div class="photo-container">
-                    <a href="/products/productDetail/<%= producto.id %>"><img class="photo" src="/images/products/<%= producto.imagen ? producto.imagen : 'default-image.png' %>" alt="pdto 02"></a>                    <img class="special" src="/images/img-descuento.png" alt="nuevo">
+                    <a href="/products/productDetail/<%= producto.id %>"><img class="photo" src="/images/products/<%= producto.imagen ? producto.imagen : 'default-image.png' %>" alt="pdto 02"></a>
+                    <% if (producto.descuento > 0) { %>
+                        <div class="productDiscount"><%- producto.descuento %>% OFF</div>
+                    <% } %>
                 </div>
                 <p><%= producto.titulo%></p>
                 <p><%= producto.modelo%></p>
+                <hr>
                 <div class="precio">
                     <h4>$<%= toThousand(producto.precio) %></h4>
                     <h2>$<%= toThousand(producto.precio - (producto.precio*producto.descuento/100))%></h2>
