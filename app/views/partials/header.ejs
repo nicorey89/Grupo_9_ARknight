@@ -23,12 +23,11 @@
                 </div>
                 <li><a href="/">Contactenos</a></li>
                 <div class="categorias">
-                    <li><a href="/">Sucursales<i class="fa-solid fa-angle-down"></i></a></li>
+                    <li><a href="/sucursales">Sucursales<i class="fa-solid fa-angle-down"></i></a></li>
                     <div class="categorias-content">
-                        <a href="">Sucursal Lanus</a>
-                        <a href="">Sucursal CABA</a>
-                        <a href="">Sucursal La Plata</a>
-                        <a href="">Sucursal Tucuman</a>
+                        <% sucursales.forEach(sucursal => { %>
+                            <a href="/sucursales/<%=sucursal.id%>">Sucursal <%= sucursal.nombre%></a>
+                        <% }) %>
                     </div>
                 </div>
             </ul>

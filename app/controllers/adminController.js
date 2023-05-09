@@ -1,4 +1,4 @@
-const { Producto, Sequelize, Usuario, Categoria, Subcategoria } = require ('../database/models');
+const { Producto, Sequelize, Usuario, Categoria, Subcategoria, Sucursal} = require ('../database/models');
 
 const { validationResult } = require("express-validator")
 
@@ -6,16 +6,21 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
     index:(req, res)=>{
+      const sucursales = Sucursal.findAll();
         res.render('admin/admin',{
-            session:req.session
+            session:req.session,
+            sucursales
         })
     },
      listar: (req,res)=>{
-      Producto.findAll()
-      .then((productos) => {
+      const SUCURSAL = Sucursal.findAll();
+      const PRODUCTO = Producto.findAll();
+      Promise.all([PRODUCTO, SUCURSAL])
+      .then(([productos, sucursales]) => {
         if(productos){
           res.render("admin/products2" , {
             products : productos,
+            sucursales,
             toThousand,
             session:req.session
            })    
@@ -25,11 +30,14 @@ module.exports = {
       });
     },
      listarUsers: (req,res)=>{
-      Usuario.findAll()
-      .then((usuarios) => {
+      const SUCURSAL = Sucursal.findAll();
+      const USUARIOS = Usuario.findAll();
+      Promise.all([USUARIOS, SUCURSAL])
+      .then(([usuarios, sucursales]) => {
         if(usuarios){
           res.render("admin/users-admin" , {
               users : usuarios,
+              sucursales,
               session : req.session
           })
         }else{
@@ -38,7 +46,9 @@ module.exports = {
       })
     },
     create: (req, res) => {
+      const SUCURSAL = Sucursal.findAll();
         res.render("admin/product-create-form", {
+          sucursales: SUCURSAL,
             session: req.session
         })
     },
@@ -90,10 +100,13 @@ module.exports = {
     },
     edit: (req, res) => {
             let productId = req.params.id;
-            Producto.findByPk(productId)
-            .then((productToEdit) =>{
+            const SUCURSAL = Sucursal.findAll();
+            const PRODUCTO = Producto.findByPk(productId);
+            Promise.all([PRODUCTO, SUCURSAL])
+            .then(([productToEdit, sucursales]) =>{
               res.render('admin/product-edit-form', {
                   productToEdit,
+                  sucursales,
                   session:req.session
               })
             })

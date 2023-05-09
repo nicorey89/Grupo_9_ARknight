@@ -1,17 +1,20 @@
-const { Producto, Sequelize, } = require ('../database/models');
+const { Producto, Sequelize, Sucursal} = require ('../database/models');
 const {Op} = Sequelize;
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
   index: (req, res) => {
-    Producto.findAll()
-    .then(([product, sliderProducts]) => {
+    const SUCURSAL = Sucursal.findAll();
+    const PRODUCTO = Producto.findAll();
+    Promise.all([PRODUCTO, SUCURSAL])
+    .then(([product, sucursales, sliderProducts]) => {
       return res.render("products/productDetail", {
         ...product,
         toThousand,
         sliderTitle: "OFERTAS",
         sliderProducts,
+        sucursales,
         session: req.session
         })
     })
@@ -27,14 +30,16 @@ const controller = {
         },
       }
     });
-    Promise.all([PRODUCT_PROMISE, ALL_PRODUCTS_PROMISE])
-    .then(([product, sliderProducts]) => {
+    const SUCURSAL = Sucursal.findAll();
+    Promise.all([PRODUCT_PROMISE, ALL_PRODUCTS_PROMISE, SUCURSAL])
+    .then(([product, sliderProducts, sucursales]) => {
       return res.render("products/productDetail", {
         producto : product,
         toThousand,
         tittle : "Product Detail",
         sliderTitle: "PRODUCTOS EN OFERTAS",
         sliderProducts: sliderProducts,
+        sucursales,
         session: req.session
     })
     })
@@ -66,12 +71,17 @@ const controller = {
     }
   } */
   pCard:(req, res)=>{
-      Producto.findAll().then((productos) => {
+    const SUCURSAL = Sucursal.findAll();
+    const PRODUCTO = Producto.findAll();
+
+    Promise.all([PRODUCTO, SUCURSAL])
+      .then(([productos, sucursales]) => {
         res.render('products/productCard', {
             products : productos,
             sliderTitle: "PRODUCTOS EN OFERTAS",
             sliderProducts: productos,
             session:req.session,
+            sucursales,
             toThousand
         })
       })

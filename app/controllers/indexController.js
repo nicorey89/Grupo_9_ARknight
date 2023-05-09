@@ -1,4 +1,4 @@
-const { Producto, Sequelize } = require ('../database/models');
+const { Producto, Sequelize, Sucursal } = require ('../database/models');
 const {Op} = Sequelize;
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -18,13 +18,15 @@ const controller ={
             const PRODUCTOS = Producto.findAll({
                 limit: 5
             })
-            Promise.all([PRODUCT_OFERTAS,PRODUCTOS ])
-            .then(([productosOferta, producto])=> {
+            const SUCURSAL = Sucursal.findAll();
+            Promise.all([PRODUCT_OFERTAS,PRODUCTOS, SUCURSAL])
+            .then(([productosOferta, producto, sucursales])=> {
                 return res.render("index", {
                     sliderTitle: "Productos en oferta",
                     sliderProducts: producto,
                     productosOferta,
                     products : producto,
+                    sucursales,
                     session: req.session,
                     toThousand 
                 })
@@ -35,18 +37,21 @@ const controller ={
     },
     search: (req,res) => {
         const loQueBuscoElUsuario = req.query.search;
-        Producto.findAll({
+        const SUCURSAL = Sucursal.findAll();
+        const PRODUCTO = Producto.findAll({
             where: {
               titulo: {
                 [Op.like]: `%${loQueBuscoElUsuario}%`
               }
             }}
         )
-        .then((producto) => {
+        Promise.all([PRODUCTO, SUCURSAL])
+        .then(([producto, sucursales]) => {
            if (producto) {
                return res.render('products/search', {
                   products : producto,
                   toThousand,
+                  sucursales,
                   session:req.session
                    })
            }else {

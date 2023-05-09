@@ -1,4 +1,4 @@
-const { Usuario , Sequelize} = require('../database/models');
+const { Usuario , Sequelize, Sucursal} = require('../database/models');
 
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
@@ -7,12 +7,16 @@ const axios = require("axios");
 const controller = {
     
     login:(req, res)=>{
+        const SUCURSAL = Sucursal.findAll();
         res.render('users/login', {
+            sucursales: SUCURSAL,
             session:req.session
         })
     },
     register:(req, res)=>{
+        const SUCURSAL = Sucursal.findAll();
         res.render('users/register', {
+            sucursales: SUCURSAL,
             session:req.session
         })
     },
@@ -103,10 +107,11 @@ const controller = {
         try {
             const user = await Usuario.findByPk(userInSessionId);
             const { data } = await axios.get("https://apis.datos.gob.ar/georef/api/provincias?campos=nombre,id")
-
+            const SUCURSAL = Sucursal.findAll();
             res.render("users/userProfile", {
                 usuario: user,
                 provinces: data.provincias,
+                sucursales: SUCURSAL,
                 session: req.session
             })
         } catch (error) {
@@ -118,10 +123,11 @@ const controller = {
         try {
             const user = await Usuario.findByPk(userInSessionId);
             const { data } = await axios.get("https://apis.datos.gob.ar/georef/api/provincias?campos=nombre,id")
-
+            const SUCURSAL = Sucursal.findAll();
             res.render("users/userProfileEdit", {
                 usuario: user,
                 provinces: data.provincias,
+                sucursales: SUCURSAL,
                 session: req.session
             })
         } catch (error) {

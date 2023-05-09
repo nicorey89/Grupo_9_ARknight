@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head") %>
+<body>
+    <%- include("partials/header") %>
+    <main class="product-detail">
+        <section class="product-detail-conteiner">
+            <div class="image-container">
+                <div class="img">
+                    <img src="/images/sucursales/<%= sucursal.imagen_suc ? sucursal.imagen_suc : 'default-image.png' %>" alt="">
+                </div>
+            </div>
+            <div class="detail-container">
+                <div class="title">
+                    <h1>Sucursal: <%= sucursal.nombre %></h1>
+                </div>
+                <div>
+                      <h4>Telefono : <%= sucursal.telefono  %></h4>
+                      <h4>Whatsapp : <%= sucursal.celular %></h4>
+                      <h4>Email: <%= sucursal.email %></h4>
+                </div>
+                <div>
+                    <h2><%= sucursal.direccion + " " + sucursal.altura + ", " + sucursal.localidad + ", " + sucursal.provincia%></h2>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%-include("partials/footer")%>
+</body>
+</html>
