@@ -7,14 +7,16 @@ const controller = {
   index: (req, res) => {
     const SUCURSAL = Sucursal.findAll();
     const PRODUCTO = Producto.findAll();
-    Promise.all([PRODUCTO, SUCURSAL])
-    .then(([product, sucursales, sliderProducts]) => {
+    const CATEGORIAS = Categoria.findAll();
+    Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS])
+    .then(([product, sucursales, sliderProducts, categorias]) => {
       return res.render("products/productDetail", {
         ...product,
         toThousand,
         sliderTitle: "OFERTAS",
         sliderProducts,
         sucursales,
+        categorias,
         session: req.session
         })
     })
@@ -31,8 +33,9 @@ const controller = {
       }
     });
     const SUCURSAL = Sucursal.findAll();
-    Promise.all([PRODUCT_PROMISE, ALL_PRODUCTS_PROMISE, SUCURSAL])
-    .then(([product, sliderProducts, sucursales]) => {
+    const CATEGORIAS = Categoria.findAll();
+    Promise.all([PRODUCT_PROMISE, ALL_PRODUCTS_PROMISE, SUCURSAL, CATEGORIAS])
+    .then(([product, sliderProducts, sucursales, categorias]) => {
       return res.render("products/productDetail", {
         producto : product,
         toThousand,
@@ -40,6 +43,7 @@ const controller = {
         sliderTitle: "PRODUCTOS EN OFERTAS",
         sliderProducts: sliderProducts,
         sucursales,
+        categorias,
         session: req.session
     })
     })
@@ -73,14 +77,16 @@ const controller = {
   pCard:(req, res)=>{
     const SUCURSAL = Sucursal.findAll();
     const PRODUCTO = Producto.findAll();
+    const CATEGORIAS = Categoria.findAll();
 
-    Promise.all([PRODUCTO, SUCURSAL])
-      .then(([productos, sucursales]) => {
+    Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS])
+      .then(([productos, sucursales, categorias]) => {
         res.render('products/productCard', {
             products : productos,
             sliderTitle: "PRODUCTOS EN OFERTAS",
             sliderProducts: productos,
             session:req.session,
+            categorias,
             sucursales,
             toThousand
         })
