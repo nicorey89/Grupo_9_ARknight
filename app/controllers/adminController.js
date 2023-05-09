@@ -6,11 +6,13 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
     index:(req, res)=>{
-      const sucursales = Sucursal.findAll();
-        res.render('admin/admin',{
+      Sucursal.findAll()
+      .then((sucursales) =>{
+        return res.render('admin/admin',{
             session:req.session,
             sucursales
         })
+      })
     },
      listar: (req,res)=>{
       const SUCURSAL = Sucursal.findAll();
@@ -46,11 +48,13 @@ module.exports = {
       })
     },
     create: (req, res) => {
-      const SUCURSAL = Sucursal.findAll();
-        res.render("admin/product-create-form", {
-          sucursales: SUCURSAL,
+      Sucursal.findAll()
+      .then((sucursales) => {
+        return res.render("admin/product-create-form", {
+          sucursales,
             session: req.session
         })
+      })
     },
     store: (req, res) => {
   
@@ -100,13 +104,17 @@ module.exports = {
     },
     edit: (req, res) => {
             let productId = req.params.id;
+            const CATEGORIA = Categoria.findAll();
+            const SUB_CATEGORIA = Subcategoria.findAl();
             const SUCURSAL = Sucursal.findAll();
             const PRODUCTO = Producto.findByPk(productId);
-            Promise.all([PRODUCTO, SUCURSAL])
-            .then(([productToEdit, sucursales]) =>{
+            Promise.all([PRODUCTO, SUCURSAL, CATEGORIA, SUB_CATEGORIA])
+            .then(([productToEdit, sucursales, categorias, subcategorias]) =>{
               res.render('admin/product-edit-form', {
                   productToEdit,
                   sucursales,
+                  categorias,
+                  subcategorias,
                   session:req.session
               })
             })

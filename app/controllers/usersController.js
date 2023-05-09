@@ -7,17 +7,23 @@ const axios = require("axios");
 const controller = {
     
     login:(req, res)=>{
-        const SUCURSAL = Sucursal.findAll();
-        res.render('users/login', {
-            sucursales: SUCURSAL,
-            session:req.session
-        })
+        Sucursal.findAll()
+        .then((sucursales) => {
+            return res.render('users/login', {
+                sucursales,
+                session:req.session
+            })
+
+        }
+        )
     },
     register:(req, res)=>{
-        const SUCURSAL = Sucursal.findAll();
-        res.render('users/register', {
-            sucursales: SUCURSAL,
-            session:req.session
+        Sucursal.findAll()
+        .then((sucursales) => {
+            return res.render('users/register', {
+                sucursales,
+                session:req.session
+            })
         })
     },
     crear: (req, res) => {
@@ -107,7 +113,7 @@ const controller = {
         try {
             const user = await Usuario.findByPk(userInSessionId);
             const { data } = await axios.get("https://apis.datos.gob.ar/georef/api/provincias?campos=nombre,id")
-            const SUCURSAL = Sucursal.findAll();
+            const SUCURSAL = await Sucursal.findAll();
             res.render("users/userProfile", {
                 usuario: user,
                 provinces: data.provincias,
