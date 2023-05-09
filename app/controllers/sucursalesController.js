@@ -1,0 +1,35 @@
+const {Sequelize, Sucursal } = require ('../database/models');
+const {Op} = Sequelize;
+
+const controller = {
+    index: (req,res) => {
+        const sucursalID= req.params.id;
+        const SUCURSALES = Sucursal.findAll();
+        const SUCURSAL = Sucursal.findByPk(sucursalID);
+        Promise.all([SUCURSALES, SUCURSAL])
+        .then(([sucursales, sucursal]) => {
+            return res.render("sucursales", {
+                sucursales,
+                sucursal,
+                session: req.session
+            })
+        })
+        .catch((error) => console.log(error))
+    },
+    detail: (req,res) => {
+        const sucursalID= req.params.id;
+        const SUCURSALES = Sucursal.findAll();
+        const SUCURSAL = Sucursal.findByPk(sucursalID);
+        Promise.all([SUCURSALES, SUCURSAL])
+        .then(([sucursales, sucursal]) => {
+            return res.render("sucursal", {
+                sucursales,
+                sucursal,
+                session: req.session
+            })
+        })
+        .catch((error) => console.log(error))
+    },
+}
+
+module.exports = controller;

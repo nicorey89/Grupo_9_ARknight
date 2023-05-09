@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head") %>
+<body>
+    <%- include("partials/header") %>
+    <main class="home">
+        <div class="product-container">
+            <% sucursales.forEach(sucursal => { %>
+              <article class="product">
+                  <div class="photo-container">
+                      <a href="/sucursales/<%= sucursal.id %>"><img class="photo" src="/images/sucursales/<%= sucursal.imagen_suc ? sucursal.imagen_suc : 'default-image.png' %>"></a>
+                  </div>
+                  <p>Sucursal: <%= sucursal.nombre%></p>
+                  <p><%= sucursal.direccion + " " + sucursal.altura%></p>  
+                  <hr>
+                  <div class="precio">
+                      <h2>TEL: <%= sucursal.telefono%></h2>
+                  </div>
+                  <p class="cuotas">
+              </article>
+              <% })%>
+          </div>
+
+    </main>
+
+    <%-include("partials/footer")%>
+</body>
+</html>
