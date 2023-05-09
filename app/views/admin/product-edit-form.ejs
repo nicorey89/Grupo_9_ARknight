@@ -49,7 +49,20 @@
                             <span class="error-message"><%= errors.cuotas.msg %> </span>
                         <% } %>
                     </div>
-
+                    <div class="input-container">
+                        <select name="categoria" id="categoria">
+                            <option value="" selected hidden>categoria</option>
+                            <% categorias.forEach(categoria => { %>
+                                <option value="<%- categoria.id %>"><%- categoria.nombre %></option>
+                            <% }) %>
+                        </select>
+                        <small id="categoriaErrors"></small>
+                    </div>
+                    <div class="input-container">
+                        <select name="subCategoria" id="subCategoria">
+                            <option value="">Sub Categoria</option>
+                        </select>
+                    </div>
                     <div class="input-container textarea">
                         <label for="description" class="form-label"></label>
                         <textarea type="textarea" name="descripcion" id="descripcion" value="" class="input-style maxStile"><%= productToEdit.descripcion %></textarea>

@@ -1,4 +1,4 @@
-const { Usuario , Sequelize, Sucursal} = require('../database/models');
+const { Usuario , Sequelize, Sucursal, Categoria} = require('../database/models');
 
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
@@ -7,23 +7,29 @@ const axios = require("axios");
 const controller = {
     
     login:(req, res)=>{
-        Sucursal.findAll()
-        .then((sucursales) => {
+        const CATEGORIAS = Categoria.findAll();
+        const SUCURSAL = Sucursal.findAll();
+        Promise.all([CATEGORIAS, SUCURSAL])
+        .then(([categorias, sucursales]) => {
             return res.render('users/login', {
+                categorias,
                 sucursales,
                 session:req.session
             })
 
-        }
-        )
+        })
     },
     register:(req, res)=>{
-        Sucursal.findAll()
-        .then((sucursales) => {
+        const CATEGORIAS = Categoria.findAll();
+        const SUCURSAL = Sucursal.findAll();
+        Promise.all([CATEGORIAS, SUCURSAL])
+        .then(([categorias, sucursales]) => {
             return res.render('users/register', {
+                categorias,
                 sucursales,
                 session:req.session
             })
+
         })
     },
     crear: (req, res) => {
@@ -114,10 +120,12 @@ const controller = {
             const user = await Usuario.findByPk(userInSessionId);
             const { data } = await axios.get("https://apis.datos.gob.ar/georef/api/provincias?campos=nombre,id")
             const SUCURSAL = await Sucursal.findAll();
+            const CATEGORIAS = await Categoria.findAll();
             res.render("users/userProfile", {
                 usuario: user,
                 provinces: data.provincias,
                 sucursales: SUCURSAL,
+                categorias: CATEGORIAS,
                 session: req.session
             })
         } catch (error) {
@@ -130,10 +138,12 @@ const controller = {
             const user = await Usuario.findByPk(userInSessionId);
             const { data } = await axios.get("https://apis.datos.gob.ar/georef/api/provincias?campos=nombre,id")
             const SUCURSAL = Sucursal.findAll();
+            const CATEGORIAS = await Categoria.findAll();
             res.render("users/userProfileEdit", {
                 usuario: user,
                 provinces: data.provincias,
                 sucursales: SUCURSAL,
+                categorias: CATEGORIAS,
                 session: req.session
             })
         } catch (error) {

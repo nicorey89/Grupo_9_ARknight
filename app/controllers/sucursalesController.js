@@ -20,10 +20,12 @@ const controller = {
         const sucursalID= req.params.id;
         const SUCURSALES = Sucursal.findAll();
         const SUCURSAL = Sucursal.findByPk(sucursalID);
-        Promise.all([SUCURSALES, SUCURSAL])
-        .then(([sucursales, sucursal]) => {
+        const CATEGORIAS = Categoria.findAll();
+        Promise.all([SUCURSALES, SUCURSAL, CATEGORIAS])
+        .then(([sucursales, sucursal, categorias]) => {
             return res.render("sucursal", {
                 sucursales,
+                categorias,
                 sucursal,
                 session: req.session
             })

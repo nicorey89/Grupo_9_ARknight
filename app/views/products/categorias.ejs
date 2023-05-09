@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head") %>
+<body>
+    <%- include("../partials/header") %>
+<main>
+    <% categorias.forEach(categoria => {%>
+    <a href="/categoria/<%= categoria.id%>"><h1><%= categoria.nombre %></h1></a>
+    <% }) %>
+</main>
+
+    <%- include("../partials/footer") %>
+</body>
+</html>

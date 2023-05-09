@@ -1,4 +1,4 @@
-const { Producto, Sequelize, Sucursal } = require ('../database/models');
+const { Producto, Sequelize, Sucursal, Categoria, Subcategoria} = require ('../database/models');
 const {Op} = Sequelize;
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -19,14 +19,16 @@ const controller ={
                 limit: 5
             })
             const SUCURSAL = Sucursal.findAll();
-            Promise.all([PRODUCT_OFERTAS,PRODUCTOS, SUCURSAL])
-            .then(([productosOferta, producto, sucursales])=> {
+            const CATEGORIAS = Categoria.findAll();
+            Promise.all([PRODUCT_OFERTAS,PRODUCTOS, SUCURSAL, CATEGORIAS])
+            .then(([productosOferta, producto, sucursales, categorias])=> {
                 return res.render("index", {
                     sliderTitle: "Productos en oferta",
                     sliderProducts: producto,
                     productosOferta,
                     products : producto,
                     sucursales,
+                    categorias,
                     session: req.session,
                     toThousand 
                 })
@@ -45,7 +47,8 @@ const controller ={
               }
             }}
         )
-        Promise.all([PRODUCTO, SUCURSAL])
+        const CATEGORIAS = Categoria.findAll();
+        Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS])
         .then(([producto, sucursales]) => {
            if (producto) {
                return res.render('products/search', {
@@ -57,7 +60,23 @@ const controller ={
            }else {
             throw new Error('NO SE ENCONTRO EL PRODUCTO')
            }})
-    }
+    },
+    categoria: (req,res) => {
+        const SUCURSAL = Sucursal.findAll();
+        const CATEGORIAS = Categoria.findAll();
+        Promise.all([SUCURSAL,CATEGORIAS])
+        .then(([sucursales, categorias]) => {
+            return res.render("products/categorias",{
+                sucursales,
+                categorias,
+                session:req.session
+            })
+        })
+        
+    },
+    categorias: (req,res) => {
+
+    },
     
 }
 

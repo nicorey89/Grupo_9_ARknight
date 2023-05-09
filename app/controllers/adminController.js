@@ -6,23 +6,28 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
     index:(req, res)=>{
-      Sucursal.findAll()
-      .then((sucursales) =>{
+      const CATEGORIAS = Categoria.findAll();
+      const SUCURSAL = Sucursal.findAll();
+      Promise.all([SUCURSAL, CATEGORIAS])
+      .then(([sucursales, categorias]) =>{
         return res.render('admin/admin',{
             session:req.session,
-            sucursales
+            sucursales,
+            categorias
         })
       })
     },
      listar: (req,res)=>{
       const SUCURSAL = Sucursal.findAll();
       const PRODUCTO = Producto.findAll();
-      Promise.all([PRODUCTO, SUCURSAL])
-      .then(([productos, sucursales]) => {
+      const CATEGORIAS = Categoria.findAll();
+      Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS])
+      .then(([productos, sucursales, categorias]) => {
         if(productos){
           res.render("admin/products2" , {
             products : productos,
             sucursales,
+            categorias,
             toThousand,
             session:req.session
            })    
@@ -34,12 +39,14 @@ module.exports = {
      listarUsers: (req,res)=>{
       const SUCURSAL = Sucursal.findAll();
       const USUARIOS = Usuario.findAll();
-      Promise.all([USUARIOS, SUCURSAL])
-      .then(([usuarios, sucursales]) => {
+      const CATEGORIAS = Categoria.findAll();
+      Promise.all([USUARIOS, SUCURSAL, CATEGORIAS])
+      .then(([usuarios, sucursales, categorias]) => {
         if(usuarios){
           res.render("admin/users-admin" , {
               users : usuarios,
               sucursales,
+              categorias,
               session : req.session
           })
         }else{
@@ -48,11 +55,14 @@ module.exports = {
       })
     },
     create: (req, res) => {
-      Sucursal.findAll()
-      .then((sucursales) => {
+      const CATEGORIAS = Categoria.findAll();
+      const SUCURSAL = Sucursal.findAll();
+      Promise.all([SUCURSAL, CATEGORIAS])
+      .then(([sucursales, categorias]) => {
         return res.render("admin/product-create-form", {
           sucursales,
-            session: req.session
+          categorias,
+          session: req.session
         })
       })
     },
@@ -105,16 +115,14 @@ module.exports = {
     edit: (req, res) => {
             let productId = req.params.id;
             const CATEGORIA = Categoria.findAll();
-            const SUB_CATEGORIA = Subcategoria.findAl();
             const SUCURSAL = Sucursal.findAll();
             const PRODUCTO = Producto.findByPk(productId);
-            Promise.all([PRODUCTO, SUCURSAL, CATEGORIA, SUB_CATEGORIA])
-            .then(([productToEdit, sucursales, categorias, subcategorias]) =>{
+            Promise.all([PRODUCTO, SUCURSAL, CATEGORIA])
+            .then(([productToEdit, sucursales, categorias]) =>{
               res.render('admin/product-edit-form', {
                   productToEdit,
                   sucursales,
                   categorias,
-                  subcategorias,
                   session:req.session
               })
             })
@@ -153,7 +161,7 @@ module.exports = {
               descuento: descuento,
               cuotas: cuotas,
               categoria: categoria,
-              subCategoria: subCategoria,
+              subCategory_id: subCategoria,
               descripcion: descripcion,
               imagen : req.file ? req.file.filename : "default-image.png",
              },{
