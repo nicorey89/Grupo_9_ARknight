@@ -1,4 +1,5 @@
 const { Producto, Sequelize, Usuario, Categoria, Subcategoria } = require ('../database/models');
+const fs = require('fs');
 
 const { validationResult } = require("express-validator")
 
@@ -111,14 +112,6 @@ module.exports = {
           location: "file",
         });
       }
-      if (!req.file) {
-        errors.errors.push({
-          value: "",
-          msg: "El producto debe tener una imagen",
-          param: "image",
-          location: "file",
-        });
-      }
 
         if(errors.isEmpty()) {
 
@@ -148,11 +141,27 @@ module.exports = {
                 id: req.params.id
               }
              })
-            .then(() => {
-                  return res.redirect("/admin/products");
+            .then((producto) => {
+                if(producto){
+                  if (req.file-length === 0) {
+                    return res.redirect("/admin/products");
+                  } else {
+                    const MATCH = fs.existsSync(`../public/images/products/${req.file.filename}`)
+                    if (MATCH) {
+                      try {
+                        fs.unlinkSync(`../public/images/products/${req.file.filename}`)
+                      } catch (error) {
+                        console.log(error)
+                        throw new Error(error)                      
+                      }
+                    }else{
+                      return console.log('No se encontro')
+                    }
+                  }
+                }
                 })
             .catch(error => console.log(error))
-
+            
         } else {
           let productId = req.params.id;
           Producto.findByPk(productId)
