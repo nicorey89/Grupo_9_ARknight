@@ -26,7 +26,7 @@
                     <li><a href="/sucursales">Sucursales<i class="fa-solid fa-angle-down"></i></a></li>
                     <div class="categorias-content">
                         <% sucursales.forEach(sucursal => { %>
-                            <a href="/sucursales/<%=sucursal.id%>">Sucursal <%= sucursal.nombre%></a>
+                            <a href="/sucursales/<%= sucursal.id %>">Sucursal <%= sucursal.nombre  %></a>
                         <% }) %>
                     </div>
                 </div>
