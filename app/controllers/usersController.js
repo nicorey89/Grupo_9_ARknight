@@ -154,7 +154,6 @@ const controller = {
                 localidad,
             } = req.body
 
-            const {avatar} =  req.file.filename;
             
              Usuario.update({
                     nombre : nombre,
@@ -164,7 +163,7 @@ const controller = {
                     codigo_postal : codigo_postal,
                     provincia : provincia,
                     localidad : localidad,
-                    avatar : req.file ? req.file.filename : avatar,
+                    avatar : req.file ?  req.file.filename : req.session.usuario.avatar,
                 }, {
                     where: {
                         id : req.session.usuario.id
