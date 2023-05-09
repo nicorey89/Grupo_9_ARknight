@@ -1,18 +1,35 @@
-const { Usuario , Sequelize} = require('../database/models');
+const { Usuario , Sequelize, Sucursal, Categoria} = require('../database/models');
 
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
+const axios = require("axios");
 
 const controller = {
     
     login:(req, res)=>{
-        res.render('users/login', {
-            session:req.session
+        const CATEGORIAS = Categoria.findAll();
+        const SUCURSAL = Sucursal.findAll();
+        Promise.all([CATEGORIAS, SUCURSAL])
+        .then(([categorias, sucursales]) => {
+            return res.render('users/login', {
+                categorias,
+                sucursales,
+                session:req.session
+            })
+
         })
     },
     register:(req, res)=>{
-        res.render('users/register', {
-            session:req.session
+        const CATEGORIAS = Categoria.findAll();
+        const SUCURSAL = Sucursal.findAll();
+        Promise.all([CATEGORIAS, SUCURSAL])
+        .then(([categorias, sucursales]) => {
+            return res.render('users/register', {
+                categorias,
+                sucursales,
+                session:req.session
+            })
+
         })
     },
     crear: (req, res) => {
@@ -29,7 +46,7 @@ const controller = {
                 direccion: "",
                 codigo_postal: "",
                 provincia: "",
-                localidad: ""
+                localidad: "",
                 }
 
             Usuario.create(newUser)
@@ -96,34 +113,46 @@ const controller = {
 
         res.redirect("/");
       
-    },
-    profile: (req, res) => {
+    },    
+    profile: async (req, res) => {
         let userInSessionId = req.session.usuario.id;
-
-        Usuario.findByPk(userInSessionId)
-        .then((usuario) => {
+        try {
+            const user = await Usuario.findByPk(userInSessionId);
+            const { data } = await axios.get("https://apis.datos.gob.ar/georef/api/provincias?campos=nombre,id")
+            const SUCURSAL = await Sucursal.findAll();
+            const CATEGORIAS = await Categoria.findAll();
             res.render("users/userProfile", {
-                usuario,
+                usuario: user,
+                provinces: data.provincias,
+                sucursales: SUCURSAL,
+                categorias: CATEGORIAS,
                 session: req.session
             })
-        })
-        .catch(error => console.log(error))
+        } catch (error) {
+            console.log(error)
+        }
     },
-    editProfile: (req, res) => {
-         let userInSessionId = req.session.usuario.id;
-
-         Usuario.findByPk(userInSessionId)
-         
-         .then(usuario => {
-             res.render("users/userProfileEdit",  {
-                 usuario: usuario,
-                 session: req.session
-             } )
-         })
+    editProfile: async (req, res) => {
+        let userInSessionId = req.session.usuario.id;
+        try {
+            const user = await Usuario.findByPk(userInSessionId);
+            const { data } = await axios.get("https://apis.datos.gob.ar/georef/api/provincias?campos=nombre,id")
+            const SUCURSAL = Sucursal.findAll();
+            const CATEGORIAS = await Categoria.findAll();
+            res.render("users/userProfileEdit", {
+                usuario: user,
+                provinces: data.provincias,
+                sucursales: SUCURSAL,
+                categorias: CATEGORIAS,
+                session: req.session
+            })
+        } catch (error) {
+            console.log(error)
+        }
     },
     updateProfile: (req, res) => {
         let errors = validationResult(req);
-        if(errors.isEmpty()) {
+         if(errors.isEmpty()) {
 
             const {
                 nombre,
@@ -135,7 +164,6 @@ const controller = {
                 localidad,
             } = req.body
 
-            const {avatar} =  req.file.filename;
             
              Usuario.update({
                     nombre : nombre,
@@ -145,7 +173,7 @@ const controller = {
                     codigo_postal : codigo_postal,
                     provincia : provincia,
                     localidad : localidad,
-                    avatar : req.file ? req.file.filename : avatar,
+                    avatar : req.file ?  req.file.filename : req.session.usuario.avatar,
                 }, {
                     where: {
                         id : req.session.usuario.id
@@ -168,7 +196,7 @@ const controller = {
                 })
 
             })
-        }
+        } 
     },
 }
 module.exports = controller 

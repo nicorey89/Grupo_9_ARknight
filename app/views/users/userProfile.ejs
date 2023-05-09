@@ -10,9 +10,9 @@
       <section class="userProfile_box">
         <div class="userbox">
           <h2 class="user_title">TUS DATOS</h2>
-          <p class="user_item">Nombre:<%= usuario.nombre %></p>
-          <p class="user_item">Apellido:<%= usuario.apellido %></p>
-          <p class="user_item">Email:<%= usuario.email %></p>
+          <p class="user_item">Nombre: <%= usuario.nombre %></p>
+          <p class="user_item">Apellido: <%= usuario.apellido %></p>
+          <p class="user_item">Email: <%= usuario.email %></p>
           <p class="user_item">
             Telefono: <%= usuario.telefono ? usuario.telefono : "___" %>
           </p>
@@ -20,11 +20,18 @@
         <div class="userbox">
           <h2 class="user_title">DATOS OPCIONALES</h2>
           <p class="user_item">
+            Direccion: <%= usuario.direccion ? usuario.direccion:
+            "___" %>
+          </p>
+          <p class="user_item">
             Codigo postal: <%= usuario.codigo_postal ? usuario.codigo_postal:
             "___" %>
           </p>
           <p class="user_item">
-            Provinicia: <%= usuario.provincia ? usuario.provincia: "_______" %>
+            Provinicia: <%provinces.forEach(province => {
+              if(province.id === usuario.provincia){ %>
+                <%=province.nombre%>
+            <% }}) %>
           </p>
           <p class="user_item">
             Localidad: <%= usuario.localidad ? usuario.localidad: "_______" %>
@@ -33,7 +40,7 @@
         <a href="/users/profile/edit" class="userB">Editar</a>
       </section>
     </main>
-    <script src="/js/validationFormUser.js"></script>
+    
   </body>
 
   <%- include("../partials/footer") %>

@@ -2,7 +2,7 @@
 <html lang="es">
 
     <%- include("../partials/head") %>
-
+    
 <body>
 
     <%- include("../partials/header") %>
@@ -14,14 +14,16 @@
                 <hr>                    
                 <div class="input-container">
                     <input class="input-style" type="email" name="email" placeholder="Ingrese su email" id="emailFormValidator">
+                    <small id="emailFormValidatorErrors"></small>
                     <% if (locals.errors && errors.email) { %>
-                        <small class="text-danger"><%= errors.email.msg %> </small>
+                        <small class="text-danger" ><%= errors.email.msg %> </small>
                     <% } %>
                 </div>
                 <div class="input-container">
                     <input class="input-style" type="password" name="password" placeholder="Ingrese su contraseña" id="password">
+                    <small id="passwordErrors"></small>
                     <% if (locals.errors && errors.password) { %>
-                        <small class="text-danger"><%= errors.password.msg %> </small>
+                        <small class="text-danger" ><%= errors.password.msg %> </small>
                     <% } %>
                 </div>
                 <div class="check">
@@ -39,7 +41,7 @@
     </main>
 
     <%- include("../partials/footer") %>
-    <script src="/js/validationFormUser.js"></script>
+    
 </body>
 </html>
 

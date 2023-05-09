@@ -10,8 +10,20 @@ const storeImageProduct = multer.diskStorage({
     }
 });
 
+const maxSize = 1 * 1024 * 1024 //1MB
+
 const uploadFile = multer({
-    storage : storeImageProduct, 
+    storage : storeImageProduct,
+    fileFilter: (req, file, callback) => {
+        if(!file.originalname.match(/\.(jpg|jpeg|png|gif|webp)$/)){
+            req.fileValidatorError = "Solo se permiten imágenes jpg|jpeg|png"
+            return callback(null, false, req.fileValidatorError)
+        }
+        callback(null, true)
+    }, 
+    limits: {
+        fileSize: maxSize,
+    }
 });
 
 module.exports = {

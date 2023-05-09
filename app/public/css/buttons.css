@@ -8,6 +8,7 @@
     width: 200px;
     height: 30px;
     background-color: var(--naranja);
+    margin-bottom: 0.4rem;
 }
 
 .home article.product button:hover{

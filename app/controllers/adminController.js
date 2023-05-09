@@ -1,21 +1,33 @@
-const { Producto, Sequelize, Usuario } = require ('../database/models');
-
+const { Producto, Sequelize, Usuario, Categoria, Subcategoria, Sucursal} = require ('../database/models');
+const fs = require('fs')
 const { validationResult } = require("express-validator")
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
     index:(req, res)=>{
-        res.render('admin/admin',{
-            session:req.session
+      const CATEGORIAS = Categoria.findAll();
+      const SUCURSAL = Sucursal.findAll();
+      Promise.all([SUCURSAL, CATEGORIAS])
+      .then(([sucursales, categorias]) =>{
+        return res.render('admin/admin',{
+            session:req.session,
+            sucursales,
+            categorias
         })
+      })
     },
      listar: (req,res)=>{
-      Producto.findAll()
-      .then((productos) => {
+      const SUCURSAL = Sucursal.findAll();
+      const PRODUCTO = Producto.findAll();
+      const CATEGORIAS = Categoria.findAll();
+      Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS])
+      .then(([productos, sucursales, categorias]) => {
         if(productos){
           res.render("admin/products2" , {
             products : productos,
+            sucursales,
+            categorias,
             toThousand,
             session:req.session
            })    
@@ -25,11 +37,16 @@ module.exports = {
       });
     },
      listarUsers: (req,res)=>{
-      Usuario.findAll()
-      .then((usuarios) => {
+      const SUCURSAL = Sucursal.findAll();
+      const USUARIOS = Usuario.findAll();
+      const CATEGORIAS = Categoria.findAll();
+      Promise.all([USUARIOS, SUCURSAL, CATEGORIAS])
+      .then(([usuarios, sucursales, categorias]) => {
         if(usuarios){
           res.render("admin/users-admin" , {
               users : usuarios,
+              sucursales,
+              categorias,
               session : req.session
           })
         }else{
@@ -38,36 +55,74 @@ module.exports = {
       })
     },
     create: (req, res) => {
-        res.render("admin/product-create-form", {
-            session: req.session
+      const CATEGORIAS = Categoria.findAll();
+      const SUCURSAL = Sucursal.findAll();
+      Promise.all([SUCURSAL, CATEGORIAS])
+      .then(([sucursales, categorias]) => {
+        return res.render("admin/product-create-form", {
+          sucursales,
+          categorias,
+          session: req.session
         })
+      })
     },
     store: (req, res) => {
-        const newProduct = {
-              titulo: req.body.titulo,
-              modelo: req.body.modelo,
-              precio: req.body.precio,
-              cuotas: req.body.cuotas,
-              descuento: req.body.descuento,
-              subCategory_id: 1,
-              descripcion: req.body.descripcion,
-              imagen: req.file ? req.file.filename : "default-image.png"
-            }
+  
+      let errors = validationResult(req);
 
-          Producto.create(newProduct)
-          .then(() => {
-              res.redirect('/admin/products')
-          })
-          .catch((error) => console.log(error))
-      
-
+      if(req.fileValidatorError){
+        errors.errors.push({
+          value: "",
+          msg: req.fileValidatorError,
+          param: "image",
+          location: "file",
+        });
+      }
+      if (!req.file) {
+        errors.errors.push({
+          value: "",
+          msg: "El producto debe tener una imagen",
+          param: "image",
+          location: "file",
+        });
+      }
+      if (errors.isEmpty()) {
+        let { titulo, modelo, precio, cuotas, descripcion, descuento } = req.body;
+  
+        let newProduct = {
+          titulo,
+          modelo,
+          precio,
+          cuotas,
+          descripcion,
+          descuento,
+          subCategory_id: 1,
+          imagen: req.file ? req.file.filename : "default-image.png"
+        };
+  
+        Producto.create(newProduct)
+        .then(() => {
+          return res.redirect("/admin/products");
+        })
+      } else {
+        return res.render("admin/product-create-form", {
+          session: req.session,
+          errors: errors.mapped(),
+          old: req.body,
+        });
+      }
     },
     edit: (req, res) => {
             let productId = req.params.id;
-            Producto.findByPk(productId)
-            .then((productToEdit) =>{
+            const CATEGORIA = Categoria.findAll();
+            const SUCURSAL = Sucursal.findAll();
+            const PRODUCTO = Producto.findByPk(productId);
+            Promise.all([PRODUCTO, SUCURSAL, CATEGORIA])
+            .then(([productToEdit, sucursales, categorias]) =>{
               res.render('admin/product-edit-form', {
                   productToEdit,
+                  sucursales,
+                  categorias,
                   session:req.session
               })
             })
@@ -75,6 +130,17 @@ module.exports = {
     },
     update: (req, res) => {
       let errors = validationResult(req);
+
+      
+      if(req.fileValidatorError){
+        errors.errors.push({
+          value: "",
+          msg: req.fileValidatorError,
+          param: "image",
+          location: "file",
+        });
+      }
+
         if(errors.isEmpty()) {
 
             const {
@@ -95,7 +161,7 @@ module.exports = {
               descuento: descuento,
               cuotas: cuotas,
               categoria: categoria,
-              subCategoria: subCategoria,
+              subCategory_id: subCategoria,
               descripcion: descripcion,
               imagen : req.file ? req.file.filename : "default-image.png",
              },{
@@ -103,11 +169,27 @@ module.exports = {
                 id: req.params.id
               }
              })
-            .then(() => {
-                  return res.redirect("/admin/products");
+            .then((producto) => {
+                if(producto){
+                  if (req.file-length === 0) {
+                    return res.redirect("/admin/products");
+                  } else {
+                    const MATCH = fs.existsSync(`../public/images/products/${req.file.filename}`)
+                    if (MATCH) {
+                      try {
+                        fs.unlinkSync(`../public/images/products/${req.file.filename}`)
+                      } catch (error) {
+                        console.log(error)
+                        throw new Error(error)                      
+                      }
+                    }else{
+                      return console.log('No se encontro')
+                    }
+                  }
+                }
                 })
             .catch(error => console.log(error))
-
+            
         } else {
           let productId = req.params.id;
           Producto.findByPk(productId)

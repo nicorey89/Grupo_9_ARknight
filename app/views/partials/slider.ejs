@@ -12,13 +12,20 @@
                     <% } %>
                     <img src="/images/products/<%= product.imagen %>" alt="">
                     <p class="productName"> 
-                        <% if (product.titulo.length > 30) { %>
-                            <%- `${product.titulo.slice(0,30)}...` %>
-                        <% } else { %>
                             <%= product.titulo %>
-                        <% } %>
                     </p>
-                    <h4 class="productPrice">$<%- product.precio %></h4>
+                    <p class="productName">
+                        <%- product.modelo %>
+                    </p>
+                    <hr>
+                    <br>
+                    <div class="precios">
+                        <h4>$<%= toThousand(product.precio) %></h4>
+                        <h2>$<%= toThousand(product.precio - (product.precio*product.descuento/100))%></h2>
+                    </div>
+                    <p class="cuotas">
+                        <%= product.cuotas %> cuotas sin interes de $<%= toThousand(product.precio/product.cuotas)%>
+                    </p>
                 </a>
             </div>
         <% }) %>

@@ -15,6 +15,8 @@ let qs = (elemento) => {
       $descuentoErrors = qs("#error-message"),
       $inputCuota = qs("#Cuota"),
       $cuotaErrors = qs("#error-message"),
+      $inputCategoria = qs("#categoria"),
+      $categoriaErrors = qs("#categoriaErrors"),
       regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/
    
 
@@ -33,21 +35,16 @@ let qs = (elemento) => {
 
        break;
 
-
        default:
           $inputTitulo.classList.remove("is-invalid");
           $inputTitulo.classList.add("is-valid");
           $tituloErrors.innerText="";
         break;
-
-
-
-
     }
    })
-
+   
    $inputModelo.addEventListener("blur" , () => {
-    switch (true) {
+       switch (true) {
      case !$inputModelo.value.trim():
            $modeloErrors.innerText = "El modelo es obligatorio";
            $inputTitulo.classList.remove("is-valid");
@@ -113,8 +110,8 @@ let qs = (elemento) => {
            $inputCuota.classList.add("is-invalid");
 
        break;
-
-
+       
+       
        default:
         $inputCuota.classList.remove("is-invalid");
           $inputCuota.classList.add("is-valid");
@@ -123,39 +120,60 @@ let qs = (elemento) => {
 
 
 
-
+        
     }
    })
-    
+   
    $inputDescuento.addEventListener("blur" , () => {
-    switch (true) {
-     case !$inputDescuento.value.trim():
-           $descuentoErrors.innerText = "Ingresa el descuento";
-           $inputTitulo.classList.remove("is-valid");
+       switch (true) {
+           case !$inputDescuento.value.trim():
+               $descuentoErrors.innerText = "Ingresa el descuento";
+               $inputTitulo.classList.remove("is-valid");
            $inputDescuento.classList.add("is-invalid");
            break;
-     case !regExAlpha.test($inputDescuento.value):
+           case !regExAlpha.test($inputDescuento.value):
            $descuentoErrors.innerText = "descuento invalido";
            $inputTitulo.classList.remove("is-valid");
            $inputDescuento.classList.add("is-invalid");
 
-       break;
-
-
-       default:
-        $inputDescuento.classList.remove("is-invalid");
-        $inputDescuento.classList.add("is-valid");
-        $descuentoErrors.innerText="";
-        break;
-
-
-
-
-    }
+           break;
+           
+           
+           default:
+               $inputDescuento.classList.remove("is-invalid");
+               $inputDescuento.classList.add("is-valid");
+               $descuentoErrors.innerText="";
+               break;
+               
+               
+               
+               
+            }
    }) 
-
+   $inputCategoria.addEventListener("change" , () => {
+     switch (true) {
+      case !$inputCategoria.value.trim():
+            $categoriaErrors.innerText = "La categoria es obligatoria";
+            $inputCategoria.classList.remove("is-valid");
+            $inputCategoria.classList.add("is-invalid");
+            break;
+      case !regExAlpha.test($inputCategoria.value):
+            $categoriaErrors.innerText = "Marca no existe";
+            $inputCategoria.classList.remove("is-valid");
+            $inputCategoria.classList.add("is-invalid");
+ 
+        break;
+ 
+        default:
+            $inputCategoria.classList.remove("is-invalid");
+            $inputCategoria.classList.add("is-valid");
+            $categoriaErrors.innerText="";
+         break;
+     }
+    })
+   
    $form.addEventListener("submit", (event) => {
-      event.preventDefault();
+       event.preventDefault();
       const FORM_ELEMENTS = event.target.elements;
 
       for (let index = 0; index < FORM_ELEMENTS.length - 1; index++) {

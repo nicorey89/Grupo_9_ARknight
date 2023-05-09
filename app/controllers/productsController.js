@@ -1,17 +1,22 @@
-const { Producto, Sequelize, } = require ('../database/models');
+const { Producto, Sequelize, Sucursal} = require ('../database/models');
 const {Op} = Sequelize;
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
   index: (req, res) => {
-    Producto.findAll()
-    .then(([product, sliderProducts]) => {
+    const SUCURSAL = Sucursal.findAll();
+    const PRODUCTO = Producto.findAll();
+    const CATEGORIAS = Categoria.findAll();
+    Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS])
+    .then(([product, sucursales, sliderProducts, categorias]) => {
       return res.render("products/productDetail", {
         ...product,
         toThousand,
         sliderTitle: "OFERTAS",
         sliderProducts,
+        sucursales,
+        categorias,
         session: req.session
         })
     })
@@ -27,14 +32,18 @@ const controller = {
         },
       }
     });
-    Promise.all([PRODUCT_PROMISE, ALL_PRODUCTS_PROMISE])
-    .then(([product, sliderProducts]) => {
+    const SUCURSAL = Sucursal.findAll();
+    const CATEGORIAS = Categoria.findAll();
+    Promise.all([PRODUCT_PROMISE, ALL_PRODUCTS_PROMISE, SUCURSAL, CATEGORIAS])
+    .then(([product, sliderProducts, sucursales, categorias]) => {
       return res.render("products/productDetail", {
         producto : product,
         toThousand,
         tittle : "Product Detail",
         sliderTitle: "PRODUCTOS EN OFERTAS",
         sliderProducts: sliderProducts,
+        sucursales,
+        categorias,
         session: req.session
     })
     })
@@ -66,12 +75,19 @@ const controller = {
     }
   } */
   pCard:(req, res)=>{
-      Producto.findAll().then((productos) => {
+    const SUCURSAL = Sucursal.findAll();
+    const PRODUCTO = Producto.findAll();
+    const CATEGORIAS = Categoria.findAll();
+
+    Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS])
+      .then(([productos, sucursales, categorias]) => {
         res.render('products/productCard', {
             products : productos,
             sliderTitle: "PRODUCTOS EN OFERTAS",
             sliderProducts: productos,
             session:req.session,
+            categorias,
+            sucursales,
             toThousand
         })
       })

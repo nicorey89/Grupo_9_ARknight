@@ -8,27 +8,20 @@
         <nav class="main-header-nav-bar">
             <ul class="left-nav-bar">
                 <div class="categorias">
-                    <li><a href="/">Categorias<i class="fa-solid fa-angle-down"></i></a></li>
+                    <li><a href="/categoria">Categorias<i class="fa-solid fa-angle-down"></i></a></li>
                     <div class="categorias-content">
-                        <a href="">Ofertas</a>
-                        <a href="">Herramientas Electricas</a>
-                        <a href="">Herramientas Manuales</a>
-                        <a href="">Pinturas</a>
-                        <a href="">Jardin</a>
-                        <a href="">Decoracion</a>
-                        <a href="">Plomeria</a>
-                        <a href="">Electricidad</a>
-                        <a href="">Ferreteria</a>
+                        <% categorias.forEach(categoria => { %>
+                            <a href="/categoria/<%=categoria.id%>"><%= categoria.nombre%></a>
+                        <% }) %>
                     </div>
                 </div>
                 <li><a href="/">Contactenos</a></li>
                 <div class="categorias">
-                    <li><a href="/">Sucursales<i class="fa-solid fa-angle-down"></i></a></li>
+                    <li><a href="/sucursales">Sucursales<i class="fa-solid fa-angle-down"></i></a></li>
                     <div class="categorias-content">
-                        <a href="">Sucursal Lanus</a>
-                        <a href="">Sucursal CABA</a>
-                        <a href="">Sucursal La Plata</a>
-                        <a href="">Sucursal Tucuman</a>
+                        <% sucursales.forEach(sucursal => { %>
+                            <a href="/sucursales/<%=sucursal.id%>">Sucursal <%= sucursal.nombre%></a>
+                        <% }) %>
                     </div>
                 </div>
             </ul>
