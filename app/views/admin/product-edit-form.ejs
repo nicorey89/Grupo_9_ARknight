@@ -18,11 +18,13 @@
                         <label for="titulo" class="form-label"></label>
                         <input type="text" id="titulo" name="titulo" placeholder="titulo" value="<%= productToEdit.titulo %>" class="input-style">
                         <span class="error-message">Debe ingresar su Nombre del producto</span>
+                        <small id="tituloErrors"></small>
                     </div>
                     <div class="input-container">
                         <label for="modelo" class="form-label"></label>
                         <input type="text" id="modelo" name="modelo" placeholder="modelo" value="<%= productToEdit.modelo %>" class="input-style">
                         <span class="error-message">Debe ingresar su Nombre del producto</span>
+                        <small id="modeloErrors"></small>
                     </div>
                     <div class="input-container">
                         <label for="precio" class="form-label"></label>

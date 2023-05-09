@@ -6,9 +6,9 @@ let qs = (elemento) => {
 
  window.addEventListener("load" , () => { 
   let $inputTitulo = qs("#titulo"),
-      $tituloErrors = qs("#error-message"),
+      $tituloErrors = qs("#tituloErrors"),
       $inputModelo = qs("#modelo"),
-      $modeloErrors = qs("#error-message"),
+      $modeloErrors = qs("#modeloErrors"),
       $inputPrecio = qs("#precio"),
       $precioErrors = qs("#error-message"),
       $inputDescuento = qs("#descuento"),
