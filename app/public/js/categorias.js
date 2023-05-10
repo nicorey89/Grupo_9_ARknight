@@ -8,8 +8,9 @@ window.addEventListener("load", ()=>{
         fetch(`http://localhost:3000/api/v1/categoria/${categoriaId}`)
         .then((res) => res.json())
         .then((data) => {
+            const {Subcategori} = data
             selectSubcategorias.innerHTML = ""
-            data.Subcategorias.forEach(subcategoria => {
+            Subcategorias.forEach(subcategoria => {
                 selectSubcategorias.innerHTML += `<option value='${subcategoria.nombre}'>${subcategoria.nombre}</option>`
             });
         }) 
