@@ -2,18 +2,29 @@ window.addEventListener("load", ()=>{
     const selectCategorias = document.querySelector('#categoria');
     const selectSubcategorias = document.querySelector('#subCategoria');
     
-    selectCategorias.addEventListener("change", (event) => {
+    const API_BASE_URL = `http://localhost:3000/api/v1/`;
+
+
+    selectCategorias.addEventListener("change", async (event) => {
         let categoriaId = event.target.value;
-        console.log(categoriaId)
-        fetch(`http://localhost:3000/api/v1/categoria/${categoriaId}`)
-        .then((res) => res.json())
-        .then((data) => {
+        //console.log(categoriaId)
+        try {
+            const response = await fetch(`${API_BASE_URL}categoria/${categoriaId}&campos=id,nombre`)
+            const {Subcategorias} = await response.json();
             selectSubcategorias.innerHTML = "";
-            data.Subcategorias.forEach(subcategoria => {
-                selectSubcategorias.innerHTML += `<option value='${subcategoria.nombre}'>${subcategoria.nombre}</option>`
-            });
-        }) 
-        .catch((error) => console.log(error))
+
+            const obtenerOption = () => {
+                return `<option value='${nombre}'>${nombre}</option>`
+            }
+
+            Subcategorias.forEach(Subcategoria => {
+                selectSubcategorias.innerHTML += obtenerOption(Subcategoria.nombre)
+            })
+
+        } catch (error) {
+            alert('Hubo un error')
+            console.log(error)
+        }
     })
     
     })
