@@ -4,9 +4,11 @@
 
 window.addEventListener("load", () => {
   let $inputName = qs("#name"),
-      $nameErrors = qs("#nameErrors"),
       $inputLastname = qs("#apellido"),
       $lastnameErrors = qs("#apellidoErrors"),
+      $nameErrors = qs("#nameErrors"),
+      $inputTitulo = qs("#titulo"),
+      $tituloErrors = qs("#tituloErrors"),
       $form = qs("#submit"),
       $tel = qs("#tel"),
       $telErrors = qs("#telErrors"),
@@ -43,6 +45,7 @@ window.addEventListener("load", () => {
             break;
         } 
     })
+
     $inputLastname.addEventListener("blur", () => { 
         switch (true) {
             case !$inputLastname.value.trim():
@@ -118,19 +121,28 @@ window.addEventListener("load", () => {
                  $CpostalErrors.innerText = "";
              break;
          } 
-     })
-
-/*     $genero.addEventListener("blur", () => { 
-        if(!$genero.value.trim()){ 
-        $generoErrors.innerHTML = 'Campo requerido';
-        $genero.classList.add('is-invalid')
-        }else {   
-        $genero.classList.remove('is-invalid'); 
-        $genero.classList.add('is-valid'); 
-        $generoErrors.innerHTML = ''          
-        }  
-    }) */
- 
+     })   
+      $inputTitulo.addEventListener("blur" , () => {
+        switch (true) {
+            case !$inputTitulo.value.trim():
+                $tituloErrors.innerText = "La marca es obligatoria";
+                $inputTitulo.classList.remove("is-valid");
+                $inputTitulo.classList.add("is-invalid");
+                break;
+            case !regExAlpha.test($inputTitulo.value):
+                $tituloErrors.innerText = "Marca no existe";
+                $inputTitulo.classList.remove("is-valid");
+                $inputTitulo.classList.add("is-invalid");
+                break;
+   
+   
+            default:
+                $inputTitulo.classList.remove("is-invalid");
+                $inputTitulo.classList.add("is-valid");
+                $tituloErrors.innerText="";
+                break;
+        }
+       })
      $terms.addEventListener('click',() => {
      $terms.value = 'on'
      $terms.classList.toggle('is-valid');
