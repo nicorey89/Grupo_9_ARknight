@@ -137,13 +137,13 @@ const controller = {
         try {
             const user = await Usuario.findByPk(userInSessionId);
             const { data } = await axios.get("https://apis.datos.gob.ar/georef/api/provincias?campos=nombre,id")
+            const { data1 } = await axios.get("https://localhost:3000/api/v1/categoria")
             const SUCURSAL = Sucursal.findAll();
-            const CATEGORIAS = await Categoria.findAll();
             res.render("users/userProfileEdit", {
                 usuario: user,
                 provinces: data.provincias,
                 sucursales: SUCURSAL,
-                categorias: CATEGORIAS,
+                categorias: data1.nombre,
                 session: req.session
             })
         } catch (error) {
