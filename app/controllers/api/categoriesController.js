@@ -6,7 +6,7 @@ module.exports = {
             const CATEGORIES = await Categoria.findAll();
             
             const RESPONSE = {
-                endpoint: "/categoria",
+                endpoint: "/categoria/",
                 data: CATEGORIES,
                 total: CATEGORIES.length 
             };
@@ -41,7 +41,7 @@ module.exports = {
     },
     listSubCat:  async (req, res) => {
         try {
-            const SUB_CATEGORIES = await Subcategia.findAll({include: [{association: "categoria"}]});
+            const SUB_CATEGORIES = await Subcategia.findAll({include: [{association: "Categoria"}]});
             
             const RESPONSE = {
                 endpoint: "/subcategorias",

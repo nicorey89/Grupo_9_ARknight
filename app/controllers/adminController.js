@@ -1,19 +1,21 @@
 const { Producto, Sequelize, Usuario, Categoria, Subcategoria, Sucursal} = require ('../database/models');
-const fs = require('fs')
+const fs = require('fs');
+const path = require('path')
 const { validationResult } = require("express-validator")
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
-    index:(req, res)=>{
-      const CATEGORIAS = Categoria.findAll();
+  index:(req, res)=>{
       const SUCURSAL = Sucursal.findAll();
+      const CATEGORIAS = Categoria.findAll();
       Promise.all([SUCURSAL, CATEGORIAS])
       .then(([sucursales, categorias]) =>{
+        console.log(categorias);
         return res.render('admin/admin',{
             session:req.session,
             sucursales,
-            categorias
+            categorias,
         })
       })
     },
@@ -42,6 +44,7 @@ module.exports = {
       const CATEGORIAS = Categoria.findAll();
       Promise.all([USUARIOS, SUCURSAL, CATEGORIAS])
       .then(([usuarios, sucursales, categorias]) => {
+        console.log(sucursales);
         if(usuarios){
           res.render("admin/users-admin" , {
               users : usuarios,
@@ -170,23 +173,7 @@ module.exports = {
               }
              })
             .then((producto) => {
-                if(producto){
-                  if (req.file-length === 0) {
-                    return res.redirect("/admin/products");
-                  } else {
-                    const MATCH = fs.existsSync(`../public/images/products/${req.file.filename}`)
-                    if (MATCH) {
-                      try {
-                        fs.unlinkSync(`../public/images/products/${req.file.filename}`)
-                      } catch (error) {
-                        console.log(error)
-                        throw new Error(error)                      
-                      }
-                    }else{
-                      return console.log('No se encontro')
-                    }
-                  }
-                }
+                
                 })
             .catch(error => console.log(error))
             

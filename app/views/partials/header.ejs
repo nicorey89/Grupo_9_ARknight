@@ -8,10 +8,10 @@
         <nav class="main-header-nav-bar">
             <ul class="left-nav-bar">
                 <div class="categorias">
-                    <li><a href="/categoria">Categorias<i class="fa-solid fa-angle-down"></i></a></li>
+                    <li><a href="/categoria/">Categorias<i class="fa-solid fa-angle-down"></i></a></li>
                     <div class="categorias-content">
-                        <% categorias.forEach(categoria => { %>
-                            <a href="/categoria/<%=categoria.id%>"><%= categoria.nombre%></a>
+                        <% categorias.forEach((categoria) => { %>
+                            <a href="/api/v1/categoria/<%= categoria.id %>"><%= categoria.nombre %></a>
                         <% }) %>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                     <li><a href="/sucursales">Sucursales<i class="fa-solid fa-angle-down"></i></a></li>
                     <div class="categorias-content">
                         <% sucursales.forEach(sucursal => { %>
-                            <a href="/sucursales/<%= sucursal.id %>">Sucursal <%= sucursal.nombre  %></a>
+                            <a href="/api/v1/sucursales/<%= sucursal.id %>">Sucursal <%= sucursal.nombre  %></a>
                         <% }) %>
                     </div>
                 </div>
