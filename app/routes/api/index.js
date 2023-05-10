@@ -5,6 +5,5 @@ const { list, detail, listSubCat} = require("../../controllers/api/categoriesCon
 router
     .get("/categoria", list)
     .get("/categoria/:id", detail)
-    .get("/subcategorias", listSubCat)
 
 module.exports = router;

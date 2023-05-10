@@ -12,43 +12,58 @@
                     </div>
                     <hr>
                     <div class="input-container">
-                        <label for="titulo" class="form-label"></label>
                         <input type="text" id="titulo" name="titulo" placeholder="titulo" value="" class="input-style">
+                        <small id="tituloErros"></small>
                         <% if (locals.errors && errors.titulo) { %>
                             <span class="error-message"><%= errors.titulo.msg %> </span>
                         <% } %>
                     </div>
                     <div class="input-container">
-                        <label for="modelo" class="form-label"></label>
                         <input type="text" id="modelo" name="modelo" placeholder="modelo" value="" class="input-style">
+                        <small id="modeloErros"></small>
                         <% if (locals.errors && errors.modelo) { %>
                             <span class="error-message"><%= errors.modelo.msg %> </span>
                         <% } %>
                     </div>
                     <div class="input-container">
-                        <label for="precio" class="form-label"></label>
                         <input type="number" id="precio" name="precio" value="precio" placeholder="Precio" class="input-style">
+                        <small id="precioErros"></small>
                         <% if (locals.errors && errors.precio) { %>
                             <span class="error-message"><%= errors.precio.msg %> </span>
                         <% } %>
                     </div>
                     <div class="input-container">
-                        <label for="descuento" class="form-label"></label>
                         <input type="number" id="descuento" name="descuento" placeholder="Descuento" value="descuento" class="input-style">
+                        <small id="descuentoErros"></small>
                         <% if (locals.errors && errors.descuento) { %>
                             <span class="error-message"><%= errors.descuento.msg %> </span>
                         <% } %>
                     </div>
                     <div class="input-container">
-                        <label for="cuotas" class="form-label"></label>
                         <input type="number" id="cuotas" name="cuotas" value="cuotas" placeholder="Cuotas" class="input-style">
+                        <small id="cuotasErros"></small>
                         <% if (locals.errors && errors.cuotas) { %>
                             <span class="error-message"><%= errors.cuotas.msg %> </span>
                         <% } %>
                     </div>
                     <div class="input-container">
-                        <label for="detalle" class="form-label"></label>
+                        <select name="categoria" id="categoria">
+                            <option value="" selected hidden>categoria</option>
+                            <% categorias.forEach(categoria => { %>
+                                <option value="<%- categoria.id %>"><%- categoria.nombre %></option>
+                            <% }) %>
+                        </select>
+                        <small id="categoriaErrors"></small>
+                    </div>
+                    <div class="input-container">
+                        <select name="subCategoria" id="subCategoria">
+                            <option value="">Sub Categoria</option>
+                        </select>
+                        <small id="subcategoriaErros"></small>
+                    </div>
+                    <div class="input-container">
                         <textarea type="textarea" name="descripcion" id="descripcion" value="descripcion" class="input-style maxStile" placeholder="detalle"></textarea>
+                        <small id="descripcionErros"></small>
                         <% if (locals.errors && errors.descripcion) { %>
                             <span class="error-message"><%= errors.descripcion.msg %> </span>
                         <% } %>

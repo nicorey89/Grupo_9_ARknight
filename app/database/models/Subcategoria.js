@@ -12,7 +12,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false,
         },
-        category_id: {
+        categoria_id: {
             type: dataTypes.INTEGER(11)
         },
     }
@@ -28,7 +28,7 @@ module.exports = (sequelize, dataTypes) => {
 
         SUB_CATEGORIA.belongsTo(models.Categoria, {
             as: "categoria",
-            foreignKey: "category_id"
+            foreignKey: "categoria_id"
         });
 
         SUB_CATEGORIA.hasMany(models.Producto, {

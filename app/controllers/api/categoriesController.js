@@ -39,19 +39,4 @@ module.exports = {
             res.status(500).send(error);           
         }
     },
-    listSubCat:  async (req, res) => {
-        try {
-            const SUB_CATEGORIES = await Subcategia.findAll({include: [{association: "Categoria"}]});
-            
-            const RESPONSE = {
-                endpoint: "/subcategorias",
-                data: SUB_CATEGORIES
-            };
-
-            res.status(200).json(RESPONSE);
-
-        } catch (error) {
-            res.status(500).send(error);
-        }
-    }
 }
