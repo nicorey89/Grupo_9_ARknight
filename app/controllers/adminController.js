@@ -2,6 +2,7 @@ const { Producto, Sequelize, Usuario, Categoria, Subcategoria, Sucursal} = requi
 const fs = require('fs');
 const path = require('path')
 const { validationResult } = require("express-validator")
+const fetch = require('node-fetch')
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -58,13 +59,19 @@ module.exports = {
       })
     },
     create: (req, res) => {
-      const CATEGORIAS = Categoria.findAll();
-      const SUCURSAL = Sucursal.findAll();
-      Promise.all([SUCURSAL, CATEGORIAS])
-      .then(([sucursales, categorias]) => {
+      const CATEGORIAS_PROMESA = Categoria.findAll({
+        include : [
+          {association: 'Subcategorias'}
+        ]
+      })
+      const SUBCATEGORIAS_PROMESA = Subcategoria.findAll();
+      const SUCURSAL_PROMESA = Sucursal.findAll();
+      Promise.all([CATEGORIAS_PROMESA, SUBCATEGORIAS_PROMESA , SUCURSAL_PROMESA])
+      .then(([categorias, subcategorias ,sucursales ]) => {
         return res.render("admin/product-create-form", {
-          sucursales,
           categorias,
+          subcategorias,
+          sucursales,
           session: req.session
         })
       })
