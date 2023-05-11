@@ -11,42 +11,42 @@
                         <h2 class="">CARGAR PRODUCTO:</i></h2>
                     </div>
                     <hr>
-                    <div class="input-container">
-                        <input type="text" id="titulo" name="titulo" placeholder="titulo" value="" class="input-style">
-                        <small id="tituloErros"></small>
+                    <div class="formEdit">
+                        <input type="text" id="titulo" name="titulo" placeholder="titulo" value="">
+                        <small id="tituloErrors"></small>
                         <% if (locals.errors && errors.titulo) { %>
                             <span class="error-message"><%= errors.titulo.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <input type="text" id="modelo" name="modelo" placeholder="modelo" value="" class="input-style">
-                        <small id="modeloErros"></small>
+                    <div class="formEdit">
+                        <input type="text" id="modelo" name="modelo" placeholder="modelo" value="">
+                        <small id="modeloErrors"></small>
                         <% if (locals.errors && errors.modelo) { %>
                             <span class="error-message"><%= errors.modelo.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <input type="number" id="precio" name="precio" value="precio" placeholder="Precio" class="input-style">
-                        <small id="precioErros"></small>
+                    <div class="formEdit">
+                        <input type="number" id="precio" name="precio" value="precio" placeholder="Precio">
+                        <small id="precioErrors"></small>
                         <% if (locals.errors && errors.precio) { %>
                             <span class="error-message"><%= errors.precio.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <input type="number" id="descuento" name="descuento" placeholder="Descuento" value="descuento" class="input-style">
-                        <small id="descuentoErros"></small>
+                    <div class="formEdit">
+                        <input type="number" id="descuento" name="descuento" placeholder="Descuento" value="descuento">
+                        <small id="descuentoErrors"></small>
                         <% if (locals.errors && errors.descuento) { %>
                             <span class="error-message"><%= errors.descuento.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <input type="number" id="cuotas" name="cuotas" value="cuotas" placeholder="Cuotas" class="input-style">
-                        <small id="cuotasErros"></small>
+                    <div class="formEdit">
+                        <input type="number" id="cuotas" name="cuotas" value="cuotas" placeholder="Cuotas">
+                        <small id="cuotasErrors"></small>
                         <% if (locals.errors && errors.cuotas) { %>
                             <span class="error-message"><%= errors.cuotas.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
+                    <div class="formEdit">
                         <select name="categoria" id="categoria">
                             <option value="" selected hidden>categoria</option>
                             <% categorias.forEach(categoria => { %>
@@ -55,15 +55,20 @@
                         </select>
                         <small id="categoriaErrors"></small>
                     </div>
-                    <div class="input-container">
+                    <div class="formEdit">
                         <select name="subCategoria" id="subCategoria">
-                            <option value="">Sub Categoria</option>
+                            <% subcategorys.forEach(subcategory=> { %>
+                                <option value="<%- subcategory.id %>" <%=locals.old &&
+                                      old.subcategory==subcategory.id ? "selected" : null %>>
+                                      <%- subcategory.nombre %>
+                                </option>
+                                <% }) %>
                         </select>
-                        <small id="subcategoriaErros"></small>
+                        <small id="subcategoriaErrors"></small>
                     </div>
-                    <div class="input-container">
-                        <textarea type="textarea" name="descripcion" id="descripcion" value="descripcion" class="input-style maxStile" placeholder="detalle"></textarea>
-                        <small id="descripcionErros"></small>
+                    <div class="formEdit">
+                        <textarea type="textarea" name="descripcion" id="descripcion" value="descripcion" placeholder="detalle"></textarea>
+                        <small id="descripcionErrors"></small>
                         <% if (locals.errors && errors.descripcion) { %>
                             <span class="error-message"><%= errors.descripcion.msg %> </span>
                         <% } %>
@@ -72,7 +77,7 @@
                         <p>Agregar imagen</p>
                         <input type="file" name="imagen">
                     </div>
-                    <div class="input-container">
+                    <div class="formEdit">
                         <% if (locals.errors && errors.image) { %>
                             <span class="error-message"><%= errors.image.msg %> </span>
                         <% } %>
@@ -86,6 +91,7 @@
     </main>
     
     <%- include("../partials/footer")%>
+    <script src="../js/product-create-form.js"></script>
 
 </body>
 </html>

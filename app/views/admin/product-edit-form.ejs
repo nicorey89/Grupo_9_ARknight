@@ -14,42 +14,42 @@
                         <h2 class=""><%= productToEdit.titulo %></h2>
                     </div>
                     <hr>
-                    <div class="input-container">
-                        <label for="titulo" class="form-label"></label>
-                        <input type="text" id="titulo" name="titulo" placeholder="titulo" value="<%= productToEdit.titulo %>" class="input-style">
+                    <div class="formEdit">
+                        <input type="text" id="titulo" name="titulo" placeholder="titulo" value="<%= productToEdit.titulo %>" >
+                        <small id="tituloErrors"></small>
                         <% if (locals.errors && errors.titulo) { %>
                             <span class="error-message"><%= errors.titulo.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <label for="modelo" class="form-label"></label>
-                        <input type="text" id="modelo" name="modelo" placeholder="modelo" value="<%= productToEdit.modelo %>" class="input-style">
+                    <div class="formEdit">
+                        <input type="text" id="modelo" name="modelo" placeholder="modelo" value="<%= productToEdit.modelo %>">
+                        <small id="modeloErrors"></small>
                         <% if (locals.errors && errors.modelo) { %>
                             <span class="error-message"><%= errors.modelo.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <label for="precio" class="form-label"></label>
-                        <input type="number" id="precio" name="precio" value="<%= productToEdit.precio %>" placeholder="Ej: 5678" class="input-style">
+                    <div class="formEdit">
+                        <input type="number" id="precio" name="precio" value="<%= productToEdit.precio %>" placeholder="Ej: 5678" >
+                        <small id="precioErrors"></small>
                         <% if (locals.errors && errors.precio) { %>
                             <span class="error-message"><%= errors.precio.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <label for="descuento" class="form-label"></label>
-                        <input type="number" id="descuento" name="descuento" placeholder="Ej: 15" value="<%= productToEdit.descuento %>" class="input-style">
+                    <div class="formEdit">
+                        <input type="number" id="descuento" name="descuento" placeholder="Ej: 15" value="<%= productToEdit.descuento %>" >
+                        <small id="descuentoErrors"></small>
                         <% if (locals.errors && errors.descuento) { %>
                             <span class="error-message"><%= errors.descuento.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <label for="cuotas" class="form-label"></label>
-                        <input type="number" id="cuotas" name="cuotas" value="<%= productToEdit.cuotas %>" placeholder="Ej: 3 " class="input-style">
+                    <div class="formEdit">
+                        <input type="number" id="cuotas" name="cuotas" value="<%= productToEdit.cuotas %>" placeholder="Ej: 3 " >
+                        <small id="cuotasErrors"></small>
                         <% if (locals.errors && errors.cuotas) { %>
                             <span class="error-message"><%= errors.cuotas.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
+                    <div class="formEdit">
                         <select name="categoria" id="categoria">
                             <option value="" selected hidden>categoria</option>
                             <% categorias.forEach(categoria => { %>
@@ -58,21 +58,26 @@
                         </select>
                         <small id="categoriaErrors"></small>
                     </div>
-                    <div class="input-container">
+                    <div class="formEdit">
                         <select name="subCategoria" id="subCategoria">
-                            <option value="">Sub Categoria</option>
+                            <% subcategorys.forEach(subcategory=> { %>
+                                <option value="<%- subcategory.id %>" <%=locals.old &&
+                                      old.subcategory==subcategory.id ? "selected" : null %>>
+                                      <%- subcategory.nombre %>
+                                </option>
+                                <% }) %>
                         </select>
                     </div>
-                    <div class="input-container textarea">
-                        <label for="description" class="form-label"></label>
-                        <textarea type="textarea" name="descripcion" id="descripcion" value="" class="input-style maxStile"><%= productToEdit.descripcion %></textarea>
+                    <div class="formEdit">
+                        <textarea type="textarea" name="descripcion" id="descripcion" value="" ><%= productToEdit.descripcion %></textarea>
                         <% if (locals.errors && errors.descripcion) { %>
                             <span class="error-message"><%= errors.descripcion.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
+                    <div class="avatarFile">
+                        <p>Modificar imagen</p>
                         <input type="file" name="imagen">
-				    </div>
+                    </div>
                     <div class="input-container">
                         <% if (locals.errors && errors.image) { %>
                             <span class="error-message"><%= errors.image.msg %> </span>
@@ -89,5 +94,6 @@
     </main>
     <!-- FOOTER-->
     <%-include("../partials/footer")%>
+    <script src="../js/product-edit-form.js"></script>
 </body>
 </html>

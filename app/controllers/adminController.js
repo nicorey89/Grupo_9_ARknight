@@ -59,19 +59,16 @@ module.exports = {
       })
     },
     create: (req, res) => {
-      const CATEGORIAS_PROMESA = Categoria.findAll({
-        include : [
-          {association: 'Subcategorias'}
-        ]
-      })
-      const SUBCATEGORIAS_PROMESA = Subcategoria.findAll();
-      const SUCURSAL_PROMESA = Sucursal.findAll();
-      Promise.all([CATEGORIAS_PROMESA, SUBCATEGORIAS_PROMESA , SUCURSAL_PROMESA])
-      .then(([categorias, subcategorias ,sucursales ]) => {
+      const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
+      const SUCURSAL = Sucursal.findAll();
+      const SUBCATEGORIAS = Subcategoria.findAll({
+        include: [{ association: "productos" }, { association: "categoria" }],
+  });
+      Promise.all([SUCURSAL, CATEGORIAS, SUBCATEGORIAS])
+      .then(([sucursales, categorias, subcategorias]) => {
         return res.render("admin/product-create-form", {
           categorias,
-          subcategorias,
-          sucursales,
+          subcategorys: subcategorias,
           session: req.session
         })
       })
@@ -124,15 +121,19 @@ module.exports = {
     },
     edit: (req, res) => {
             let productId = req.params.id;
-            const CATEGORIA = Categoria.findAll();
+            const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
             const SUCURSAL = Sucursal.findAll();
             const PRODUCTO = Producto.findByPk(productId);
-            Promise.all([PRODUCTO, SUCURSAL, CATEGORIA])
-            .then(([productToEdit, sucursales, categorias]) =>{
+            const SUBCATEGORIAS = Subcategoria.findAll({
+              include: [{ association: "productos" }, { association: "categoria" }],
+        });
+            Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS, SUBCATEGORIAS])
+            .then(([productToEdit, sucursales, categorias, subcategorias]) =>{
               res.render('admin/product-edit-form', {
                   productToEdit,
                   sucursales,
                   categorias,
+                  subcategorys: subcategorias,
                   session:req.session
               })
             })
