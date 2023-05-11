@@ -14,11 +14,12 @@ let qs = (elemento) => {
         $inputDescuento = qs("#descuento"),
         $descuentoErrors = qs("#descuentoErrors"),
         $inputCuota = qs("#Cuotas"),
-        $cuotaErrors = qs("#cuotasErrors"),
-        regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/,
-        regExPrecio = /^[0-9]{2,10}$/,
-        regExDescuento = /^[0-9]{1,2}$/,
-        regExCuota = /^[0-9]{1,2}$/
+        $cuotaErrors = qs("#cuotasErrors");
+        $form = qs("#form"),
+        (regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/),
+        (regExPrecio = /^[0-9]{2,10}$/),
+        (regExDescuento = /^[0-9]{1,2}$/),
+        (regExCuota = /^[0-9]{1,2}$/)
 
 
 

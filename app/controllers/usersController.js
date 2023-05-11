@@ -7,7 +7,7 @@ const axios = require("axios");
 const controller = {
     
     login:(req, res)=>{
-        const CATEGORIAS = Categoria.findAll();
+        const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
         const SUCURSAL = Sucursal.findAll();
         Promise.all([CATEGORIAS, SUCURSAL])
         .then(([categorias, sucursales]) => {
@@ -20,7 +20,7 @@ const controller = {
         })
     },
     register:(req, res)=>{
-        const CATEGORIAS = Categoria.findAll();
+        const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
         const SUCURSAL = Sucursal.findAll();
         Promise.all([CATEGORIAS, SUCURSAL])
         .then(([categorias, sucursales]) => {

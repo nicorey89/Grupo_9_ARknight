@@ -15,6 +15,7 @@ let qs = (elemento) => {
         $descuentoErrors = qs("#descuentoErrors"),
         $inputCuota = qs("#Cuotas"),
         $cuotaErrors = qs("#cuotasErrors"),
+        $form= qs("#form"),
         regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/,
         regExPrecio = /^[0-9]{2,10}$/,
         regExDescuento = /^[0-9]{1,2}$/,
