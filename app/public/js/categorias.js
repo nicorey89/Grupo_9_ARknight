@@ -1,20 +1,25 @@
-window.addEventListener("load", ()=>{
-    const selectCategorias = document.querySelector('#categoria');
-    const selectSubcategorias = document.querySelector('#subCategoria');
-    
-    selectCategorias.addEventListener("change", (event) => {
-        let categoriaId = event.target.value;
-        console.log(categoriaId)
-        fetch(`http://localhost:3000/api/v1/categoria/${categoriaId}`)
-        .then((res) => res.json())
-        .then((data) => {
-            const { Subcategorias } = data;
-            selectSubcategorias.innerHTML = ""
-            Subcategorias.forEach(subcategoria => {
-                selectSubcategorias.innerHTML += `<option value='${subcategoria.nombre}'>${subcategoria.nombre}</option>`
-            });
-        }) 
-        .catch((error) => console.log(error))
-    })
-    
-    })
+window.addEventListener("load", () => {
+      let selectCategory = document.querySelector("#categoria");
+      let selectSubcategory = document.querySelector("#subCategoria");
+
+      selectCategory.addEventListener("change", async (event) => {
+            let categoryId = event.target.value;
+
+            try {
+                  const response = await fetch(`http://localhost:3000/api/v1/subCategories/category/${categoryId}`);
+                  const { data } = await response.json();
+                  selectSubcategory.innerHTML = "";
+
+                  const obtenerOption = (subCategory) => {
+                        return `<option value='${subCategory.id}'>${subCategory.nombre}</option>`;
+                  };
+
+                  data.forEach((subCategory) => {
+                        selectSubcategory.innerHTML += obtenerOption(subCategory);
+                  });
+            } catch (error) {
+                  console.log(error);
+            }
+      });
+      selectCategory.dispatchEvent(new Event("change"));
+});

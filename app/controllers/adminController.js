@@ -55,13 +55,17 @@ module.exports = {
       })
     },
     create: (req, res) => {
-      const CATEGORIAS = Categoria.findAll();
+      const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
       const SUCURSAL = Sucursal.findAll();
-      Promise.all([SUCURSAL, CATEGORIAS])
-      .then(([sucursales, categorias]) => {
+      const SUBCATEGORIAS = Subcategoria.findAll({
+        include: [{ association: "productos" }, { association: "categoria" }],
+  });
+      Promise.all([SUCURSAL, CATEGORIAS, SUBCATEGORIAS])
+      .then(([sucursales, categorias, subcategorias]) => {
         return res.render("admin/product-create-form", {
           sucursales,
           categorias,
+          subcategorys: subcategorias,
           session: req.session
         })
       })
@@ -114,15 +118,19 @@ module.exports = {
     },
     edit: (req, res) => {
             let productId = req.params.id;
-            const CATEGORIA = Categoria.findAll();
+            const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
             const SUCURSAL = Sucursal.findAll();
             const PRODUCTO = Producto.findByPk(productId);
-            Promise.all([PRODUCTO, SUCURSAL, CATEGORIA])
-            .then(([productToEdit, sucursales, categorias]) =>{
+            const SUBCATEGORIAS = Subcategoria.findAll({
+              include: [{ association: "productos" }, { association: "categoria" }],
+        });
+            Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS, SUBCATEGORIAS])
+            .then(([productToEdit, sucursales, categorias, subcategorias]) =>{
               res.render('admin/product-edit-form', {
                   productToEdit,
                   sucursales,
                   categorias,
+                  subcategorys: subcategorias,
                   session:req.session
               })
             })

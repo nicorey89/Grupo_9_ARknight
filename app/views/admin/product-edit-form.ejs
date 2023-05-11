@@ -60,7 +60,12 @@
                     </div>
                     <div class="formEdit">
                         <select name="subCategoria" id="subCategoria">
-                            <option value="">Sub Categoria</option>
+                            <% subcategorys.forEach(subcategory=> { %>
+                                <option value="<%- subcategory.id %>" <%=locals.old &&
+                                      old.subcategory==subcategory.id ? "selected" : null %>>
+                                      <%- subcategory.nombre %>
+                                </option>
+                                <% }) %>
                         </select>
                     </div>
                     <div class="formEdit">
