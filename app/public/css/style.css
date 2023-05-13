@@ -25,3 +25,11 @@ input.is-valid{
     color: green;
     border: 1px solid green;
 }
+textarea.is-invalid{
+    color: red;
+    border: 1px solid red;
+}
+select.is-invalid{
+    color: red;
+    border: 1px solid red;
+}

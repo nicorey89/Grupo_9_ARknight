@@ -13,8 +13,17 @@ let qs = (elemento) => {
         $precioErrors = qs("#precioErrors"),
         $inputDescuento = qs("#descuento"),
         $descuentoErrors = qs("#descuentoErrors"),
-        $inputCuota = qs("#Cuotas"),
+        $inputCuota = qs("#cuotas"),
         $cuotaErrors = qs("#cuotasErrors");
+        $inputCategoria = qs("#categoria"),
+        $categoriaErrors = qs("#categoriaErrors"),
+        $inputsubCategoria = qs("#subCategoria"),
+        $subCategoriaErrors = qs("#subcategoriaErrors"),
+        $inputDescripcion = qs("#descripcion"),
+        $descripcionErrors = qs("#descripcionErrors")
+        $inputAvatar = qs("#imagen")
+        $imagenTrue = qs("#imagenTrue")
+        $avatarErrors = qs("#imagenErrors")
         $form = qs("#form"),
         (regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/),
         (regExPrecio = /^[0-9]{2,10}$/),
@@ -119,6 +128,62 @@ let qs = (elemento) => {
                 break;
             }
            })
+           $inputCategoria.addEventListener("blur", () => {
+            switch (true) {
+                  case !$inputCategoria.value:
+                        $categoriaErrors.innerText = "El campo categoria es obligatorio";
+                        $inputCategoria.classList.add("is-invalid");
+                        break;
+                  default:
+                        $inputCategoria.classList.remove("is-invalid");
+                        $inputCategoria.classList.add("is-valid");
+                        $categoriaErrors.innerText = "";
+                        break;
+            }
+           });  
+            $inputsubCategoria.addEventListener("blur", () => {
+                switch (true) {
+                    case !$inputsubCategoria.value:
+                        $subCategoriaErrors.innerText = "El campo subcategoria es obligatorio";
+                        $inputsubCategoria.classList.add("is-invalid");
+                        break;
+                    default:
+                        $inputsubCategoria.classList.remove("is-invalid");
+                        $inputsubCategoria.classList.add("is-valid");
+                        $subCategoriaErrors.innerText = "";
+                        break;
+                }
+           });   
+
+           $inputDescripcion.addEventListener("blur" , () => {
+            switch (true) {
+             case !$inputDescripcion.value.trim():
+                   $descripcionErrors.innerText = "La descripcion es obligatorio";
+                   $inputDescripcion.classList.add("is-invalid");
+                   break;
+               default:
+                  $inputDescripcion.classList.remove("is-invalid");
+                  $inputDescripcion.classList.add("is-valid");
+                  $descripcionErrors.innerText="";
+                break;
+            }
+           });
+
+           $inputAvatar.addEventListener("blur", () => {
+               let filePath = $inputAvatar.value,
+               allowefExtensions = /(.jpg|.jpeg|.png|.gif|.web)$/i;
+            if(!allowefExtensions.exec(filePath)){ 
+                $avatarErrors.innerHTML = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
+                $inputAvatar.value = '';
+                $imagenTrue.innerHTML = '';
+                return false;
+                }else {
+                    $avatarErrors.innerHTML = '';
+                    $imagenTrue.innerHTML = 'Carga un archivo de imagen con exito';
+                    $imagenTrue.style.color = "green"
+                    return true;
+                }
+           })
            
            $form.addEventListener("submit", (event) => {
             event.preventDefault();
@@ -127,7 +192,7 @@ let qs = (elemento) => {
             for (let index = 0; index < FORM_ELEMENTS.length - 1; index++) {
                 const element = FORM_ELEMENTS[index];
                 if(element.value === "" && element.type !== "file") {
-                    element.classList.add("is-invalid")
+                    element.dispatchEvent(new Event("blur"))
                 }
                 
             }

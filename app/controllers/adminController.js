@@ -2,7 +2,8 @@ const { Producto, Sequelize, Usuario, Categoria, Subcategoria, Sucursal} = requi
 const fs = require('fs');
 const path = require('path')
 const { validationResult } = require("express-validator")
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
+const { rejects } = require('assert');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -121,6 +122,10 @@ module.exports = {
           return res.redirect("/admin/products");
         })
       } else {
+
+        // if (req.file) {
+        //   fs.unlinkSync( path.resolve(__dirname, "../public/images/products", req.file.filename))
+        // }
         const PRODUCTO_ALL = Producto.findByPk(req.params.id, {
                 include: [{ association: "Subcategorias", include: [{ association: "categoria" }]}],
         });
@@ -161,7 +166,6 @@ module.exports = {
                   categorias,
                   subcategorys: subcategorias,
                   session:req.session,
-                  errors: errors.mapped(),
                   old: req.body,
               })
             })
@@ -169,7 +173,10 @@ module.exports = {
     },
     update: (req, res) => {
       let errors = validationResult(req);
-
+      const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
+      const SUBCATEGORIAS = Subcategoria.findAll({
+        include: [{ association: "productos" }, { association: "categoria" }],
+      });
       
       if(req.fileValidatorError){
         errors.errors.push({
@@ -181,6 +188,22 @@ module.exports = {
       }
 
         if(errors.isEmpty()) {
+          Producto.findByPk(req.params.id)
+            .then((product) => {
+                  if (req.file) {
+                    if (
+                      fs.existsSync(
+                        path.join(__dirname, "../public/images/products", product.image)
+                      ) &&
+                      product.imagen != "imageDefault.jpg"
+                    ) {
+                      fs.unlinkSync(
+                        path.join(__dirname, "../images/products", product.imagen)
+                      );
+                    }
+                  }
+              })
+              .catch(rejects => console.warn(rejects.value))
 
             const {
               titulo,
@@ -208,23 +231,32 @@ module.exports = {
                 id: req.params.id
               }
              })
-            .then((producto) => {
-                
+            .then((resolve) => {
+                  console.log(resolve)
+                  return res.redirect('/admin/products');
                 })
-            .catch(error => console.log(error))
+            .catch(rejects => console.warn(rejects.value))
             
         } else {
           let productId = req.params.id;
-          Producto.findByPk(productId)
-          .then((productToEdit) =>{
-            res.render('admin/product-edit-form', {
-                productToEdit,
-                session:req.session,
-                errors: errors.mapped(),
-                old: req.body,
+            const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
+            const SUCURSAL = Sucursal.findAll();
+            const PRODUCTO = Producto.findByPk(productId);
+            const SUBCATEGORIAS = Subcategoria.findAll({
+              include: [{ association: "productos" }, { association: "categoria" }],
+        });
+            Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS, SUBCATEGORIAS])
+            .then(([productToEdit, sucursales, categorias, subcategorias]) =>{
+              res.render('admin/product-edit-form', {
+                  productToEdit,
+                  sucursales,
+                  categorias,
+                  subcategorys: subcategorias,
+                  session:req.session,
+                  old: req.body,
+              })
             })
-          })
-          .catch((error) => console.log(error))
+            .catch((error) => console.log(error))
         }
     },
     destroy : (req, res ) => {

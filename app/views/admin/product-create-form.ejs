@@ -81,7 +81,7 @@
                         <% } %>
                     </div>
                     <div class="formEdit">
-                        <textarea type="textarea" name="descripcion" id="descripcion" value="descripcion" placeholder="detalle" value="<%= locals.old && locals.old.descripcion ? locals.old.descripcion : null %>"></textarea>
+                        <textarea type="textarea" name="descripcion" id="descripcion" placeholder="detalle" value="<%= locals.old && locals.old.descripcion ? locals.old.descripcion : null %>"></textarea>
                         <small id="descripcionErrors"></small>
                         <% if (locals.errors && errors.descripcion) { %>
                             <span class="error-message"><%= errors.descripcion.msg %> </span>

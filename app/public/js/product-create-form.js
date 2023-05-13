@@ -24,12 +24,11 @@ let qs = (elemento) => {
         $inputAvatar = qs("#imagen")
         $imagenTrue = qs("#imagenTrue")
         $avatarErrors = qs("#imagenErrors")
-        // (regExPrecio = /^[0-9]{2,10}$/)
-        // (regExCuota = /^[0-9]{1,2}$/)
-        // (regExName = /^[a-zA-Z\sñáéíóúü ]{2,30}$/);
-        // (regExDecimal = /^\d+(\.\d+)?$/);
-        // (regExEntero = /^-?\d+$/);
         $form= qs("#FORM")
+        (regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/),
+        (regExPrecio = /^[0-9]{2,10}$/),
+        (regExDescuento = /^[0-9]{1,2}$/),
+        (regExCuota = /^[0-9]{1,2}$/)
 
         $inputTitulo.addEventListener("blur" , () => {
             switch (true) {
@@ -166,6 +165,7 @@ let qs = (elemento) => {
             if(!allowefExtensions.exec(filePath)){ 
                 $avatarErrors.innerHTML = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
                 $inputAvatar.value = '';
+                $imagenTrue.innerHTML = '';
                 return false;
                 }else {
                     $avatarErrors.innerHTML = '';
