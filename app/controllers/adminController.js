@@ -59,15 +59,23 @@ module.exports = {
       })
     },
     create: (req, res) => {
-      const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
       const SUCURSAL = Sucursal.findAll();
+      
+      const PRODUCTO_ALL = Producto.findByPk(req.params.id, {
+        include: [{ association: "Subcategorias", include: [{ association: "categoria" }]}],
+  });
+      const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
+      
+
       const SUBCATEGORIAS = Subcategoria.findAll({
         include: [{ association: "productos" }, { association: "categoria" }],
-  });
-      Promise.all([SUCURSAL, CATEGORIAS, SUBCATEGORIAS])
-      .then(([sucursales, categorias, subcategorias]) => {
+        });
+
+      Promise.all([SUCURSAL, PRODUCTO_ALL ,CATEGORIAS, SUBCATEGORIAS])
+      .then(([sucursales, productToEdit,categorias, subcategorias]) => {
         return res.render("admin/product-create-form", {
-          categorias,
+          productToEdit,
+          categorias: categorias,
           subcategorys: subcategorias,
           session: req.session
         })
@@ -94,7 +102,7 @@ module.exports = {
         });
       }
       if (errors.isEmpty()) {
-        let { titulo, modelo, precio, cuotas, descripcion, descuento } = req.body;
+        let { titulo, modelo, precio, cuotas, descripcion, descuento, subCategoria, categoria } = req.body;
   
         let newProduct = {
           titulo,
@@ -103,7 +111,8 @@ module.exports = {
           cuotas,
           descripcion,
           descuento,
-          subCategory_id: 1,
+          categoria,
+          subCategory_id: subCategoria,
           imagen: req.file ? req.file.filename : "default-image.png"
         };
   
@@ -112,11 +121,28 @@ module.exports = {
           return res.redirect("/admin/products");
         })
       } else {
+        const PRODUCTO_ALL = Producto.findByPk(req.params.id, {
+                include: [{ association: "Subcategorias", include: [{ association: "categoria" }]}],
+        });
+        
+        const CATEGORIAS = Categoria.findAll({
+          include: [{ association: "Subcategorias" }]});
+      
+        const SUBCATEGORIAS = Subcategoria.findAll({
+              include: [{ association: "productos" }, { association: "categoria" }],
+        });
+
+        Promise.all([PRODUCTO_ALL, CATEGORIAS, SUBCATEGORIAS])
+        .then(([ productToEdit,categorias, subcategorias]) => {
         return res.render("admin/product-create-form", {
+          productToEdit,
+          categorias: categorias,
+          subcategorys: subcategorias,
           session: req.session,
           errors: errors.mapped(),
           old: req.body,
-        });
+        })
+      })
       }
     },
     edit: (req, res) => {
@@ -134,7 +160,9 @@ module.exports = {
                   sucursales,
                   categorias,
                   subcategorys: subcategorias,
-                  session:req.session
+                  session:req.session,
+                  errors: errors.mapped(),
+                  old: req.body,
               })
             })
             .catch((error) => console.log(error))

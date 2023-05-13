@@ -21,7 +21,8 @@
     display: none;
 }
 
-.registerMain .container .form .input-container .error-message {
+.registerMain .container .form .error-message {
+    margin: 0.2rem;
     color: red;
 }
 
