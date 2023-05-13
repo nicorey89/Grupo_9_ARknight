@@ -8,7 +8,7 @@ const controller = {
         const SUCURSAL = Sucursal.findByPk(sucursalID);
         const CATEGORIAS = Categoria.findAll();
         Promise.all([SUCURSALES, SUCURSAL,CATEGORIAS])
-        .then(([sucursales, sucursal]) => {
+        .then(([sucursales, sucursal,categorias]) => {
             return res.render("sucursales", {
                 sucursales,
                 sucursal,
