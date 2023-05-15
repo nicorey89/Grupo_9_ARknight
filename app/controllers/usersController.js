@@ -7,7 +7,7 @@ const axios = require("axios");
 const controller = {
     
     login:(req, res)=>{
-        const CATEGORIAS = Categoria.findAll();
+        const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
         const SUCURSAL = Sucursal.findAll();
         Promise.all([CATEGORIAS, SUCURSAL])
         .then(([categorias, sucursales]) => {
@@ -20,7 +20,7 @@ const controller = {
         })
     },
     register:(req, res)=>{
-        const CATEGORIAS = Categoria.findAll();
+        const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
         const SUCURSAL = Sucursal.findAll();
         Promise.all([CATEGORIAS, SUCURSAL])
         .then(([categorias, sucursales]) => {
@@ -137,7 +137,7 @@ const controller = {
         try {
             const user = await Usuario.findByPk(userInSessionId);
             const { data } = await axios.get("https://apis.datos.gob.ar/georef/api/provincias?campos=nombre,id")
-            const SUCURSAL = Sucursal.findAll();
+            const SUCURSAL = await Sucursal.findAll();
             const CATEGORIAS = await Categoria.findAll();
             res.render("users/userProfileEdit", {
                 usuario: user,

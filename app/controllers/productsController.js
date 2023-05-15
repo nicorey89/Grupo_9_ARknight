@@ -1,4 +1,4 @@
-const { Producto, Sequelize, Sucursal} = require ('../database/models');
+const { Producto, Sequelize, Sucursal, Categoria} = require ('../database/models');
 const {Op} = Sequelize;
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -33,7 +33,9 @@ const controller = {
       }
     });
     const SUCURSAL = Sucursal.findAll();
-    const CATEGORIAS = Categoria.findAll();
+    const CATEGORIAS = Categoria.findAll( {
+      include: [{ association: "Subcategorias" }],
+    });
     Promise.all([PRODUCT_PROMISE, ALL_PRODUCTS_PROMISE, SUCURSAL, CATEGORIAS])
     .then(([product, sliderProducts, sucursales, categorias]) => {
       return res.render("products/productDetail", {

@@ -62,13 +62,17 @@ const controller ={
            }})
     },
     categoria: (req,res) => {
-        const SUCURSAL = Sucursal.findAll();
-        const CATEGORIAS = Categoria.findAll();
-        Promise.all([SUCURSAL,CATEGORIAS])
+        const SUCURSALES = Sucursal.findAll();
+        const CATEGORIAS = Categoria.findAll({
+            include: [{association: "Subcategorias" }]
+        })
+        Promise.all([SUCURSALES,CATEGORIAS])
         .then(([sucursales, categorias]) => {
+            const SUBCATEGORIA = categorias.map(sub_categoria => sub_categoria)
             return res.render("products/categorias",{
                 sucursales,
                 categorias,
+                subcategoris : SUBCATEGORIA,
                 session:req.session
             })
         })

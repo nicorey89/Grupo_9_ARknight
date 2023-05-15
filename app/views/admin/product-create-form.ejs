@@ -5,62 +5,98 @@
     <%- include('../partials/header') %>
     <main class="registerMain">
         <div class="container">
-            <form id="form"   action="/admin/create" method="POST" enctype="multipart/form-data">
+            <form id="FORM" action="/admin/create" method="POST" enctype="multipart/form-data">
                 <div class="form">
                     <div class="">
                         <h2 class="">CARGAR PRODUCTO:</i></h2>
                     </div>
                     <hr>
-                    <div class="input-container">
-                        <label for="titulo" class="form-label"></label>
-                        <input type="text" id="titulo" name="titulo" placeholder="titulo" value="" class="input-style">
+                    <div class="formEdit">
+                        <input type="text" id="titulo" name="titulo" placeholder="titulo" value="<%= locals.old && locals.old.titulo? locals.old.titulo : null %>">
+                        <small id="tituloErrors"></small>
                         <% if (locals.errors && errors.titulo) { %>
                             <span class="error-message"><%= errors.titulo.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <label for="modelo" class="form-label"></label>
-                        <input type="text" id="modelo" name="modelo" placeholder="modelo" value="" class="input-style">
+                    <div class="formEdit">
+                        <input type="text" id="modelo" name="modelo" placeholder="modelo" value="<%= locals.old && locals.old.modelo ? locals.old.modelo : null %>">
+                        <small id="modeloErrors"></small>
                         <% if (locals.errors && errors.modelo) { %>
                             <span class="error-message"><%= errors.modelo.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <label for="precio" class="form-label"></label>
-                        <input type="number" id="precio" name="precio" value="precio" placeholder="Precio" class="input-style">
+                    <div class="formEdit">
+                        <input type="number" id="precio" name="precio" value="<%= locals.old && locals.old.precio ? locals.old.precio : null %>" placeholder="Precio">
+                        <small id="precioErrors"></small>
                         <% if (locals.errors && errors.precio) { %>
                             <span class="error-message"><%= errors.precio.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <label for="descuento" class="form-label"></label>
-                        <input type="number" id="descuento" name="descuento" placeholder="Descuento" value="descuento" class="input-style">
+                    <div class="formEdit">
+                        <input type="number" id="descuento" name="descuento" placeholder="Descuento" value="<%= locals.old && locals.old.descuento ? locals.old.descuento : null %>">
+                        <small id="descuentoErrors"></small>
                         <% if (locals.errors && errors.descuento) { %>
                             <span class="error-message"><%= errors.descuento.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <label for="cuotas" class="form-label"></label>
-                        <input type="number" id="cuotas" name="cuotas" value="cuotas" placeholder="Cuotas" class="input-style">
+                    <div class="formEdit">
+                        <input type="number" id="cuotas" name="cuotas" value="<%= locals.old && locals.old.cuotas ? locals.old.cuotas : null %>" placeholder="Cuotas">
+                        <small id="cuotasErrors"></small>
                         <% if (locals.errors && errors.cuotas) { %>
                             <span class="error-message"><%= errors.cuotas.msg %> </span>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <label for="detalle" class="form-label"></label>
-                        <textarea type="textarea" name="descripcion" id="descripcion" value="descripcion" class="input-style maxStile" placeholder="detalle"></textarea>
+                    <div class="formEdit">
+                        <select name="categoria" id="categoria">
+                            <option value="<%= locals.old && locals.old.categoria ? locals.old.categoria : null %>" selected hidden>categoria</option>
+
+
+                            <% categorias.forEach((categoria) => { %>
+                                <option value="<%= categoria.id%>" <%=locals.old &&
+                                      old.categoria == categoria.id ? "selected" : null %> ><%= categoria.nombre %>
+                                </option>
+                                <% }) %>
+
+                        </select>
+                        <small id="categoriaErrors"></small>
+                        <% if (locals.errors && errors.categoria) { %>
+                            <span class="error-message"><%= errors.categoria.msg %> </span>
+                        <% } %>
+                    </div>
+                    <div class="formEdit">
+                        <select name="subCategoria" id="subCategoria">
+                            <option value="<%= locals.old && locals.old.subCategoria ? locals.old.subCategoria : null %>" selected hidden>Sub categoria</option>
+
+                            <% subcategorys.forEach(subcategory=> { %>
+                                <option value="<%- subcategory.id %>" <%=locals.old &&
+                                      old.subcategory==subcategory.id ? "selected" : null %>>
+                                      <%- subcategory.nombre %>
+                                </option>
+                            <% }) %>
+
+                        </select>
+                        <small id="subcategoriaErrors"></small>
+                        <% if (locals.errors && errors.subCategoria) { %>
+                            <span class="error-message"><%= errors.subCategoria.msg %> </span>
+                        <% } %>
+                    </div>
+                    <div class="formEdit">
+                        <textarea type="textarea" name="descripcion" id="descripcion" placeholder="detalle" value="<%= locals.old && locals.old.descripcion ? locals.old.descripcion : null %>"></textarea>
+                        <small id="descripcionErrors"></small>
                         <% if (locals.errors && errors.descripcion) { %>
                             <span class="error-message"><%= errors.descripcion.msg %> </span>
                         <% } %>
                     </div>
                     <div class="avatarFile">
                         <p>Agregar imagen</p>
-                        <input type="file" name="imagen">
+                        <input type="file" name="imagen" id="imagen">
                     </div>
-                    <div class="input-container">
+                    <div class="formEdit">
+                        <small id="imagenErrors"></small>
                         <% if (locals.errors && errors.image) { %>
                             <span class="error-message"><%= errors.image.msg %> </span>
                         <% } %>
+                        <small id="imagenTrue"></small>
                     </div>
                     <button type="submit" class="agregarAlCarrito create" >
                        CREAR PRODUCTO
@@ -71,6 +107,8 @@
     </main>
     
     <%- include("../partials/footer")%>
+    
+  
 
 </body>
 </html>

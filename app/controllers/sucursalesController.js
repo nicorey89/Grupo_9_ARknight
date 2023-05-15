@@ -1,4 +1,4 @@
-const {Sequelize, Sucursal } = require ('../database/models');
+const {Sequelize, Sucursal, Categoria} = require ('../database/models');
 const {Op} = Sequelize;
 
 const controller = {
@@ -6,12 +6,14 @@ const controller = {
         const sucursalID= req.params.id;
         const SUCURSALES = Sucursal.findAll();
         const SUCURSAL = Sucursal.findByPk(sucursalID);
-        Promise.all([SUCURSALES, SUCURSAL])
-        .then(([sucursales, sucursal]) => {
+        const CATEGORIAS = Categoria.findAll();
+        Promise.all([SUCURSALES, SUCURSAL,CATEGORIAS])
+        .then(([sucursales, sucursal,categorias]) => {
             return res.render("sucursales", {
                 sucursales,
                 sucursal,
-                session: req.session
+                session: req.session,
+                categorias
             })
         })
         .catch((error) => console.log(error))

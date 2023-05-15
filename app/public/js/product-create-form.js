@@ -1,156 +1,179 @@
 let qs = (elemento) => {
-    return document.querrySelector(elemento);
+    return document.querySelector(elemento);
   }
 
    // titulo - modelo - precio - descuento - cuota
 
    window.addEventListener("load" , () => { 
     let $inputTitulo = qs("#titulo"),
-        $tituloErrors = qs("#error-message"),
+        $tituloErrors = qs("#tituloErrors")
         $inputModelo = qs("#modelo"),
-        $modeloErrors = qs("#error-message"),
+        $modeloErrors = qs("#modeloErrors"),
         $inputPrecio = qs("#precio"),
-        $precioErrors = qs("#error-message"),
+        $precioErrors = qs("#precioErrors"),
         $inputDescuento = qs("#descuento"),
-        $descuentoErrors = qs("#error-message"),
-        $inputCuota = qs("#Cuota"),
-        $cuotaErrors = qs("#error-message"),
-        regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/
-
+        $descuentoErrors = qs("#descuentoErrors"),
+        $inputCuota = qs("#cuotas"),
+        $cuotaErrors = qs("#cuotasErrors")
+        $inputCategoria = qs("#categoria"),
+        $categoriaErrors = qs("#categoriaErrors"),
+        $inputsubCategoria = qs("#subCategoria"),
+        $subCategoriaErrors = qs("#subcategoriaErrors"),
+        $inputDescripcion = qs("#descripcion"),
+        $descripcionErrors = qs("#descripcionErrors")
+        $inputAvatar = qs("#imagen")
+        $imagenTrue = qs("#imagenTrue")
+        $avatarErrors = qs("#imagenErrors")
+        $form= qs("#FORM")
+        (regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/),
+        (regExPrecio = /^[0-9]{2,10}$/),
+        (regExDescuento = /^[0-9]{1,2}$/),
+        (regExCuota = /^[0-9]{1,2}$/)
 
         $inputTitulo.addEventListener("blur" , () => {
             switch (true) {
              case !$inputTitulo.value.trim():
-                   $tituloErrors.innerText = "La marca es obligatoria";
-                   $inputTitulo.classList.remove("is-valid");
+                   $tituloErrors.innerText = "EL TITULO ES OBLIGATORIO";
                    $inputTitulo.classList.add("is-invalid");
                    break;
-             case !regExAlpha.test($inputTitulo.value):
-                   $tituloErrors.innerText = "Marca no existe";
-                   $inputTitulo.classList.remove("is-valid");
-                   $inputTitulo.classList.add("is-invalid");
-       
-               break;
-       
-       
                default:
                   $inputTitulo.classList.remove("is-invalid");
                   $inputTitulo.classList.add("is-valid");
-                  $tituloErrors.innerText="";
+                  $tituloErrors.innerText = "";
                 break;
-       
-       
-       
-       
             }
-           })
+           });
 
            $inputModelo.addEventListener("blur" , () => {
             switch (true) {
              case !$inputModelo.value.trim():
                    $modeloErrors.innerText = "El modelo es obligatorio";
-                   $inputTitulo.classList.remove("is-valid");
                    $inputModelo.classList.add("is-invalid");
                    break;
-             case !regExAlpha.test($inputModelo.value):
-                   $modeloErrors.innerText = "modelo invalido";
-                   $inputTitulo.classList.remove("is-valid");
-                   $inputModelo.classList.add("is-invalid");
-       
-               break;
-       
-       
                default:
                   $inputModelo.classList.remove("is-invalid");
                   $inputModelo.classList.add("is-valid");
                   $modeloErrors.innerText="";
                 break;
-       
-       
-       
-       
             }
-           })
+           });
+
            $inputPrecio.addEventListener("blur" , () => {
             switch (true) {
              case !$inputPrecio.value.trim():
                    $precioErrors.innerText = "Debe ingresar el Precio";
-                   $inputTitulo.classList.remove("is-valid");
+                   $inputPrecio.classList.remove("is-valid");
                    $inputPrecio.classList.add("is-invalid");
                    break;
-             case !regExAlpha.test($inputPrecio.value):
+             case !regExPrecio.test($inputPrecio.value):
                    $precioErrors.innerText = "precio invalido";
-                   $inputTitulo.classList.remove("is-valid");
+                   $inputPrecio.classList.remove("is-valid");
                    $inputPrecio.classList.add("is-invalid");
-       
                break;
-       
-       
-               default:
+            default:
                 $inputPrecio.classList.remove("is-invalid");
                 $inputPrecio.classList.add("is-valid");
                 $precioErrors.innerText="";
                 break;
-       
-       
-       
-       
             }
-           })
+           });
 
-           $inputCuota.addEventListener("blur" , () => {
-            switch (true) {
-             case !$inputCuota.value.trim():
-                   $cuotaErrors.innerText = "Debe ingresar la cuota";
-                   $inputTitulo.classList.remove("is-valid");
-                   $inputCuota.classList.add("is-invalid");
-                   break;
-             case !regExAlpha.test($inputCuota.value):
-                   $cuotaErrors.innerText = "cuotas invalidas";
-                   $inputTitulo.classList.remove("is-valid");
-                   $inputCuota.classList.add("is-invalid");
-       
-               break;
-       
-       
-               default:
-                  $inputCuota.classList.remove("is-invalid");
-                  $inputCuota.classList.add("is-valid");
-                  $cuotaErrors.innerText="";
-                break;
-       
-       
-       
-       
-            }
-           })
-           
            $inputDescuento.addEventListener("blur" , () => {
             switch (true) {
              case !$inputDescuento.value.trim():
                    $descuentoErrors.innerText = "Ingresa el descuento";
-                   $inputTitulo.classList.remove("is-valid");
+                   $inputDescuento.classList.remove("is-valid");
                    $inputDescuento.classList.add("is-invalid");
                    break;
-             case !regExAlpha.test($inputDescuento.value):
+             case !regExPrecio.test($inputDescuento.value):
                    $descuentoErrors.innerText = "descuento invalido";
-                   $inputTitulo.classList.remove("is-valid");
+                   $inputDescuento.classList.remove("is-valid");
                    $inputDescuento.classList.add("is-invalid");
-       
                break;
-       
-       
                default:
                 $inputDescuento.classList.remove("is-invalid");
                 $inputDescuento.classList.add("is-valid");
                 $descuentoErrors.innerText="";
                 break;
-       
-       
-       
-       
             }
-           }) 
+           }); 
+
+           $inputCuota.addEventListener("blur" , () => {
+            switch (true) {
+             case !$inputCuota.value.trim():
+                   $cuotaErrors.innerText = "Debe ingresar la cuota";
+                   $inputCuota.classList.remove("is-valid");
+                   $inputCuota.classList.add("is-invalid");
+                   break;
+             case !regExCuota.test($inputCuota.value):
+                   $cuotaErrors.innerText = "cuotas invalidas";
+                   $inputCuota.classList.remove("is-valid");
+                   $inputCuota.classList.add("is-invalid");
+               break;
+               default:
+                  $inputCuota.classList.remove("is-invalid");
+                  $inputCuota.classList.add("is-valid");
+                  $cuotaErrors.innerText="";
+                break;
+            }
+           });
+
+           $inputCategoria.addEventListener("blur", () => {
+            switch (true) {
+                  case !$inputCategoria.value:
+                        $categoriaErrors.innerText = "El campo categoria es obligatorio";
+                        $inputCategoria.classList.add("is-invalid");
+                        break;
+                  default:
+                        $inputCategoria.classList.remove("is-invalid");
+                        $inputCategoria.classList.add("is-valid");
+                        $categoriaErrors.innerText = "";
+                        break;
+            }
+           });  
+            $inputsubCategoria.addEventListener("blur", () => {
+                switch (true) {
+                    case !$inputsubCategoria.value:
+                        $subCategoriaErrors.innerText = "El campo subcategoria es obligatorio";
+                        $inputsubCategoria.classList.add("is-invalid");
+                        break;
+                    default:
+                        $inputsubCategoria.classList.remove("is-invalid");
+                        $inputsubCategoria.classList.add("is-valid");
+                        $subCategoriaErrors.innerText = "";
+                        break;
+                }
+           });   
+
+           $inputDescripcion.addEventListener("blur" , () => {
+            switch (true) {
+             case !$inputDescripcion.value.trim():
+                   $descripcionErrors.innerText = "La descripcion es obligatorio";
+                   $inputDescripcion.classList.add("is-invalid");
+                   break;
+               default:
+                  $inputDescripcion.classList.remove("is-invalid");
+                  $inputDescripcion.classList.add("is-valid");
+                  $descripcionErrors.innerText="";
+                break;
+            }
+           });
+
+           $inputAvatar.addEventListener("blur", () => {
+               let filePath = $inputAvatar.value,
+               allowefExtensions = /(.jpg|.jpeg|.png|.gif|.web)$/i;
+            if(!allowefExtensions.exec(filePath)){ 
+                $avatarErrors.innerHTML = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
+                $inputAvatar.value = '';
+                $imagenTrue.innerHTML = '';
+                return false;
+                }else {
+                    $avatarErrors.innerHTML = '';
+                    $imagenTrue.innerHTML = 'Carga un archivo de imagen con exito';
+                    $imagenTrue.style.color = "green"
+                    return true;
+                }
+           })
            
            $form.addEventListener("submit", (event) => {
             event.preventDefault();
@@ -159,7 +182,7 @@ let qs = (elemento) => {
             for (let index = 0; index < FORM_ELEMENTS.length - 1; index++) {
                 const element = FORM_ELEMENTS[index];
                 if(element.value === "" && element.type !== "file") {
-                    element.classList.add("is-invalid")
+                    element.dispatchEvent(new Event("blur"))
                 }
                 
             }

@@ -14,42 +14,37 @@
         <div class="form-container">
             <h1 class="title">REGISTRATE</h1>
             <hr>
-            <form action="/users/" method="POST" enctype="multipart/form-data">
+            <form action="/users/" method="POST" enctype="multipart/form-data" id="form">
                 <div class="form">
-                    <div class="input-container">
-                        <label for="name"></label>
+                    <div class="formEdit">
                         <input class="input-style" type="text" id="name" name="name" placeholder="Ingrese su Nombre">
                         <small id="nameErrors"></small>
                         <% if (locals.errors && errors.name) { %>
                             <small class="text-danger" ><%= errors.name.msg %> </small>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <label for="apellido"></label>
+                    <div class="formEdit">
                         <input class="input-style" type="text" id="apellido" name="apellido" placeholder="Ingrese su Apellido">
                         <small id="apellidoErrors"></small>
                         <% if (locals.errors && errors.apellido) { %>
                             <small class="text-danger"><%= errors.apellido.msg %> </small>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <label for="email"></label>
+                    <div class="formEdit">
                         <input class="input-style" type="email" name="email" id="email" placeholder="Ingrese su email" id="emailFormValidator">
-                        <small id="emailFormValidatorErrors"></small>
+                        <small id="emailErrors"></small>
                         <% if (locals.errors && errors.email) { %>
                             <small class="text-danger"><%= errors.email.msg %> </small>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <label for="password"></label>
+                    <div class="formEdit">
                         <input class="input-style" type="password" id="password" name="password" placeholder="Ingrese su contraseña">
                         <small  id="passwordErrors"></small>
                         <% if (locals.errors && errors.password) { %>
                             <small class="text-danger"><%= errors.password.msg %> </small>
                         <% } %>
                     </div>
-                    <div class="input-container">
-                        <label for="password2"></label>
+                    <div class="formEdit">
                         <input class="input-style" type="password" name="password2" placeholder="Re-ingrese su contraseña" id="password2">
                         <small id="password2Errors"></small>
                         <% if (locals.errors && errors.password2) { %>
@@ -73,7 +68,7 @@
                             <button type="reset" class="agregarAlCarrito">Cancelar</button>
                         </div>
                         <div class="button-container">
-                            <button type="submit" class="agregarAlCarrito" id="submit">Registrarme</button>
+                            <button type="submit" class="agregarAlCarrito">Registrarme</button>
                         </div>
                     </div>
                     <span><a href="/users/login">Ya tengo cuenta</a></span>
@@ -85,7 +80,7 @@
     </main>
 
     <%- include("../partials/footer") %>
-    
+    <script src="/js/register.js"></script>
 </body>
 </html>
 

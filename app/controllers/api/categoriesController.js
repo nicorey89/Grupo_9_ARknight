@@ -6,7 +6,7 @@ module.exports = {
             const CATEGORIES = await Categoria.findAll();
             
             const RESPONSE = {
-                endpoint: "/categoria",
+                endpoint: "/categoria/",
                 data: CATEGORIES,
                 total: CATEGORIES.length 
             };
@@ -38,20 +38,22 @@ module.exports = {
         } catch (error) {
             res.status(500).send(error);           
         }
-    },
-    listSubCat:  async (req, res) => {
-        try {
-            const SUB_CATEGORIES = await Subcategia.findAll({include: [{association: "categoria"}]});
-            
-            const RESPONSE = {
-                endpoint: "/subcategorias",
-                data: SUB_CATEGORIES
-            };
-
-            res.status(200).json(RESPONSE);
-
-        } catch (error) {
-            res.status(500).send(error);
-        }
-    }
+    }, 
+//     store: async (req, res) => {
+//         try {
+//               const RESULT = await Categoria.create({
+//                     name: req.body.nombre,
+//               });
+//               return res.status(201).json({
+//                     meta: {
+//                           status: 201,
+//                           url: "api/v1/categoria/create",
+//                           msg: "Categoria Agregada",
+//                     },
+//                     data: RESULT,
+//               });
+//         } catch (error) {
+//               console.log(error);
+//         }
+//   },
 }
