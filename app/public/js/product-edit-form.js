@@ -1,30 +1,30 @@
-let qs = (elemento) => {
+let qss = (elemento) => {
     return document.querySelector(elemento);
   }
 
    // titulo - modelo - precio - descuento - cuota
 
    window.addEventListener("load" , () => { 
-    let $inputTitulo = qs("#titulo"),
-        $tituloErrors = qs("#tituloErrors"),
-        $inputModelo = qs("#modelo"),
-        $modeloErrors = qs("#modeloErrors"),
-        $inputPrecio = qs("#precio"),
-        $precioErrors = qs("#precioErrors"),
-        $inputDescuento = qs("#descuento"),
-        $descuentoErrors = qs("#descuentoErrors"),
-        $inputCuota = qs("#cuotas"),
-        $cuotaErrors = qs("#cuotasErrors");
-        $inputCategoria = qs("#categoria"),
-        $categoriaErrors = qs("#categoriaErrors"),
-        $inputsubCategoria = qs("#subCategoria"),
-        $subCategoriaErrors = qs("#subcategoriaErrors"),
-        $inputDescripcion = qs("#descripcion"),
-        $descripcionErrors = qs("#descripcionErrors")
-        $inputAvatar = qs("#imagen")
-        $imagenTrue = qs("#imagenTrue")
-        $avatarErrors = qs("#imagenErrors")
-        $form = qs("#form"),
+    let $inputTitulo = qss("#titulo"),
+        $tituloErrors = qss("#tituloErrors"),
+        $inputModelo = qss("#modelo"),
+        $modeloErrors = qss("#modeloErrors"),
+        $inputPrecio = qss("#precio"),
+        $precioErrors = qss("#precioErrors"),
+        $inputDescuento = qss("#descuento"),
+        $descuentoErrors = qss("#descuentoErrors"),
+        $inputCuota = qss("#cuotas"),
+        $cuotaErrors = qss("#cuotasErrors");
+        $inputCategoria = qss("#categoria"),
+        $categoriaErrors = qss("#categoriaErrors"),
+        $inputsubCategoria = qss("#subCategoria"),
+        $subCategoriaErrors = qss("#subcategoriaErrors"),
+        $inputDescripcion = qss("#descripcion"),
+        $descripcionErrors = qss("#descripcionErrors")
+        $inputAvatar = qss("#imagen")
+        $imagenTrue = qss("#imagenTrue")
+        $avatarErrors = qss("#imagenErrors")
+        $form = qss("#form"),
         (regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/),
         (regExPrecio = /^[0-9]{2,10}$/),
         (regExDescuento = /^[0-9]{1,2}$/),
@@ -192,6 +192,7 @@ let qs = (elemento) => {
             for (let index = 0; index < FORM_ELEMENTS.length - 1; index++) {
                 const element = FORM_ELEMENTS[index];
                 if(element.value === "" && element.type !== "file") {
+                    element.classList.add("is-invalid");
                     element.dispatchEvent(new Event("blur"))
                 }
                 

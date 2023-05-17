@@ -6,9 +6,10 @@ module.exports = {
             const CATEGORIES = await Categoria.findAll();
             
             const RESPONSE = {
+                total: CATEGORIES.length,
+                msg : 'Lista de categorias', 
                 endpoint: "/categoria/",
                 data: CATEGORIES,
-                total: CATEGORIES.length 
             };
 
             res.status(200).json(RESPONSE);
@@ -26,6 +27,8 @@ module.exports = {
 
             if(CATEGORY !== null) {
                 const RESPONSE = {
+                    total: CATEGORY.length,
+                    msg : 'Detalle de categoria',
                     endpoint: `/categoria/${CATEGORY_ID}`,
                     data: CATEGORY
                 };
