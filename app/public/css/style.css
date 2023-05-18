@@ -14,6 +14,7 @@
 @import url('userProfile.css');
 @import url('userProfileEdit.css');
 @import url('product2.css');
+@import url('subcategorias.css');
 small{
     color: red;
 }
@@ -32,4 +33,13 @@ textarea.is-invalid{
 select.is-invalid{
     color: red;
     border: 1px solid red;
+}
+.category-list{
+    border: 2px solid var(--naranja);
+    width: 400px;
+    margin: 5px;
+}
+.categoriasContent{
+    width: 400px;
+    margin: 5px;
 }

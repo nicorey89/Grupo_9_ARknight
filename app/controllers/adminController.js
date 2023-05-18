@@ -78,6 +78,7 @@ module.exports = {
           productToEdit,
           categorias: categorias,
           subcategorys: subcategorias,
+          sucursales,
           session: req.session
         })
       })

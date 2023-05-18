@@ -3,11 +3,12 @@
     <%- include("../partials/head") %>
 <body>
     <%- include("../partials/header") %>
-<main>
+<main class="subcategorias">
     <div class="categoriasContent">
-        <% categorias.forEach(categoria => {%>
-        <a  href="/categoria/<%= categoria.id %>"><h1 class="category-list"><%= categoria.nombre %></h1></a>
-        <% }) %>
+        <% subcategorias.forEach(subcategoria => {%>
+            <a  href="/subcategoria/<%= subcategoria.id %>"><h2 class="category-list"><%= subcategoria.nombre %></h2></a>
+            <% }) %>
+
     </div>
 </main>
 
