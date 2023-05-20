@@ -177,12 +177,26 @@ let qss = (elemento) => {
                 $inputAvatar.value = '';
                 $imagenTrue.innerHTML = '';
                 return false;
-                }else {
-                    $avatarErrors.innerHTML = '';
-                    $imagenTrue.innerHTML = 'Carga un archivo de imagen con exito';
-                    $imagenTrue.style.color = "green"
-                    return true;
                 }
+           })
+
+           $inputAvatar.addEventListener("change", () => {
+            let filePath = $inputAvatar.value;
+            switch (true) {
+                case !filePath.trim():
+                    $avatarErrors.innerHTML = "LA FOTO ES OBLIGATORIA"
+                    $avatarErrors.classList.add("is-invalid");
+                    break;
+            
+                default:
+                    $avatarErrors.classList.remove("is-invalid");
+                    $avatarErrors.innerHTML = "";
+                    $imagenTrue.innerHTML = "Carga de archivo exitoso"
+                    $imagenTrue.classList.add("is-valid")
+
+                    break;
+            }
+
            })
            
            $form.addEventListener("submit", (event) => {

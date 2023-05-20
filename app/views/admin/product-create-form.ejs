@@ -5,7 +5,7 @@
     <%- include('../partials/header') %>
     <main class="registerMain">
         <div class="container">
-            <form id="FORM" action="/admin/create" method="POST" enctype="multipart/form-data">
+            <form id="form" action="/admin/create" method="POST" enctype="multipart/form-data">
                 <div class="form">
                     <div class="">
                         <h2 class="">CARGAR PRODUCTO:</i></h2>
@@ -101,6 +101,7 @@
                     <button type="submit" class="agregarAlCarrito create" >
                        CREAR PRODUCTO
                     </button>
+                    <small id="errorS"></small>
                 </div>
             </form>    
         </div>

@@ -53,7 +53,7 @@
                         <select name="categoria" id="categoria">
                             <option value="" selected hidden>categoria</option>
                             <% categorias.forEach(categoria => { %>
-                                <option value="<%-categoria.id %>"><%- categoria.nombre %></option>
+                                <option value="<%-categoria.id %>" <%- locals.old && old.categoria == categoria.id ? 'selected' : categoria.id == productToEdit.subCategory_id.categoria.id? `selected` : ""  %>><%- categoria.nombre %></option>
                             <% }) %>
                         </select>
                         <small id="categoriaErrors"></small>

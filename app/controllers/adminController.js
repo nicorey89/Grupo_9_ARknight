@@ -13,7 +13,6 @@ module.exports = {
       const CATEGORIAS = Categoria.findAll();
       Promise.all([SUCURSAL, CATEGORIAS])
       .then(([sucursales, categorias]) =>{
-        console.log(categorias);
         return res.render('admin/admin',{
             session:req.session,
             sucursales,
@@ -46,7 +45,6 @@ module.exports = {
       const CATEGORIAS = Categoria.findAll();
       Promise.all([USUARIOS, SUCURSAL, CATEGORIAS])
       .then(([usuarios, sucursales, categorias]) => {
-        console.log(sucursales);
         if(usuarios){
           res.render("admin/users-admin" , {
               users : usuarios,
@@ -161,10 +159,10 @@ module.exports = {
         });
             Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS, SUBCATEGORIAS])
             .then(([productToEdit, sucursales, categorias, subcategorias]) =>{
-              res.render('admin/product-edit-form', {
+              return res.render('admin/product-edit-form', {
                   productToEdit,
                   sucursales,
-                  categorias,
+                  categorias : categorias,
                   subcategorys: subcategorias,
                   session:req.session,
                   old: req.body,
@@ -173,6 +171,7 @@ module.exports = {
             .catch((error) => console.log(error))
     },
     update: (req, res) => {
+     
       let errors = validationResult(req);
       const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
       const SUBCATEGORIAS = Subcategoria.findAll({
@@ -196,7 +195,7 @@ module.exports = {
                       fs.existsSync(
                         path.join(__dirname, "../public/images/products", product.image)
                       ) &&
-                      product.imagen != "imageDefault.jpg"
+                      product.imagen != "default-image.png"
                     ) {
                       fs.unlinkSync(
                         path.join(__dirname, "../images/products", product.imagen)

@@ -24,7 +24,9 @@ let qs = (elemento) => {
         $inputAvatar = qs("#imagen")
         $imagenTrue = qs("#imagenTrue")
         $avatarErrors = qs("#imagenErrors")
-        $form= qs("#FORM")
+        $form= qs("#form")
+        $submitErrors = qs("#errorS")
+
         $regExPrecio = /^[0-9]{2,10}$/  
         
     console.log($inputTitulo);
@@ -174,20 +176,28 @@ let qs = (elemento) => {
             }
            });
 
-           $inputAvatar.addEventListener("blur", () => {
-               let filePath = $inputAvatar.value,
-               allowefExtensions = /(.jpg|.jpeg|.png|.gif|.web)$/i;
-            if(!allowefExtensions.exec(filePath)){ 
-                $avatarErrors.innerHTML = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
-                $inputAvatar.value = '';
-                $imagenTrue.innerHTML = '';
-                return false;
-                }else {
-                    $avatarErrors.innerHTML = '';
-                    $imagenTrue.innerHTML = 'Carga un archivo de imagen con exito';
+
+           $inputAvatar.addEventListener("change", () => {
+            allowefExtensions = /(.jpg|.jpeg|.png|.gif|.web)$/i;
+            switch (true) {
+                case !$inputAvatar.value.trim():
+                    $imagenTrue.innerHTML = "";
+                    $avatarErrors.innerHTML = ""
+                    $avatarErrors.classList.add("is-invalid");
+                    $avatarErrors.innerHTML = "LA FOTO ES OBLIGATORIA"
+                    break;
+                case !allowefExtensions.exec($inputAvatar.value):
+                    $avatarErrors.innerHTML = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
+                    break;
+                default:
+                    $avatarErrors.classList.remove("is-invalid");
+                    $avatarErrors.innerHTML = "";
                     $imagenTrue.style.color = "green"
-                    return true;
-                }
+                    $imagenTrue.innerHTML = "Carga de archivo exitoso"
+
+                    break;
+            }
+
            })
            
            $form.addEventListener("submit", (event) => {
@@ -197,7 +207,7 @@ let qs = (elemento) => {
             for (let index = 0; index < FORM_ELEMENTS.length - 1; index++) {
                 const element = FORM_ELEMENTS[index];
                 if(element.value === "" && element.type !== "file") {
-                   element.classList.add("is-invalid");
+                   //element.classList.add("is-invalid");
                     element.dispatchEvent(new Event("blur"))
                 }
                 
