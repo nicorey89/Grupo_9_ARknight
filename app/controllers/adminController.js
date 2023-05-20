@@ -2,8 +2,8 @@ const { Producto, Sequelize, Usuario, Categoria, Subcategoria, Sucursal} = requi
 const fs = require('fs');
 const path = require('path')
 const { validationResult } = require("express-validator")
-const fetch = require('node-fetch');
-const { rejects } = require('assert');
+
+
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -78,6 +78,7 @@ module.exports = {
           productToEdit,
           categorias: categorias,
           subcategorys: subcategorias,
+          sucursales,
           session: req.session
         })
       })

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head") %>
+<body>
+    <%- include("../partials/header") %>
+<main class="subcategorias home">
+    <div class="product-container">
+        <% products.forEach(producto => { %>
+          <article class="product">
+              <div class="photo-container">
+                 <a href="/products/productDetail/<%= producto.id %>"><img class="photo" src="/images/products/<%= producto.imagen ? producto.imagen : 'default-image.png' %>" alt="pdto 02"></a>
+                 <% if (producto.descuento > 0) { %>
+                    <div class="productDiscount"><%- producto.descuento %>% OFF</div>
+                <% } %>
+              </div>
+                  <p><%= producto.titulo%></p>
+                  <p><%= producto.modelo%></p>
+              <div class="precio">
+                  <h4>$<%= toThousand(producto.precio) %></h4>
+                  <h2>$<%= toThousand(producto.precio - (producto.precio*producto.descuento/100))%></h2>
+              </div>
+              <p class="cuotas">
+                  <%= producto.cuotas %> cuotas sin interes de $<%= toThousand(producto.precio/producto.cuotas)%>
+              </p>
+              <button type="submit"><a href="/productCard">Agregar al carrito</a></button>
+          </article>
+          <% })%>
+        </div>
+</main>
+
+    <%- include("../partials/footer") %>
+</body>
+</html>

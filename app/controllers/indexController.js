@@ -79,7 +79,41 @@ const controller ={
         
     },
     categorias: (req,res) => {
-
+        const SUCURSAL = Sucursal.findAll();
+        const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
+        const SUBCATEGORIAS = Subcategoria.findAll({
+          where : {
+            categoria_id : req.params.id
+          }});
+  
+        Promise.all([SUCURSAL,CATEGORIAS, SUBCATEGORIAS])
+        .then(([sucursales, categorias, subcategorias]) => {
+            return res.render("products/subcategorias", {
+              categorias,
+              subcategorias,
+              sucursales,
+              session: req.session
+            })
+          })
+    },
+    subcategoria: (req,res) => {
+        const SUCURSAL = Sucursal.findAll();
+        const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
+        const PRODUCTO = Producto.findAll({
+            where: {
+                subCategory_id: req.params.id
+            }}
+        )
+        Promise.all([SUCURSAL,CATEGORIAS, PRODUCTO])
+        .then(([sucursales, categorias, products]) => {
+            return res.render("products/productsForSubcategory", {
+              categorias,
+              sucursales,
+              products,
+              toThousand,
+              session: req.session
+            })
+          })
     },
     
 }
