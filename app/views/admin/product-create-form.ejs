@@ -65,15 +65,11 @@
                     </div>
                     <div class="formEdit">
                         <select name="subCategoria" id="subCategoria">
-                            <option value="<%= locals.old && locals.old.subCategoria ? locals.old.subCategoria : null %>" selected hidden>Sub categoria</option>
-
                             <% subcategorys.forEach(subcategory=> { %>
-                                <option value="<%- subcategory.id %>" <%=locals.old &&
-                                      old.subcategory==subcategory.id ? "selected" : null %>>
+                                <option value="<%- subcategory.id %>">
                                       <%- subcategory.nombre %>
                                 </option>
                             <% }) %>
-
                         </select>
                         <small id="subcategoriaErrors"></small>
                         <% if (locals.errors && errors.subCategoria) { %>
@@ -108,7 +104,7 @@
     
     <%- include("../partials/footer")%>
     
-  
+    <script src="/js/product-create-form.js" ></script>
 
 </body>
 </html>

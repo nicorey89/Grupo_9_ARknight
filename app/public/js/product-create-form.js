@@ -48,7 +48,7 @@ let qs = (elemento) => {
         $inputTitulo.addEventListener("blur" , () => {
             switch (true) {
              case !$inputTitulo.value.trim():
-                   $tituloErrors.innerText = "545454EL TITULO ES OBLIGATORIO";
+                   $tituloErrors.innerText = "EL TITULO ES OBLIGATORIO";
                    $inputTitulo.classList.add("is-invalid");
                    break;
                default:
@@ -136,7 +136,7 @@ let qs = (elemento) => {
            $inputCategoria.addEventListener("blur", () => {
             switch (true) {
                   case !$inputCategoria.value:
-                        $categoriaErrors.innerText = "El campo categoria es obligator000";
+                        $categoriaErrors.innerText = "El campo categoria es obligatorio";
                         $inputCategoria.classList.add("is-invalid");
                         break;
                   default:
@@ -211,7 +211,7 @@ let qs = (elemento) => {
             if(errores) {
                 submitErrors.innerText = "Hay errores en el formulario"
             } else {
-                $form.submit()
+                $form.submit();
             }
          })
     })

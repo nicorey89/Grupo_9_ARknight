@@ -26,10 +26,6 @@ module.exports = [
     .notEmpty()
     .withMessage("El detalle es obligatorio"),
 
-    check("categoria")
-    .notEmpty()
-    .withMessage("El categoria es obligatorio"),
-
     check("subCategoria")
     .notEmpty()
     .withMessage("El SubCategoria es obligatorio"),
