@@ -102,8 +102,8 @@ module.exports = {
         });
       }
       if (errors.isEmpty()) {
-        let { titulo, modelo, precio, cuotas, descripcion, descuento, subCategoria, categoria } = req.body;
-  
+        let { titulo, modelo, precio, cuotas, descripcion, descuento, subCategoria} = req.body;
+        console.log(req.body)
         let newProduct = {
           titulo,
           modelo,
@@ -111,15 +111,17 @@ module.exports = {
           cuotas,
           descripcion,
           descuento,
-          categoria,
           subCategory_id: subCategoria,
           imagen: req.file ? req.file.filename : "default-image.png"
         };
-  
+        
+        console.log(newProduct);
+
         Producto.create(newProduct)
         .then(() => {
           return res.redirect("/admin/products");
         })
+
       } else {
 
         // if (req.file) {
@@ -211,10 +213,10 @@ module.exports = {
               precio,
               descuento,
               cuotas,
-              categoria,
               subCategoria,
               descripcion,
             } = req.body
+            
             
              Producto.update({
               titulo: titulo,
@@ -222,7 +224,6 @@ module.exports = {
               precio: precio,
               descuento: descuento,
               cuotas: cuotas,
-              categoria: categoria,
               subCategory_id: subCategoria,
               descripcion: descripcion,
               imagen : req.file ? req.file.filename : "default-image.png",
