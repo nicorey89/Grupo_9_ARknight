@@ -1,52 +1,35 @@
-let qs = (elemento) => {
+let QS = (elemento) => {
     return document.querySelector(elemento);
   }
 
    // titulo - modelo - precio - descuento - cuota
 
    window.addEventListener("load" , () => { 
-    let $inputTitulo = qs("#titulo")
-        $tituloErrors = qs("#tituloErrors")
-        $inputModelo = qs("#modelo")
-        $modeloErrors = qs("#modeloErrors")
-        $inputPrecio = qs("#precio")
-        $precioErrors = qs("#precioErrors")
-        $inputDescuento = qs("#descuento")
-        $descuentoErrors = qs("#descuentoErrors")
-        $inputCuota = qs("#cuotas")
-        $cuotaErrors = qs("#cuotasErrors")
-        $inputCategoria = qs("#categoria")
-        $categoriaErrors = qs("#categoriaErrors")
-        $inputsubCategoria = qs("#subCategoria")
-        $subCategoriaErrors = qs("#subcategoriaErrors")
-        $inputDescripcion = qs("#descripcion")
-        $descripcionErrors = qs("#descripcionErrors")
-        $inputAvatar = qs("#imagen")
-        $imagenTrue = qs("#imagenTrue")
-        $avatarErrors = qs("#imagenErrors")
-        $form= qs("#form")
-        $submitErrors = qs("#errorS")
-
-        $regExPrecio = /^[0-9]{2,10}$/  
+    let $inputTitulo = QS("#titulo"),
+        $tituloErrors = QS("#tituloErrors"),
+        $inputModelo = QS("#modelo"),
+        $modeloErrors = QS("#modeloErrors"),
+        $inputPrecio = QS("#precio"),
+        $precioErrors = QS("#precioErrors"),
+        $inputDescuento = QS("#descuento"),
+        $descuentoErrors = QS("#descuentoErrors"),
+        $inputCuota = QS("#cuotas"),
+        $cuotaErrors = QS("#cuotasErrors"),
+        $inputCategoria = QS("#categoria"),
+        $categoriaErrors = QS("#categoriaErrors"),
+        $inputsubCategoria = QS("#subCategoria"),
+        $subCategoriaErrors = QS("#subcategoriaErrors"),
+        $inputDescripcion = QS("#descripcion"),
+        $descripcionErrors = QS("#descripcionErrors"),
+        $inputAvatar = QS("#imagen"),
+        $imagenTrue = QS("#imagenTrue"),
+        $avatarErrors = QS("#imagenErrors"),
+        $form= QS("#form"),
+        $submitErrors = QS("#errorS"),
+        regExPrecio = /^[0-9]{1,10}$/,
+        regExCuota = /^[0-9]{1,2}$/
         
-    console.log($inputTitulo);
-    console.log($tituloErrors);
-    console.log($inputModelo);
-    console.log($modeloErrors);
-    console.log($inputPrecio);
-    console.log($precioErrors);
-    console.log($inputDescuento);
-    console.log( $descuentoErrors);
-    console.log($inputCuota);
-    console.log( $cuotaErrors);
-    console.log($inputCategoria);
-    console.log($categoriaErrors);
-    console.log($inputsubCategoria);
-    console.log( $subCategoriaErrors);
-    console.log($inputAvatar);
-    console.log($imagenTrue);
-    console.log($avatarErrors);
-    console.log($form);
+
         $inputTitulo.addEventListener("blur" , () => {
             switch (true) {
              case !$inputTitulo.value.trim():

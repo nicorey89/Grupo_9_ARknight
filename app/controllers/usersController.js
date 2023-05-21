@@ -34,6 +34,8 @@ const controller = {
     },
     crear: (req, res) => {
         let errors = validationResult(req);
+        const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
+        const SUCURSAL = Sucursal.findAll();
 
         if (errors.isEmpty()) {
             let newUser = {
@@ -57,6 +59,8 @@ const controller = {
               
         } else {
             return res.render("users/register", {
+                categorias: CATEGORIAS,
+                sucursales: SUCURSAL,
                 errors: errors.mapped(),
                 session: req.session,
                 old: req.body,
@@ -65,6 +69,8 @@ const controller = {
     },
     processLogin: (req, res) => {
         let errors = validationResult(req);
+        const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
+        const SUCURSAL = Sucursal.findAll();
 
         if (errors.isEmpty()) {
             Usuario.findOne({
@@ -99,6 +105,8 @@ const controller = {
             .catch(error => console.log(error))
         } else {
             return res.render("users/login", {
+                categorias: CATEGORIAS,
+                sucursales: SUCURSAL,
                 errors: errors.mapped(),
                 session: req.session
             })
@@ -152,6 +160,8 @@ const controller = {
     },
     updateProfile: (req, res) => {
         let errors = validationResult(req);
+        const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
+        const SUCURSAL = Sucursal.findAll();
          if(errors.isEmpty()) {
 
             const {
@@ -189,6 +199,8 @@ const controller = {
             Usuario.findByPk(userInSessionId)
             .then(usuario => {
                 return res.render("users/userProfileEdit", {
+                    categorias: CATEGORIAS,
+                    sucursales: SUCURSAL,
                     usuario,
                     session: req.session,
                     errors: errors.mapped(),

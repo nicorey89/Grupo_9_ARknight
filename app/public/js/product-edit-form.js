@@ -25,10 +25,10 @@ let qss = (elemento) => {
         $imagenTrue = qss("#imagenTrue")
         $avatarErrors = qss("#imagenErrors")
         $form = qss("#form"),
-        (regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/),
-        (regExPrecio = /^[0-9]{2,10}$/),
-        (regExDescuento = /^[0-9]{1,2}$/),
-        (regExCuota = /^[0-9]{1,2}$/)
+        regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/,
+        regExPrecio = /^[0-9]{2,10}$/,
+        regExDescuento = /^[0-9]{1,2}$/,
+        regExCuota = /^[0-9]{1,2}$/
 
 
 
