@@ -5,32 +5,64 @@ module.exports = {
         try {
             const USUARIOS = await Usuario.findAll();
             
+            const USERS_RESPONSE = USUARIOS.map(({id, nombre , email}) => {
+                return {
+                    id,
+                    nombre,
+                    email,
+                    datail: `/api/v1/users/${id}`
+                }
+            }) 
+
             const RESPONSE = {
-                total: USUARIOS.length,
+                total: USERS_RESPONSE.length,
                 msg : 'Lista de usuarios', 
                 endpoint: "/users/",
-                data: USUARIOS,
+                data: USERS_RESPONSE,
             };
 
             res.status(200).json(RESPONSE);
 
         } catch (error) {
-            res.status(500).send(error);
+            res.status(500).json({error});
         }
+        
     },
     detail: async (req, res) => {
         const USER_ID = req.params.id;
         try {
-            const USER = await Usuario.findByPk(USER_ID);
+            const {
+                id,
+                nombre,
+                apellido,
+                email,
+                avatar,
+                telefono,
+                codigo_postal,
+                provincia,
+                localidad,
+                direccion
+            } = await Usuario.findByPk(USER_ID);
 
-            if(USER !== null) {
+            const USER_DATA_RESPONSE = {
+                 id,
+                nombre,
+                apellido,
+                email,
+                telefono,
+                avatar,
+                codigo_postal,
+                provincia,
+                localidad,
+                direccion
+            };
+
+            if(USER_DATA_RESPONSE !== null) {
                 const RESPONSE = {
-                    total: USER.length,
                     msg : 'Detalle del usuario',
                     endpoint: `/users/${USER_ID}`,
-                    data: USER
+                    data: USER_DATA_RESPONSE,
                 };
-    
                return res.status(200).json(RESPONSE);
             }
 

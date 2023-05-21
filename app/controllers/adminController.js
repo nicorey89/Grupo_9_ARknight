@@ -195,12 +195,12 @@ module.exports = {
                   if (req.file) {
                     if (
                       fs.existsSync(
-                        path.join(__dirname, "../public/images/products", product.image)
+                        path.join("../public/images/products", product.image)
                       ) &&
                       product.imagen != "default-image.png"
                     ) {
                       fs.unlinkSync(
-                        path.join(__dirname, "../images/products", product.imagen)
+                        path.join("../images/products", product.imagen)
                       );
                     }
                   }
