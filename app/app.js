@@ -31,6 +31,7 @@ const adminRouter = require("./routes/admin")
 const sucursalesRouter = require("./routes/sucursales")
 const apiRouter = require("./routes/api")
 const subCategoriesRoutesApi = require("./routes/api/subCategoriesRoutes");
+const usersRouter = require('./routes/api/users');
  
 /* --------ROUTER MIDDLEWARES------- */ 
 app.use("/", indexRouter);
@@ -40,5 +41,6 @@ app.use("/admin", adminRouter);
 app.use("/sucursales", sucursalesRouter);
 app.use("/api/v1", apiRouter);
 app.use("/api/v1", subCategoriesRoutesApi);
+app.use("/api/v1", usersRouter);
 
 app.listen(PORT, () => console.log(`Server listen in port ${PORT}\n http://localhost:${PORT}`));
