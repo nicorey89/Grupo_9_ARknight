@@ -66,7 +66,7 @@ module.exports = {
                return res.status(200).json(RESPONSE);
             }
 
-            return res.status(400).json(`La categoria con id: ${USER_ID} no existe`)
+            return res.status(400).json(`El usuario con id: ${USER_ID} no existe`)
             
         } catch (error) {
             res.status(500).send(error);           

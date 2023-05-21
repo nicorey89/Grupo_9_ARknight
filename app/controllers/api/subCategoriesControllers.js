@@ -12,7 +12,7 @@ module.exports = {
                         data: RESULT,
                   });
             } catch (error) {
-                 return res.status(500).json({error})
+                 return res.status(500).json(error)
             }
       },
 };

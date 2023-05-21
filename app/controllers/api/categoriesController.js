@@ -42,21 +42,4 @@ module.exports = {
             res.status(500).send(error);           
         }
     }, 
-//     store: async (req, res) => {
-//         try {
-//               const RESULT = await Categoria.create({
-//                     name: req.body.nombre,
-//               });
-//               return res.status(201).json({
-//                     meta: {
-//                           status: 201,
-//                           url: "api/v1/categoria/create",
-//                           msg: "Categoria Agregada",
-//                     },
-//                     data: RESULT,
-//               });
-//         } catch (error) {
-//               console.log(error);
-//         }
-//   },
 }
