@@ -23,7 +23,7 @@ main.register img{
     padding: 16px;
     background-color: white;
     border: black 1px solid;
-    border-radius: 4px;
+    border-radius: .8rem;
     box-shadow: 5px 5px 15px black;
     display: flex;
     flex-direction: column;

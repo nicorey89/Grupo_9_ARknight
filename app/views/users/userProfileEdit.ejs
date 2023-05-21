@@ -8,6 +8,7 @@
      
      <form action="?_method=PUT" method="POST" enctype="multipart/form-data" class="userForm" >
         <h3 class="uTitle">EDITAR PERFIL</h3>
+        <hr>
         <div class="formEdit">
             <input type="text" name="nombre" id="name" placeholder="Nombre" value="<%= locals.old ? old.nombre : usuario.nombre %>">
             <small id="nameErrors"></small>
@@ -51,7 +52,7 @@
             <p>Cambiar foto de perfil</p>
             <input type="file" name="avatar">
         </div>
-        <button type="submit" >
+        <button type="submit" class="agregarAlCarrito">
             GUARDAR
         </button>
         

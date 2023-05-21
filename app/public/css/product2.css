@@ -14,10 +14,10 @@
 }
 .admin article{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 975px;
-    height: 160px;
+    width: 300px;
     border: 2px solid black;
     border-radius: 10px;
 }
@@ -67,4 +67,16 @@
 }
 .admin .btn2{
     background: lightcoral;
+}
+@media (min-width:  769px){
+    .admin article{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 975px;
+        height: 160px;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
 }
