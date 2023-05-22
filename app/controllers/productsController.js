@@ -51,31 +51,6 @@ const controller = {
     })
     .catch(error => console.log(error))
     },
-    /* category: (req, res) => {
-      const categoryId = req.params.id;
-
-    category.findByPk(categoryId, {
-      include: [
-        {
-        association: 'subcategories',
-        includes: {association: 'products',
-      include: {association: 'images'}}
-      }]
-    })
-    .then((category) => {
-      const PRODUCTS = category.subcategories.map(
-        subcategory => subcategory)
-      return res.render('categories', {
-        category,
-        subcategories: category.subcategories,
-        products: PRODUCTS.flat(),
-        session: req.session
-    })
-    
-    })
-    .catch(error => console.log(error))
-    }
-  } */
   pCard:(req, res)=>{
     const SUCURSAL = Sucursal.findAll();
     const PRODUCTO = Producto.findAll();

@@ -1,54 +1,39 @@
-let qs = (elemento) => {
+let QS = (elemento) => {
     return document.querySelector(elemento);
   }
 
    // titulo - modelo - precio - descuento - cuota
 
    window.addEventListener("load" , () => { 
-    let $inputTitulo = qs("#titulo")
-        $tituloErrors = qs("#tituloErrors")
-        $inputModelo = qs("#modelo")
-        $modeloErrors = qs("#modeloErrors")
-        $inputPrecio = qs("#precio")
-        $precioErrors = qs("#precioErrors")
-        $inputDescuento = qs("#descuento")
-        $descuentoErrors = qs("#descuentoErrors")
-        $inputCuota = qs("#cuotas")
-        $cuotaErrors = qs("#cuotasErrors")
-        $inputCategoria = qs("#categoria")
-        $categoriaErrors = qs("#categoriaErrors")
-        $inputsubCategoria = qs("#subCategoria")
-        $subCategoriaErrors = qs("#subcategoriaErrors")
-        $inputDescripcion = qs("#descripcion")
-        $descripcionErrors = qs("#descripcionErrors")
-        $inputAvatar = qs("#imagen")
-        $imagenTrue = qs("#imagenTrue")
-        $avatarErrors = qs("#imagenErrors")
-        $form= qs("#FORM")
-        $regExPrecio = /^[0-9]{2,10}$/  
+    let $inputTitulo = QS("#titulo"),
+        $tituloErrors = QS("#tituloErrors"),
+        $inputModelo = QS("#modelo"),
+        $modeloErrors = QS("#modeloErrors"),
+        $inputPrecio = QS("#precio"),
+        $precioErrors = QS("#precioErrors"),
+        $inputDescuento = QS("#descuento"),
+        $descuentoErrors = QS("#descuentoErrors"),
+        $inputCuota = QS("#cuotas"),
+        $cuotaErrors = QS("#cuotasErrors"),
+        $inputCategoria = QS("#categoria"),
+        $categoriaErrors = QS("#categoriaErrors"),
+        $inputsubCategoria = QS("#subCategoria"),
+        $subCategoriaErrors = QS("#subcategoriaErrors"),
+        $inputDescripcion = QS("#descripcion"),
+        $descripcionErrors = QS("#descripcionErrors"),
+        $inputAvatar = QS("#imagen"),
+        $imagenTrue = QS("#imagenTrue"),
+        $avatarErrors = QS("#imagenErrors"),
+        $form= QS("#form"),
+        $submitErrors = QS("#errorS"),
+        regExPrecio = /^[0-9]{1,10}$/,
+        regExCuota = /^[0-9]{1,2}$/
         
-    console.log($inputTitulo);
-    console.log($tituloErrors);
-    console.log($inputModelo);
-    console.log($modeloErrors);
-    console.log($inputPrecio);
-    console.log($precioErrors);
-    console.log($inputDescuento);
-    console.log( $descuentoErrors);
-    console.log($inputCuota);
-    console.log( $cuotaErrors);
-    console.log($inputCategoria);
-    console.log($categoriaErrors);
-    console.log($inputsubCategoria);
-    console.log( $subCategoriaErrors);
-    console.log($inputAvatar);
-    console.log($imagenTrue);
-    console.log($avatarErrors);
-    console.log($form);
+
         $inputTitulo.addEventListener("blur" , () => {
             switch (true) {
              case !$inputTitulo.value.trim():
-                   $tituloErrors.innerText = "545454EL TITULO ES OBLIGATORIO";
+                   $tituloErrors.innerText = "EL TITULO ES OBLIGATORIO";
                    $inputTitulo.classList.add("is-invalid");
                    break;
                default:
@@ -136,7 +121,7 @@ let qs = (elemento) => {
            $inputCategoria.addEventListener("blur", () => {
             switch (true) {
                   case !$inputCategoria.value:
-                        $categoriaErrors.innerText = "El campo categoria es obligator000";
+                        $categoriaErrors.innerText = "El campo categoria es obligatorio";
                         $inputCategoria.classList.add("is-invalid");
                         break;
                   default:
@@ -174,20 +159,28 @@ let qs = (elemento) => {
             }
            });
 
-           $inputAvatar.addEventListener("blur", () => {
-               let filePath = $inputAvatar.value,
-               allowefExtensions = /(.jpg|.jpeg|.png|.gif|.web)$/i;
-            if(!allowefExtensions.exec(filePath)){ 
-                $avatarErrors.innerHTML = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
-                $inputAvatar.value = '';
-                $imagenTrue.innerHTML = '';
-                return false;
-                }else {
-                    $avatarErrors.innerHTML = '';
-                    $imagenTrue.innerHTML = 'Carga un archivo de imagen con exito';
+
+           $inputAvatar.addEventListener("change", () => {
+            allowefExtensions = /(.jpg|.jpeg|.png|.gif|.web)$/i;
+            switch (true) {
+                case !$inputAvatar.value.trim():
+                    $imagenTrue.innerHTML = "";
+                    $avatarErrors.innerHTML = ""
+                    $avatarErrors.classList.add("is-invalid");
+                    $avatarErrors.innerHTML = "LA FOTO ES OBLIGATORIA"
+                    break;
+                case !allowefExtensions.exec($inputAvatar.value):
+                    $avatarErrors.innerHTML = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
+                    break;
+                default:
+                    $avatarErrors.classList.remove("is-invalid");
+                    $avatarErrors.innerHTML = "";
                     $imagenTrue.style.color = "green"
-                    return true;
-                }
+                    $imagenTrue.innerHTML = "Carga de archivo exitoso"
+
+                    break;
+            }
+
            })
            
            $form.addEventListener("submit", (event) => {
@@ -197,7 +190,7 @@ let qs = (elemento) => {
             for (let index = 0; index < FORM_ELEMENTS.length - 1; index++) {
                 const element = FORM_ELEMENTS[index];
                 if(element.value === "" && element.type !== "file") {
-                   element.classList.add("is-invalid");
+                   //element.classList.add("is-invalid");
                     element.dispatchEvent(new Event("blur"))
                 }
                 
@@ -211,7 +204,7 @@ let qs = (elemento) => {
             if(errores) {
                 submitErrors.innerText = "Hay errores en el formulario"
             } else {
-                $form.submit()
+                $form.submit();
             }
          })
     })

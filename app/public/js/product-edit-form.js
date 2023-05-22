@@ -25,10 +25,10 @@ let qss = (elemento) => {
         $imagenTrue = qss("#imagenTrue")
         $avatarErrors = qss("#imagenErrors")
         $form = qss("#form"),
-        (regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/),
-        (regExPrecio = /^[0-9]{2,10}$/),
-        (regExDescuento = /^[0-9]{1,2}$/),
-        (regExCuota = /^[0-9]{1,2}$/)
+        regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/,
+        regExPrecio = /^[0-9]{2,10}$/,
+        regExDescuento = /^[0-9]{1,2}$/,
+        regExCuota = /^[0-9]{1,2}$/
 
 
 
@@ -177,12 +177,26 @@ let qss = (elemento) => {
                 $inputAvatar.value = '';
                 $imagenTrue.innerHTML = '';
                 return false;
-                }else {
-                    $avatarErrors.innerHTML = '';
-                    $imagenTrue.innerHTML = 'Carga un archivo de imagen con exito';
-                    $imagenTrue.style.color = "green"
-                    return true;
                 }
+           })
+
+           $inputAvatar.addEventListener("change", () => {
+            let filePath = $inputAvatar.value;
+            switch (true) {
+                case !filePath.trim():
+                    $avatarErrors.innerHTML = "LA FOTO ES OBLIGATORIA"
+                    $avatarErrors.classList.add("is-invalid");
+                    break;
+            
+                default:
+                    $avatarErrors.classList.remove("is-invalid");
+                    $avatarErrors.innerHTML = "";
+                    $imagenTrue.innerHTML = "Carga de archivo exitoso"
+                    $imagenTrue.classList.add("is-valid")
+
+                    break;
+            }
+
            })
            
            $form.addEventListener("submit", (event) => {
