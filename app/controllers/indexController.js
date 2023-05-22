@@ -49,12 +49,13 @@ const controller ={
         )
         const CATEGORIAS = Categoria.findAll();
         Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS])
-        .then(([producto, sucursales]) => {
+        .then(([producto, sucursales, categorias]) => {
            if (producto) {
                return res.render('products/search', {
                   products : producto,
                   toThousand,
                   sucursales,
+                  categorias,
                   session:req.session
                    })
            }else {
