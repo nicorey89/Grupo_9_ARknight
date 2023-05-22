@@ -68,3 +68,17 @@ Empezar a hacer: Adelantar tareas.
 Dejar de hacer: Pocas reuniones de todo el equipo.
 
 Hacer menos: Procastinar.
+
+
+SPRINT 7 : 
+
+
+Seguir haciendo: Trabajo en equipo.
+
+Hacer mas: Comentar el codigo , apoyarse en la documentacion para seguir aprendiendo sobre la tecnologia.
+
+Empezar a hacer: Comprometidos con nuestras responsabilidades , pro activos y mas dailys.
+
+Dejar de hacer: Limitarse en solo lo visto en clases y seguir investigando.
+
+Hacer menos: Frustarse al no lograr lo esperado para si poder crecer.
