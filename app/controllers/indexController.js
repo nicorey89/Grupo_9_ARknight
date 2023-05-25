@@ -57,7 +57,7 @@ const controller ={
                   sucursales,
                   categorias,
                   session:req.session
-                   })
+                   }) 
            }else {
             throw new Error('NO SE ENCONTRO EL PRODUCTO')
            }})
