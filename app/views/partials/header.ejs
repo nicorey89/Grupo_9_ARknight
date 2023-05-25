@@ -11,7 +11,7 @@
                     <li><a href="/categoria/">Categorias<i class="fa-solid fa-angle-down"></i></a></li>
                     <div class="categorias-content">
                         <% categorias.forEach(categoria => {%>
-                            <a  href="/categoria/<%= categoria.id %>"><%= categoria.nombre %></a>
+                            <a  href="/categoria/<%= categoria.id %>"><h5 class="category-list"><%= categoria.nombre %><i class="fa-solid fa-angle-right"></i></h5></a>
                         <% })%>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                     <li><a href="/sucursales">Sucursales<i class="fa-solid fa-angle-down"></i></a></li>
                     <div class="categorias-content">
                         <% sucursales.forEach(sucursal => { %>
-                            <a href="/sucursales/<%= sucursal.id%>"> <%= sucursal.nombre %></a>
+                            <a href="/sucursales/<%= sucursal.id%>"><h5 class="category-list"><%= sucursal.nombre %><i class="fa-solid fa-angle-right"></i></h5></a>
                         <% })%>
                     </div>
                 </div>

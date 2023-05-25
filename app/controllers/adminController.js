@@ -195,7 +195,7 @@ module.exports = {
                   if (req.file) {
                     if (
                       fs.existsSync(
-                        path.join("../public/images/products", product.image)
+                        path.join("../public/images/products", product.imagen)
                       ) &&
                       product.imagen != "default-image.png"
                     ) {
@@ -226,7 +226,7 @@ module.exports = {
               cuotas: cuotas,
               subCategory_id: subCategoria,
               descripcion: descripcion,
-              imagen : req.file ? req.file.filename : "default-image.png",
+              imagen : req.file,
              },{
               where:{
                 id: req.params.id

@@ -84,7 +84,7 @@
                     </div>
                     <div class="avatarFile">
                         <p>Modificar imagen</p>
-                        <input type="file" name="imagen" id="imagen">
+                        <input type="file" name="imagen" id="imagen" value="<%= productToEdit.imagen %>">
                     </div>
                     <div class="input-container">
                         <small id="imagenErrors"></small>
@@ -94,7 +94,7 @@
                         <small id="imagenTrue"></small>
                     </div>
                     <div class="button-container">
-                        <button type="submit">
+                        <button type="submit" class="agregarAlCarrito">
                            Editar producto
                         </button>
                     </div>

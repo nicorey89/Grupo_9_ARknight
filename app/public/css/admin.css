@@ -10,7 +10,7 @@ main.admin{
 }
 .admin .Administrador{
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     margin: 20px;
     flex-wrap: wrap;
     justify-content: center;
@@ -35,7 +35,6 @@ main.admin{
 @media (min-width: 1024px){
     .admin .Administrador{
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
     }
     .admin .Administrador div.buttons{

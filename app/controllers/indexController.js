@@ -105,10 +105,16 @@ const controller ={
                 subCategory_id: req.params.id
             }}
         )
-        Promise.all([SUCURSAL,CATEGORIAS, PRODUCTO])
-        .then(([sucursales, categorias, products]) => {
+        const SUBCATEGORIAS = Subcategoria.findAll({
+            where : {
+              categoria_id : req.params.id
+            }});
+    
+        Promise.all([SUCURSAL,CATEGORIAS, PRODUCTO, SUBCATEGORIAS])
+        .then(([sucursales, categorias, products, subcategorias]) => {
             return res.render("products/productsForSubcategory", {
               categorias,
+              subcategorias,
               sucursales,
               products,
               toThousand,

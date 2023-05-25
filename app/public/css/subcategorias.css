@@ -2,3 +2,10 @@ main.subcategorias{
     display: flex;
     
 }
+a{
+    text-decoration: none;
+    color: var(--naranja);
+}
+a:hover{
+    color: black;
+}

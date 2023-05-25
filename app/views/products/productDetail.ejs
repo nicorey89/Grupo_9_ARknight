@@ -24,7 +24,7 @@
                   <% if(producto.descuento){%>
                     <h4 class="precio-rayado">$<%= toThousand(producto.precio) %></h4>
                     <h3>$<%= toThousand( producto.precio - ( producto.precio * producto.descuento/100))%> </h3>
-                    <h4 class="descuento"><%= producto.descuento %>%</h4>
+                    <h4 class="descuento"><%= producto.descuento %>%Off</h4>
                   <% }else{ %>
                     <h3 class="precio-sin-descuento">$<%= toThousand(producto.precio) %></h3>
                   <% } %>

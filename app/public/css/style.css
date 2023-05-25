@@ -34,10 +34,20 @@ select.is-invalid{
     color: red;
     border: 1px solid red;
 }
-.category-list{
+h2.category-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border: 2px solid var(--naranja);
+    border-radius: 10px;
     width: 400px;
     margin: 5px;
+    padding: 5px;
+}
+h5.category-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .categoriasContent{
     width: 400px;

@@ -18,7 +18,7 @@ footer{
      width: 120px;
  }
  footer li a {
-     color: var(--naranja);
+     color: black;
  }
  footer li a:hover{
      color: var(--naranja);

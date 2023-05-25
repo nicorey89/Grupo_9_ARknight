@@ -1,6 +1,6 @@
 .admin #global {
 	height: 400px;
-	width: 1000px;
+	width: 340px;
 	border: 1px solid #ddd;
 	background: #f1f1f1;
 	overflow-y: scroll;
@@ -69,14 +69,25 @@
     background: lightcoral;
 }
 @media (min-width:  769px){
+    .admin #global {
+        width: 740px;
+    }
     .admin article{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        width: 975px;
+        width: 710px;
         height: 160px;
         border: 2px solid black;
         border-radius: 10px;
+    }
+}
+@media (min-width:  1300px){
+    .admin #global {
+        width: 1000px;
+    }
+    .admin article{
+        width: 975px;
     }
 }

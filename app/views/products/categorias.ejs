@@ -6,7 +6,7 @@
 <main>
     <div class="categoriasContent">
         <% categorias.forEach(categoria => {%>
-        <a  href="/categoria/<%= categoria.id %>"><h1 class="category-list"><%= categoria.nombre %></h1></a>
+        <a  href="/categoria/<%= categoria.id %>"><h2 class="category-list"><%= categoria.nombre %><i class="fa-solid fa-angle-right"></i></h2></a>
         <% }) %>
     </div>
 </main>
