@@ -33,7 +33,7 @@ let QS = (elemento) => {
         $inputTitulo.addEventListener("blur" , () => {
             switch (true) {
              case !$inputTitulo.value.trim():
-                   $tituloErrors.innerText = "EL TITULO ES OBLIGATORIO";
+                   $tituloErrors.innerText = "El titulo es obligatorio";
                    $inputTitulo.classList.add("is-invalid");
                    break;
                default:
@@ -131,20 +131,22 @@ let QS = (elemento) => {
                         break;
             }
            });  
-            $inputsubCategoria.addEventListener("blur", () => {
-                switch (true) {
-                    case !$inputsubCategoria.value:
-                        $subCategoriaErrors.innerText = "El campo subcategoria es obligatorio";
-                        $inputsubCategoria.classList.add("is-invalid");
-                        break;
-                    default:
-                        $inputsubCategoria.classList.remove("is-invalid");
-                        $inputsubCategoria.classList.add("is-valid");
-                        $subCategoriaErrors.innerText = "";
-                        break;
-                }
-           });   
+             
 
+           $inputsubCategoria.addEventListener("blur", () => {
+            switch (true) {
+                case !$inputsubCategoria.value:
+                    $subCategoriaErrors.innerText = "El campo subcategoria es obligatorio";
+                    $inputsubCategoria.classList.add("is-invalid");
+                    break;
+                default:
+                    $inputsubCategoria.classList.remove("is-invalid");
+                    $inputsubCategoria.classList.add("is-valid");
+                    $subCategoriaErrors.innerText = "";
+                    break;
+            }
+       });
+            
            $inputDescripcion.addEventListener("blur" , () => {
             switch (true) {
              case !$inputDescripcion.value.trim():
@@ -161,26 +163,23 @@ let QS = (elemento) => {
 
 
            $inputAvatar.addEventListener("change", () => {
-            allowefExtensions = /(.jpg|.jpeg|.png|.gif|.web)$/i;
+            const allowefExtensions = /(.jpg|.jpeg|.png|.gif|.web)$/i;
+            let filePath = $inputAvatar.value;
             switch (true) {
-                case !$inputAvatar.value.trim():
-                    $imagenTrue.innerHTML = "";
-                    $avatarErrors.innerHTML = ""
-                    $avatarErrors.classList.add("is-invalid");
-                    $avatarErrors.innerHTML = "LA FOTO ES OBLIGATORIA"
-                    break;
-                case !allowefExtensions.exec($inputAvatar.value):
-                    $avatarErrors.innerHTML = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
-                    break;
+                case !allowefExtensions.exec(filePath):
+                        $imagenTrue.innerHTML = ""
+                        $avatarErrors.innerText = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
+                        $inputAvatar.value = "";
+                        $avatarErrors.classList.add("is-invalid");
+                        break;
                 default:
                     $avatarErrors.classList.remove("is-invalid");
                     $avatarErrors.innerHTML = "";
-                    $imagenTrue.style.color = "green"
                     $imagenTrue.innerHTML = "Carga de archivo exitoso"
-
+                    $imagenTrue.classList.add("is-valid")
                     break;
             }
-
+            
            })
            
            $form.addEventListener("submit", (event) => {
@@ -202,7 +201,7 @@ let QS = (elemento) => {
             let errores = elementosConErrores.length > 0; 
     
             if(errores) {
-                submitErrors.innerText = "Hay errores en el formulario"
+                $submitErrors.innerText = "Hay errores en el formulario"
             } else {
                 $form.submit();
             }

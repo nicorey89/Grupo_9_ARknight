@@ -16,13 +16,14 @@
 @import url('product2.css');
 @import url('subcategorias.css');
 small{
+    text-align: center;
     color: red;
 }
 input.is-invalid{
     color: red;
     border: 1px solid red;
 }
-input.is-valid{
+small.is-valid{
     color: green;
     border: 1px solid green;
 }

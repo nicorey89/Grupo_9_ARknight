@@ -25,6 +25,7 @@ let qss = (elemento) => {
         $imagenTrue = qss("#imagenTrue")
         $avatarErrors = qss("#imagenErrors")
         $form = qss("#form"),
+        $submitErrors = qss("#errorS"),
         regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/,
         regExPrecio = /^[0-9]{2,10}$/,
         regExDescuento = /^[0-9]{1,2}$/,
@@ -181,13 +182,15 @@ let qss = (elemento) => {
            })
 
            $inputAvatar.addEventListener("change", () => {
+            const allowefExtensions = /(.jpg|.jpeg|.png|.gif|.web)$/i;
             let filePath = $inputAvatar.value;
             switch (true) {
-                case !filePath.trim():
-                    $avatarErrors.innerHTML = "LA FOTO ES OBLIGATORIA"
-                    $avatarErrors.classList.add("is-invalid");
-                    break;
-            
+                case !allowefExtensions.exec(filePath):
+                        $imagenTrue.innerHTML = ""
+                        $avatarErrors.innerText = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
+                        $inputAvatar.value = "";
+                        $avatarErrors.classList.add("is-invalid");
+                        break;
                 default:
                     $avatarErrors.classList.remove("is-invalid");
                     $avatarErrors.innerHTML = "";
@@ -196,7 +199,6 @@ let qss = (elemento) => {
 
                     break;
             }
-
            })
            
            $form.addEventListener("submit", (event) => {
@@ -218,7 +220,7 @@ let qss = (elemento) => {
             let errores = elementosConErrores.length > 0; 
     
             if(errores) {
-                submitErrors.innerText = "Hay errores en el formulario"
+                $submitErrors.innerText = "Hay errores en el formulario"
             } else {
                 $form.submit()
             }

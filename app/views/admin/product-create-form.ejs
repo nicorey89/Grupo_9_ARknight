@@ -85,7 +85,7 @@
                     </div>
                     <div class="avatarFile">
                         <p>Agregar imagen</p>
-                        <input type="file" name="imagen" id="imagen">
+                        <input type="file" name="imagen" id="imagen" value="">
                     </div>
                     <div class="formEdit">
                         <small id="imagenErrors"></small>
@@ -94,10 +94,12 @@
                         <% } %>
                         <small id="imagenTrue"></small>
                     </div>
-                    <button type="submit" class="agregarAlCarrito create" >
-                       CREAR PRODUCTO
-                    </button>
-                    <small id="errorS"></small>
+                    <div>
+                        <small id="errorS"></small>
+                        <button type="submit" class="agregarAlCarrito create" >
+                           CREAR PRODUCTO
+                        </button>
+                    </div>
                 </div>
             </form>    
         </div>

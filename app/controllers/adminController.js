@@ -77,7 +77,8 @@ module.exports = {
           categorias: categorias,
           subcategorys: subcategorias,
           sucursales,
-          session: req.session
+          session: req.session,
+          old: req.body,
         })
       })
     },
@@ -103,7 +104,6 @@ module.exports = {
       }
       if (errors.isEmpty()) {
         let { titulo, modelo, precio, cuotas, descripcion, descuento, subCategoria} = req.body;
-        console.log(req.body)
         let newProduct = {
           titulo,
           modelo,
@@ -123,10 +123,6 @@ module.exports = {
         })
 
       } else {
-
-        // if (req.file) {
-        //   fs.unlinkSync( path.resolve(__dirname, "../public/images/products", req.file.filename))
-        // }
         const PRODUCTO_ALL = Producto.findByPk(req.params.id, {
                 include: [{ association: "Subcategorias", include: [{ association: "categoria" }]}],
         });
@@ -138,12 +134,13 @@ module.exports = {
               include: [{ association: "productos" }, { association: "categoria" }],
         });
 
-        Promise.all([PRODUCTO_ALL, CATEGORIAS, SUBCATEGORIAS])
-        .then(([ productToEdit,categorias, subcategorias]) => {
+        Promise.all([SUCURSAL,PRODUCTO_ALL, CATEGORIAS, SUBCATEGORIAS])
+        .then(([sucursales, productToEdit,categorias, subcategorias]) => {
         return res.render("admin/product-create-form", {
           productToEdit,
           categorias: categorias,
           subcategorys: subcategorias,
+          sucursales,
           session: req.session,
           errors: errors.mapped(),
           old: req.body,
@@ -175,10 +172,6 @@ module.exports = {
     update: (req, res) => {
      
       let errors = validationResult(req);
-      const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
-      const SUBCATEGORIAS = Subcategoria.findAll({
-        include: [{ association: "productos" }, { association: "categoria" }],
-      });
       
       if(req.fileValidatorError){
         errors.errors.push({
@@ -191,22 +184,25 @@ module.exports = {
 
         if(errors.isEmpty()) {
           Producto.findByPk(req.params.id)
-            .then((product) => {
-                  if (req.file) {
+            .then((producto) => {
+              // console.log(producto);
+              // console.log(producto.imagen);
+                  if (req.file.filename) {
+                    // console.log(req.file.filename);
                     if (
                       fs.existsSync(
-                        path.join("../public/images/products", product.imagen)
+                        path.join(__dirname, "../public/images/products", producto.imagen)
                       ) &&
-                      product.imagen != "default-image.png"
+                      producto.imagen != "default-image.png"
                     ) {
                       fs.unlinkSync(
-                        path.join("../images/products", product.imagen)
+                        path.join(__dirname, "../public/images/products", producto.imagen)
                       );
+                      // console.log('se elimino');
                     }
                   }
               })
               .catch(rejects => console.warn(rejects.value))
-
             const {
               titulo,
               modelo,
@@ -226,7 +222,7 @@ module.exports = {
               cuotas: cuotas,
               subCategory_id: subCategoria,
               descripcion: descripcion,
-              imagen : req.file,
+              imagen : req.file
              },{
               where:{
                 id: req.params.id
@@ -239,6 +235,13 @@ module.exports = {
             .catch(rejects => console.warn(rejects.value))
             
         } else {
+
+          if (req.file.filename) {
+            fs.unlinkSync(
+              path.join(__dirname, "../public/images/products", req.file.filename )
+            );
+          }
+
           let productId = req.params.id;
             const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
             const SUCURSAL = Sucursal.findAll();
@@ -262,6 +265,23 @@ module.exports = {
     },
     destroy : (req, res ) => {
 		  let productId = req.params.id;
+
+      Producto.findByPk(productId)
+            .then((producto) => {
+              // console.log(producto.imagen);
+                    if (
+                      fs.existsSync(
+                        path.join(__dirname, "../public/images/products", producto.imagen)
+                      ) &&
+                      producto.imagen != "default-image.png"
+                    ) {
+                      fs.unlinkSync(
+                        path.join(__dirname, "../public/images/products", producto.imagen)
+                      );
+                      console.log('se elimino');
+                    }
+              })
+              .catch(rejects => console.warn(rejects.value))
 
       Producto.destroy({
         where: {
