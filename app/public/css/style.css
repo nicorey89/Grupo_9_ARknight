@@ -22,10 +22,15 @@ small{
 input.is-invalid{
     color: red;
     border: 1px solid red;
+
+}
+input.is-valid{
+    color: green;
+    border: 1px solid green;
 }
 small.is-valid{
     color: green;
-    border: 1px solid green;
+    
 }
 textarea.is-invalid{
     color: red;
