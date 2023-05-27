@@ -46,11 +46,12 @@ h2.category-list{
     align-items: center;
     border: 2px solid var(--naranja);
     border-radius: 10px;
-    width: 400px;
-    margin: 5px;
-    padding: 5px;
+    width: 100%;
+    margin: 2px;
+    padding: 7px;
 }
 h5.category-list{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -12,8 +12,8 @@
         <nav class="main-header-nav-bar">
             <ul class="left-nav-bar">
                 <div class="categorias">
-                    <li><a href="#">Categorias<i class="fa-solid fa-angle-down"></i></a></li>
-                    <div class="categorias-content">
+                    <li><a href="#" onclick="pullDownmenu()">Categorias<i class="fa-solid fa-angle-down"></i></a></li>
+                    <div class="categorias-content" id="dropDownMenuDestok">
                         <% categorias.forEach(categoria => {%>
                             <a  href="/categoria/<%= categoria.id %>"><h5 class="category-list"><%= categoria.nombre %><i class="fa-solid fa-angle-right"></i></h5></a>
                         <% })%>

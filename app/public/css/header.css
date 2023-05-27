@@ -47,7 +47,7 @@ header{
     display: none;
 }
 
-/* START MENU*/
+/* START MENU MOVIE*/
 div.dropdown{
     display: inline-block;
     margin: 5px;
@@ -69,7 +69,7 @@ div.dropdown{
 }
 
 
-/*PULL DOWN CATEGORIAS*/
+/*PULL DOWN CATEGORIAS MOVIE*/
 
 .dropdown-content .categoria .categoryMenu {
     display: none;
@@ -86,7 +86,7 @@ div.dropdown{
     text-align: center;
 }
 
-/*BOTON MENU*/
+/*BOTON MENU MOVIE*/
 .main-header-top-bar .dropdown .burger-menu{
     background-color: #42a5f5;
     color: black;
@@ -210,6 +210,7 @@ div.user{
         justify-content: space-between;
     }
     .main-header-nav-bar a{
+        display: flex;
         padding: 5px;
         text-decoration: none;
         color: black;
@@ -219,6 +220,7 @@ div.user{
         margin: 10px;
     }
     .main-header-nav-bar a:hover{
+        display: flex;
         border-radius: 10px;
         border-top: 3px solid #1259c3;
         box-shadow: 1px 1px 5px var(--marron);
@@ -238,21 +240,26 @@ div.user{
         justify-content: space-around;
     }
     div.categorias{
-    display: inline-block;
+    display: flex;
     position: relative;
+
     }
     .categorias-content{
     display: none;
-    position: absolute;
-    background-color: var(--naranja);
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1000;
+    
     }
-    .categorias:hover .categorias-content{
-        display: flex;
-        flex-direction: column;
+
+    .pullDownMenu{
+        display: block !important;
+        position: absolute;
+        top: 91px;
+        background-color: var(--naranja);
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1000;
     }
+
+
 
 }
 @media (min-width: 1020px){
