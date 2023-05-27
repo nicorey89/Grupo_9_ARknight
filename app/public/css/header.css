@@ -195,9 +195,7 @@ div.user{
         top: 3px;
 
     }
-    .burger-menu {
-        display: none;
-    }
+   
     div.glass{
         display: none;
     }
@@ -244,7 +242,7 @@ div.user{
     position: relative;
     }
     .categorias-content{
-    display: nonef;
+    display: none;
     position: absolute;
     background-color: var(--naranja);
     min-width: 160px;
