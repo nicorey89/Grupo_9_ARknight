@@ -5,10 +5,14 @@
                 <img src="/images/AR-Knight2.png" alt="logo-ferreteria">
             </a>
         </div>
+        
+       
+        <!-- drop down menu destok -->
+
         <nav class="main-header-nav-bar">
             <ul class="left-nav-bar">
                 <div class="categorias">
-                    <li><a href="/categoria/">Categorias<i class="fa-solid fa-angle-down"></i></a></li>
+                    <li><a href="#">Categorias<i class="fa-solid fa-angle-down"></i></a></li>
                     <div class="categorias-content">
                         <% categorias.forEach(categoria => {%>
                             <a  href="/categoria/<%= categoria.id %>"><h5 class="category-list"><%= categoria.nombre %><i class="fa-solid fa-angle-right"></i></h5></a>
@@ -67,15 +71,34 @@
                 <% } %>
             </div>
         </div>
-        <div class="dropdown">
-            <button class="burger-menu btn-3">
+
+         <!-- drop down menu movie -->
+         <div class="dropdown" id="dropdown" >
+            <button class="burger-menu btn-3" onclick="pullDown()" >
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="dropdown-content">
-                <a href="/">Categorias</a>
-                <a href="/">Ofertas</a>
-                <a href="/">Contactenos</a>
-                <a href="/">Sucursales</a>
+            <div class="dropdown-content " id="dropdown-content">
+                <div class="categoria">
+                    <a href="#" id="itemsMenu" onclick="pullDownCategories()">Categorias <i class="fa-solid fa-angle-down"></i></a>
+                    
+                    <div class="categoryMenu" id="categoryMenu" >
+                        <div class="closeBoton">
+                            <img src="/images/close.png" onclick="closeWindow()" alt="">
+                        </div>
+                        <ul class="categorias-content">
+                            <% categorias.forEach(categoria => {%>
+                                <li >
+                                    <a  href="#"><h5 class="category-list"><%= categoria.nombre %><i class="fa-solid fa-angle-right"></i></h5></a>
+                                </li>
+                            <% })%>
+                        </ul>
+                    </div>
+                </div>          
+                <a href="#">Ofertas</a>
+                <a href="#">Contactenos</a>
+                <a href="#">Sucursales</a>
             </div>
+
         </div>
+        
 </header>

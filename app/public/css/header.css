@@ -11,6 +11,7 @@ header{
     z-index: 999;
 }
 .main-header{
+    width: 100%;
     display: flex;
     padding: 1rem;
     justify-content: space-around;
@@ -21,7 +22,7 @@ header{
 }
 
 .main-header-top-bar{
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -45,25 +46,47 @@ header{
 .busqueda, .main-header-nav-bar{
     display: none;
 }
+
+/* START MENU*/
 div.dropdown{
     display: inline-block;
-    position: relative;
     margin: 5px;
 }
 .dropdown-content{
     display: none;
+}
+
+
+.dropdown-block {
+    display: block !important;
     position: absolute;
     right: 0px;
+    top: 153px;
     background-color: var(--naranja);
-    min-width: 160px;
+    width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 100;
+    text-align: center;
 }
-.dropdown:hover .dropdown-content {
+
+
+
+.closeBoton img {
+    width: 100%;
+}
+
+.dropdown-content .categoria .categoryMenu {
+    display: none;
+}
+
+
+
+/* .dropdown:hover .dropdown-content {
     display: block;
-}
-.burger-menu{
-    background-color: var(--celeste);
+} */
+
+.main-header-top-bar .dropdown .burger-menu{
+    background-color: #42a5f5;
     color: black;
     padding: 10px;
     font-size: 15px;
@@ -79,7 +102,7 @@ div.dropdown{
     text-decoration: none;
     display: block;
 }
-.dropdown-content a:hover{
+/* .dropdown-content a:hover{
     background-color: var(--celeste);
     transform: scale(1.1);
 
@@ -87,7 +110,7 @@ div.dropdown{
 .dropdown:hover .burger-menu {
     background-color: lightskyblue;
     transform: scale(1.1);
-}
+} */
 div.glass{
     display: inline-block;
     position: relative;
@@ -225,7 +248,7 @@ div.user{
     position: relative;
     }
     .categorias-content{
-    display: none;
+    display: nonef;
     position: absolute;
     background-color: var(--naranja);
     min-width: 160px;
