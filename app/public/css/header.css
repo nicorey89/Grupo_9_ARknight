@@ -22,7 +22,7 @@ header{
 }
 
 .main-header-top-bar{
-    width: 90%;
+    width: 94%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -76,6 +76,21 @@ div.dropdown{
 }
 
 .dropdown-content .categoria .pullDownCartegories {
+    display: block !important;
+    position: absolute;
+    right: 0px;
+    background-color: var(--naranja);
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    text-align: center;
+}
+
+.dropdown-content .categoria .sucursalMenu {
+    display: none;
+}
+
+.dropdown-content .categoria .pullDownSucursal {
     display: block !important;
     position: absolute;
     right: 0px;

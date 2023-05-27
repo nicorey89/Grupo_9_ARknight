@@ -17,15 +17,17 @@
                         <% categorias.forEach(categoria => {%>
                             <a  href="/categoria/<%= categoria.id %>"><h5 class="category-list"><%= categoria.nombre %><i class="fa-solid fa-angle-right"></i></h5></a>
                         <% })%>
+                        <a href="/categoria/"><h5 class="category-list">Todas las categorias<i class="fa-solid fa-angle-right"></i></h5></a>
                     </div>
                 </div>
                 <li><a href="/">Contactenos</a></li>
                 <div class="categorias">
-                    <li><a href="/sucursales">Sucursales<i class="fa-solid fa-angle-down"></i></a></li>
-                    <div class="categorias-content">
+                    <li><a href="#" onclick="pullDownSucursal()">Sucursales<i class="fa-solid fa-angle-down"></i></a></li>
+                    <div class="categorias-content" id="dropDownMenuSucursales">
                         <% sucursales.forEach(sucursal => { %>
                             <a href="/sucursales/<%= sucursal.id%>"><h5 class="category-list"><%= sucursal.nombre %><i class="fa-solid fa-angle-right"></i></h5></a>
                         <% })%>
+                        <a href="/sucursales" class="category-list"><h5 class="category-list">Todas las Sucursales<i class="fa-solid fa-angle-right"></i></h5></a>
                     </div>
                 </div>
             </ul>
@@ -93,7 +95,18 @@
                 </div>          
                 <a href="#">Ofertas</a>
                 <a href="#">Contactenos</a>
-                <a href="#">Sucursales</a>
+                <div class="categoria">
+                    <a href="#" id="" onclick="pullDownSucursales()">Sucursales<i class="fa-solid fa-angle-down"></i></a>
+                    <div class="sucursalMenu" id="sucursalesMenu">
+                        <ul class="categorias-content">
+                            <% sucursales.forEach(sucursal => { %>
+                                <li>
+                                    <a href="/sucursales/<%= sucursal.id%>"><h5 class="category-list"><%= sucursal.nombre %><i class="fa-solid fa-angle-right"></i></h5></a>
+                                </li>
+                            <% })%>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
         </div>

@@ -55,6 +55,7 @@ h5.category-list{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 .categoriasContent{
     width: 400px;
