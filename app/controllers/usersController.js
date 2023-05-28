@@ -1,4 +1,6 @@
 const { Usuario , Sequelize, Sucursal, Categoria} = require('../database/models');
+const fs = require('fs');
+const path = require('path')
 
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
@@ -36,6 +38,15 @@ const controller = {
         let errors = validationResult(req);
         const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
         const SUCURSAL = Sucursal.findAll();
+
+        if(req.fileValidatorError){
+            errors.errors.push({
+              value: "",
+              msg: req.fileValidatorError,
+              param: "image",
+              location: "file",
+            });
+          }
 
         if (errors.isEmpty()) {
             let newUser = {
@@ -160,10 +171,32 @@ const controller = {
     },
     updateProfile: (req, res) => {
         let errors = validationResult(req);
-        const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
-        const SUCURSAL = Sucursal.findAll();
-         if(errors.isEmpty()) {
+      
 
+        // if(req.fileValidatorError){
+        //     errors.errors.push({
+        //       value: "",
+        //       msg: req.fileValidatorError,
+        //       param: "image",
+        //       location: "file",
+        //     });
+        //   }
+
+         if(errors.isEmpty()) {
+            Usuario.findByPk(req.session.usuario.id)
+            .then((usuario) => {
+                if (req.file.filename) {
+                    if (fs.existsSync(path.join(__dirname, "../public/images/avatar", usuario.avatar)
+                      ) &&
+                      usuario.avatar !== "default-image.png"
+                    ){
+                        fs.unlinkSync(path.join(__dirname, "../public/images/avatar", usuario.avatar)
+                      );    
+                       console.log('Se eliminOOOOOOOOOOOOOOOOOO');
+                    }
+                  }
+           }).catch(rejects => console.log(rejects.value)) 
+           
             const {
                 nombre,
                 apellido,
@@ -174,7 +207,7 @@ const controller = {
                 localidad,
             } = req.body
 
-            
+           
              Usuario.update({
                     nombre : nombre,
                     apellido : apellido,
@@ -183,7 +216,7 @@ const controller = {
                     codigo_postal : codigo_postal,
                     provincia : provincia,
                     localidad : localidad,
-                    avatar : req.file ?  req.file.filename : req.session.usuario.avatar,
+                    avatar : req.file ? req.file.filename : req.session.usuario.avatar
                 }, {
                     where: {
                         id : req.session.usuario.id
@@ -194,7 +227,16 @@ const controller = {
             }).catch(error => console.log(error))
 
         } else {
-            const userInSessionId = req.session.usuario.id;
+
+            if (req.file.filename) {
+                fs.unlinkSync(
+                  path.join(__dirname, "../public/images/avatar", req.file.filename )
+                );
+              }
+
+              const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
+              const SUCURSAL = Sucursal.findAll();
+              const userInSessionId = req.session.usuario.id;
 
             Usuario.findByPk(userInSessionId)
             .then(usuario => {
