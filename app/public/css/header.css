@@ -240,10 +240,7 @@ div.user{
         border-top: 3px solid #1259c3;
         box-shadow: 1px 1px 5px var(--marron);
     }
-    .main-header-nav-bar li:hover{
-        transform: scale(1.2);
-        z-index: 10;
-    }
+
     .left-nav-bar{
         flex-grow: 0.4;
         display: flex;

@@ -45,6 +45,7 @@ Empezar a hacer: Adelantar tareas.
 Dejar de hacer: Pocas reuniones de todo el equipo.
 
 Hacer menos: Procastinar.
+
 SPRINT 5 : 
 
 Seguir haciendo: Trabajando con ramas y haciendo reuniones para toma de decisiones.
@@ -69,9 +70,7 @@ Dejar de hacer: Pocas reuniones de todo el equipo.
 
 Hacer menos: Procastinar.
 
-
 SPRINT 7 : 
-
 
 Seguir haciendo: Trabajo en equipo.
 
