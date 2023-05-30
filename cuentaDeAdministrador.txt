@@ -5,4 +5,7 @@ usuario: tomy@gmail.com
 contraseña: @Tomy0129
 
 usuario: franco12@gmail.com
-constraseña: Hp-121212
+contraseña: Hp-121212
+
+usuario: lionel.gegena@gmail.com
+contraseña: @Kc42142
