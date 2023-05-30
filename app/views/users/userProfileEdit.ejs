@@ -39,13 +39,14 @@
             <select name="provincia" id="provincias">
                 <option value="" selected hidden>Provincia</option>
                 <% provinces.forEach(province => { %>
-                    <option value="<%- province.id %>"><%- province.nombre %></option>
+                    <option value="<%- province.nombre %>" <%-  locals.old &&
+                        old.provincia == province.nombre ? "selected" : province.nombre == usuario.provincia ? "selected" : "" %>><%- province.nombre %></option>
                 <% }) %>
             </select>
         </div>
         <div class="formEdit">
             <select name="localidad" id="localidad">
-                <option value="">Localidad</option>
+                <option value="" hidden selected>Localidad</option>
             </select>
         </div>
         <div class="avatarFile">
@@ -60,6 +61,6 @@
 
 </main>
 <%- include("../partials/footer") %>
-<script src="/js/validationFormUser.js"></script>
+<!-- <script src="/js/validationFormUser.js"></script> -->
 </body>
 </html>

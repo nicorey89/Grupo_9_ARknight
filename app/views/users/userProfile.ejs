@@ -31,7 +31,7 @@
           </p>
           <p class="user_item">
             Provinicia: <%provinces.forEach(province => {
-              if(province.id === usuario.provincia){ %>
+              if(province.nombre === usuario.provincia){ %>
                 <%=province.nombre%>
             <% }}) %>
           </p>
@@ -39,7 +39,9 @@
             Localidad: <%= usuario.localidad ? usuario.localidad: "_______" %>
           </p>
         </div>
-        <a href="/users/profile/edit" class="userB">Editar</a>
+        <div class="botonEditProfile">
+          <a href="/users/profile/edit" class="userB">Editar</a>
+        </div>
       </section>
     </main>
     

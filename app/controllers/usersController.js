@@ -1,4 +1,4 @@
-const { Usuario , Sequelize, Sucursal, Categoria} = require('../database/models');
+const { Usuario , Sequelize, Sucursal, Categoria, Subcategoria} = require('../database/models');
 const fs = require('fs');
 const path = require('path')
 
@@ -158,7 +158,7 @@ const controller = {
             const { data } = await axios.get("https://apis.datos.gob.ar/georef/api/provincias?campos=nombre,id")
             const SUCURSAL = await Sucursal.findAll();
             const CATEGORIAS = await Categoria.findAll();
-            res.render("users/userProfileEdit", {
+            return res.render("users/userProfileEdit", {
                 usuario: user,
                 provinces: data.provincias,
                 sucursales: SUCURSAL,
@@ -169,7 +169,7 @@ const controller = {
             console.log(error)
         }
     },
-    updateProfile: (req, res) => {
+    updateProfile: async (req, res) => {
         let errors = validationResult(req);
       
 
@@ -227,29 +227,27 @@ const controller = {
             }).catch(error => console.log(error))
 
         } else {
-
-            if (req.file.filename) {
-                fs.unlinkSync(
-                  path.join(__dirname, "../public/images/avatar", req.file.filename )
-                );
-              }
-
-              const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
-              const SUCURSAL = Sucursal.findAll();
-              const userInSessionId = req.session.usuario.id;
-
-            Usuario.findByPk(userInSessionId)
-            .then(usuario => {
+            try {
+                const { data } = await axios.get("https://apis.datos.gob.ar/georef/api/provincias?campos=nombre,id");
+                const CATEGORIAS = await Categoria.findAll({include: [{ association: "Subcategorias" }]});
+                const SUBCATEGORIAS = await Subcategoria.findAll({
+                    include: [{ association: "productos" }, { association: "categoria" }],
+                  });
+                const SUCURSAL = await Sucursal.findAll();
+                const USUARIO =  await Usuario.findByPk(req.session.usuario.id)
                 return res.render("users/userProfileEdit", {
-                    categorias: CATEGORIAS,
-                    sucursales: SUCURSAL,
-                    usuario,
-                    session: req.session,
-                    errors: errors.mapped(),
-                    old: req.body,
+                        provinces : data.provincias, 
+                        categorias : CATEGORIAS,
+                        subcategorias :SUBCATEGORIAS,
+                        sucursales : SUCURSAL,
+                        usuario : USUARIO,
+                        session : req.session,
+                        errors: errors.mapped(),
+                        old: req.body
                 })
-
-            })
+            } catch (error) {
+                 return console.warn(error.value);
+            }
         } 
     },
 }

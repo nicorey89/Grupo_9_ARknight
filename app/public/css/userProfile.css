@@ -48,7 +48,14 @@ hr{
     margin: 5px 0;
 }
 
-.userB{background-color: blue;
+.botonEditProfile  {
+    display: flex;
+    justify-content: center;
+
+}
+
+.botonEditProfile .userB{
+    background-color: blue;
     color: white;
     border-radius: 10px;
     width: 120px;
