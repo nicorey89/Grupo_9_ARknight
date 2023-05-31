@@ -87,12 +87,12 @@
 
 
 .flickity-prev-next-button.next {
-    right: -25px !important;
+    right: -50px !important;
     background: linear-gradient(90deg, rgba(255,255,255,1) 1%, rgba(45,200,42,0.4514180672268907) 12%);
 }
 
 .flickity-prev-next-button.previous {
-    left: -25px !important;
+    left: -50px !important;
     background: linear-gradient(270deg, rgba(255,255,255,1) 1%, rgba(45,200,42,0.4514180672268907) 12%);
 }
 
@@ -102,7 +102,7 @@
 }
 .flickity-button:focus {
     outline: 0;
-    box-shadow: 0 0 0 5px rgb(243, 243, 243) !important
+    box-shadow: none !important
 }
 
 @media screen and (min-width: 768px) {

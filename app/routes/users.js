@@ -37,4 +37,4 @@ router.get("/profile/edit",userInSessionCheck  ,controller.editProfile);
 /*  Profile update */
 router.put("/profile/edit/",uploadAvatar.single("avatar") , userInSessionCheck, updateUserValidator ,controller.updateProfile);
 
-module.exports = router
+module.exports = router;

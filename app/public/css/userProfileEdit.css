@@ -50,19 +50,19 @@ hr{
   color: black;
 }
 
-div select#province{
+.formEdit select{
   color: black;
-  padding: 1rem;
+  padding-left: 1rem;
   background-color: white;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  height: 2rem;
 }
 
-div select#city {
-color: black;
-padding: 1rem;
-background-color: white;
-box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
-}
+
+
 
 .avatarFile{
 
@@ -75,9 +75,10 @@ box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
   color: black;
   padding: 0.2rem 1rem;
   width: 100%;
-  height: 3rem;
+  height: 2rem;
   text-align: center;
   border-radius: 10px;
+  margin-bottom: 1rem;
 }
 .avatarFile input{
   position: absolute;
@@ -91,6 +92,12 @@ box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
 @media(min-width: 769px){
   .formEdit input {
     height: 3.5rem;
+  }
+  .avatarFile{
+    height: 3rem;
+  }
+  .formEdit select{
+    height: 3rem;
   }
   
 }

@@ -102,7 +102,7 @@ div.dropdown{
 }
 
 /*BOTON MENU MOVIE*/
-.main-header-top-bar .dropdown .burger-menu{
+.dropdown .burger-menu{
     background-color: #42a5f5;
     color: black;
     padding: 10px;
