@@ -149,12 +149,21 @@ let qss = (elemento) => {
                         $inputsubCategoria.classList.add("is-invalid");
                         break;
                     default:
-                        $inputsubCategoria.classList.remove("is-invalid");
-                        $inputsubCategoria.classList.add("is-valid");
-                        $subCategoriaErrors.innerText = "";
                         break;
                 }
-           });   
+           });
+           
+           $inputsubCategoria.addEventListener("change", () => {
+            switch (true) {
+                case $inputsubCategoria.value:
+                    $inputsubCategoria.classList.remove("is-invalid");
+                    $inputsubCategoria.classList.add("is-valid");
+                    $subCategoriaErrors.innerText = "";
+                    break;
+                default:
+                    break;
+            }
+       });
 
            $inputDescripcion.addEventListener("blur" , () => {
             switch (true) {

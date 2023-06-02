@@ -40,6 +40,12 @@ select.is-invalid{
     color: red;
     border: 1px solid red;
 }
+
+select.is-valid{
+    color: green;
+    border: 1px solid green;
+}
+
 h2.category-list{
     display: flex;
     justify-content: space-between;

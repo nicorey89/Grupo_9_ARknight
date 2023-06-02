@@ -48,12 +48,11 @@
                     </div>
                     <div class="formEdit">
                         <select name="categoria" id="categoria">
-                            <option value="<%= locals.old && locals.old.categoria ? locals.old.categoria : null %>" selected hidden>categoria</option>
+                            <option  selected hidden>categoria</option>
 
 
                             <% categorias.forEach((categoria) => { %>
-                                <option value="<%= categoria.id%>" <%=locals.old &&
-                                      old.categoria == categoria.id ? "selected" : null %> ><%= categoria.nombre %>
+                                <option value="<%= categoria.id%>"><%= categoria.nombre %>
                                 </option>
                                 <% }) %>
 
@@ -65,11 +64,12 @@
                     </div>
                     <div class="formEdit">
                         <select name="subCategoria" id="subCategoria">
-                            <% subcategorys.forEach(subcategory=> { %>
-                                <option value="<%- subcategory.id %>">
-                                      <%- subcategory.nombre %>
-                                </option>
-                            <% }) %>
+                                <option  selected hidden>Subcategoria</option>
+                                <% subcategorys.forEach(subcategory=> { %>
+                                    <option value="<%- subcategory.id %>">
+                                          <%- subcategory.nombre %>
+                                    </option>
+                                <% }) %>
                         </select>
                         <small id="subcategoriaErrors"></small>
                         <% if (locals.errors && errors.subCategoria) { %>
