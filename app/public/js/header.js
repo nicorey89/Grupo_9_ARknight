@@ -2,6 +2,10 @@
 const boton = document.querySelector("#dropdown");
 const ventana = document.querySelector("#dropdown-content");
 
+const iconoUser = document.querySelector("#userPullDrop");
+const containerUser = document.querySelector("#userWindow")
+
+
 const itemsCategorias = document.querySelector("#itemsMenu");
 const categoryMenu = document.querySelector("#categoryMenu");
 
@@ -32,7 +36,11 @@ function pullDownSucursales() {
     ventanaSucursales.classList.toggle("pullDownSucursal")
 }
 
+function deplegaVentada(){
+    containerUser.classList.toggle("user-content")
+}
 
+iconoUser.addEventListener('click', deplegaVentada)
 
 window.addEventListener("scroll", () => {
     if(window.scrollY >= 100){

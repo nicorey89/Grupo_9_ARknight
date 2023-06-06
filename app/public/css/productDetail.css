@@ -111,6 +111,7 @@ button.agregarAlCarrito h4{
     align-items: center;
 }
 button.agregarAlCarrito{
+    margin-bottom: 0.2rem;
     background-color: blue;
     color: white;
     border-radius: 10px;
@@ -175,6 +176,7 @@ button.agregarAlCarrito:hover{
 
 }
 @media (min-width: 769px){
+    
     div.img{
         width: 400px;
     } 

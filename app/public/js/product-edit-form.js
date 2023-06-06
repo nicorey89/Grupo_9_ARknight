@@ -172,12 +172,21 @@ let qss = (elemento) => {
                    $inputDescripcion.classList.add("is-invalid");
                    break;
                default:
-                  $inputDescripcion.classList.remove("is-invalid");
-                  $inputDescripcion.classList.add("is-valid");
-                  $descripcionErrors.innerText="";
                 break;
             }
            });
+
+           $inputDescripcion.addEventListener("change", () => {
+            switch (true) {
+                case $inputsubCategoria.value:
+                    $inputDescripcion.remove("is-invalid");
+                    $inputDescripcion.add("is-valid");
+                    $descripcionErrors.innerText = "";
+                    break;
+                default:
+                    break;
+            }
+       });
 
            $inputAvatar.addEventListener("blur", () => {
                let filePath = $inputAvatar.value,

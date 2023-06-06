@@ -1,12 +1,10 @@
 <header class="main-header">
     <div class="main-header-top-bar">
-        <div class="logo">
+        <div class="logo" >
             <a href="/">
                 <img src="/images/AR-Knight2.png" alt="logo-ferreteria">
             </a>
         </div>
-        
-       
         <!-- drop down menu destok -->
 
         <nav class="main-header-nav-bar">
@@ -41,19 +39,13 @@
             </form>
         </div>
         <div class="main-header-rigth-bar">
-                <div class="glass">
-                    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                    <div class="glass-content">
-                        <input type="search" placeholder="Buscar productos, marcas...">
-                    </div>
-                </div>    
-                <div class="user">
+                <div class="user" id="userPullDrop">
                         <% if (typeof session.usuario == "undefined") { %>
-                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-user" "></i>
                         <% } else {%>
-                            <i class="fa-solid fa-user"></i><span class="session"></span>
+                            <i class="fa-solid fa-user" ></i><span class="session"></span>
                         <% } %>
-                    <div class="user-content">
+                    <div class="user-content-after" id="userWindow">
                         <% if (typeof session.usuario != "undefined") { %>
                                 <a href="/users/profile">Mis datos</a>
                                 <a href="/users/logout">Cerrar sesión</a>
@@ -72,14 +64,20 @@
                 </div>
                 <% } %>
             </div>
-        </div>
-
-         <!-- drop down menu movie -->
+             <!-- drop down menu movie -->
          <div class="dropdown" id="dropdown" >
             <button class="burger-menu btn-3" onclick="pullDown()" >
                 <i class="fas fa-bars"></i>
             </button>
             <div class="dropdown-content " id="dropdown-content">
+                <div class="searchMobile">
+                    <form action="/search" method="get" class="searchMobileFrom">
+                            <input type="search" name="search" placeholder="Buscar productos, marcas..." class="search">
+                            <button type="submit" class="searchSubmit" >
+                                <i class="fa-solid fa-magnifying-glass "></i>
+                            </button> 
+                        </form>
+                    </div>
                 <div class="categoria">
                     <a href="#" id="itemsMenu" onclick="pullDownCategories()">Categorias <i class="fa-solid fa-angle-down"></i></a>
                     
@@ -93,7 +91,6 @@
                         </ul>
                     </div>
                 </div>          
-                <a href="#">Ofertas</a>
                 <a href="#">Contactenos</a>
                 <div class="categoria">
                     <a href="#" id="" onclick="pullDownSucursales()">Sucursales<i class="fa-solid fa-angle-down"></i></a>
@@ -110,5 +107,7 @@
             </div>
 
         </div>
+        </div>
+
         
-</header>
+    </header>
