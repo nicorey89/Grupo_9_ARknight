@@ -1,9 +1,7 @@
-const { Producto, Sequelize, Usuario, Categoria, Subcategoria, Sucursal} = require ('../database/models');
+const { Producto, Usuario, Categoria, Subcategoria, Sucursal} = require ('../database/models');
 const fs = require('fs');
 const path = require('path')
 const { validationResult } = require("express-validator")
-
-
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
