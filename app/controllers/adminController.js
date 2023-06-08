@@ -1,9 +1,7 @@
-const { Producto, Sequelize, Usuario, Categoria, Subcategoria, Sucursal} = require ('../database/models');
+const { Producto, Usuario, Categoria, Subcategoria, Sucursal} = require ('../database/models');
 const fs = require('fs');
 const path = require('path')
 const { validationResult } = require("express-validator")
-
-
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -148,26 +146,31 @@ module.exports = {
       })
       }
     },
-    edit: (req, res) => {
-            let productId = req.params.id;
-            const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
-            const SUCURSAL = Sucursal.findAll();
-            const PRODUCTO = Producto.findByPk(productId);
-            const SUBCATEGORIAS = Subcategoria.findAll({
-              include: [{ association: "productos" }, { association: "categoria" }],
-        });
-            Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS, SUBCATEGORIAS])
-            .then(([productToEdit, sucursales, categorias, subcategorias]) =>{
-              return res.render('admin/product-edit-form', {
-                  productToEdit,
-                  sucursales,
-                  categorias : categorias,
-                  subcategorys: subcategorias,
-                  session:req.session,
-                  old: req.body,
-              })
-            })
-            .catch((error) => console.log(error))
+    edit: async (req, res) => {
+      let productId = req.params.id;
+        try {
+          const CATEGORIAS = await Categoria.findAll({ include: [{ association: "Subcategorias" }] });
+          const SUCURSAL = await Sucursal.findAll();
+          const PRODUCTO = await Producto.findByPk(productId);
+          console.log(PRODUCTO);
+          const SUBCATEGORIAS = await Subcategoria.findAll({
+            include: [{ association: "productos" }, { association: "categoria" }]
+          });
+      
+          return res.render('admin/product-edit-form', {
+            productToEdit: PRODUCTO,
+            sucursales: SUCURSAL,
+            categorias: CATEGORIAS,
+            subcategorys: SUBCATEGORIAS,
+            session: req.session,
+            old: req.body,
+          });
+        } catch (error) {
+          console.log(error);
+                // Manejar el error de alguna manera apropiada
+          return res.status(500).send('Error en la obtención de datos');
+        }
+      
     },
     update: (req, res) => {
      
@@ -242,26 +245,29 @@ module.exports = {
             );
           }
 
-          let productId = req.params.id;
-            const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
-            const SUCURSAL = Sucursal.findAll();
-            const PRODUCTO = Producto.findByPk(productId);
-            const SUBCATEGORIAS = Subcategoria.findAll({
-              include: [{ association: "productos" }, { association: "categoria" }],
-        });
-            Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS, SUBCATEGORIAS])
-            .then(([productToEdit, sucursales, categorias, subcategorias]) =>{
-              res.render('admin/product-edit-form', {
-                  productToEdit,
-                  sucursales,
-                  categorias,
-                  subcategorys: subcategorias,
-                  session:req.session,
-                  old: req.body,
+          if (!req.file.filename) {
+
+            let productId = req.params.id;
+              const CATEGORIAS = Categoria.findAll({include: [{ association: "Subcategorias" }]});
+              const SUCURSAL = Sucursal.findAll();
+              const PRODUCTO = Producto.findByPk(productId);
+              const SUBCATEGORIAS = Subcategoria.findAll({
+                include: [{ association: "productos" }, { association: "categoria" }],
+          });
+              Promise.all([PRODUCTO, SUCURSAL, CATEGORIAS, SUBCATEGORIAS])
+              .then(([productToEdit, sucursales, categorias, subcategorias]) =>{
+                res.render('admin/product-edit-form', {
+                    productToEdit,
+                    sucursales,
+                    categorias,
+                    subcategorys: subcategorias,
+                    session:req.session,
+                    old: req.body,
+                })
               })
-            })
-            .catch((error) => console.log(error))
-        }
+              .catch((error) => console.log(error))
+          }
+          }
     },
     destroy : (req, res ) => {
 		  let productId = req.params.id;

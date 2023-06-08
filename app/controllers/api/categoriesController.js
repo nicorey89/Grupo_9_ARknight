@@ -1,4 +1,4 @@
-const { Categoria, Subcategoria } = require("../../database/models");
+const { Categoria } = require("../../database/models");
 
 module.exports = {
     list: async (req, res) => {

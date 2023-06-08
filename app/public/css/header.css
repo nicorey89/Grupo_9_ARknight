@@ -3,36 +3,38 @@
 header{
     background-color: var(--naranja);
     display: flex;
-    padding: 15px 5px;
+    width: 100%;
+    padding: 15px 15px;
     justify-content: center;
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 1000;
 }
-.main-header{
-    width: 100%;
-    display: flex;
-    padding: 1rem;
-    justify-content: space-around;
-}
+
 
 .header-opacity {
     opacity: 0.95;
 }
 
 .main-header-top-bar{
-    width: 94%;
     display: flex;
-    justify-content: space-around;
+    height: 80px;
+    width: 100%;
+    justify-content: space-between;
     align-items: center;
 }
+
+.main-header-top-bar .logo{
+    margin-left: 1rem;
+}
+
 .main-header-top-bar .logo img{
     width: 120px;
 }
 .main-header-rigth-bar{
     display: flex;
-    width: 100px;
+    width: 130px;
     justify-content: space-around;
     align-items: center;
 }
@@ -57,17 +59,51 @@ div.dropdown{
 }
 
 .dropdown-block {
-    display: block !important;
+    display: flex !important;
     position: absolute;
     right: 0px;
-    top: 153px;
+    top: 110px;
+    bottom: 0;
     background-color: var(--naranja);
     width: 100%;
+    height: 170px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 100;
     text-align: center;
+    z-index: 20000;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
+/* Search--Mobile */
+.main-header-top-bar .searchMobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.4rem;
+}
+
+.main-header-top-bar .searchMobile .searchMobileFrom {
+    position: relative;
+}
+
+.main-header-top-bar .searchMobile .searchMobileFrom .search {
+    height: 25px;
+    border: none;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.main-header-top-bar .searchMobile .searchMobileFrom .searchSubmit {
+    color: black;
+    background-color: white;
+    border: none;
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    right: 1px;
+    top: 3px;
+}
 
 /*PULL DOWN CATEGORIAS MOVIE*/
 
@@ -97,7 +133,6 @@ div.dropdown{
     background-color: var(--naranja);
     width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 100;
     text-align: center;
 }
 
@@ -122,45 +157,28 @@ div.dropdown{
 
 
 
-div.glass{
-    display: inline-block;
-    position: relative;
-    margin: 5px;
-}
-.glass-content{
+.user-content-after {
     display: none;
-    position: absolute;
-    right: -50px;
-    top: 20px;
 }
-.glass-content input{
-    width: 200px;
-    height: 25px;
-    border: none;
-    border-radius: 4px;
-}
-.glass:hover .glass-content{
-    display: block;
-}
-div.user{
-    position: relative;
-}
+
 .user-content{
-    display: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     color: black;
     background-color: var(--naranja);
-    right: -20px;
-    min-width: 160px;
-    height: 100px;
+    right: 0;
+    top: 109px;
+    width: 100%;
+    height: 50px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1000;
 }
-.user:hover .user-content{
-    display: flex;
-    flex-direction: column;
-}
+
 .user-content a{
+    display: flex;
     justify-content: center;
     align-items: center;
     padding: auto;
@@ -168,6 +186,7 @@ div.user{
     text-align: center;
     margin: 5px;
     color: black;
+    width: 200px;
 }
 .user-content a:hover{
     border-radius: 10px;
@@ -184,7 +203,18 @@ div.user{
     top: -10px;
     right: 0px;
 }
+
+
 @media (min-width: 579px){
+
+    .dropdown-block {
+        height: 129px;
+    }
+
+    .main-header-top-bar .dropdown .searchMobile {
+        display: none;
+    }
+
     .busqueda{
         display: block;
         position: relative;
@@ -195,10 +225,8 @@ div.user{
         height: 25px;
         border: none;
         border-radius: 4px;
-    }/* 
-    .busqueda:focus {
-        box-shadow: 5px 5px 15px gray;
-    } */
+    }
+
     .busqueda button{
         color: black;
         background-color: white;
@@ -210,11 +238,8 @@ div.user{
         top: 3px;
 
     }
-   
-    div.glass{
-        display: none;
-    }
 }
+
 @media (min-width: 817px){
 
     div.dropdown{
@@ -257,14 +282,13 @@ div.user{
 
     }
     .categorias-content{
-    display: none;
-    
+         display: none;
     }
 
     .pullDownMenu{
         display: block !important;
         position: absolute;
-        top: 91px;
+        top: 79px;
         background-color: var(--naranja);
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);

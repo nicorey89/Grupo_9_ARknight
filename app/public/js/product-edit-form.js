@@ -149,12 +149,21 @@ let qss = (elemento) => {
                         $inputsubCategoria.classList.add("is-invalid");
                         break;
                     default:
-                        $inputsubCategoria.classList.remove("is-invalid");
-                        $inputsubCategoria.classList.add("is-valid");
-                        $subCategoriaErrors.innerText = "";
                         break;
                 }
-           });   
+           });
+           
+           $inputsubCategoria.addEventListener("change", () => {
+            switch (true) {
+                case $inputsubCategoria.value:
+                    $inputsubCategoria.classList.remove("is-invalid");
+                    $inputsubCategoria.classList.add("is-valid");
+                    $subCategoriaErrors.innerText = "";
+                    break;
+                default:
+                    break;
+            }
+       });
 
            $inputDescripcion.addEventListener("blur" , () => {
             switch (true) {
@@ -163,12 +172,21 @@ let qss = (elemento) => {
                    $inputDescripcion.classList.add("is-invalid");
                    break;
                default:
-                  $inputDescripcion.classList.remove("is-invalid");
-                  $inputDescripcion.classList.add("is-valid");
-                  $descripcionErrors.innerText="";
                 break;
             }
            });
+
+           $inputDescripcion.addEventListener("change", () => {
+            switch (true) {
+                case $inputsubCategoria.value:
+                    $inputDescripcion.remove("is-invalid");
+                    $inputDescripcion.add("is-valid");
+                    $descripcionErrors.innerText = "";
+                    break;
+                default:
+                    break;
+            }
+       });
 
            $inputAvatar.addEventListener("blur", () => {
                let filePath = $inputAvatar.value,

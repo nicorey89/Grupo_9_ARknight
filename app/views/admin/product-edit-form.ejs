@@ -53,7 +53,9 @@
                         <select name="categoria" id="categoria">
                             <option value="" selected hidden>categoria</option>
                             <% categorias.forEach(categoria => { %>
-                                <option value="<%-categoria.id %>"><%- categoria.nombre %></option>
+                                <option value="<%-categoria.id %>" <%- locals.old && old.subCategoria == categoria.id ?
+                                    "selected" : categoria.id == productToEdit.subCategory_id ?
+                                    `selected` : ""  %>><%- categoria.nombre %></option>
                             <% }) %>
                         </select>
                         <small id="categoriaErrors"></small>
@@ -63,6 +65,7 @@
                     </div>
                     <div class="formEdit">
                         <select name="subCategoria" id="subCategoria">
+                            <option value="" selected hidden>Subcategorias</option>
                             <% subcategorys.forEach(subcategory=> { %>
                                 <option value="<%- subcategory.id %>" <%=locals.old &&
                                       old.subcategory==subcategory.id ? "selected" : null %>>

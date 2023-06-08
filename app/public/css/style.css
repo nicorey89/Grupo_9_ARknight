@@ -15,6 +15,7 @@
 @import url('userProfileEdit.css');
 @import url('product2.css');
 @import url('subcategorias.css');
+@import url('search.css');
 small{
     text-align: center;
     color: red;
@@ -36,10 +37,22 @@ textarea.is-invalid{
     color: red;
     border: 1px solid red;
 }
+
+textarea.is-valid{
+    color: green;
+    border: 1px solid green;
+}
+
 select.is-invalid{
     color: red;
     border: 1px solid red;
 }
+
+select.is-valid{
+    color: green;
+    border: 1px solid green;
+}
+
 h2.category-list{
     display: flex;
     justify-content: space-between;
