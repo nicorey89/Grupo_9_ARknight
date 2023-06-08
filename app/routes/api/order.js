@@ -8,8 +8,8 @@ const {
   clearOrder,
   removeAllFromOrder,
   removeOneItemFromOrder,
-} = require("../controllers/order.controller");
-const verifyToken = require("../middlewares/jwt.middleware");
+} = require("../../controllers/api/order.controller");
+const verifyToken = require("../../middleware/jwt.middleware");
 
 router
   .get("/", verifyToken, getOrders)
