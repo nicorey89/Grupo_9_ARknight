@@ -242,6 +242,10 @@ div.dropdown{
 
 @media (min-width: 817px){
 
+    .main-header-top-bar{
+        height: 140px;
+    }
+
     div.dropdown{
         display: none;
     }
@@ -300,6 +304,24 @@ div.dropdown{
 }
 @media (min-width: 1020px){
     .main-header-top-bar .logo img{
-        width: 100px;
+        width: 200px;
+    }
+
+
+    .main-header-nav-bar a{
+        font-size: 1.5rem;
+    }
+
+    .busqueda input{
+        width: 300px;
+        height: 30px;
+
+    }
+
+    .busqueda button{
+      
+        right: 1px;
+        top: 5px;
+
     }
 }
