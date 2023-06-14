@@ -40,7 +40,7 @@ header{
 }
 .main-header-rigth-bar i{
     color: black;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 .main-header-rigth-bar i:hover{
     color: var(--celeste);
@@ -250,7 +250,9 @@ div.dropdown{
         top: 150px;
     }
     
-
+.main-header-rigth-bar i{
+    font-size: 2rem;
+}
     div.dropdown{
         display: none;
     }
@@ -307,7 +309,7 @@ div.dropdown{
 
 
 }
-@media (min-width: 1020px){
+@media (min-width: 1200px){
     .main-header-top-bar .logo img{
         width: 200px;
     }
