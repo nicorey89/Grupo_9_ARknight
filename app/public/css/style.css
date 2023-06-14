@@ -16,6 +16,7 @@
 @import url('product2.css');
 @import url('subcategorias.css');
 @import url('search.css');
+@import url('carousel.css');
 small{
     text-align: center;
     color: red;

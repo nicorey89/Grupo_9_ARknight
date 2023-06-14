@@ -9,7 +9,7 @@
 
    <main class="home">
       <div class="banner-conteiner">
-          <img src="/images/BANNER-HERRAMIENTAS.jpg" alt="banner">
+        <%- include("partials/carrousel") %>
       </div>
         <!-- SALE -->
     <section class="contai">
@@ -43,7 +43,6 @@
                   <p class="cuotas">
                       <%= producto.cuotas %> cuotas sin interes de $<%= toThousand(producto.precio/producto.cuotas)%>
                   </p>
-                  <button type="submit"><a href="/products/productCard">Agregar al carrito</a></button>
               </article>
               <% })%>
           </div>
@@ -73,36 +72,34 @@
                         <p class="cuotas">
                             <%= producto.cuotas %> cuotas sin interes de $<%= toThousand(producto.precio/producto.cuotas)%>
                         </p>
-                        <button type="submit"><a href="/products/productCard">Agregar al carrito</a></button>
                     </article>
                     <% })%>
           </section>
       </div>
 
       <div class="banner-pintura">
-          <a href=""><img src="/images/landing-pinturas_tendencia_1.jpg" alt="pinturas"></a>
+          <a href="/subcategoria/21"><img src="/images/landing-pinturas_tendencia_1.jpg" alt="pinturas"></a>
       </div>
       <h3 class="titulo_stilo">PINTURAS</h3>
       <div class="product-container">
-        <% products.forEach(producto => { %>
+        <% pinturas.forEach(pintura => { %>
             <article class="product">
                 <div class="photo-container">
-                    <a href="/products/productDetail/<%= producto.id %>"><img class="photo" src="/images/products/<%= producto.imagen ? producto.imagen : 'default-image.png' %>" alt="pdto 02"></a>
-                    <% if (producto.descuento > 0) { %>
-                        <div class="productDiscount"><%- producto.descuento %>% OFF</div>
+                    <a href="/products/productDetail/<%= pintura.id %>"><img class="photo" src="/images/products/<%= pintura.imagen ? pintura.imagen : 'default-image.png' %>" alt="pdto 02"></a>
+                    <% if (pintura.descuento > 0) { %>
+                        <div class="productDiscount"><%- pintura.descuento %>% OFF</div>
                     <% } %>
                 </div>
-                <p><%= producto.titulo%></p>
-                <p><%= producto.modelo%></p>
+                <p><%= pintura.titulo%></p>
+                <p><%= pintura.modelo%></p>
                 <hr>
                 <div class="precio">
-                    <h4>$<%= toThousand(producto.precio) %></h4>
-                    <h2>$<%= toThousand(producto.precio - (producto.precio*producto.descuento/100))%></h2>
+                    <h4>$<%= toThousand(pintura.precio) %></h4>
+                    <h2>$<%= toThousand(pintura.precio - (pintura.precio*pintura.descuento/100))%></h2>
                 </div>
                 <p class="cuotas">
-                    <%= producto.cuotas %> cuotas sin interes de $<%= toThousand(producto.precio/producto.cuotas)%>
+                    <%= pintura.cuotas %> cuotas sin interes de $<%= toThousand(pintura.precio/pintura.cuotas)%>
                 </p>
-                <button type="submit"><a href="/products/productCard">Agregar al carrito</a></button>
             </article>
             <% })%>
       </div>
@@ -111,6 +108,7 @@
    <%-include("partials/footer")%>
    <!-- JavaScript -->
    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+   <script src="/js/carousel.js"></script>
    
    
 </body>

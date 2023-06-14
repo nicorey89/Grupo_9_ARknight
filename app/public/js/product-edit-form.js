@@ -133,6 +133,7 @@ let qss = (elemento) => {
             switch (true) {
                   case !$inputCategoria.value:
                         $categoriaErrors.innerText = "El campo categoria es obligatorio";
+                        $inputCategoria.classList.remove("is-valid");
                         $inputCategoria.classList.add("is-invalid");
                         break;
                   default:
@@ -149,6 +150,10 @@ let qss = (elemento) => {
                         $inputsubCategoria.classList.add("is-invalid");
                         break;
                     default:
+                        $inputsubCategoria.classList.remove("is-invalid");
+                        $inputsubCategoria.classList.add("is-valid");
+                        $subCategoriaErrors.innerText = "";
+
                         break;
                 }
            });

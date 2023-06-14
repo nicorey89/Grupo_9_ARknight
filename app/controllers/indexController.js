@@ -1,5 +1,6 @@
 const { Producto, Sequelize, Sucursal, Categoria, Subcategoria} = require ('../database/models');
 const {Op} = Sequelize;
+const { carousel } = require("../old_database");
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -15,18 +16,27 @@ const controller ={
                 limit : 5,
 
             });
+            const PRODUCT_PINTURAS = Producto.findAll({
+                where : {
+                    subCategory_id : 21
+                },
+                limit : 5,
+
+            });
             const PRODUCTOS = Producto.findAll({
                 limit: 5
             })
             const SUCURSAL = Sucursal.findAll();
             const CATEGORIAS = Categoria.findAll();
-            Promise.all([PRODUCT_OFERTAS,PRODUCTOS, SUCURSAL, CATEGORIAS])
-            .then(([productosOferta, producto, sucursales, categorias])=> {
+            Promise.all([PRODUCT_OFERTAS,PRODUCTOS, SUCURSAL, CATEGORIAS, PRODUCT_PINTURAS])
+            .then(([productosOferta, producto, sucursales, categorias, pinturas])=> {
                 return res.render("index", {
-                    sliderTitle: "Productos en oferta",
+                    carousel,
+                    sliderTitle: "Productos",
                     sliderProducts: producto,
                     productosOferta,
                     products : producto,
+                    pinturas,
                     sucursales,
                     categorias,
                     session: req.session,
